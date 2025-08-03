@@ -52,14 +52,14 @@ const HeroSection = () => {
             <input
               type="text"
               placeholder="Patient Name"
-              className="w-full p-3 rounded text-black outline-none"
+              className="w-full p-3 rounded text-black outline-none bg-white"
             />
             <input
               type="text"
               placeholder="Mobile Number"
-              className="w-full p-3 rounded text-black outline-none"
+              className="w-full p-3 rounded text-black outline-none  bg-white"
             />
-            <select className="w-full p-3 rounded text-black outline-none">
+            <select className="w-full p-3 rounded text-black outline-none  bg-white">
               <option>Select Disease</option>
               <option>Appendicitis</option>
               <option>Gallstones</option>

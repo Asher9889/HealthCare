@@ -8,7 +8,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex items-center space-x-2">
         <div className="text-3xl text-yellow-400">◧</div>
-        <h1 className="text-xl font-bold">Pristyn Care</h1>
+        <h1 className="text-xl font-bold">Pure Checkup</h1>
       </div>
 
       {/* Search Bar with Location */}
