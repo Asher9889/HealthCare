@@ -1,6 +1,6 @@
 import { FaPhoneAlt } from 'react-icons/fa';
 
-const HighlightCard = ({ icon, text }) => (
+const HighlightCard = ({ icon, text }: {icon: any, text: string}) => (
   <div className="flex items-center gap-4 border-r last:border-none pr-6">
     <div className="text-3xl">{icon}</div>
     <p className="text-gray-700">{text}</p>
