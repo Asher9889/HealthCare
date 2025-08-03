@@ -1,9 +1,10 @@
-import { Header } from "../../components";
+import { Header, HeroSection } from "../../components";
 
 const Home = ()=>{
     return (
         <div>
             <Header />
+            <HeroSection />
         </div>
     )
 }

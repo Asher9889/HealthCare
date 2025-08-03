@@ -1,7 +1,10 @@
+import { SpecialtyNav, Navbar } from "../index";
+
 const Header = ()=>{
     return (
         <header>
-            Header
+            <Navbar />
+            <SpecialtyNav />
         </header>
     )
 }
