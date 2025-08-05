@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
-import { FaMapMarkerAlt, FaSearch, FaCaretDown } from 'react-icons/fa';
-import { FiMapPin } from 'react-icons/fi';
+import { FaMapMarkerAlt, FaSearch } from "react-icons/fa";
+// import { FiMapPin } from "react-icons/fi";
 
 const Navbar = () => {
   return (
@@ -29,21 +29,21 @@ const Navbar = () => {
 
       {/* Right Links */}
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-1 cursor-pointer">
+        {/* <div className="flex items-center gap-1 cursor-pointer">
           <span>For Patients</span>
           <FaCaretDown className="text-sm" />
         </div>
         <div className="flex items-center gap-1 cursor-pointer">
           <span>Our Company</span>
           <FaCaretDown className="text-sm" />
-        </div>
+        </div> */}
         <button className="border border-white rounded px-4 py-2 font-semibold hover:bg-white hover:text-[#002b45] transition">
           Book Free Appointment
         </button>
-        <div className="flex items-center gap-1">
+        {/* <div className="flex items-center gap-1">
           <FiMapPin className="text-lg" />
           <span>Surat</span>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
