@@ -1,5 +1,7 @@
 // src/components/Navbar.jsx
-import { FaMapMarkerAlt, FaSearch } from "react-icons/fa";
+import {
+  //  FaMapMarkerAlt,
+   FaSearch } from "react-icons/fa";
 // import { FiMapPin } from "react-icons/fi";
 
 const Navbar = () => {
