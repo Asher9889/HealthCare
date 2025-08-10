@@ -15,14 +15,14 @@ const Footer: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10">
 
           {/* Logo and App download */}
-          <div className="flex flex-col items-start gap-4">
+          {/* <div className="flex flex-col items-start gap-4">
             <img src="/logo.svg" alt="PureCheckup" className="h-10" />
             <h3 className="text-white text-lg font-semibold">Check out our app!</h3>
             <div className="flex gap-3">
               <img src="/google-play.png" alt="Google Play" className="h-10" />
               <img src="/app-store.png" alt="App Store" className="h-10" />
             </div>
-          </div>
+          </div> */}
 
           {/* Footer Columns */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full">

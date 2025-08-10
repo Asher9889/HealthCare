@@ -13,10 +13,10 @@ const Navbar = () => {
 
       {/* Search Bar with Location */}
       <div className="flex bg-white rounded-md overflow-hidden shadow-inner w-[40%]">
-        <div className="flex items-center gap-1 px-3 text-black border-r border-gray-300">
+        {/* <div className="flex items-center gap-1 px-3 text-black border-r border-gray-300">
           <FaMapMarkerAlt className="text-orange-500" />
           <span>Surat</span>
-        </div>
+        </div> */}
         <input
           type="text"
           placeholder="Search disease, doctors, treatment..."

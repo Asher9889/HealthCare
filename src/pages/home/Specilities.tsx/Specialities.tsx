@@ -1,36 +1,40 @@
 import { FiArrowRight } from 'react-icons/fi';
+import gyno from "../../../assets/Gynecology.png";
+import lapro from "../../../assets/Laparoscopy.png";
+import procto from "../../../assets/Proctology.jpg";
+import uro from "../../../assets/Urology.jpg";
+import aes from "../../../assets/aesthetic.webp";
 
 interface Speciality {
   title: string;
   desc: string;
   image: string;
 }
-
 const specialities: Speciality[] = [
   {
     title: 'Proctology',
     desc: 'Specialised & advanced treatment for Anorectal Diseases ...',
-    image: '/assets/proctology.jpg',
+    image: procto,
+  },
+  {
+    title: "Urology",
+    desc: 'Surgical treatment for urogenital issues in men and women ...',
+    image: uro,
   },
   {
     title: 'Laparoscopy',
     desc: 'Keyhole surgery for abdominal and pelvic disorders ...',
-    image: '/assets/laparoscopy.jpg',
+    image: lapro,
   },
   {
-    title: 'Urology',
-    desc: 'Surgical treatment for urogenital issues in men and women ...',
-    image: '/assets/urology.jpg',
+    title: 'Gynaecology',
+    desc: 'Comprehensive care for women’s reproductive health and related disorders ...',
+    image: gyno,
   },
   {
-    title: 'Vascular',
-    desc: 'Surgical subspecialty that focuses on the vascular system– arteries, veins and...',
-    image: '/assets/vascular.jpg',
-  },
-  {
-    title: 'Ophthalmology',
-    desc: 'Deals with the diagnosis and treatment of conditions related to the eyes ...',
-    image: '/assets/eye.jpg',
+    title: 'Aesthetics',
+    desc: 'Advanced cosmetic treatments to enhance appearance and confidence ...',
+    image: aes,
   },
 ];
 
