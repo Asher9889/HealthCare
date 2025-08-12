@@ -1,16 +1,16 @@
 const StatsBar = () => {
   const stats = [
-    { number: "3M+", label: "Happy Patients" },
-    { number: "250K+", label: "Surgeries" },
-    { number: "200+", label: "Hospitals" },
-    { number: "400+", label: "Doctors" },
-    { number: "30+", label: "Cities" },
-    { number: "150+", label: "Clinics" },
+    { number: "10k+", label: "Happy Patients" },
+    // { number: "250K+", label: "Surgeries" },
+    // { number: "200+", label: "Hospitals" },
+    { number: "50+", label: "Doctors" },
+    { number: "50+", label: "Cities" },
+    { number: "50+", label: "Clinics" },
   ];
 
   return (
-   <div className="container mx-auto rounded-xl">
-      <div className="bg-[#3E85D9] text-white overflow-hidden flex flex-col md:flex-row items-center justify-between text-center">
+   <div className="container mx-auto my-20 ">
+      <div className="bg-[#3E85D9] text-white overflow-hidden rounded-2xl flex flex-col md:flex-row items-center justify-between text-center">
         {stats.map((stat, index) => (
           <div
             key={index}

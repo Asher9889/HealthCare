@@ -24,8 +24,7 @@ const WhyPristynCare = () => {
               Consultation For 50+ Diseases Across India
             </h4>
             <p className="text-gray-700">
-              Pristyn Care provides consultation for 50+ diseases and treatments such as Piles, Hernia,
-              Kidney Stones, Cataract, Gynecomastia, Abortion, IVF, etc. across 30+ major cities in India.
+              PureCheckup offers expert consultation and treatment for 50+ health issues like piles, hernia, kidney stones, fistula, PCOS, and plastic surgery available in 30+ cities across India.
             </p>
           </div>
 
@@ -33,25 +32,19 @@ const WhyPristynCare = () => {
           <div>
             <h3 className="text-4xl font-bold text-orange-500 mb-2">02.</h3>
             <h4 className="text-lg font-bold text-[#111827] mb-2">
-              Medical Expertise With Technology
+              Advanced & Safe Surgeries
             </h4>
             <p className="text-gray-700">
-              Our surgeons spend a lot of time with you to diagnose your condition. You are assisted in all
-              pre-surgery medical diagnostics. We offer advanced laser and laparoscopic surgical treatment.
-              Our procedures are USFDA approved.
+              Our experienced surgeons utilize USFDA-approved lasers and laparoscopic techniques for safe, minimally invasive procedures with faster recovery times.
             </p>
           </div>
 
           {/* Card 03 */}
           <div>
             <h3 className="text-4xl font-bold text-orange-500 mb-2">03.</h3>
-            <h4 className="text-lg font-bold text-[#111827] mb-2">
-              Assisted Surgery Experience
-            </h4>
+            <h4 className="text-lg font-bold text-[#111827] mb-2">Insurance Assistance</h4>
             <p className="text-gray-700">
-              A dedicated Care Coordinator assists you throughout the surgery journey from insurance
-              paperwork, to free commute from home to hospital & back and admission-discharge process
-              at the hospital.
+             All insurance is acceptable with EMI 
             </p>
           </div>
 
@@ -59,12 +52,19 @@ const WhyPristynCare = () => {
           <div>
             <h3 className="text-4xl font-bold text-orange-500 mb-2">04.</h3>
             <h4 className="text-lg font-bold text-[#111827] mb-2">
-              Post Surgery Care
+              Hassle-Free Surgery Experience
             </h4>
             <p className="text-gray-700">
-              We offer free follow-up consultations and instructions including dietary tips as well as exercises
-              to every patient to ensure they have a smooth recovery to their daily routines.
+              From free transport to hospital admission and discharge, a dedicated Care Coordinator supports you at every step.
             </p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-bold text-orange-500 mb-2">05.</h3>
+            <h4 className="text-lg font-bold text-[#111827] mb-2">
+              Post-Surgery Recovery Support
+            </h4>
+            <p className="text-gray-700">
+              Enjoy free follow-ups, personalized diet plans, and recovery guidance to help you get back to normal, faster and healthier.            </p>
           </div>
         </div>
       </div>

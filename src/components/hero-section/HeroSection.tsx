@@ -1,15 +1,8 @@
 import { FaPhoneAlt } from "react-icons/fa";
 
-const HighlightCard = ({ icon, text }: { icon: any; text: string }) => (
-  <div className="flex items-center gap-4 border-r last:border-none pr-6">
-    <div className="text-3xl">{icon}</div>
-    <p className="text-gray-700">{text}</p>
-  </div>
-);
-
 const HeroSection = () => {
   return (
-    <div className="bg-[#fefcfb] py-12 px-6 h-full w-full">
+    <div className="py-12 px-6 h-full w-full">
       <div className="container mx-auto flex flex-col lg:flex-row gap-10 items-start">
         {/* Left Side - Text + Highlights + Call Button */}
         <div className="flex-1">
