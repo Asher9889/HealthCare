@@ -1,7 +1,7 @@
 import { BookNowButton, ContactSection, Footer, Header, HeroSection } from "../../components";
 import AboutPureCheckup from "./AboutPureCheckup/AboutPureCheckup";
 import FaqSection from "./FaqSection/FaqSection";
-import PatientReviews from "./PatientReviews/Patientreviews";
+import PatientReviews from "./PatientReviews/PatientReviews";
 import Specialities from "./Specilities.tsx/Specialities";
 import StatsBar from "./StatusBar/StatsBar";
 import WhyChoose from "./WhyChoose/Whychoose";
