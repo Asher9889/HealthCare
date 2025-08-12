@@ -1,16 +1,16 @@
 import React from 'react';
 
 const cities = [
-  'Ahmedabad', 'Bangalore', 'Bhubaneswar', 'Chandigarh', 'Chennai',
-  'Coimbatore', 'Delhi', 'Faridabad', 'Ghaziabad', 'Gurgaon', 'Hyderabad',
-  'Indore', 'Jaipur', 'Kochi', 'Kolkata', 'Kozhikode', 'Lucknow', 'Madurai',
-  'Mumbai', 'Nagpur', 'Nashik', 'Noida', 'Patna', 'Pune', 'Raipur', 'Ranchi',
-  'Thiruvananthapuram', 'Vijayawada', 'Visakhapatnam'
+  "Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara"
 ];
 
 const diseases = [
-  'Piles', 'Hernia', 'Kidney Stones', 'Appendicitis', 'PCOS', 'Fistula', 'Gynecomastia',
-  'Ovarian Cysts', 'Hydrocele', 'Laser Circumcision'
+  "Proctology",
+  "Urology",
+  "Laproscopy",
+  "Gynaecology",
+  "Aesthetics",
+  "Patient",
 ];
 
 const ContactSection: React.FC = () => {
@@ -18,7 +18,7 @@ const ContactSection: React.FC = () => {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left Text Section */}
-        <div>
+        <div className=''>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
           <p className="text-gray-600 mb-6">
             Tell us about your problems and we'll figure out the best treatment option for you.
@@ -28,7 +28,7 @@ const ContactSection: React.FC = () => {
             PureCheckup services are accessible Pan India
           </h3>
           <p className="text-gray-600">
-            PureCheckup has taken the latest medical technologies to ensure consistent quality of advanced surgical care in 30+ cities of India including{' '}
+            PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including {' '}
             {cities.map((city, idx) => (
               <span key={city} className="text-blue-600">
                 {city}
@@ -61,7 +61,7 @@ const ContactSection: React.FC = () => {
               ))}
             </select>
             <select
-              className="w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none"
+              className="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
             >
               <option>Select Disease</option>
               {diseases.map((disease) => (
