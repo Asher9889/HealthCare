@@ -54,6 +54,7 @@ export default function PatientReviews() {
           ))}
         </div>
       </div>
+      
     </section>
   );
 }
