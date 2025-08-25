@@ -19,23 +19,23 @@ const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left Text Section */}
         <div className=''>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Book Your Free Consultation</h2>
           <p className="text-gray-600 mb-6">
-            Tell us about your problems and we'll figure out the best treatment option for you.
+           Tell us what you are facing. Our medical experts will help you choose the safest and most effective treatment.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-800 mb-2">
-            PureCheckup services are accessible Pan India
+           Purecheck services are accessible Pan India
           </h3>
           <p className="text-gray-600">
-            PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including {' '}
-            {cities.map((city, idx) => (
+            PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including             {cities.map((city, idx) => (
               <span key={city} className="text-blue-600">
                 {city}
                 {idx !== cities.length - 1 ? ', ' : '.'}
               </span>
             ))}
           </p>
+          <h3 className='inline-block'>Disclaimer: <p className='text-gray-800'>Results and recovery experiences may vary for each patient. By submitting this form or calling us, you consent to receive important updates and promotional communications from PureCheckup.</p></h3>
         </div>
 
         {/* Right Form Section */}

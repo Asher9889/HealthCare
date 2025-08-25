@@ -30,56 +30,41 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="font-semibold text-white mb-4">Our Company</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>Lybrate</li>
-                <li>BeatXp</li>
                 <li>About Us</li>
                 <li>Contact Us</li>
-                <li>Careers</li>
-                <li>English Blog</li>
+                <li>Privacy Policy</li>
+                <li>English Blogs</li>
                 <li>Hindi Blog</li>
-                <li>Doctor Onboarding</li>
               </ul>
             </div>
 
             {/* Column 2 */}
-            <div>
-              <h4 className="font-semibold text-white mb-4">Surgery</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>Laser Surgery</li>
-                <li>Laparoscopy Surgery</li>
-                <li>Cosmetic Surgery</li>
-                <li>Ear Surgery</li>
-                <li>Eye Surgery</li>
-                <li>Plastic Surgery</li>
-                <li>Orthopedics Surgery</li>
-                <li>Veins Surgery</li>
-              </ul>
-            </div>
-
-            {/* Column 3 */}
             <div>
               <h4 className="font-semibold text-white mb-4">For Patients</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>FAQs</li>
                 <li>Patient Help</li>
                 <li>No Cost EMI</li>
-                <li>Find a Clinic</li>
+                <li>Health Insurance</li>
                 <li>Doctors Section</li>
-                <li>Videos</li>
               </ul>
             </div>
 
+            {/* Column 3 */}
+            <div>
+              <h4 className="font-semibold text-white mb-4">Surgery</h4>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>Laser Surgery</li>
+                <li>Laparoscopy Surgery</li>
+                <li>Plastic Surgery</li>
+              </ul>
+              {/* Social Icons */}
+              
+            </div>
+
+
             {/* Column 4 */}
             <div>
-              <h4 className="font-semibold text-white mb-4">Other Links</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>BMI Calculator</li>
-                <li>Period Tracker</li>
-                <li>Pregnancy Due Calculator</li>
-                <li>Cost Index</li>
-                <li>All Treatments</li>
-              </ul>
-
               {/* Social Icons */}
               <h4 className="font-semibold text-white mt-6 mb-2">Social Media</h4>
               <div className="flex gap-3 text-white text-xl">
@@ -100,7 +85,7 @@ const Footer: React.FC = () => {
         <div className="flex gap-4 mt-2 md:mt-0">
           <span>Terms & Conditions</span>
           <span>Privacy Policy</span>
-          <span>Refund Policy</span>
+          {/* <span>Refund Policy</span> */}
         </div>
       </div>
     </footer>

@@ -105,6 +105,15 @@ const HeroSection = () => {
             />
             <select className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>Gurgaon</option>
+              <option>Ahmedabad</option>
+              <option>Indore</option>
+              <option>Jaipur</option>
+              <option>Bhopal</option>
+              <option>Vadodara</option>
+              <option>Delhi</option>
+              <option>Kanpur</option>
+              <option>Lucknow</option>
+              <option>Mumbai</option>
             </select>
             <select className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>Select Disease</option>
