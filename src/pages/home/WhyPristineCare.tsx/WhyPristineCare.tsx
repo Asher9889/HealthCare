@@ -8,7 +8,7 @@ const WhyPristynCare = () => {
         <div className="flex-1">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#002b45] mb-3">Why Pure Checkup?</h2>
           <p className="text-gray-600 text-lg mb-6">
-            Delivering Seamless Surgical Experience in India
+            End-to-End Surgical Care Simplified by Innovation
           </p>
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded">
             Book Free Appointment

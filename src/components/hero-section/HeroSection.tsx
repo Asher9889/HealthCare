@@ -1,4 +1,242 @@
 import { FaPhoneAlt } from "react-icons/fa";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida" , "Kanpur", "Lucknow", "Mumbai"]
+const diseases = [
+  "Pilonidal Sinus",
+  "Piles",
+  "Rectal Prolapse",
+  "Fissure",
+  "Fistula",
+  "Fecal Incontinence",
+  "Constipation",
+  "Hemorrhoids",
+  "Umbilical Hernia",
+  "Hydrocele",
+  "Inguinal Hernia",
+  "Incisional Hernia",
+  "Appendicitis",
+  "Gallstone",
+  "Hernia",
+  "Achalasia Cardia",
+  "Acid Reflux Surgery",
+  "Large Intestine",
+  "Indirect Hernia",
+  "Small Intestine",
+  "Colonoscopy",
+  "Gastric Bypass Surgery",
+  "Pain During Intercourse",
+  "Vaginoplasty",
+  "Labiaplasty",
+  "Vaginal Discharge",
+  "Laser Vaginal Tightening",
+  "Vaginal Dryness",
+  "Ovarian Cyst",
+  "Hysterectomy",
+  "Hymenoplasty",
+  "Clitoral Hoodoplasty",
+  "Abortion",
+  "Hysteroscopy",
+  "Pap Smear",
+  "Vaginal Rejuvenation",
+  "Ectopic Pregnancy",
+  "Laser Vaginal Rejuvenation",
+  "Vaginal Recurrent Infection",
+  "Pelvic Pain",
+  "Female Urinary Problems",
+  "Lichen Sclerosus",
+  "Menstrual Disorders",
+  "Preconception Care",
+  "Uterine Fibroid",
+  "Pcos Pcod",
+  "Pregnancy Care",
+  "Medical Termination Of Pregnancy",
+  "Laser Vaginal Bleaching",
+  "Anal Bleaching",
+  "Vaginal Wart",
+  "Molar Pregnancy",
+  "Bartholin Cyst",
+  "Miscarriage",
+  "Endometriosis",
+  "Adenomyosis",
+  "Myomectomy",
+  "Dilation And Evacuation (D&E)",
+  "Polypectomy",
+  "Turbinate Reduction",
+  "Uvulopalatopharyngoplasty",
+  "Adenoidectomy",
+  "Myringotomy",
+  "Microlaryngeal",
+  "Mastoidectomy",
+  "Tongue Base Reduction",
+  "Tonsils Removal",
+  "Deviated Nasal Septum",
+  "Eardrum Surgery",
+  "Sinus Surgery",
+  "Thyroidectomy",
+  "Tonsillectomy",
+  "Ear Surgery",
+  "Sinusitis",
+  "Tympanoplasty",
+  "Fess Surgery",
+  "Stapedectomy",
+  "Septoplasty",
+  "Tonsillitis",
+  "Adenoids",
+  "Hearing Problem",
+  "Thyroid Infection",
+  "Chronic Sinusitis",
+  "Recurrent Sinusitis",
+  "Subacute Sinusitis",
+  "Mastoiditis",
+  "Parotidectomy",
+  "Nose Surgery",
+  "Vocal Cord Polyps",
+  "Adenotonsillectomy",
+  "Otitis Media",
+  "Nasal Polyps",
+  "Turbinoplasty",
+  "Ear Infection",
+  "Ear Hole",
+  "Throat Infection",
+  "Middle Ear Perforation",
+  "Urinary Tract Infection",
+  "Urinary Incontinence",
+  "Erectile Dysfunction",
+  "Urethral Stricture",
+  "Stress Urinary Incontinence",
+  "Circumcision",
+  "Kidney Stones",
+  "Male Urinary Tract Infection",
+  "Prostate Enlargement",
+  "Phimosis",
+  "Paraphimosis",
+  "Foreskin Infection",
+  "Balanoposthitis",
+  "Balanitis",
+  "Frenuloplasty",
+  "Cystoscopy",
+  "Cystolithotripsy",
+  "DJ Stent",
+  "cystolithotomy",
+  "Urethral Stricture",
+  "pyeloplasty",
+  "nephrostomy",
+  "Corn Removal",
+  "Vasectomy",
+  "Toenail treatment",
+  "Testicular Torsion",
+  "Epididymal Cyst",
+  "Varicose Veins",
+  "Varicocele",
+  "Diabetic Foot Ulcer",
+  "AV Fistula For Dialysis",
+  "Deep Vein Thrombosis",
+  "Spider Veins",
+  "Gynecomastia",
+  "Liposuction",
+  "Lipoma",
+  "Sebaceous Cyst",
+  "Breast Lift",
+  "Rhinoplasty",
+  "Breast Reduction",
+  "Breast Augmentation",
+  "Breast Lump",
+  "Hair Loss",
+  "Breast Surgery",
+  "Axillary Breast",
+  "Abdominoplasty",
+  "Double Chin",
+  "Buccal Fat",
+  "Earlobe Repair",
+  "Blepharoplasty",
+  "Hair Fall PRP",
+  "Carpal Tunnel Syndrome",
+  "Knee Replacement",
+  "Spine Surgery",
+  "Hip Replacement",
+  "Arthroscopy",
+  "ACL Tear",
+  "Rotator Cuff Repair",
+  "Bankart Surgery",
+  "Bankart Repair",
+  "Meniscus Repair Surgery",
+  "Shoulder Replacement Surgery",
+  "Discectomy",
+  "Laminectomy",
+  "Acdf Surgery",
+  "Spinal Fusion",
+  "Ligament Injury",
+  "Knee Arthroscopy",
+  "Shoulder Arthroscopy",
+  "Lasik",
+  "Cataract",
+  "Squint Surgery",
+  "Glaucoma Surgery",
+  "Retinal Detachment Surgery",
+  "Diabetic Retinopathy Treatment",
+  "Intravitreal Injections",
+  "Vitrectomy",
+  "Monofocal Lens",
+  "Multifocal Lens",
+  "Toric Lens",
+  "PRK Lasik",
+  "Smile Lasik Surgery",
+  "Femto Lasik Surgery",
+  "ICL Surgery",
+  "Macular Edema",
+  "Retinal Surgery",
+  "Contoura Vision",
+  "Phaco Surgery",
+  "Pterygium",
+  "Teeth Alignment (Fix)",
+  "Dental Others",
+  "Crossbite Teeth",
+  "Overbite Teeth",
+  "Openbite Teeth",
+  "Bariatric Surgery",
+  "SPATZ Intragastric Balloon",
+  "Intragastric Balloon",
+  "Weight Loss Surgery",
+  "Scar Removal",
+  "Beard Transplant",
+  "Face Threadlift",
+  "Botox",
+  "Derma Fillers",
+  "Vampire Facial with Dermaroller",
+  "Hair Transplant",
+  "Hair Reduction",
+  "Fat Loss",
+  "Allergan for Double Chin",
+  "Allergan for Arms",
+  "Allergan for Underarm Fat",
+  "Allergan for Tummy",
+  "Allergan for Inner Thigh",
+  "Allergan for Outer Thigh",
+  "Anti Aging",
+  "Uneven Skin Tone",
+  "Acne & Scar",
+  "Pigmentation",
+  "Tattoo removal",
+  "Hair Treatment",
+  "Vitiligo for Face",
+  "Roascea (Gold Toning laser)",
+  "Dark Circle & Puffy Eyes",
+  "Foundation full Face",
+  "Acne Scar",
+  "Male Infertility",
+  "Female Infertility",
+  "Ivf",
+  "Iui",
+  "Embryo Transfer",
+  "ICSI Treatment"
+];
 
 const HeroSection = () => {
   return (
@@ -103,28 +341,29 @@ const HeroSection = () => {
               placeholder="Mobile Number"
               className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <select className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option>Gurgaon</option>
-              <option>Ahmedabad</option>
-              <option>Indore</option>
-              <option>Jaipur</option>
-              <option>Bhopal</option>
-              <option>Vadodara</option>
-              <option>Delhi</option>
-              <option>Kanpur</option>
-              <option>Lucknow</option>
-              <option>Mumbai</option>
-            </select>
-            <select className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option>Select Disease</option>
-              <option>Proctology</option>
-              <option>Urology</option>
-              <option>Laproscopy</option>
-              <option>Gynaecology</option>
-              <option>Aesthetics</option>
-              <option>Patient Services</option>
 
-            </select>
+            <Select >
+              <SelectTrigger className="w-full py-5 mb-3">
+                <SelectValue placeholder="Select City" />
+              </SelectTrigger>
+              <SelectContent>
+                {cities.map((city, index) => (
+                   <SelectItem key={index * 10}  value={city}>{city}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <Select >
+              <SelectTrigger className="w-full py-5 mb-4">
+                <SelectValue placeholder="Select Disease" />
+              </SelectTrigger>
+              <SelectContent>
+                {diseases.map((city, index) => (
+                   <SelectItem key={index * 10}  value={city}>{city}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
             <button className="bg-[#2874F0] text-white font-semibold w-full py-2 my-4 rounded-md hover:opacity-90">
               Book Now
             </button>

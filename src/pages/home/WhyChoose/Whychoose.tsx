@@ -1,3 +1,7 @@
+
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+
 const WhyChoose = () => {
   const points = [
     "Serving 30+ cities including Tier-2 & Tier-3 towns",
@@ -8,46 +12,60 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="my-20 px-6">
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <h3 className="text-3xl md:text-4xl font-extrabold leading-tight">
-          <span className="text-[#3E85D9]">Why Choose </span>
-          <span className="text-orange-500">PureCheckup</span>
-        </h3>
-        <p className="text-gray-500 mt-3 max-w-lg mx-auto text-sm md:text-base">
-          Experience unmatched care, convenience, and expertise for every step of your healthcare journey.
-        </p>
-      </div>
+    <section className="relative py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] overflow-hidden">
+      {/* Glow Accent Background */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"></div>
 
-      {/* Features */}
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-        {points.map((point, index) => (
-          <div
-            key={index}
-            className="flex items-start gap-4 bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-xl p-5 border border-gray-100"
-          >
-            {/* Icon Circle */}
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#3E85D9] to-orange-400 flex items-center justify-center shadow-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="white"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            {/* Text */}
-            <p className="text-gray-700 font-medium">{point}</p>
-          </div>
-        ))}
+      <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+        {/* Heading */}
+        <motion.h3
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+        >
+          Why Choose{" "}
+          <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+            PureCheckup
+          </span>
+        </motion.h3>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-300 max-w-2xl mx-auto mb-14 text-lg"
+        >
+          Experience unmatched care, convenience, and expertise for every step
+          of your healthcare journey.
+        </motion.p>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {points.map((point, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-transform duration-300"
+            >
+              {/* Icon */}
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-orange-400 flex items-center justify-center shadow-lg">
+                <Check className="text-white w-6 h-6" strokeWidth={3} />
+              </div>
+
+              {/* Text */}
+              <p className="text-gray-100 text-left font-medium text-lg">
+                {point}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
