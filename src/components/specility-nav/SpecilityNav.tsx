@@ -1,19 +1,6 @@
 import { FaCaretDown } from "react-icons/fa";
 
 const specialties = [
-  // 'Proctology',
-  // 'Laparoscopy',
-  // 'Gynaecology',
-  // 'ENT',
-  // 'Urology',
-  // 'Vascular',
-  // 'Aesthetics',
-  // 'Orthopedics',
-  // 'Ophthalmology',
-  // 'Fertility',
-  // 'Weight Loss',
-  // 'Dermatology',
-  // 'Our Hospitals',
   "Proctology",
   "Urology",
   "Laproscopy",
@@ -31,7 +18,8 @@ const SpecialtyNav = () => {
         {specialties.map((item) => (
           <div
             key={item}
-            className="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition"
+            className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-md transition 
+                        hover:text-blue-600"
           >
             <span>{item}</span>
             <FaCaretDown className="text-xs" />
