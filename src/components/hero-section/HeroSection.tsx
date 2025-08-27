@@ -258,7 +258,7 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="flex flex-row gap-10 mt-6">
             <div>
-              <h2 className="text-[#004aad] font-bold text-4xl">400+</h2>
+              <h2 className="text-[#004aad] font-bold text-4xl">40+</h2>
               <p className="text-gray-600 text-sm">DOCTORS</p>
 
             </div>
