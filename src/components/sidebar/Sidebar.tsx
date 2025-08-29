@@ -30,7 +30,7 @@ const Sidebar = () => {
       <button type="button" className="" aria-haspopup="dialog" aria-expanded="false" aria-controls="overlay-navigation-example" data-overlay="#overlay-navigation-example" ><Menu /> </button>
 
       {/* Drawer Sidebar */}
-      <aside id="overlay-navigation-example" className="overlay overlay-open:translate-x-0 drawer drawer-start hidden max-w-72 bg-[#002b45]" tabindex="-1" >
+      <aside id="overlay-navigation-example" className="overlay overlay-open:translate-x-0 drawer drawer-start hidden max-w-72 bg-[#002b45]"  >
         <div className="drawer-header">
           <h3 className="drawer-title">Menu</h3>
           <button type="button" className="btn btn-text btn-circle btn-sm absolute end-3 top-3" aria-label="Close" data-overlay="#overlay-navigation-example" >
