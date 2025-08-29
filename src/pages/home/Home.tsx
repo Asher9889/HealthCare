@@ -20,14 +20,14 @@ const Home = () => {
             <StatsBar />
             <div className="w-full">
                 <div className="flex flex-col justify-center items-center">
-                    <button className="bg-orange-500 text-white font-semibold rounded-md px-8 py-3 flex items-center gap-2 hover:bg-orange-600 transition cursor-pointer">
-                    Call Us <FaPhoneAlt /> 9211930749
-                </button>
-                <p className="mt-2 text-sm text-gray-600 font-medium">
-                    Book Your Doctor's Appointment Today – Fast & Easy
-                </p>
+                    <a href="tel:9211930749" className="bg-orange-500 text-white font-semibold rounded-md px-8 py-3 flex items-center gap-2 hover:bg-orange-600 transition cursor-pointer">
+                        Call Us <FaPhoneAlt /> 9211930749
+                    </a>
+                    <p className="mt-2 text-sm text-gray-600 font-medium">
+                        Book Your Doctor's Appointment Today – Fast & Easy
+                    </p>
                 </div>
-                
+
             </div>
             <WhyPristynCare />
             <PatientReviews />

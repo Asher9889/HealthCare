@@ -7,7 +7,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida" , "Kanpur", "Lucknow", "Mumbai"]
+const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
 const diseases = [
   "Pilonidal Sinus",
   "Piles",
@@ -286,9 +286,12 @@ const HeroSection = () => {
 
           {/* Call Us Button */}
           <div className="mt-8">
-            <button className="bg-orange-500 text-white font-semibold rounded-md px-6 py-2 flex items-center gap-2 hover:bg-orange-600 transition cursor-pointer">
-              Call Us <FaPhoneAlt /> 9211930749
-            </button>
+            <a href="tel:9211930749">
+              <button className="bg-orange-500 text-white font-semibold rounded-md px-6 py-2 flex items-center gap-2 hover:bg-orange-600 transition cursor-pointer">
+                Call Us <FaPhoneAlt /> 9211930749
+              </button>
+            </a>
+
             <p className="mt-2 text-sm text-gray-600 font-medium">
               Book Your Doctor's Appointment Today – Fast & Easy
             </p>
@@ -348,7 +351,7 @@ const HeroSection = () => {
               </SelectTrigger>
               <SelectContent>
                 {cities.map((city, index) => (
-                   <SelectItem key={index * 10}  value={city}>{city}</SelectItem>
+                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -359,7 +362,7 @@ const HeroSection = () => {
               </SelectTrigger>
               <SelectContent>
                 {diseases.map((city, index) => (
-                   <SelectItem key={index * 10}  value={city}>{city}</SelectItem>
+                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
                 ))}
               </SelectContent>
             </Select>

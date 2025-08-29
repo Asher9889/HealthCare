@@ -13,7 +13,7 @@ const specialties = [
 
 const SpecialtyNav = () => {
   return (
-    <div className="bg-white shadow-sm border-t border-gray-200">
+    <div className="hidden md:block bg-white shadow-sm border-t border-gray-20">
       <div className="container mx-auto px-6 py-3 flex flex-wrap justify-center gap-6 text-sm text-gray-800 font-medium">
         {specialties.map((item) => (
           <div

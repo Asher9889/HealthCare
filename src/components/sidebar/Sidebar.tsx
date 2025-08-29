@@ -27,7 +27,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Drawer Button */}
-      <button type="button" className="btn btn-primary" aria-haspopup="dialog" aria-expanded="false" aria-controls="overlay-navigation-example" data-overlay="#overlay-navigation-example" ><Menu /> </button>
+      <button type="button" className="" aria-haspopup="dialog" aria-expanded="false" aria-controls="overlay-navigation-example" data-overlay="#overlay-navigation-example" ><Menu /> </button>
 
       {/* Drawer Sidebar */}
       <aside id="overlay-navigation-example" className="overlay overlay-open:translate-x-0 drawer drawer-start hidden max-w-72 bg-[#002b45]" tabindex="-1" >
