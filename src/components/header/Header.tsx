@@ -4,7 +4,9 @@ const Header = ()=>{
     return (
         <header>
             <Navbar />
-            <SpecialtyNav />
+            <div className="hidden md:inline">
+                <SpecialtyNav />
+            </div>
         </header>
     )
 }

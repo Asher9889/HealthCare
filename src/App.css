@@ -1,9 +1,18 @@
 @import "tailwindcss";
-@plugin "flyonui";
-@import "../node_modules/flyonui/variants.css"; /* Require only if you want to use FlyonUI JS component */
-
-@source "../node_modules/flyonui/dist/index.js"; /* Require only if you want to use FlyonUI JS component */
 
 body {
     background-color: #fefcfb;
 }
+
+/*  Start Preline Adds pointer cursor to buttons */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Defaults hover styles on all devices */
+@custom-variant hover (&:hover);
+
+/* End Preline  */

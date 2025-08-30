@@ -1,21 +1,16 @@
 // src/components/Navbar.jsx
 import { FaSearch } from "react-icons/fa";
-import { Sidebar } from "../index"; // ✅ Import Sidebar
-
+import { Sidebar } from "../index"
 const Navbar = () => {
   return (
     <nav className="bg-[#002b45] text-white px-6 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
-        
-        {/* Logo (Desktop only) */}
-        <div className="hidden md:inline flex items-center">
-          <h1 className="text-xl font-bold">PureCheckup</h1>
-        </div>
 
-        {/* Mobile Drawer */}
-        <div className="md:hidden">
-          <Sidebar />  {/* ✅ Sidebar integrated only for mobile */}
-        </div>
+        {/* Logo */}
+        <h1 className="hidden md:inline text-xl font-bold">PureCheckup</h1>
+        <aside className="md:hidden">
+          <Sidebar />
+        </aside>
 
         {/* Search Bar */}
         <div className="flex bg-white rounded-md overflow-hidden shadow-inner w-full md:w-[40%] order-3 md:order-2">
