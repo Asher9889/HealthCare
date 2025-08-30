@@ -37,7 +37,7 @@ export default function PatientReviews() {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-extrabold text-white mb-16"
         >
-          What Our Patients Say <span className="text-yellow-400">❤️</span>
+          Patients Insights <span className="text-yellow-400">❤️</span>
         </motion.h2>
 
         {/* Reviews Carousel Style */}
