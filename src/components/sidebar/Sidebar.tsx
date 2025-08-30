@@ -8,7 +8,6 @@ import {
   User,
   Handshake,
   Building2,
-  X,
 } from "lucide-react";
 
 const navItems = [
@@ -29,12 +28,12 @@ const Sidebar = () => {
         <Menu size={24} />
       </button>
 
-      <div id="hs-offcanvas-left" className="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-[#002b45] border-s border-gray-200 dark:bg-neutral-800 dark:border-neutral-700 border-l-0" role="dialog"  aria-labelledby="hs-offcanvas-left-label">
+      <div id="hs-offcanvas-left" className="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 start-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 border-s border-gray-200 bg-(--dark-blue-color) border-l-0" role="dialog"  aria-labelledby="hs-offcanvas-left-label">
         <div className="flex justify-between items-center py-3 px-4 border-b border-(--sidebar-border-color) dark:border-neutral-700">
           <h3 id="hs-offcanvas-left-label" className="font-bold text-white">
             Menu
           </h3>
-          <button type="button" className="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-offcanvas-left">
+          <button type="button" className="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-white text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none" aria-label="Close" data-hs-overlay="#hs-offcanvas-left">
             <span className="sr-only">Close</span>
             <svg className="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 6 6 18"></path>

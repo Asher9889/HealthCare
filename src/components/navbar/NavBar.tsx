@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { Sidebar } from "../index"
 const Navbar = () => {
   return (
-    <nav className="bg-[#002b45] text-white px-6 py-3">
+    <nav className="bg-(--dark-blue-color) text-white px-6 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
 
         {/* Logo */}
