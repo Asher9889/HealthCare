@@ -1,6 +1,32 @@
 :root {
-    --dark-blue-color: #002b45;
-    --sidebar-border-color: #9f9fa9;
+  --sidebar-border-color: #9f9fa9;
+
+	 /* Text Colors */
+  --text-primary: #1E293B;   /* Dark slate for headings */
+  --text-secondary: #475569; /* Muted gray-blue for body text */
+  --text-light: #94A3B8;     /* Soft gray for labels/hints */
+
+  /* Chat Gpt */
+    
+  --dark-blue-color: #002b45;  
+	--primary-bg-color: #3E85D9;      /* Sidebar background */
+  --sidebar-hover-bg: #004266;        /* Hover background */
+  --sidebar-active-bg: #005580;       /* Active/focus background */
+
+  --sidebar-text: #B0C7D6;            /* Default text */
+  --sidebar-text-hover: #FFFFFF;      /* Hover text */
+  --sidebar-text-active: #00BFFF;     /* Active/selected text */
+  --sidebar-text-disabled: #7A94A3;   /* Disabled text */
+
+  --sidebar-icon: #B0C7D6;            /* Default icon */
+  --sidebar-icon-hover: #FFFFFF;      /* Hover icon */
+  --sidebar-icon-active: #00BFFF;     /* Active icon */
+
+  --sidebar-divider: #004266;         /* Border/dividers */
+  --sidebar-focus-ring: #00BFFF; 
+	/* Ends */
+
+
   
 }
 

@@ -245,7 +245,7 @@ const HeroSection = () => {
         {/* Left Side - Text + Highlights + Call Button */}
         <div className="flex-1">
           {/* NEW HEADING */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 leading-snug">
+          <h2 className="text-3xl sm:text-4xl font-bold text-(--primary-bg-color) leading-snug">
             Pure Treatment Matlab{" "}
             <span className="text-orange-500">PureCheckup</span> – Trusted
             Health & Surgery Partner

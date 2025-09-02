@@ -8,7 +8,7 @@ const StatsBar = () => {
 
   return (
     <div className="container mx-auto my-12 px-4">
-      <div className="bg-[#3E85D9] text-white rounded-2xl flex flex-col md:flex-row items-center justify-between text-center divide-y divide-[#1d63b4] md:divide-y-0 md:divide-x">
+      <div className="bg-(--primary-bg-color) text-white rounded-2xl flex flex-col md:flex-row items-center justify-between text-center divide-y divide-[#1d63b4] md:divide-y-0 md:divide-x">
         {stats.map((stat, index) => (
           <div
             key={index}
