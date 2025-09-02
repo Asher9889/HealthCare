@@ -88,14 +88,14 @@ const Sidebar = () => {
       <div className="lg:hidden  text-center">
         <button
           type="button"
-          className="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-start  border border-gray-800 text-white text-sm font-medium rounded-lg shadow-2xs align-middle hover:bg-gray-950 focus:outline-hidden focus:bg-gray-900 dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200 dark:focus:bg-neutral-200"
+          className="py-2 px-3 inline-flex justify-center items-center gap-x-2 text-start"
           aria-haspopup="dialog"
           aria-expanded="false"
           aria-controls="hs-sidebar-collapsible-group"
           aria-label="Toggle navigation"
           data-hs-overlay="#hs-sidebar-collapsible-group"
         >
-          <Menu size={24} />
+          <Menu size={28} />
         </button>
       </div>
       {/* <!-- End Navigation Toggle --> */}

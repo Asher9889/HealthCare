@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { FaSearch } from "react-icons/fa";
 import { Sidebar } from "../index"
+import whatsaap from "../../assets/whatsapp.svg";
 const Navbar = () => {
   return (
     <nav className="bg-(--dark-blue-color) text-white px-6 py-3">
@@ -26,6 +27,15 @@ const Navbar = () => {
 
         {/* Right Links */}
         <div className="flex items-center gap-4 order-2 md:order-3">
+          <button
+            onClick={() => window.open("https://wa.me/919211930749", "_blank")}
+          >
+            <img
+              className="w-8 md:w-10 mr-4"
+              src={whatsaap}
+              alt="whatsapp icon"
+            />
+          </button>
           <button className="border border-white rounded px-4 py-2 font-semibold hover:bg-white hover:text-[#002b45] transition text-sm md:text-base">
             Book Free Appointment
           </button>
