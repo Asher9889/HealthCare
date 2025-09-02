@@ -79,7 +79,7 @@ const navItems = [
 
 const SpecialtyNav = () => {
   return (
-    <header className="hidden md:block bg-white shadow-sm border-t border-gray-200">
+    <header className="hidden lg:block bg-white shadow-sm border-t border-gray-200">
       <nav className="max-w-[85rem] mx-auto px-6">
         <div className="flex flex-wrap justify-center gap-6 py-3 text-sm text-gray-800 font-medium">
           {navItems.map((item) => (
@@ -95,7 +95,7 @@ const SpecialtyNav = () => {
               {item.children && (
                 <div
                   className={`absolute left-0 top-full hidden group-hover:grid bg-white shadow-lg rounded-md mt-1 z-20 
-      ${item.name === "Urology" ? "grid-cols-3 gap-1 w-[600px] p-4 z-100" : "grid-cols-1 w-56 p-2"}`}
+      ${item.name === "Urology" ? "grid-cols-3 gap-1 w-[600px] p-4 z-100" : "grid-cols-1 w-56 p-2 z-100"}`}
                 >
                   {item.children.map((child) => (
                     <a

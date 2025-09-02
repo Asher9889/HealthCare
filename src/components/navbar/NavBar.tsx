@@ -7,8 +7,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
 
         {/* Logo */}
-        <h1 className="hidden md:inline text-xl font-bold">PureCheckup</h1>
-        <aside className="md:hidden">
+        <h1 className="hidden lg:inline text-xl font-bold">PureCheckup</h1>
+        <aside className="lg:hidden">
           <Sidebar />
         </aside>
 
