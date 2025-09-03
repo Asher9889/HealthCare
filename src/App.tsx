@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import Home from './pages/home/Home'
-import { useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import routes from './routes';
+import { PageNotFound } from './components';
 
 async function loadPreline() {
   return import('preline/dist/index.js');
@@ -35,7 +37,22 @@ function App() {
 
   return (
     <div className=''>
-      <Home />
+      <Routes>
+        {/* Dynamically add routes */}
+        {routes.map((r) => (
+          <Route
+            key={r.path}
+            path={r.path}
+            element={<r.element />} // ✅ render as component
+          />
+        ))}
+
+        {/* Home Route */}
+        <Route path="/" element={<Home />} />
+
+        {/* Catch-all route */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </div>
   )
 }

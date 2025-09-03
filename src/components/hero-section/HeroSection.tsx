@@ -244,7 +244,7 @@ const HeroSection = () => {
     <div className="py-12 px-6 h-full w-full">
       <div className="container mx-auto flex flex-col lg:flex-row gap-10 items-start">
 
-        {/* Right Side - Appointment Form */}
+        {/* Mobile View - Appointment Form */}
         <div className="md:hidden mx-auto flex-1 flex justify-center items-center  md:mt-0 pt-10">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md h-full ">
             <h2 className="font-bold text-xl mb-4 text-center">Book Free Consultation</h2>
@@ -376,7 +376,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right Side - Appointment Form */}
-        <div className="mx-auto lg:mx-0 flex-1 flex justify-center items-center  md:mt-0 pt-10">
+        <div className="hidden md:inline mx-auto lg:mx-0 flex-1 flex justify-center items-center  md:mt-0 pt-10">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md h-full ">
             <h2 className="font-bold text-xl mb-4 text-center">Book Free Consultation</h2>
             <input

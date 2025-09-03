@@ -9,6 +9,7 @@ import {
   Building2,
 } from "lucide-react";
 import { Children } from "react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   {
@@ -110,15 +111,17 @@ const SpecialtyNav = () => {
                   className={`absolute left-0 top-full hidden group-hover:grid bg-white shadow-lg rounded-md mt-1 z-20 
       ${item.name === "Urology" ? "grid-cols-3 gap-1 w-[600px] p-4 z-100" : "grid-cols-1 w-56 p-2 z-100"}`}
                 >
-                  {item.children.map((child) => (
-                    <a
+                  {item.children.map((child) => {
+                    const link = (item.name + "/" + child.label.split(" ").join("-")).toLowerCase();
+                    return (
+                    <Link
                       key={child.label}
-                      href="#"
+                      to={link}
                       className="text-nowrap block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition"
                     >
                       {child.label}
-                    </a>
-                  ))}
+                    </Link>
+                  )})}
                 </div>
               )}
 

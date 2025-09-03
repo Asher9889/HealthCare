@@ -9,13 +9,14 @@ import {
   Handshake,
   Building2,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   {
     name: "Proctology",
     icon: Stethoscope,
     children: [
-      { label: "Proctology" },
+      // { label: "Proctology" },
       { label: "Piles Treatment" },
       { label: "Fistula Treatment" },
       { label: "Fissure Treatment" },
@@ -27,7 +28,7 @@ const navItems = [
     name: "Laproscopy",
     icon: Microscope,
     children: [
-      { label: "Laproscopy" },
+      // { label: "Laproscopy" },
       { label: "Hernia Surgery" },
       { label: "Gallstones Treatment" },
       { label: "Appendicitis" },
@@ -39,7 +40,7 @@ const navItems = [
     name: "Urology",
     icon: HeartPulse,
     children: [
-      { label: "Urology" },
+      // { label: "Urology" },
       { label: "Circumcision" },
       { label: "Stapler Circumcision" },
       { label: "Laser Circumcision" },
@@ -71,7 +72,7 @@ const navItems = [
     name: "Aesthetics",
     icon: Sparkles,
     children: [
-      { label: "Aesthetics" },
+      // { label: "Aesthetics" },
       { label: "Plastic Surgeries" },
       { label: "Cosmetic Surgery" },
     ],
@@ -110,13 +111,13 @@ const Sidebar = () => {
         <div className="relative flex flex-col h-full max-h-full bg-(--dark-blue-color)`">
           {/* <!-- Header --> */}
           <header className=" p-4 flex justify-between items-center gap-x-2">
-            <a
+            <p
               className="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white "
-              href="#"
+              
               aria-label="Brand"
             >
               Menu
-            </a>
+            </p>
 
             <div className="lg:hidden -me-2">
               {/* <!-- Close Button --> */}
@@ -202,16 +203,18 @@ const Sidebar = () => {
                         aria-labelledby={`${name}-accordion`}
                       >
                         <ul className="pt-1 ps-7 space-y-1">
-                          {children.map(({ label }) => (
+                          {children.map(({ label }) => {
+                            const link = (name + "/" + label.split(" ").join("-")).toLowerCase();
+                            return (
                             <li key={label}>
-                              <a
-                                href="#"
+                              <Link
+                                to={link}
                                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg text-(--sidebar-text) hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
                               >
                                 {label}
-                              </a>
+                              </Link>
                             </li>
-                          ))}
+                          )})}
 
                           {/* Example of nested future sub-menu */}
                           {/*
