@@ -9,7 +9,10 @@
   /* Chat Gpt */
     
   --dark-blue-color: #002b45;  
-	--primary-bg-color: #3E85D9;      /* Sidebar background */
+	--primary-bg-color: #3E85D9; 
+  --orange-button-color: oklch(70.5% 0.213 47.604);
+  
+  /* Sidebar background */
   --sidebar-hover-bg: #004266;        /* Hover background */
   --sidebar-active-bg: #005580;       /* Active/focus background */
 

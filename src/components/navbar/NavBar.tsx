@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { FaSearch } from "react-icons/fa";
-import { Sidebar } from "../index"
+import { AppointForm, Sidebar } from "../index"
 import whatsaap from "../../assets/whatsapp.svg";
 const Navbar = () => {
   return (
@@ -36,9 +36,10 @@ const Navbar = () => {
               alt="whatsapp icon"
             />
           </button>
-          <button className="border border-white rounded px-4 py-2 font-semibold hover:bg-white hover:text-[#002b45] transition text-sm md:text-base">
+          <button type="button" className="border border-white rounded px-4 py-2 font-semibold hover:scale-[0.99]  transition text-sm md:text-base disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal">
             Book Free Appointment
           </button>
+          <AppointForm />
         </div>
       </div>
     </nav>

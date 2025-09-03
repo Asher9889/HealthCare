@@ -159,7 +159,7 @@ const Sidebar = () => {
                     <li key={name} className="hs-accordion" id={`${name}-accordion`}>
                       <button
                         type="button"
-                        className="hs-accordion-toggle w-full text-start flex rounded-lg items-center gap-x-3.5 py-2 px-2.5 text-sm hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover0
+                        className="hs-accordion-toggle w-full text-start flex rounded-lg items-center gap-x-3.5 py-2 px-2.5 text-sm hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover)
              focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
                         aria-expanded="false"
                         aria-controls={`${name}-accordion-collapse`}

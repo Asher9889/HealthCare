@@ -6,6 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import DiseasesInput from "../diseases/DiseasesInput";
 
 const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
 const diseases = [
@@ -400,16 +401,7 @@ const HeroSection = () => {
               </SelectContent>
             </Select>
 
-            <Select >
-              <SelectTrigger className="w-full py-5 mb-4">
-                <SelectValue placeholder="Select Disease" />
-              </SelectTrigger>
-              <SelectContent>
-                {diseases.map((city, index) => (
-                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <DiseasesInput text="Select Disease" />
 
             <button className="bg-[#2874F0] text-white font-semibold w-full py-2 my-4 rounded-md hover:opacity-90">
               Book Now
