@@ -1,5 +1,5 @@
 import DiseasesInput from "../diseases/DiseasesInput";
-import { Checkbox, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea } from "../ui";
+import { Checkbox, Input, Label, Textarea } from "../ui";
 
 
 
@@ -7,10 +7,6 @@ import { Checkbox, Input, Label, Select, SelectContent, SelectItem, SelectTrigge
 const AppointForm = () => {
     return (
         <>
-            {/* <button type="button" className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal">
-                Open modal
-            </button> */}
-
             <div id="hs-slide-down-animation-modal" className="hs-overlay hidden size-full fixed top-[5%] start-0 z-80 overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" aria-labelledby="hs-slide-down-animation-modal-label">
                 <div className="hs-overlay-animation-target hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-xl sm:w-full m-3 sm:mx-auto">
                     <div className="flex flex-col bg-white  shadow-2xs rounded-xl pointer-events-auto   dark:shadow-neutral-700/70">
@@ -78,7 +74,7 @@ const AppointForm = () => {
                             </div>
                         </div>
 
-                        <div className="flex justify-end items-center py-4 gap-x-2 py-2 px-4 border-t border-gray-200 dark:border-neutral-700">
+                        <div className="flex justify-end items-center py-4 border-t border-gray-200 dark:border-neutral-700">
                             <button type="button" className="mx-auto px-8 py-3 rounded-md font-semibold inline-flex items-center gap-x-2 text-md   bg-(--orange-button-color) text-white  disabled:opacity-50 disabled:pointer-events-none">
                                 Book free appointment
                             </button>

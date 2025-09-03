@@ -6,9 +6,9 @@ import {
   Baby,
   Sparkles,
   User,
-  Handshake,
   Building2,
 } from "lucide-react";
+import { Children } from "react";
 
 const navItems = [
   {
@@ -72,9 +72,22 @@ const navItems = [
       { label: "Cosmetic Surgery" },
     ],
   },
-  { name: "Patient", icon: User },
-  { name: "Services", icon: Handshake },
-  { name: "Our Company", icon: Building2 },
+  { name: "Patient Services", icon: User, children: [
+   { label : "Hindi Blog" },
+   { label : "English Blog" },
+   { label : "FAQ" },
+   { label : "Patient Help" },
+   { label : "No Cost EMI" },
+   { label : "Health Insurance" }
+
+  ] },
+  { name: "Our Company", icon: Building2, children : [
+    { label : "About Us" },
+    { label : "Contact Us" },
+    { label : "Privacy Policy" },
+    { label : "Doctors Section" },
+ ] },
+
 ];
 
 const SpecialtyNav = () => {
