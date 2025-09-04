@@ -3,7 +3,7 @@ import DiseasesInput from "../diseases/DiseasesInput";
 import { Checkbox, Input, Label, Spinner, Textarea } from "../ui";
 import { toast } from "sonner";
 
-
+const uri = import.meta.env.VITE_API_BASE_URL
 const AppointForm = () => {
     const [formData, setFormData] = useState({
         fullName: "",
@@ -46,7 +46,7 @@ const AppointForm = () => {
 
 
         try {
-            const res = await fetch(`${process.env.VITE_API_BASE_URL}/user/book-appointment`, {
+            const res = await fetch(`${uri}/user/book-appointment`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

@@ -3,6 +3,8 @@ import DiseasesInput from "../diseases/DiseasesInput";
 import SelectCityInput from "../select-city/SelectCityInput";
 import { toast } from "sonner";
 import { Spinner } from "../ui";
+        
+const uri = import.meta.env.VITE_API_BASE_URL
 
 const AppointFormWithNoReason = () => {
     const [isloading, setIsLoading] = useState(false);
@@ -19,9 +21,9 @@ const AppointFormWithNoReason = () => {
             setIsLoading(true);
         if (isloading) return;
 
-
+        
         try {
-            const res = await fetch(`${process.env.VITE_API_BASE_URL}/user/book-appointment`, {
+            const res = await fetch(`${uri}/user/book-appointment`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
