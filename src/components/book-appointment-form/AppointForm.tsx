@@ -46,7 +46,7 @@ const AppointForm = () => {
 
 
         try {
-            const res = await fetch("http://localhost:3005/api/v1/user/book-appointment", {
+            const res = await fetch(`${process.env.VITE_API_BASE_URL}/user/book-appointment`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
