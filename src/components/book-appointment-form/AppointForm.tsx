@@ -39,7 +39,8 @@ const AppointForm = () => {
         setFormData((prev) => ({ ...prev, healthConcern: value }));
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e:any) => {
+        e.preventDefault();
         setIsLoading(true);
         if (isloading) return;
 
