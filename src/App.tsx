@@ -4,6 +4,7 @@ import Home from './pages/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import routes from './routes';
 import { PageNotFound } from './components';
+import { Toaster } from 'sonner';
 
 async function loadPreline() {
   return import('preline/dist/index.js');
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <div className=''>
+      <Toaster richColors position="top-center" closeButton expand={true}  />
       <Routes>
         {/* Dynamically add routes */}
         {routes.map((r) => (

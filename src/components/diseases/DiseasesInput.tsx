@@ -230,21 +230,32 @@ const diseases = [
     "ICSI Treatment"
 ];
 
-const DiseasesInput = ({text}:{text:string}) => {
-    return (
-        <Select>
-            <SelectTrigger className="w-full py-5 mb-4">
-                <SelectValue placeholder={text} />
-            </SelectTrigger>
 
-            <SelectContent className="z-[9999]">
-                {diseases.map((city, index) => (
-                    <SelectItem className="text-md " key={index * 10} value={city}>{city}</SelectItem>
-                ))}
-            </SelectContent>
-        </Select>
-    )
-
+interface DiseasesInputProps {
+  text: string;
+  value?: string; // controlled value
+  onChange?: (value: string) => void;
 }
+
+const DiseasesInput = ({ text, value, onChange }: DiseasesInputProps) => {
+  return (
+    <Select value={value} onValueChange={onChange}>
+      <SelectTrigger
+        className="w-full py-5 mb-4"
+        aria-label="Select Disease"
+      >
+        <SelectValue placeholder={text} />
+      </SelectTrigger>
+
+      <SelectContent className="z-[9999] max-h-60 overflow-y-auto">
+        {diseases.map((disease) => (
+          <SelectItem key={disease} value={disease}>
+            {disease}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+};
 
 export default DiseasesInput;
