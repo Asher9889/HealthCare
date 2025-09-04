@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import DiseasesInput from "../diseases/DiseasesInput";
+import AppointFormWithNoReason from "../book-appointment-form/AppointFormWithReason";
 
 const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
 const diseases = [
@@ -245,46 +246,9 @@ const HeroSection = () => {
       <div className="container mx-auto flex flex-col lg:flex-row gap-10 items-start">
 
         {/* Mobile View - Appointment Form */}
-        <div className="md:hidden mx-auto flex-1 flex justify-center items-center  md:mt-0 pt-10">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md h-full ">
-            <h2 className="font-bold text-xl mb-4 text-center">Book Free Consultation</h2>
-            <input
-              type="text"
-              placeholder="Patient Name"
-              className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Mobile Number"
-              className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <div className="md:hidden w-full">
+          <AppointFormWithNoReason />
 
-            <Select >
-              <SelectTrigger className="w-full py-5 mb-3">
-                <SelectValue placeholder="Select City" />
-              </SelectTrigger>
-              <SelectContent>
-                {cities.map((city, index) => (
-                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select >
-              <SelectTrigger className="w-full py-5 mb-4">
-                <SelectValue placeholder="Select Disease" />
-              </SelectTrigger>
-              <SelectContent>
-                {diseases.map((city, index) => (
-                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <button className="bg-[#2874F0] text-white font-semibold w-full py-2 my-4 rounded-md hover:opacity-90">
-              Book Now
-            </button>
-          </div>
         </div>
 
         {/* Left Side - Text + Highlights + Call Button */}
@@ -376,38 +340,12 @@ const HeroSection = () => {
         </div>
 
         {/* Right Side - Appointment Form */}
-        <div className="hidden md:inline mx-auto lg:mx-0 flex-1 flex justify-center items-center  md:mt-0 pt-10">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md h-full ">
-            <h2 className="font-bold text-xl mb-4 text-center">Book Free Consultation</h2>
-            <input
-              type="text"
-              placeholder="Patient Name"
-              className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Mobile Number"
-              className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
 
-            <Select >
-              <SelectTrigger className="w-full py-5 mb-3">
-                <SelectValue placeholder="Select City" />
-              </SelectTrigger>
-              <SelectContent>
-                {cities.map((city, index) => (
-                  <SelectItem key={index * 10} value={city}>{city}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <div className="hidden md:inline">
+          <AppointFormWithNoReason />
 
-            <DiseasesInput text="Select Disease" />
-
-            <button className="bg-[#2874F0] text-white font-semibold w-full py-2 my-4 rounded-md hover:opacity-90">
-              Book Now
-            </button>
-          </div>
         </div>
+        
 
 
       </div>
