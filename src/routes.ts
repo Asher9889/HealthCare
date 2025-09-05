@@ -6,7 +6,6 @@ import {
   Baby,
   Sparkles,
   User,
-  Handshake,
   Building2,
 } from "lucide-react";
 import { PageNotFound } from "./components";
