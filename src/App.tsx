@@ -29,7 +29,7 @@ function App() {
     initPreline();
   }, [location.pathname]);
 
-    const [theme, _] = useState("light");
+  const [theme, _] = useState("light");
 
   useEffect(() => {
     import(`./themes/${theme}.css`);
@@ -38,14 +38,13 @@ function App() {
 
   return (
     <div className=''>
-      <Toaster richColors position="top-center" closeButton expand={true}  />
+      <Toaster richColors position="top-center" closeButton expand={true} />
       <Routes>
-        {/* Dynamically add routes */}
         {routes.map((r) => (
           <Route
             key={r.path}
             path={r.path}
-            element={<r.element />} // ✅ render as component
+            element={r.element ? <r.element /> : <PageNotFound />}
           />
         ))}
 

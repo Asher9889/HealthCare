@@ -1,86 +1,9 @@
-import {
-  Menu,
-  Stethoscope,
-  Microscope,
-  HeartPulse,
-  Baby,
-  Sparkles,
-  User,
-  Handshake,
-  Building2,
-} from "lucide-react";
+import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { navItems } from "../../routes"; // 👈 import your existing config
 
-const navItems = [
-  {
-    name: "Proctology",
-    icon: Stethoscope,
-    children: [
-      // { label: "Proctology" },
-      { label: "Piles Treatment" },
-      { label: "Fistula Treatment" },
-      { label: "Fissure Treatment" },
-      { label: "Pilonidal Sinus Treatment" },
-      { label: "Rectal Prolapse" },
-    ],
-  },
-  {
-    name: "Laproscopy",
-    icon: Microscope,
-    children: [
-      // { label: "Laproscopy" },
-      { label: "Hernia Surgery" },
-      { label: "Gallstones Treatment" },
-      { label: "Appendicitis" },
-      { label: "Inguinal Hernia Treatment" },
-      { label: "Umbilical Hernia Treatment" },
-    ],
-  },
-  {
-    name: "Urology",
-    icon: HeartPulse,
-    children: [
-      // { label: "Urology" },
-      { label: "Circumcision" },
-      { label: "Stapler Circumcision" },
-      { label: "Laser Circumcision" },
-      { label: "Kidney Stones Treatment" },
-      { label: "Hydrocele" },
-      { label: "EWSL" },
-      { label: "RIRS" },
-      { label: "PCNL" },
-      { label: "URSL" },
-      { label: "Frenuloplasty Surgery" },
-      { label: "Balanitis" },
-      { label: "Balanoposthitis" },
-      { label: "Paraphimosis" },
-      { label: "Foreskin Infection" },
-      { label: "Tight Foreskin" },
-      { label: "Phimosis" },
-      { label: "Corn Removal" },
-      { label: "Vasectomy" },
-      { label: "Testicular Torsion" },
-      { label: "Epididymal Cyst" },
-      { label: "Toenail Removal" },
-    ],
-  },
-  {
-    name: "Gynaecology",
-    icon: Baby,
-  },
-  {
-    name: "Aesthetics",
-    icon: Sparkles,
-    children: [
-      // { label: "Aesthetics" },
-      { label: "Plastic Surgeries" },
-      { label: "Cosmetic Surgery" },
-    ],
-  },
-  { name: "Patient", icon: User },
-  { name: "Services", icon: Handshake },
-  { name: "Our Company", icon: Building2 },
-];
+
+
 
 const Sidebar = () => {
   return (
@@ -155,7 +78,7 @@ const Sidebar = () => {
               data-hs-accordion-always-open
             >
               <ul className="space-y-1">
-                {navItems.map(({ name, icon: Icon, children }) =>
+                {navItems.map(({ name, icon: Icon, path, children }) =>
                   children ? (
                     <li key={name} className="hs-accordion" id={`${name}-accordion`}>
                       <button
@@ -203,12 +126,12 @@ const Sidebar = () => {
                         aria-labelledby={`${name}-accordion`}
                       >
                         <ul className="pt-1 ps-7 space-y-1">
-                          {children.map(({ label }) => {
-                            const link = (name + "/" + label.split(" ").join("-")).toLowerCase();
+                          {children.map(({ label, path }) => {
+                            // const link = ();
                             return (
                             <li key={label}>
                               <Link
-                                to={link}
+                                to={path}
                                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg text-(--sidebar-text) hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
                               >
                                 {label}
@@ -244,17 +167,13 @@ const Sidebar = () => {
                       </div>
                     </li>
                   ) : (
-                    <a
-                      href="#"
-                      className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg 
-             bg-(--dark-blue-color) 
-             text-(--sidebar-text) 
-             hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover) 
-             focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
+                    <Link
+                      to={path}
+                      className="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg bg-(--dark-blue-color) text-(--sidebar-text) hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover) focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
                     >
                       <Icon className="size-4 text-(--sidebar-icon) group-hover:text-(--sidebar-icon-hover)" />
                       {name}
-                    </a>
+                    </Link>
                   )
                 )}
               </ul>
