@@ -6,15 +6,19 @@ import DiseasesInput from "./diseases/DiseasesInput";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import HeroSectionOne from "./hero-section-demo-1";
+import DynamicHeroSection from "./hero-section/DynamicHeroSection";
 import HeroSection from "./hero-section/HeroSection";
 import Navbar from "./navbar/NavBar";
 import PageNotFound from "./page-not-found/PageNotFound";
 import SelectCityInput from "./select-city/SelectCityInput";
 import Sidebar from "./sidebar/Sidebar";
 import SpecialtyNav from "./specility-nav/SpecilityNav";
+import BackgroundBeams from "./ui/background-beams";
 import Button from "./ui/stateful-button";
+import StickyScroll from "./ui/sticky-scroll-reveal";
 import WobbleCard from "./ui/wobble-card";
 
 export {
-    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton
+    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection
+
 }

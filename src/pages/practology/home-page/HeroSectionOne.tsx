@@ -17,23 +17,32 @@ export function HeroSectionOne() {
       </div> */}
       <div className="px-4 py-10 md:py-20">
         <h1 className="relative z-10 mx-auto max-w-6xl text-center text-xl font-bold text-slate-700 md:text-3xl lg:text-6xl dark:text-slate-300">
-          {"H1- Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care"
-            .split(" ")
-            .map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.1,
-                  ease: "easeInOut",
-                }}
-                className="mr-2 inline-block"
-              >
-                {word}
-              </motion.span>
-            ))}
+          {(
+            "H1- Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care"
+              .split(" ")
+              .map((word, index, arr) => {
+                const last4Start = arr.length - 4; // index where last 4 words start
+                const isHighlighted = index >= last4Start;
+
+                return (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                      ease: "easeInOut",
+                    }}
+                    className={`mr-2 inline-block ${isHighlighted ? "text-(--orange-button-color) font-bold" : "text-(--primary-bg-color)"
+                      }`}
+                  >
+                    {word}
+                  </motion.span>
+                );
+              })
+          )}
+
         </h1>
         <motion.p
           initial={{
@@ -88,13 +97,13 @@ export function HeroSectionOne() {
           className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
         >
           <div className="w-full overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700">
-            {/* <img
+            <img
               src="https://assets.aceternity.com/pro/aceternity-landing.webp"
               alt="Landing page preview"
               className="aspect-[16/9] h-auto w-full object-cover"
               height={1000}
               width={1000}
-            /> */}
+            />
           </div>
         </motion.div>
       </div>

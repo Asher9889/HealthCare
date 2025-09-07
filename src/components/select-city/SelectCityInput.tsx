@@ -4,8 +4,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
 
 interface SelectCityInputProps {
-  value: string
-  onChange: (city: string) => void
+  value?: string
+  onChange?: (city: string) => void
 }
 
 const SelectCityInput = ({ value, onChange }: SelectCityInputProps) => {
