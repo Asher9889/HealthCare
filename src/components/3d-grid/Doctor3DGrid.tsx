@@ -1,5 +1,4 @@
 
-import Heading from "../heading/Heading";
 import { CardBody, CardContainer, CardItem } from "../ui";
 import { Button } from "@/components/ui/button";
 // import StickyScroll from "../ui/sticky-scroll-reveal";

@@ -2,13 +2,14 @@
 import { FaSearch } from "react-icons/fa";
 import { AppointForm, Sidebar } from "../index"
 import whatsaap from "../../assets/whatsapp.svg";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-(--dark-blue-color) text-white px-6 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
 
         {/* Logo */}
-        <h1 className="hidden lg:inline text-xl font-bold">PureCheckup</h1>
+        <Link to="/" className="hidden lg:inline text-xl font-bold">PureCheckup</Link>
         <aside className="lg:hidden">
           <Sidebar />
         </aside>

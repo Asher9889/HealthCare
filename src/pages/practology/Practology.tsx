@@ -1,4 +1,4 @@
-import { AppointFormWithNoReason, Doctors3DGrid, DynamicHeroSection, Header, Heading, StickyScroll, TopCities, WhyPureCheckup } from "@/components";
+import { AppointFormWithNoReason, ContactSection, Doctors3DGrid, DynamicHeroSection, Footer, Header, Heading, TopCities, WhyPureCheckup } from "@/components";
 // import { HeroSectionOne } from "./home-page/HeroSectionOne"
 import { practoHero } from "@/assets";
 import Treatment from "./treatment/Treatment";
@@ -21,13 +21,6 @@ const Practology = () => {
         phone: "9211930749",
         imageUrl: practoHero
     }
-    const content = [
-        {
-            title: "string",
-            description: "string",
-            content: "React.ReactNode | any"
-        }
-    ]
 
     return (
         <>
@@ -71,6 +64,8 @@ const Practology = () => {
                     <Heading text1="FAQ's" />
                     <Accordian />
                 </div>
+                <ContactSection />
+            <Footer />
             </div>
         </>
     )
