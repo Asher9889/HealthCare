@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Flame, Activity, GitBranch, Shield, Link2, Heart } from "lucide-react";
+import { Heading } from "@/components";
 
 const treatments = [
   {
@@ -45,7 +46,7 @@ export default function Treatment() {
           transition={{ duration: 0.6 }}
           className="text-3xl font-bold text-gray-800 text-center"
         >
-          Conditions We Treat
+          <Heading text1="Conditions We" text2="Treat" /> 
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -65,13 +66,13 @@ export default function Treatment() {
               transition={{ delay: idx * 0.1, duration: 0.5 }}
             >
               <Card className="rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-6">
+                <CardContent className="p-6 ">
                   <div className="flex items-start space-x-4">
                     <div className="bg-slate-300 p-3 rounded-xl">
                       <treatment.icon className="h-6 w-6 text-gray-800" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-purple-800 hover:underline cursor-pointer">
+                      <h3 className="text-lg font-semibold text-(--text-primary) hover:underline cursor-pointer">
                         {treatment.title}
                       </h3>
                       <p className="text-sm text-gray-600 mt-1">

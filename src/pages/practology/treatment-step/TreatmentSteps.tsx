@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Stethoscope, ClipboardList, Layers2, HeartPulse } from "lucide-react";
+import { Heading } from "@/components";
 
 const steps = [
   {
@@ -31,7 +32,7 @@ const steps = [
 
 export default function TreatmentSteps() {
   return (
-    <section className="py-16 px-6 md:px-12">
+    <section className="px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <motion.h2
@@ -40,7 +41,7 @@ export default function TreatmentSteps() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-center text-slate-800"
         >
-          How We Treat: <span className="text-(--orange-button-color)">4-Step Process</span>
+          <Heading text1="How We Treat:" text2="4-Step Process"/>
         </motion.h2>
 
         <motion.p

@@ -89,7 +89,7 @@ InfiniteMovingCards = ({
       >
         {items.map((item, _) => (
           <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px]"
+            className="relative w-[200px]  shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 lg:w-[400px]"
             key={item.name}
           >
             <blockquote>

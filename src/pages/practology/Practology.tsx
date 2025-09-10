@@ -1,18 +1,18 @@
-import {  Doctors3DGrid, DynamicHeroSection, Header,  WhyPureCheckup } from "@/components";
+import { AppointFormWithNoReason, Doctors3DGrid, DynamicHeroSection, Header, Heading, StickyScroll, TopCities, WhyPureCheckup } from "@/components";
 // import { HeroSectionOne } from "./home-page/HeroSectionOne"
 import { practoHero } from "@/assets";
 import Treatment from "./treatment/Treatment";
 import AboutPracto from "./about-practology/AboutPracto";
 import TreatmentSteps from "./treatment-step/TreatmentSteps";
 import Accordian from "./accordian/Accordian";
-TreatmentSteps
+import StatsBar from "../home/StatusBar/StatsBar";
 
 const Practology = () => {
 
-  
+
 
     const heroContent = {
-        title : "H1 - Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care",
+        title: "H1 - Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care",
         description: "Advanced laser-assisted treatments for fast recovery and minimal pain",
         // subtitle: "– ",
         button1Text: "Book Free Consultation",
@@ -21,34 +21,54 @@ const Practology = () => {
         phone: "9211930749",
         imageUrl: practoHero
     }
-    
+    const content = [
+        {
+            title: "string",
+            description: "string",
+            content: "React.ReactNode | any"
+        }
+    ]
 
     return (
         <>
             <div className="bg-[#D6E4EF]">
                 <Header />
-                {/* <HeroSectionOne /> */}
                 <DynamicHeroSection heroContent={heroContent} />
                 {/* <BackgroundBeams /> */}
-                {/* <StickyScroll content={content} /> */}
                 <div className="py-20">
 
-                <Treatment />
+                    <Treatment />
                 </div>
+                <StatsBar />
                 <div>
                     <AboutPracto />
                 </div>
-                <div className="max-w-7xl mx-auto py-20 bg-">
+                <div className="max-w-7xl mx-auto py-20">
                     <WhyPureCheckup />
                 </div>
                 <div className="py-20">
                     <TreatmentSteps />
                 </div>
-                <div>
+                <div className="py-20">
+                    <div className="text-center">
+                        <Heading text1="Our Proctology" text2="Specialists" />
+                    </div>
+                    {/* <div className="flex justify-center items-center gap-10">
+                        <div className="flex flex-1"> */}
                     <Doctors3DGrid />
+                    {/* </div>
+                        <div className="flex-1"> */}
+
+                    {/* </div> */}
+                    {/* </div> */}
+                    <div className="px-4">
+
+                        <AppointFormWithNoReason />
+                    </div>
                 </div>
-                <div className="w-full bg-white py-20 px-4 ">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center pb-8">FAQ's</h2>
+                <TopCities />
+                <div className="w-full bg-white py-20 px-4">
+                    <Heading text1="FAQ's" />
                     <Accordian />
                 </div>
             </div>
