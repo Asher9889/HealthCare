@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
-import { navItems } from "../../routes"; // 👈 import your existing config
+import { navItems } from "../../routes"; 
 
 
 
@@ -81,8 +81,9 @@ const Sidebar = () => {
                 {navItems.map(({ name, icon: Icon, path, children }) =>
                   children ? (
                     <li key={name} className="hs-accordion" id={`${name}-accordion`}>
-                      <button
-                        type="button"
+                      <Link
+                        to={path!!}
+                         data-hs-overlay="#hs-sidebar-collapsible-group"
                         className="hs-accordion-toggle w-full text-start flex rounded-lg items-center gap-x-3.5 py-2 px-2.5 text-sm hover:bg-(--sidebar-hover-bg) hover:text-(--sidebar-text-hover)
              focus:outline-hidden focus:bg-(--sidebar-active-bg) focus:text-(--sidebar-text-active)"
                         aria-expanded="false"
@@ -117,7 +118,7 @@ const Sidebar = () => {
                         >
                           <path d="m6 9 6 6 6-6" />
                         </svg>
-                      </button>
+                      </Link>
 
                       <div
                         id={`${name}-accordion-collapse`}

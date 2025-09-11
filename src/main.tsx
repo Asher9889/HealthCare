@@ -10,6 +10,8 @@ import noUiSlider from 'nouislider';
 import 'datatables.net';
 import 'dropzone/dist/dropzone-min.js';
 import * as VanillaCalendarPro from 'vanilla-calendar-pro';
+import { HelmetProvider } from "react-helmet-async";
+
 
 
 window._ = _;
@@ -22,8 +24,10 @@ window.VanillaCalendarPro = VanillaCalendarPro;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )
