@@ -1,6 +1,7 @@
 
 import { CardBody, CardContainer, CardItem } from "../ui";
 import { Button } from "@/components/ui/button";
+import { tanmay } from "@/assets";
 // import StickyScroll from "../ui/sticky-scroll-reveal";
 // import { title } from "process";
 
@@ -9,7 +10,7 @@ const doctors = [
     name: "Dr. Anil Sharma",
     designation: "Senior Proctologist",
     experience: "22+ yrs",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: tanmay,
   },
   {
     name: "Dr. Ritu Patel",
