@@ -16,7 +16,7 @@ interface HeroProps {
 }
 
 export default function DynamicHeroSection({ heroContent }: { heroContent: HeroProps }) {
-    const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
+    const [appointmentOpen, _] = useState(false) // Appointment modal open/close
   
   return (
     <div className="bg-[#D6E4EF] py-6 px-4 flex justify-center">
