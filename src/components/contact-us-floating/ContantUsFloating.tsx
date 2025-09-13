@@ -48,7 +48,7 @@ export default function ContactUsFloating() {
           <Button
             size="icon"
             onClick={() => setOpen(!open)}
-            className="bg-primary text-white rounded-full w-14 h-14 shadow-xl "
+            className="bg-(--dark-blue-color) text-white rounded-full w-14 h-14 shadow-xl "
           >
             {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
           </Button>
