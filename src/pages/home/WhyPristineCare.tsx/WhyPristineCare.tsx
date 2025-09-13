@@ -1,5 +1,9 @@
+import { AppointForm } from "@/components";
+import { useState } from "react";
 
 const WhyPristynCare = () => {
+    const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
+  
   return (
     <section className="py-16 px-6">
       <div className="container mx-auto flex flex-col lg:flex-row gap-10 items-center">
@@ -10,9 +14,15 @@ const WhyPristynCare = () => {
           <p className="text-gray-600 text-lg mb-6">
             End-to-End Surgical Care Simplified by Innovation
           </p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded">
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded"
+            aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+            onClick={() => setAppointmentOpen(true)}
+          >
             Book Free Appointment
           </button>
+          {appointmentOpen && (
+            <AppointForm />
+          )}
         </div>
 
         {/* Right Details Section */}

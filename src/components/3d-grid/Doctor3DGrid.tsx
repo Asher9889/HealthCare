@@ -2,6 +2,8 @@
 import { CardBody, CardContainer, CardItem } from "../ui";
 import { Button } from "@/components/ui/button";
 import { tanmay } from "@/assets";
+import { useState } from "react";
+import AppointForm from "../book-appointment-form/AppointForm";
 // import StickyScroll from "../ui/sticky-scroll-reveal";
 // import { title } from "process";
 
@@ -47,6 +49,8 @@ const doctors = [
 
 
 export default function Doctors3DGrid() {
+      const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
+  
   return (
     <section className="px-6">
       <div>
@@ -82,9 +86,16 @@ export default function Doctors3DGrid() {
                 {/* CTA Button */}
                 <div className="flex justify-center mt-6">
                   <CardItem translateZ="60" translateY={10}>
-                    <Button className="px-6 py-2 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-md">
+                    <Button className="px-6 py-2 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-md"
+                      aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+                      onClick={() => setAppointmentOpen(true)}
+
+                    >
                       Book Appointment
                     </Button>
+                     {appointmentOpen && (
+                        <AppointForm />
+                      )}
                   </CardItem>
                 </div>
               </CardBody>

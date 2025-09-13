@@ -1,7 +1,8 @@
 // import { Calendar } from "lucide-react"
 import {  Card, CardContent } from "../ui"
-import { WhatsaapButton } from "..";
+import { AppointForm, CallNow, WhatsaapButton } from "..";
 import { SelectCityInput } from "../../components";
+import { useState } from "react";
 
 interface HeroProps {
   title: string
@@ -15,6 +16,8 @@ interface HeroProps {
 }
 
 export default function DynamicHeroSection({ heroContent }: { heroContent: HeroProps }) {
+    const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
+  
   return (
     <div className="bg-[#D6E4EF] py-6 px-4 flex justify-center">
       <Card className="w-full max-w-7xl rounded-3xl shadow-md flex flex-col md:flex-row overflow-hidden px-4">
@@ -33,21 +36,32 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center md:items-start">
-            <WhatsaapButton className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center">
+            <WhatsaapButton className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center"
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+
+            >
               {heroContent.button1Text}
             </WhatsaapButton>
+            {appointmentOpen && (
+            <AppointForm />
+          )}
             {/* <Button className="w-full h-10 sm:w-auto bg-blue-600 hover:bg-blue-700 text-white">
              
             </Button> */}
-            <WhatsaapButton className="w-full sm:w-auto bg-green-500 hover:bg-green-600 rounded-md text-white">
+            <WhatsaapButton className="w-full sm:w-auto bg-green-500 hover:bg-green-600 rounded-md text-white"
+              onClick={() => (window.location.href = "tel:+9211930749")}
+            >
               {heroContent.button2Text}
             </WhatsaapButton>
           </div>
 
           {/* City + Phone */}
-          <div className="w-80 flex flex-col sm:flex-row items-center sm:items-center gap-3 mt-4">
-            <SelectCityInput />
-            <span className="text-gray-900 font-semibold">@{heroContent.phone}</span>
+          <div className="w-full flex flex-col sm:flex-row items-center sm:items-center gap-3 mt-4">
+            <span className="w-full md:w-40">
+
+              <SelectCityInput />
+            </span>
+            <CallNow />
           </div>
            {/* <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 mt-4 ">
           <WhatsaapButton className="w-full sm:w-auto bg-(--primary-bg-color) rounded-md text-white">Call Now</WhatsaapButton>

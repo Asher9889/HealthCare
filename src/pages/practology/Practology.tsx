@@ -6,6 +6,8 @@ import AboutPracto from "./about-practology/AboutPracto";
 import TreatmentSteps from "./treatment-step/TreatmentSteps";
 import Accordian from "./accordian/Accordian";
 import StatsBar from "../home/StatusBar/StatsBar";
+import ProctoAllTreatment from "../practology/procto-all-treatment/ProctoAllTreatment";
+
 
 const Practology = () => {
 
@@ -56,11 +58,11 @@ const Practology = () => {
                     {/* </div> */}
                     {/* </div> */}
                     <div className="px-4">
-
                         <AppointFormWithNoReason />
                     </div>
                 </div>
                 <TopCities />
+                <ProctoAllTreatment />
                 <div className="w-full bg-white py-20 px-4">
                     <Heading text1="FAQ's" />
                     <Accordian />
