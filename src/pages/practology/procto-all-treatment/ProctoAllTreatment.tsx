@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Phone, Calendar, ChevronDown } from "lucide-react"
+import { Calendar, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AppointForm, CallNow, Heading } from "@/components"
 
@@ -91,12 +91,12 @@ export default function ProctologyTreatments() {
           <li>PAN-India hospital & clinic network</li>
           <li>24x7 patient support</li>
         </ul>
-        <Button
-          size="lg"
-          className="mt-4 bg-gradient-to-r from-primary to-purple-600 text-white"
-        >
-          <Phone className="w-5 h-5 mr-2" /> Call us: 9211930749
-        </Button>
+        
+        <div className="pt-3">
+
+          <CallNow />
+        </div>
+        
       </Section>
 
       {/* Conditions */}
