@@ -14,7 +14,7 @@ const Practology = () => {
 
 
     const heroContent = {
-        title: "H1 - Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care",
+        title: "Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care",
         description: "Advanced laser-assisted treatments for fast recovery and minimal pain",
         // subtitle: "– ",
         button1Text: "Book Free Consultation",
