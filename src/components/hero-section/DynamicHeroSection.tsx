@@ -34,7 +34,7 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
             </p>
           )}
 
-          {/* Buttons */}
+          {/* Book Consultation  */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center md:items-start">
             <WhatsaapButton className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center"
               aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
@@ -47,9 +47,9 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
           )}
             {/* <Button className="w-full h-10 sm:w-auto bg-blue-600 hover:bg-blue-700 text-white">
              
-            </Button> */}
+            </Whatsapp Expert Button> */}
             <WhatsaapButton className="w-full sm:w-auto bg-green-500 hover:bg-green-600 rounded-md text-white"
-              onClick={() => (window.location.href = "tel:+9211930749")}
+              onClick={() => window.open("https://wa.me/919211930749", "_blank")}
             >
               {heroContent.button2Text}
             </WhatsaapButton>
@@ -57,7 +57,7 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
 
           {/* City + Phone */}
           <div className="w-full flex flex-col sm:flex-row items-center sm:items-center gap-3 mt-4">
-            <span className="w-full md:w-40">
+            <span className="w-full h-fit md:w-40 mb-3">
 
               <SelectCityInput />
             </span>

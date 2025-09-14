@@ -49,16 +49,15 @@ const Practology = () => {
                     <div className="text-center">
                         <Heading text1="Our Proctology" text2="Specialists" />
                     </div>
-                    {/* <div className="flex justify-center items-center gap-10">
-                        <div className="flex flex-1"> */}
-                    <Doctors3DGrid />
-                    {/* </div>
-                        <div className="flex-1"> */}
+                    <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+                        <Doctors3DGrid />
+                        <span className="px-6">
+                            <AppointFormWithNoReason />
+                        </span>
+                    </div>
 
-                    {/* </div> */}
-                    {/* </div> */}
                     <div className="px-4">
-                        <AppointFormWithNoReason />
+
                     </div>
                 </div>
                 <TopCities />
@@ -68,7 +67,7 @@ const Practology = () => {
                     <Accordian />
                 </div>
                 <ContactSection />
-            <Footer />
+                <Footer />
             </div>
         </>
     )

@@ -11,7 +11,7 @@ interface SelectCityInputProps {
 const SelectCityInput = ({ value, onChange }: SelectCityInputProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-full py-5 mb-3">
+      <SelectTrigger className="w-full py-5">
         <SelectValue placeholder="Select City" />
       </SelectTrigger>
       <SelectContent>

@@ -145,22 +145,22 @@ export default function ProctologyTreatments() {
 
       {/* CTA */}
       <motion.div
-        className="flex flex-col items-center gap-3 p-6 bg-gradient-to-r from-orange-500 to-purple-600 text-white rounded-xl shadow-lg"
+        className="flex flex-col items-center gap-3 p-6 bg-(--dark-blue-color) text-white rounded-xl shadow-lg"
       >
         <h2 className="text-2xl font-bold">Book Your Appointment</h2>
         <p>Don’t wait — take the first step towards a pain-free life.</p>
-        <div className="flex gap-3">
-          <Button size="lg" className="bg-white text-primary font-semibold hover:text-white hover:bg-(--primary-bg-color) transition-all duration-300"
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-3">
+          <Button size="lg" className="border border-white rounded px-4 py-2 font-semibold hover:scale-[0.99]  transition text-sm md:text-base  bg-(--dark-blue-color) disabled:opacity-50 disabled:pointer-events-none"
             aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
             onClick={() => setAppointmentOpen(true)}
           >
 
-            <Calendar className="w-5 h-5 mr-2" /> Book Online
+            <Calendar className="w-5 h-5 mr-2" /> Book Free Appointment
           </Button>
+          <CallNow />
           {appointmentOpen && (
             <AppointForm />
           )}
-          <CallNow />
         </div>
       </motion.div>
     </div>
