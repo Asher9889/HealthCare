@@ -1,5 +1,5 @@
 import { FaPhoneAlt } from "react-icons/fa";
-import { ContactSection, Footer, Header, HeroSection, SEO } from "../../components";
+import { ContactSection,  HeroSection, SEO } from "../../components";
 import AboutPureCheckup from "./AboutPureCheckup/AboutPureCheckup";
 import FaqSection from "./FaqSection/FaqSection";
 import PatientReviews from "./PatientReviews/PatientReviews";
@@ -19,7 +19,6 @@ const Home = () => {
                page="home"
             />
 
-            <Header />
             <HeroSection />
             <Specialities />
             <StatsBar />
@@ -45,7 +44,6 @@ const Home = () => {
             <WhyChoose />
             <FaqSection />
             <ContactSection />
-            <Footer />
         </div>
     )
 }

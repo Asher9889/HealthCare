@@ -12,7 +12,7 @@ interface HeroProps {
   button2Text: string
   city: string
   phone: string
-  imageUrl: string
+  imageUrl?: string
 }
 
 export default function DynamicHeroSection({ heroContent }: { heroContent: HeroProps }) {
@@ -24,14 +24,14 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
 
         {/* Left Side Content */}
         <CardContent className="p-6 md:p-8 flex flex-col justify-center flex-2 space-y-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center md:text-left">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 text-center md:text-left">
             {heroContent.title}
-          </h2>
+          </h1>
 
           {heroContent.description && (
-            <p className="text-gray-600 text-center md:text-left">
+            <h2 className="text-gray-600 text-center md:text-left">
               {heroContent.description}
-            </p>
+            </h2>
           )}
 
           {/* Book Consultation  */}

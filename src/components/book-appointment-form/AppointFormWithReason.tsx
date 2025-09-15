@@ -50,7 +50,7 @@ const AppointFormWithNoReason = () => {
   }
 
   return (
-    <div className="mx-auto flex-1 flex justify-center items-center pt-10">
+    <div className="mx-auto flex-1 flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"

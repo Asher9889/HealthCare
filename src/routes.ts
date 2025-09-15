@@ -9,7 +9,7 @@ import {
   Building2,
 } from "lucide-react";
 import { PageNotFound } from "./components";
-import { Practology } from "./pages";
+import { Laparoscopy, Practology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 // const PilesPage = lazy(() => import("./pages/proctology/PilesPage"));
@@ -51,6 +51,7 @@ export const navItems = [
   {
     name: "Laproscopy",
     path: "/c/laproscopy",
+    element: Laparoscopy,
     icon: Microscope,
     children: [
       { label: "Hernia Surgery", path: "/treatment/hernia", element: PageNotFound },

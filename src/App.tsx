@@ -3,7 +3,7 @@ import './App.css'
 import Home from './pages/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import routes from './routes';
-import { ContactUsFloating, PageNotFound } from './components';
+import { ContactUsFloating, Footer, Header, PageNotFound } from './components';
 import { Toaster } from 'sonner';
 
 async function loadPreline() {
@@ -38,6 +38,7 @@ function App() {
 
   return (
     <div className=''>
+      <Header />
       <Toaster richColors position="top-center" closeButton expand={true} />
       <ContactUsFloating />
       <Routes>
@@ -55,6 +56,7 @@ function App() {
         {/* Catch-all route */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

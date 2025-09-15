@@ -54,40 +54,40 @@ export default function Doctors3DGrid() {
       const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
   
   return (
-    <section className="px-6">
+    <section className="">
       <div>
         {/* Left side */}
         <div className="">   {/* grid sm:grid-cols-2 lg:grid-cols-4 */}
           {doctors.map((doc, index) => (
             <CardContainer key={index} className="inter-var w-80">
-              <CardBody className="bg-white relative group/card w-full h-auto  shadow-sm hover:shadow-2xl transition-all duration-300">
+              <CardBody className="bg-white relative group/card w-full   shadow-sm hover:shadow-2xl transition-all duration-300">
                 {/* Doctor Image */}
                 <CardItem  className="w-full">
                   <img
                     src={doc.image}
                     alt={doc.name}
-                    className="h-fit w-full object-cover group-hover/card:shadow-xl"
+                    className="h-48 rounded-xl hover:shadow-2xl  mx-auto object-contain group-hover/card:shadow-xl"
                   />
                 </CardItem>
 
                 {/* Name + Role */}
                 <CardItem
                   translateZ="50"
-                  className="text-2xl font-bold lg:font-semibold text-gray-800 mt-4 px-6"
+                  className="text-xl font-bold  text-gray-800 mt-4 px-6"
                 >
                   {doc.name}
                 </CardItem>
                 <CardItem
                   translateZ="40"
                   as="p"
-                  className="font-medium text-lg text-gray-600 px-6"
+                  className="font-medium text-md text-gray-600 px-6"
                 >
                   {doc.designation} • {doc.experience}
                 </CardItem>
                 { doc.phone && <CardItem
                   translateZ="40"
                   as="p"
-                  className="font-medium text-lg text-gray-600 px-6"
+                  className="font-medium text-md text-gray-600 px-6"
                 >
                   Phone: {doc.phone}
                 </CardItem>}
@@ -95,7 +95,7 @@ export default function Doctors3DGrid() {
                 {doc.clients && <CardItem
                   translateZ="40"
                   as="p"
-                  className="font-medium text-lg text-gray-600 px-6"
+                  className="font-medium text-md text-gray-600 px-6"
                 >
                  Happy Patients: {doc.clients}
                 </CardItem>}

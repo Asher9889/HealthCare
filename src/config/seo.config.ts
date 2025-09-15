@@ -9,6 +9,7 @@
 // };
 
 
+
 // src/config/seoData.ts
 export const seoData = {
     default: {
@@ -20,6 +21,13 @@ export const seoData = {
         canonical: "https://purecheckup.com/",
         ogImage: "https://purecheckup.com/assets/seo/default-og-image.jpg",
     },
+    laparoscopy: {
+        title: "Laparoscopy Care @9211930749 | PureCheckup",
+        description: "Advanced Laparoscopy treatments at PureCheckup—Gallstones, Hernia, Appendicitis & more. Safe, expert care with top surgeons. Call @9211930749 now!",
+        keywords: "laparoscopy surgery, gallstones laparoscopic surgery, hernia laparoscopic surgery, appendicitis laparoscopic treatment, laparoscopic surgeon near me, advanced laparoscopy care, minimally invasive surgery , laparoscopic treatment cost, safe laparoscopic procedures,no-cost EMI laparoscopy							",
+        canonical: "https://purecheckup.com/c/laparoscopy",
+    },
+
     home: {
 
         title: "Expert Surgical Treatments @9211930749 | PureCheckup",
