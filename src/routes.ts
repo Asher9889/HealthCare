@@ -9,9 +9,11 @@ import {
   Building2,
 } from "lucide-react";
 import { PageNotFound } from "./components";
-import { Laparoscopy, Practology } from "./pages";
+import { lazy } from "react";
 
 // Lazy load your pages (replace these with actual components)
+const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
+const Practology = lazy(() => import("./pages/practology/Practology"));
 // const PilesPage = lazy(() => import("./pages/proctology/PilesPage"));
 // const FistulaPage = lazy(() => import("./pages/proctology/FistulaPage"));
 // const FissurePage = lazy(() => import("./pages/proctology/FissurePage"));

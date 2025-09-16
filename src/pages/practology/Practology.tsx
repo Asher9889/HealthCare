@@ -55,14 +55,9 @@ const Practology = () => {
                             <AppointFormWithNoReason />
                         </span>
                     </div>
-
-                    <div className="px-4">
-
-                    </div>
                 </div>
                 <TopCities />
                 <section className="pb-20">
-
                     <ProctoAllTreatment />
                 </section>
                 <div className="w-full bg-white py-20 px-4">

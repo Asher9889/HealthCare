@@ -1,8 +1,11 @@
 import { laproscopy } from "@/assets";
-import { DynamicHeroSection, SEO, WhyPureCheckup } from "@/components"
+import { DynamicHeroSection, Heading, SEO, WhyPureCheckup } from "@/components"
 import WhyChoose from "./why-choose/WhyChoose";
 import StatsBar from "../home/StatusBar/StatsBar";
 import TreatmentSteps from "../practology/treatment-step/TreatmentSteps";
+import WhyChooseUs from "./why-laparoscopy/WhyLaparoscope";
+import FAQ from "./faq/FAQ";
+import LaparoscopySection from "./laparoscopy-section/LaparoScopySection";
 
 const Laparoscopy = () =>{
     const heroContent = {
@@ -24,12 +27,23 @@ const Laparoscopy = () =>{
                 <section className="py-20">
                     <WhyChoose />
                 </section>
+                <section className="py-20">  
+                    <WhyChooseUs />
+                </section>
                 <StatsBar />
                 <section className="py-20">
                     <WhyPureCheckup />
                 </section>
                 <section className="py-20">
                     <TreatmentSteps />
+                </section>
+
+                <section  className="w-full bg-white py-20 px-4">
+                    <Heading text1="FAQ's" />
+                    <FAQ />
+                </section>
+                <section>
+                    <LaparoscopySection />
                 </section>
             </div>
         </>
