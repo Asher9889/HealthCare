@@ -1,5 +1,5 @@
 import { astheticImg } from "@/assets"
-import { AboutSection, BookAppointMentPageView, DynamicHeroSection, Heading, TopCities } from "@/components"
+import { AboutSection, BookAppointMentPageView, DynamicHeroSection, Heading, SEO, TopCities } from "@/components"
 import Treatment from "./Treatment/Treatment"
 import StatsBar from "../home/StatusBar/StatsBar"
 import FeatureSection from "@/components/FeatureSection/FeatureSection"
@@ -90,6 +90,7 @@ const surgeryFeatures = [
 const Asthetic = () => {
     return (
         <>
+            <SEO page="aesthetic"/>
             <DynamicHeroSection heroContent={heroContent}/>
             <section className="py-20">
                 <Treatment />

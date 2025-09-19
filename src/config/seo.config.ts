@@ -21,13 +21,6 @@ export const seoData = {
         canonical: "https://purecheckup.com/",
         ogImage: "https://purecheckup.com/assets/seo/default-og-image.jpg",
     },
-    laparoscopy: {
-        title: "Laparoscopy Care @9211930749 | PureCheckup",
-        description: "Advanced Laparoscopy treatments at PureCheckup—Gallstones, Hernia, Appendicitis & more. Safe, expert care with top surgeons. Call @9211930749 now!",
-        keywords: "laparoscopy surgery, gallstones laparoscopic surgery, hernia laparoscopic surgery, appendicitis laparoscopic treatment, laparoscopic surgeon near me, advanced laparoscopy care, minimally invasive surgery , laparoscopic treatment cost, safe laparoscopic procedures,no-cost EMI laparoscopy							",
-        canonical: "https://purecheckup.com/c/laparoscopy",
-    },
-
     home: {
 
         title: "Expert Surgical Treatments @9211930749 | PureCheckup",
@@ -37,7 +30,12 @@ export const seoData = {
             "free doctor consultation, advanced surgical treatment, proctology treatment, urology specialist, gynecology treatment, affordable surgery with insurance, cost of laser surgery for piles, Proctology treatment, laparoscopy surgery, urology specialist, gynecology treatment, aesthetic & plastic surgery, advanced surgical treatments",
         canonical: "https://purecheckup.com/",
     },
-
+    laparoscopy: {
+        title: "Laparoscopy Care @9211930749 | PureCheckup",
+        description: "Advanced Laparoscopy treatments at PureCheckup—Gallstones, Hernia, Appendicitis & more. Safe, expert care with top surgeons. Call @9211930749 now!",
+        keywords: "laparoscopy surgery, gallstones laparoscopic surgery, hernia laparoscopic surgery, appendicitis laparoscopic treatment, laparoscopic surgeon near me, advanced laparoscopy care, minimally invasive surgery , laparoscopic treatment cost, safe laparoscopic procedures,no-cost EMI laparoscopy							",
+        canonical: "https://purecheckup.com/c/laparoscopy",
+    },
     proctology: {
         title: "Proctology Care @9211930749 | PureCheckup",
         description:
@@ -46,6 +44,31 @@ export const seoData = {
             "proctology treatment near me , piles treatment near me, laser surgery for fissure, No Cost EMI Proctology, pilonidal sinus surgery, best piles clinic in jaipur",
         canonical: "https://purecheckup.com/c/proctolgy",
     },
+    urology: {
+        title: "Book Free Urology Consult @9211930749 | PureCheckup",
+        description:
+            "Expert Urology care at PureCheckup – Kidney stones, Prostate & Urinary disorders treated safely with top surgeons. Call @9211930749 for consultation today!",
+        keywords:
+            "urology treatment, kidney stone treatment, prostate treatment, urinary disorder specialist, urology doctor, laser kidney stone surgery, no Cost EMI urology, best urology clinic, erectile dysfunction treatment, urinary incontinence treatment",
+        canonical: "https://purecheckup.com/c/proctolgy",
+    },
+    gynaecology: {
+        title: "Free Gynaecology Consult with Expert @9211930749 | PureCheckup",
+        description:
+            "Get Free Expert Gynaecology & Women’s Health care at PureCheckup – PCOD, Fibroids, Hysterectomy & advanced treatments. Call @9211930749 | PureCheckup ",
+        keywords:
+            "gynaecology treatment, women’s health specialist, PCOD treatment, fibroids surgery, hysterectomy doctor, best gynecology clinic near me, infertility treatment, no Cost EMI gynaecology, laparoscopy for women’s health, pregnancy & childbirth specialist",
+        canonical: "https://purecheckup.com/c/proctolgy",
+    },
+    aesthetic: {
+        title: "Get Expert Aesthetic & Cosmetic Care @9211930749 | PureCheckup",
+        description:
+            "Transform your look with expert aesthetic and cosmetic treatments at PureCheckup—safe, advanced procedures with top doctors. Call @9211930749 today.",
+        keywords:
+            "aesthetic surgery, cosmetic surgery, laser skin treatment, hair transplant surgery, liposuction treatment, best cosmetic clinic near me, non-surgical aesthetic procedures, skin tightening and rejuvenation, body contouring surgery, affordable aesthetics with EMI",
+        canonical: "https://purecheckup.com/c/proctolgy",
+    },
+
 
     piles: {
         title: "Piles Treatment & Laser Care @9211930749 | PureCheckup",

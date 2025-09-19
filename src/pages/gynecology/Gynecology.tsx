@@ -1,5 +1,5 @@
 import { gynoImg } from "@/assets";
-import { AboutSection, BookAppointMentPageView, DynamicHeroSection, Heading, TopCities } from "@/components";
+import { AboutSection, BookAppointMentPageView, DynamicHeroSection, Heading, SEO, TopCities } from "@/components";
 import Treatment from "./Treatment/Treatment";
 import StatsBar from "../home/StatusBar/StatsBar";
 import FeatureSection from "@/components/FeatureSection/FeatureSection";
@@ -104,6 +104,7 @@ export const gynaeFeatures = [
 const Gynecology = () => {
     return (
         <>
+        <SEO page="gynaecology"/>
             <DynamicHeroSection heroContent={heroContent} />
             <section className="py-20">
                 <Treatment />

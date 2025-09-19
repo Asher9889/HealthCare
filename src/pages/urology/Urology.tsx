@@ -4,6 +4,7 @@ import {
     AppointFormWithNoReason,
     Doctors3DGrid,
     DynamicHeroSection,
+    SEO,
     TopCities,
     // SEO 
 } from "@/components"
@@ -111,6 +112,7 @@ const Urology = () => {
     return (
         <>
             {/* <SEO page="urology" /> */}
+            <SEO page="urology"/>
             <DynamicHeroSection heroContent={heroContent} />
             <section className="py-20">
                 <WhyChoose />
