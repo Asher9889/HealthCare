@@ -10,9 +10,6 @@ import ProctoAllTreatment from "../practology/procto-all-treatment/ProctoAllTrea
 
 
 const Practology = () => {
-
-
-
     const heroContent = {
         title: "Leading Proctology Treatment Center in India – Piles, Fissure, Fistula Care",
         description: "Advanced laser-assisted treatments for fast recovery and minimal pain",

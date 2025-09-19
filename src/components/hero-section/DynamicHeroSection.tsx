@@ -36,19 +36,19 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
 
           {/* Book Consultation  */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center md:items-start">
-            <WhatsaapButton className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center"
+            <button className="px-4  py-2 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center"
               aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
 
             >
               {heroContent.button1Text}
-            </WhatsaapButton>
+            </button>
             {appointmentOpen && (
             <AppointForm />
           )}
             {/* <Button className="w-full h-10 sm:w-auto bg-blue-600 hover:bg-blue-700 text-white">
              
             </Whatsapp Expert Button> */}
-            <WhatsaapButton className="w-full sm:w-auto bg-green-500 hover:bg-green-600 rounded-md text-white"
+            <WhatsaapButton className="w-full sm:w-auto py-2 bg-green-500 hover:bg-green-600 rounded-md text-white"
               onClick={() => window.open("https://wa.me/919211930749", "_blank")}
             >
               {heroContent.button2Text}

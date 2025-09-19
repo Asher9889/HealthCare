@@ -1,5 +1,5 @@
 import { laproscopy } from "@/assets";
-import { AboutSection, DynamicHeroSection, Heading, SEO, TopCities } from "@/components"
+import { AboutSection, AppointFormWithNoReason, Doctors3DGrid, DynamicHeroSection, Heading, SEO, TopCities } from "@/components"
 import WhyChoose from "./why-choose/WhyChoose";
 import StatsBar from "../home/StatusBar/StatsBar";
 import TreatmentSteps from "../practology/treatment-step/TreatmentSteps";
@@ -117,6 +117,17 @@ const Laparoscopy = () => {
                 <section className="py-20">
                     <TreatmentSteps />
                 </section>
+                <div className="py-20">
+                    <div className="text-center">
+                        <Heading text1="Our Laparoscopy" text2="Specialists" />
+                    </div>
+                    <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+                        <Doctors3DGrid />
+                        <span className="px-6">
+                            <AppointFormWithNoReason />
+                        </span>
+                    </div>
+                </div>
                 <TopCities />
                 <section className="py-20">
                     <LaparoscopySection />
