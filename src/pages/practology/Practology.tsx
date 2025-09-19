@@ -1,4 +1,4 @@
-import { AppointFormWithNoReason, ContactSection, Doctors3DGrid, DynamicHeroSection, Heading, SEO, TopCities, WhyPureCheckup } from "@/components";
+import { AppointFormWithNoReason, Doctors3DGrid, DynamicHeroSection, Heading, SEO, TopCities, WhyPureCheckup } from "@/components";
 // import { HeroSectionOne } from "./home-page/HeroSectionOne"
 import { practoHero } from "@/assets";
 import Treatment from "./treatment/Treatment";
