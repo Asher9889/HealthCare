@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
+import { Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -65,6 +66,7 @@ export const navItems = [
   {
     name: "Urology",
     path: "/c/urology",
+    element: Urology,
     icon: HeartPulse,
     children: [
       { label: "Circumcision", path: "/treatment/circumcision", element: PageNotFound },
@@ -133,16 +135,16 @@ export const navItems = [
     ],
   },
 
-  {
-    name: "Footer",
-    icon: Building2,
-    // element: PageNotFound, // Replace with Company component
-    children: [
-      { label: "Surgery", path: "/c/surgery", element: PageNotFound },
-      { label: "Laser Surgery", path: "/surgery/laser-surgery", element: PageNotFound },
-      { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: PageNotFound },
-    ],
-  },
+  // {
+  //   name: "Footer",
+  //   icon: Building2,
+  //   // element: PageNotFound, // Replace with Company component
+  //   children: [
+  //     { label: "Surgery", path: "/c/surgery", element: PageNotFound },
+  //     { label: "Laser Surgery", path: "/surgery/laser-surgery", element: PageNotFound },
+  //     { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: PageNotFound },
+  //   ],
+  // },
 ];
 
 // ---------------- FLATTEN INTO ROUTES ----------------

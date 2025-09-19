@@ -3,7 +3,7 @@ import './App.css'
 import Home from './pages/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import routes from './routes';
-import { ContactUsFloating, Footer, Header, PageNotFound } from './components';
+import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound } from './components';
 import { Toaster } from 'sonner';
 
 async function loadPreline() {
@@ -56,6 +56,7 @@ function App() {
         {/* Catch-all route */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <ContactSection />
       <Footer />
     </div>
   )

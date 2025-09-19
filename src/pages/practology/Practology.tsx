@@ -64,7 +64,6 @@ const Practology = () => {
                     <Heading text1="FAQ's" />
                     <Accordian />
                 </div>
-                <ContactSection />
                
             </div>
         </>
