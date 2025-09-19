@@ -10,7 +10,7 @@ import {
 interface FeatureItem {
   quote: string;
   name: string;
-  icon: React.ElementType; // lucide-react icons
+  icon: React.ElementType | string; // lucide-react icons
 }
 
 interface FeatureSectionProps {
@@ -39,7 +39,12 @@ export default function FeatureSection({
               >
                 <CardHeader className="flex flex-row items-center gap-3">
                   <div className="p-3 rounded-full bg-blue-100 text-blue-600">
-                    <Icon className="w-6 h-6" />
+                    {typeof Icon === "string" ? (
+                      <img src={Icon} alt={item.quote} className="w-6 h-6" />
+                    ) : (
+                      <Icon className="w-6 h-6" />
+                    )}
+
                   </div>
                   <CardTitle className="text-lg font-semibold">
                     {item.quote}

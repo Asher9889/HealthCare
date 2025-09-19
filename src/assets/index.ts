@@ -5,5 +5,7 @@ import cms from "./cms.png";
 import wtsp from "./whatsapp.svg"
 import laproscopy from "./laproscopy/laproscopy.webp";
 import urologyImg from "./urology/urology.webp"
-import gynoImg from "./gyno/gyno.webp"
-export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg }
+import gynoImg from "./gyno/gyno.webp";
+import astheticImg from "./asthetic/asthetic.webp";
+
+export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg }

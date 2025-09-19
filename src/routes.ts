@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { Gynecology, Urology } from "./pages";
+import { Asthetic, Gynecology, Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -102,6 +102,7 @@ export const navItems = [
     name: "Aesthetics",
     path: "/c/aesthetics/",
     icon: Sparkles,
+    element: Asthetic,
     children: [
       { label: "Plastic Surgeries", path: "/aesthetics/plastic-surgeries", element: PageNotFound  },
       { label: "Cosmetic Surgery", path: "/aesthetics/cosmetic-surgery", element: PageNotFound  },

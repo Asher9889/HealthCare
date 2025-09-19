@@ -11,7 +11,7 @@ const doctors = [
   {
     name: "Dr. Tanmay Jain",
     designation: "Specialist- Piles",
-    experience: "20+ yrs",
+    experience: "18+ yrs",
     phone: "9211930749",
     clients: "1,00,000+",
     image: tanmay,
