@@ -12,9 +12,7 @@ type CtaBannerProps = {
 export default function CtaBanner({
   title,
   subtitle,
-  buttonText,
   phone,
-  onButtonClick,
 }: CtaBannerProps) {
   return (
     <div className="w-full max-w-7xl mx-auto bg-(--dark-blue-color) rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 p-4 md:p-6">

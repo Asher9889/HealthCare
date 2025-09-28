@@ -4,7 +4,11 @@ import { Checkbox, Input, Label, Spinner, Textarea } from "../ui";
 import { toast } from "sonner";
 
 const uri = import.meta.env.VITE_API_BASE_URL;
-const AppointForm = ({setOpen}: {setOpen: (open:boolean) => void}) => {
+
+type AppointFormProps = {
+    setOpen?: (open: boolean) => void;
+  };
+const AppointForm = ({setOpen}: AppointFormProps) => {
     const [formData, setFormData] = useState({
         fullName: "",
         mobileNumber: "",
@@ -88,7 +92,7 @@ const AppointForm = ({setOpen}: {setOpen: (open:boolean) => void}) => {
         } catch (err) {
             console.error("❌ API Error:", err);
         } finally {
-            setOpen(false)
+            setOpen?.(false)
             setIsLoading(false);
         }
 
@@ -124,7 +128,7 @@ const AppointForm = ({setOpen}: {setOpen: (open:boolean) => void}) => {
                                 aria-label="Close"
                                 data-hs-overlay="#hs-slide-down-animation-modal"
                             >
-                                <span onClick={() => setOpen(false)} className="sr-only">Close</span>
+                                <span onClick={() => setOpen?.(false)} className="sr-only">Close</span>
                                 <svg
                                     className="shrink-0 size-6"
                                     xmlns="http://www.w3.org/2000/svg"

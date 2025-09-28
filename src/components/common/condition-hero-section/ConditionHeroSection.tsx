@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import ConditionTreatmentForm from "@/components/condition-treatment-from/ConditionTreatmentForm";
 import BookNowButton from "@/components/book-now-button/BookNowButton";
 import CallNow from "@/components/call-now/CallNow";
@@ -18,7 +17,6 @@ const ConditionHeroSection = ({
   title,
   description,
   primaryBtn,
-  secondaryBtn,
   features,
   cities,
   consultations =["Clinic", "Online"],
