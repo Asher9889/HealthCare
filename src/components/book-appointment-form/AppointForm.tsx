@@ -3,7 +3,7 @@ import DiseasesInput from "../diseases/DiseasesInput";
 import { Checkbox, Input, Label, Spinner, Textarea } from "../ui";
 import { toast } from "sonner";
 
-const uri = import.meta.env.VITE_API_BASE_URL
+const uri = import.meta.env.VITE_API_BASE_URL;
 const AppointForm = () => {
     const [formData, setFormData] = useState({
         fullName: "",
@@ -40,7 +40,28 @@ const AppointForm = () => {
     };
 
     const handleSubmit = async (e:any) => {
+        console.log("clicked")
         e.preventDefault();
+        // ✅ Basic Validations
+        if (!formData.fullName || formData.fullName.trim().length < 4) {
+            return toast.error("Full Name should be at least 4 characters.");
+        }
+
+        if (!formData.mobileNumber) {
+            return toast.error("Mobile Number is required.");
+        }
+        if (!/^[0-9]{10}$/.test(formData.mobileNumber)) {
+            return toast.error("Mobile Number must be exactly 10 digits.");
+        }
+
+        if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            return toast.error("Enter a valid email address.");
+        }
+
+        if (!formData.healthConcern) {
+            return toast.error("Please select your health concern.");
+        }
+
         setIsLoading(true);
         if (isloading) return;
 
@@ -130,6 +151,9 @@ const AppointForm = () => {
                                 </Label>
                                 <Input
                                     id="fullName"
+                                    required
+                                    minLength={4}
+                                    title="Name should be minimum 4 character."
                                     placeholder="Enter your full name"
                                     value={formData.fullName}
                                     onChange={handleChange}

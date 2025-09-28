@@ -28,7 +28,8 @@ import AboutSection from "./AboutSection/AboutSection";
 import BookAppointMentPageView from "./BookAppointmentPageView/BookAppointMentPageView";
 import ConditionHeroSection from "./common/condition-hero-section/ConditionHeroSection";
 import TreatmentBenefits from "./common/treatment-benefits/TreatmentBenefits";
+import StatsBar from "./StatusBar/StatsBar";
 
 export {
-    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits
+    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar
 }

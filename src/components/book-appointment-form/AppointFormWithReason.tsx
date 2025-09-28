@@ -61,6 +61,7 @@ const AppointFormWithNoReason = () => {
 
         <input
           type="text"
+          minLength={4}
           required
           placeholder="Patient Name"
           value={formData.fullName}
@@ -70,8 +71,11 @@ const AppointFormWithNoReason = () => {
 
         <input
           type="tel"
+          minLength={10}
           required
           placeholder="Mobile Number"
+          pattern="[0-9]{10}"
+          title="Phone number must be 10 digits"
           value={formData.mobileNumber}
           onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
           className="border border-gray-300 rounded-md px-3 py-2 w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"

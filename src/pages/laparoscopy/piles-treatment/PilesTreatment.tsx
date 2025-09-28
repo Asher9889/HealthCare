@@ -1,4 +1,4 @@
-import { ConditionHeroSection, Heading, TreatmentBenefits } from "@/components"
+import { ConditionHeroSection, Heading, StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones } from "lucide-react";
 
 const PilesTreatment = () => {
@@ -44,6 +44,7 @@ const PilesTreatment = () => {
                 <Heading text1="Quick" text2="Benefits" />
                 <TreatmentBenefits benefits={benefits} />
             </section>
+            <StatsBar />
         </>
     )
 }
