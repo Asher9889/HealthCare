@@ -1,5 +1,5 @@
 import Practology from "./practology/Practology";
-import PilesTreatment from "./laparoscopy/piles-treatment/PilesTreatment";
+import PilesTreatment from "./practology/piles-treatment/PilesTreatment";
 
 import Asthetic from "./asthetic/Asthetic";
 import Gynecology from "./gynecology/Gynecology";
