@@ -78,9 +78,9 @@ const Sidebar = () => {
               data-hs-accordion-always-open
             >
               <ul className="space-y-1">
-                {navItems.map(({ name, icon: Icon, path, children }) =>
+                {navItems.map(({ name, icon: Icon, path, children }, index) =>
                   children ? (
-                    <li key={name} className="hs-accordion" id={`${name}-accordion`}>
+                    <li key={name + index} className="hs-accordion" id={`${name}-accordion`}>
                       <Link
                         to={path!!}
                          data-hs-overlay="#hs-sidebar-collapsible-group"

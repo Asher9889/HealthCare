@@ -13,6 +13,7 @@ interface TreatmentSectionProps {
   consultations?: string[];
 }
 
+
 const ConditionHeroSection = ({
   title,
   description,

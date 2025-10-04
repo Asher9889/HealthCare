@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Home from './pages/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
-import routes from './routes';
+import routes, { cityWiseRoutes } from './routes';
 import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound } from './components';
 import { Toaster } from 'sonner';
 
@@ -42,11 +42,22 @@ function App() {
       <Toaster richColors position="top-center" closeButton expand={true} />
       <ContactUsFloating />
       <Routes>
+        {/* Nav Bar routes */}
         {routes.map((r) => (
           <Route
             key={r.path}
             path={r.path}
             element={r.element ? <r.element /> : <PageNotFound />}
+          />
+        ))}
+        {/* City Wise routes */}
+        {cityWiseRoutes?.length > 0 && cityWiseRoutes.map((r, idx) => (
+            console.log("Processing route:", r.path),
+
+          <Route 
+            key={r?.path + idx}
+            path={r?.path}
+            element={r?.element ? <r.element /> : "gh"}         
           />
         ))}
 

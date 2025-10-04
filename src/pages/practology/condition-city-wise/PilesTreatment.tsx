@@ -2,8 +2,8 @@ import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentFor
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import PilesInfo from "./piles-info/PilesInfo";
-import FAQ from "./faq/FAQ";
+import PilesInfo from "./piles/common/piles-info/PilesInfo";
+import FAQ from "./piles/common/faq/FAQ";
 
 const PilesTreatment = () => {
   const benefits = [

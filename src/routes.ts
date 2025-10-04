@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { Asthetic, Gynecology, PilesTreatment, Urology } from "./pages";
+import { Asthetic, Gynecology, PilesInSpecialCity, PilesTreatment, Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -45,7 +45,6 @@ export const navItems = [
     children: [
       { label: "Piles Treatment", path: "/treatment/piles", element: PilesTreatment  },
       { label: "Fistula Treatment", path: "/treatment/fistula", element: PageNotFound },
-      { label: "Fissure Treatment", path: "/treatment/fissure", element: PageNotFound },
       { label: "Pilonidal Sinus Treatment", path: "/treatment/pilonidal-sinus", element: PageNotFound },
       { label: "Rectal Prolapse", path: "/treatment/rectal-prolapse", element: PageNotFound },
     ],
@@ -149,6 +148,18 @@ export const navItems = [
 ];
 
 // ---------------- FLATTEN INTO ROUTES ----------------
+/**
+ * const numbers = [1, 2, 3];
+
+const mapped = numbers.map(n => [n, n * 2]);
+console.log(mapped);
+// [[1, 2], [2, 4], [3, 6]]   <-- nested arrays
+
+const flatMapped = numbers.flatMap(n => [n, n * 2]);
+console.log(flatMapped);
+// [1, 2, 2, 4, 3, 6]         <-- flattened 1 level
+
+ */
 const routes = navItems.flatMap((item) => {
   const childRoutes = item.children?.map((child) => ({
     path: child.path,
@@ -164,4 +175,14 @@ const routes = navItems.flatMap((item) => {
 });
 
 
+
+const cityWiseRoutes = [
+  { path: "/treatment/piles/:city",  element: PilesInSpecialCity}
+];
+
+
+
+
+
 export default routes;
+export { cityWiseRoutes }
