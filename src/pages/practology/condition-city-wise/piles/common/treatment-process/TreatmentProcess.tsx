@@ -1,6 +1,5 @@
 import { Heading } from "@/components";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
