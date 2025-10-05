@@ -1,4 +1,4 @@
-import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
 import { useParams} from "react-router-dom";
 import { TreatmentCard } from "../common/treatment-card/TreatmentCard";
@@ -89,93 +89,108 @@ const benefits = [
 
 
 const PilesInSpecialCity = () => {
-    let { city} = useParams();
-    console.log("City from params:", city);
-    
-    // Capitalize first letter of city name
-    city = city && city.charAt(0).toUpperCase() + city.slice(1);
+  let { city} = useParams();
+  console.log("City from params:", city);
+  
+  // Capitalize first letter of city name
+  city = city && city.charAt(0).toUpperCase() + city.slice(1);
 
-    if (!city) {
-        return <div>Loading...</div>;
-}
+  if (!city) {
+    return <div>Loading...</div>;
+  }
 
 
 
-    return (
-        <div className="min-h-screen">
-            <ConditionHeroSection
-                title={`Piles Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
-                description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
-                primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now" }}
-                features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
-                cities={constantData.cities}
-                selectedCity={city}
-                consultations={["Clinic", "Online"]} 
-            />
-            <StatsBar />
-            <section className="py-20 mx-auto max-w-7xl">
-              <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-              {constantData.specialists.map((doc) => (
-                <SpecialistCard key={doc.id} specialist={doc} />
-              ))}
-            </section>
+  return (
+    <div className="min-h-screen">
+        <ConditionHeroSection
+            title={`Piles Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
+            description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
+            primaryBtn={{ label: "Book Free Consultation" }}
+            secondaryBtn={{ label: "Call Now" }}
+            features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
+            cities={constantData.cities}
+            selectedCity={city}
+            consultations={["Clinic", "Online"]} 
+        />
+        <StatsBar />
+        <section className="py-20 mx-auto max-w-7xl px-4">
+          <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
+          {constantData.specialists.map((doc) => (
+            <SpecialistCard key={doc.id} specialist={doc} />
+          ))}
+        </section>
 
-            <section className="px-4 py-8 max-w-7xl mx-auto">
-                <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {treatments.map((t, idx) => (
-                    <TreatmentCard
-                        key={idx}
-                        title={t.title}
-                        description={t.description}
-                        downtime={t.downtime}
-                    />
-                    ))}
-                </div>
-            </section>
-
-            <section className="max-w-7xl mx-auto px-4 py-20">
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {benefits.map((b, idx) => (
-                    <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
-                    ))}
-                </div>
-            </section>
-            <section className="py-20">
-              <Heading text1="Patient Stories" text2={city}/>
-              <AnimatedTestimonial testimonials={testimonials}/>
-            </section>
-            <TreatmentProcess />
-            <section className="pb-20">
-                <Heading text1="FAQs on Piles Surgery in" text2={city}/>
-                <FAQ city={city} />
-            </section>
-            
-            <section className="px-4">
-                <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-            </section>
-
-             <section className="py-20">
-                <ConditionCityWiseTreatment
-                treatmentName="Piles"
-                costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-                paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-                costFactors={[
-                    "Grade and type of piles",
-                    "Hospital category and room",
-                    "Insurance coverage and approvals",
-                    "Additional diagnostics if needed",
-                ]}
-                cities={constantData.cities}
-                mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                primaryButtonText="Get Free Cost Estimate Now"
-                secondaryButtonText="View Nearby Clinics"
+        <section className="px-4 py-8 max-w-7xl mx-auto">
+            <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {treatments.map((t, idx) => (
+                <TreatmentCard
+                    key={idx}
+                    title={t.title}
+                    description={t.description}
+                    downtime={t.downtime}
                 />
-            </section>
+                ))}
+            </div>
+        </section>
 
-        </div>
-    )
+        <section className="max-w-7xl mx-auto px-4 py-20">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {benefits.map((b, idx) => (
+                <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                ))}
+            </div>
+        </section>
+        <section className="">
+          <Heading text1="Patient Stories" text2={city}/>
+          <AnimatedTestimonial testimonials={testimonials}/>
+        </section>
+        <TreatmentProcess />
+        <section className="pb-20 px-4">
+            <Heading text1="FAQs on Piles Surgery in" text2={city}/>
+            <FAQ city={city} />
+        </section>
+        
+        <section className="px-4">
+            <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+        </section>
+
+        
+
+        <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Left Side Image */}
+            <div
+              className="hidden md:block bg-cover bg-center rounded-2xl"
+              style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+            />
+
+          <ConditionTreatmentForm selectedCity={city}  cities={constantData.cities}  />
+          </div>
+        </section>
+
+          <section className="py-20">
+            <ConditionCityWiseTreatment
+            treatmentName="Piles"
+            costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+            paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+            costFactors={[
+                "Grade and type of piles",
+                "Hospital category and room",
+                "Insurance coverage and approvals",
+                "Additional diagnostics if needed",
+            ]}
+            cities={constantData.cities}
+            mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+            primaryButtonText="Get Free Cost Estimate Now"
+            secondaryButtonText="View Nearby Clinics"
+            />
+        </section>
+
+    </div>
+  )
 }
 
 export default PilesInSpecialCity;

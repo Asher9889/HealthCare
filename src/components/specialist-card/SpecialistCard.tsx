@@ -8,7 +8,7 @@ type Specialist = {
   experience: string
   surgeries: string
   description: string
-  image: string
+  image: any
   appointmentLink?: string
   callLink?: string
 }

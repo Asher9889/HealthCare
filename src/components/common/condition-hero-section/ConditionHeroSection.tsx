@@ -38,8 +38,8 @@ const ConditionHeroSection = ({
         </h1>
         <p className="text-gray-600">{description}</p>
 
-        <div className="flex gap-3">
-          <BookNowButton text={primaryBtn.label} className="h-10 flex flex-row justify-center items-center"/>
+        <div className="flex gap-3 flex-col items-start lg:flex-row">
+          <BookNowButton text={primaryBtn.label} className="h-10 w-full md:w-fit flex flex-row justify-center items-center"/>
           <CallNow />
         </div>
 

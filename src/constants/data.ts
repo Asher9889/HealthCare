@@ -1,3 +1,5 @@
+import { tanmay } from "@/assets/index";
+
 const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
 
  const specialists = [
@@ -9,7 +11,7 @@ const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon"
       surgeries: "10,000+ Successful Surgeries",
       description:
         "Expert in laser treatments for Piles, Fissure, and Fistula. Known for a patient-first approach and compassionate care. Available at PureCheckUp for advanced proctology care.",
-      image: "https://cdn.pixabay.com/photo/2024/09/03/15/21/ai-generated-9019520_1280.png",
+      image: tanmay,
       appointmentLink: "/book-appointment",
       callLink: "tel:+919876543210",
     },

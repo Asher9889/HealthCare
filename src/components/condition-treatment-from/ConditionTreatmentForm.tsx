@@ -1,23 +1,26 @@
 import { motion } from "framer-motion"
-import { Button, Card, CardContent, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui"
+import { Button, Card, CardContent, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Spinner } from "../ui"
 import { Upload } from "lucide-react"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import PhoneInput from "../phone-input/PhoneInput";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ConditionTreatmentFormValidation } from "@/validation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
-const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", "Online"]}: {cities: string[], selectedCity:string, consultations?: string[]}) => {
+const uri = import.meta.env.VITE_API_BASE_URL;
+
+const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", "Online"]}: {cities: string[], selectedCity?:string, consultations?: string[]}) => {
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof ConditionTreatmentFormValidation>>({
     resolver: zodResolver(ConditionTreatmentFormValidation),
     defaultValues: {
       fullName: "",
-      phone: "",
+      mobileNumber: "",
       city: "",
-      consultation: "",
-      upload: undefined,
+      mode: "",
+      image: undefined,
     },
   });
 
@@ -27,9 +30,39 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
     }
   }, [selectedCity, form]);
 
-  const onSubmit = (data: z.infer<typeof ConditionTreatmentFormValidation>) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data: z.infer<typeof ConditionTreatmentFormValidation>) => {
+    try {
+      if(isLoading) return;
+      setIsLoading(true);
+      const formData = new FormData();
+    
+      // Append all form fields to FormData
+      Object.entries(data).forEach(([key, value]) => {
+        if (key === 'image' && value instanceof File) {
+          formData.append('image', value);
+        } else if (value !== undefined && value !== null) {
+          formData.append(key, value);
+        }
+      });
+  
+      const res = await fetch(`${uri}/user/condition/book-appointment`, {
+        method: "POST",
+        body: formData,
+      });
+      if(res.status !== 200){
+        return toast.error("Failed to book your appoint. Please try again after 1 minute.")
+      }
+
+      const result = await res.json();
+      toast.success(result.message);
+    } catch (error) {
+      console.error("❌ API Error:", error);
+      toast.error("Failed to book your appoint. Please try again after 1 minute.")
+    } finally {
+      form.reset();
+      setIsLoading(false);
+    }
+    
   };
 
   return (
@@ -60,22 +93,31 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
                     </FormItem>
                   )}
                 />
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem className="grid gap-2">
-                      <FormControl>
-                        <PhoneInput
-                          {...field}
-                          defaultCountry="IN"
-                          className="text-[var(--color-text-primary)]"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
+
+
+              <FormField
+                control={form.control}
+                name="mobileNumber"
+                render={({ field }) => (
+                  <FormItem className="grid gap-2">
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="tel"
+                        inputMode="numeric"        // opens numeric keypad on mobile
+                        placeholder="Enter your 10-digit phone number"
+                        onInput={(e) => {
+                          // restrict only to numbers while typing
+                          e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "");
+                          field.onChange(e); // update react-hook-form state
+                        }}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-sm text-red-500"/>
+                  </FormItem>
+                )}
+              />
+             
               </div>
 
               {/* City + Consultation */}
@@ -106,7 +148,7 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
 
                 <FormField
                   control={form.control}
-                  name="consultation"
+                  name="mode"
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
@@ -132,17 +174,21 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
               {/* Upload */}
               <FormField
                 control={form.control}
-                name="upload"
+                name="image"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="flex items-center gap-2 px-3 py-2 border rounded-md cursor-pointer text-gray-500 hover:bg-gray-50">
                       <Upload size={16} />
-                      <span>Tap to upload image</span>
+                      {!field.value && <span>Tap to upload image</span> }
+                     
                       <FormControl>
                         <input 
                           type="file" 
-                          className="hidden" 
-                          onChange={(e) => field.onChange(e.target.files?.[0])}
+                          // className={field.value ? "hidden" : ""} 
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            field.onChange(file);   // update react-hook-form state
+                          }} 
                         />
                       </FormControl>
                     </FormLabel>
@@ -161,9 +207,9 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
                 </Button>
                 <Button 
                   type="submit" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
+                  className="w-xs bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
                 >
-                  Submit & Get Callback
+                  {isLoading ? <Spinner  className="" /> : "Submit & Get Callback"}
                 </Button>
               </div>
             </CardContent>

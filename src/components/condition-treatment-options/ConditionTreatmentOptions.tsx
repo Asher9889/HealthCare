@@ -14,7 +14,7 @@ interface TreatmentOption {
 export default function ConditionTreatmentOptions({ treatmentOptions }: { treatmentOptions: TreatmentOption[] }) {
   return (
     <div className="px-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {treatmentOptions.map((option, index) => (
           <motion.div
             key={option.id}
@@ -23,7 +23,7 @@ export default function ConditionTreatmentOptions({ treatmentOptions }: { treatm
             transition={{ delay: index * 0.2 }}
           >
             <Card
-              className={`rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border-0 overflow-hidden relative ${
+              className={`rounded-2xl h-[280px] shadow-md hover:shadow-lg transition-shadow duration-300 border-0 overflow-hidden relative ${
                 option.highlight ? "ring-2 ring-blue-400" : ""
               }`}
             >

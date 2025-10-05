@@ -11,7 +11,7 @@ const SectionHeader = ({ title, subtitle }: { title: string; subtitle?: string }
 
 // ✅ Reusable List Card
 const InfoCard = ({ title, items }: { title: string; items: string[] }) => (
-  <Card className="p-4 w-lg">
+  <Card className="p-4 w-full lg:w-lg">
     <CardContent>
       <h3 className="text-md font-semibold text-gray-800 mb-2">{title}</h3>
       <ul className="list-disc list-inside text-gray-600 space-y-1">
@@ -53,7 +53,7 @@ export default function ConditionCityWiseTreatment({
   secondaryButtonText,
 }: TreatmentSectionProps) {
   return (
-    <div className="max-w-7xl mx-auto px-4 text-(--text-primary)">
+    <div className="max-w-7xl w-full mx-auto px-4 text-(--text-primary)">
       {/* Cost Section */}
       <div className="flex flex-col md:flex-row justify-between my-5 items-start md:items-center gap-6">
         <div>
@@ -64,8 +64,10 @@ export default function ConditionCityWiseTreatment({
           <Button className="mb-2 bg-(--orange-button-color) hover:bg-orange-600 ">{primaryButtonText}</Button>
           <p className="text-sm">{paymentOptions}</p>
         </div>
+        <div className="">
 
-        <InfoCard title="What affects cost?" items={costFactors} />
+         <InfoCard title="What affects cost?" items={costFactors} />
+        </div>
       </div>
 
       {/* Find Treatment Section */}

@@ -17,7 +17,6 @@ const AppointFormWithNoReason = () => {
 
    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form Data:", formData)
             setIsLoading(true);
         if (isloading) return;
 

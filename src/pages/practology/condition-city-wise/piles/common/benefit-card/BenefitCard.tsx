@@ -9,7 +9,7 @@ interface BenefitCardProps {
 export default function BenefitCard({ image, title, bgImage }: BenefitCardProps) {
   return (
     <Card
-      className="w-full max-w-xs rounded-xl shadow-sm border-0 overflow-hidden relative"
+      className="w-full rounded-xl shadow-sm border-0 overflow-hidden relative"
     >
       {/* Background Image */}
       <div
