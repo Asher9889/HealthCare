@@ -5,6 +5,7 @@ import { TreatmentCard } from "../common/treatment-card/TreatmentCard";
 import BenefitCard  from "../common/benefit-card/BenefitCard";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
 import FAQ from "./FAQ";
+import TreatmentProcess from "../common/treatment-process/TreatmentProcess";
 
 
 const treatments = [
@@ -35,6 +36,50 @@ const treatments = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "I was suffering from piles for years. After the treatment, my pain and bleeding stopped completely. I feel like I got my life back.",
+    name: "Ramesh Sharma",
+    designation: "Patient from Jaipur",
+    src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=3540&auto=format&fit=crop",
+    stars: 5,
+  },
+  {
+    quote:
+      "The doctors were very patient and explained everything in detail. The laser treatment was painless and I was able to return to work within two days.",
+    name: "Priya Verma",
+    designation: "Patient from Delhi",
+    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=3540&auto=format&fit=crop",
+    stars: 4.5,
+  },
+  {
+    quote:
+      "I was really scared before the procedure, but the staff made me comfortable. The recovery was quick and much easier than I expected.",
+    name: "Amit Patel",
+    designation: "Patient from Ahmedabad",
+    src: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=3540&auto=format&fit=crop",
+    stars: 4,
+  },
+  {
+    quote:
+      "I had tried many home remedies but nothing worked. After consulting here, my piles problem was solved without any complications.",
+    name: "Neha Gupta",
+    designation: "Patient from Lucknow",
+    src: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=3540&auto=format&fit=crop",
+    stars: 5,
+  },
+  {
+    quote:
+      "Excellent treatment and modern facilities. The doctor’s approach was very reassuring and I am completely cured now.",
+    name: "Vikram Singh",
+    designation: "Patient from Mumbai",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2592&auto=format&fit=crop",
+    stars: 5,
+  },
+];
+
+
 const benefits = [
   { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
   { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
@@ -52,7 +97,9 @@ const PilesInSpecialCity = () => {
 
     if (!city) {
         return <div>Loading...</div>;
-    }
+}
+
+
 
     return (
         <div className="min-h-screen">
@@ -63,6 +110,7 @@ const PilesInSpecialCity = () => {
                 secondaryBtn={{ label: "Call Now" }}
                 features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
                 cities={constantData.cities}
+                selectedCity={city}
                 consultations={["Clinic", "Online"]} 
             />
             <StatsBar />
@@ -95,9 +143,10 @@ const PilesInSpecialCity = () => {
                 </div>
             </section>
             <section className="py-20">
-            <Heading text1="Patient Stories" text2={city}/>
-            <AnimatedTestimonial />
+              <Heading text1="Patient Stories" text2={city}/>
+              <AnimatedTestimonial testimonials={testimonials}/>
             </section>
+            <TreatmentProcess />
             <section className="pb-20">
                 <Heading text1="FAQs on Piles Surgery in" text2={city}/>
                 <FAQ city={city} />

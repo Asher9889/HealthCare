@@ -4,12 +4,14 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { useEffect, useState } from "react";
+import StarRating from "../star-rating/StarRating";
 
 type Testimonial = {
   quote: string;
   name: string;
   designation: string;
   src: string;
+  stars: number;
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -115,6 +117,7 @@ export const AnimatedTestimonials = ({
             <h3 className="text-2xl font-bold text-black">
               {testimonials[active].name}
             </h3>
+            <StarRating value={testimonials[active].stars} />
             <p className="text-sm text-(--dark-blue-color) dark:text-neutral-500">
               {testimonials[active].designation}
             </p>

@@ -7,8 +7,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ConditionTreatmentFormValidation } from "@/validation";
+import { useEffect } from "react";
 
-const ConditionTreatmentForm = ({cities, consultations=["Clinic", "Online"]}: {cities: string[], consultations?: string[]}) => {
+const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", "Online"]}: {cities: string[], selectedCity:string, consultations?: string[]}) => {
   const form = useForm<z.infer<typeof ConditionTreatmentFormValidation>>({
     resolver: zodResolver(ConditionTreatmentFormValidation),
     defaultValues: {
@@ -19,6 +20,12 @@ const ConditionTreatmentForm = ({cities, consultations=["Clinic", "Online"]}: {c
       upload: undefined,
     },
   });
+
+  useEffect(() => {
+    if (selectedCity) {
+      form.setValue("city", selectedCity.toLowerCase());
+    }
+  }, [selectedCity, form]);
 
   const onSubmit = (data: z.infer<typeof ConditionTreatmentFormValidation>) => {
     console.log(data);

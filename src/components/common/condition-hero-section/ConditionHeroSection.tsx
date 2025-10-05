@@ -10,6 +10,7 @@ interface TreatmentSectionProps {
   secondaryBtn: { label: string; onClick?: () => void };
   features: string[];
   cities: string[];
+  selectedCity?: string;
   consultations?: string[];
 }
 
@@ -20,6 +21,7 @@ const ConditionHeroSection = ({
   primaryBtn,
   features,
   cities,
+  selectedCity,
   consultations =["Clinic", "Online"],
 }: TreatmentSectionProps) => {
   return (
@@ -55,7 +57,7 @@ const ConditionHeroSection = ({
       </motion.div>
 
       {/* Right Form */}
-      <ConditionTreatmentForm cities={cities} consultations={consultations} />
+      <ConditionTreatmentForm selectedCity={selectedCity || ""} cities={cities} consultations={consultations} />
       
     </section>
   );

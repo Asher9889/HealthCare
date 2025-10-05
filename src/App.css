@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* For daisy UI */
+@plugin "daisyui";
+
+
 body {
     background-color: #fefcfb;
 }
