@@ -27,12 +27,15 @@ export default function PilesInfo() {
 
         {/* Tabs Layout with Icons */}
         <Tabs defaultValue="types" className="w-full">
-          <TabsList className="">
-            <TabsTrigger value="types" className="focus:bg-(--orange-button-color) focus:text-white"><Stethoscope className="w-4 h-4"/> Types</TabsTrigger>
-            <TabsTrigger value="causes" className="focus:bg-(--orange-button-color) focus:text-white"><Activity className="w-4 h-4"/> Causes</TabsTrigger>
-            <TabsTrigger value="symptoms" className="focus:bg-(--orange-button-color) focus:text-white"><HeartPulse className="w-4 h-4"/> Symptoms</TabsTrigger>
-            <TabsTrigger value="treatment" className="focus:bg-(--orange-button-color) focus:text-white"><Syringe className="w-4 h-4"/> Treatment</TabsTrigger>
-            <TabsTrigger value="benefits" className="focus:bg-green-500 focus:text-white"><Pill className="w-4 h-4"/> Benefits</TabsTrigger>
+          <TabsList className="flex flex-row gap-4">
+            <div className="">
+
+              <TabsTrigger value="types" className="focus:bg-(--orange-button-color) focus:text-white px-4"><Stethoscope className="w-4 h-4"/> Types</TabsTrigger>
+              <TabsTrigger value="causes" className="focus:bg-(--orange-button-color) focus:text-white px-4"><Activity className="w-4 h-4"/> Causes</TabsTrigger>
+              <TabsTrigger value="symptoms" className="focus:bg-(--orange-button-color) focus:text-white px-4"><HeartPulse className="w-4 h-4"/> Symptoms</TabsTrigger>
+              <TabsTrigger value="treatment" className="focus:bg-(--orange-button-color) focus:text-white px-4 my-2"><Syringe className="w-4 h-4"/> Treatment</TabsTrigger>
+              <TabsTrigger value="benefits" className="focus:bg-green-500 focus:text-white px-4"><Pill className="w-4 h-4"/> Benefits</TabsTrigger>
+            </div>
           </TabsList>
 
           {/* Content */}

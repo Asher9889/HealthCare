@@ -80,7 +80,7 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
               </h2>
 
               {/* Name + Mobile */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid md:grid-cols-2 gap-3">
                 <FormField
                   control={form.control}
                   name="fullName"
@@ -177,14 +177,14 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
                 name="image"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 px-3 py-2 border rounded-md cursor-pointer text-gray-500 hover:bg-gray-50">
+                    <FormLabel className="w-fit flex items-center gap-2 px-3 py-2 border rounded-md cursor-pointer text-gray-500 hover:bg-gray-50">
                       <Upload size={16} />
-                      {!field.value && <span>Tap to upload image</span> }
+                      {!field.value && <span className="hidden md:inline text-nowrap">Tap to upload disease image</span> }
                      
                       <FormControl>
                         <input 
                           type="file" 
-                          // className={field.value ? "hidden" : ""} 
+                          className={`w-[200px]`} 
                           onChange={(e) => {
                             const file = e.target.files?.[0];
                             field.onChange(file);   // update react-hook-form state
@@ -207,7 +207,7 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
                 </Button>
                 <Button 
                   type="submit" 
-                  className="w-xs bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
+                  className="w-[200px] bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
                 >
                   {isLoading ? <Spinner  className="" /> : "Submit & Get Callback"}
                 </Button>
