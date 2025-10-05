@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import AppointForm from "../book-appointment-form/AppointForm"
+import { useState } from "react"
 
 type Specialist = {
   id: number
@@ -14,6 +16,8 @@ type Specialist = {
 }
 
 export default function SpecialistCard({ specialist }: { specialist: Specialist }) {
+    const [formOpen, setFormOpen] = useState(false);
+
   return (
     <Card className="rounded-2xl shadow-sm">
       <CardContent className="flex gap-4 p-4 items-center">
@@ -39,9 +43,10 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
             <Button
               size="sm"
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
-              asChild
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+              onClick={() => setFormOpen(true)}
             >
-              <a href={specialist.appointmentLink || "#"}>Book Appointment</a>
+              Book Appointment
             </Button>
             <Button
               size="sm"
@@ -54,6 +59,8 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
           </div>
         </div>
       </CardContent>
+     { formOpen && <AppointForm setOpen={setFormOpen} />}
+     
     </Card>
   )
 }

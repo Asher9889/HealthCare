@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
+import AppointForm from "../book-appointment-form/AppointForm";
 
 interface TreatmentOption {
     id: number;
@@ -12,6 +13,8 @@ interface TreatmentOption {
 }
 
 export default function ConditionTreatmentOptions({ treatmentOptions }: { treatmentOptions: TreatmentOption[] }) {
+   const [open, setOpen] = useState(false);
+  
   return (
     <div className="px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -46,6 +49,8 @@ export default function ConditionTreatmentOptions({ treatmentOptions }: { treatm
                         ? "bg-blue-600 hover:bg-blue-700 text-white"
                         : "bg-gray-100 hover:bg-gray-200 text-gray-800"
                     }`}
+                    aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+                    onClick={() => setOpen(!open)}
                   >
                     Consult Now
                   </Button>
@@ -55,6 +60,7 @@ export default function ConditionTreatmentOptions({ treatmentOptions }: { treatm
           </motion.div>
         ))}
       </div>
+     {open &&  <AppointForm setOpen={setOpen}/>}
     </div>
   );
 }

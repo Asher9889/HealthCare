@@ -13,7 +13,7 @@ const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon"
         "Expert in laser treatments for Piles, Fissure, and Fistula. Known for a patient-first approach and compassionate care. Available at PureCheckUp for advanced proctology care.",
       image: tanmay,
       appointmentLink: "/book-appointment",
-      callLink: "tel:+919876543210",
+      callLink: "tel:+919211930749",
     },
   ]
 

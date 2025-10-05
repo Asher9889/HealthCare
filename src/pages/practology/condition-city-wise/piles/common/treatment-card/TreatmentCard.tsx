@@ -1,5 +1,8 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { AppointForm } from "@/components";
+import { constantData } from "@/constants";
 
 interface TreatmentCardProps {
   title: string;
@@ -8,6 +11,7 @@ interface TreatmentCardProps {
 }
 
 export function TreatmentCard({ title, description, downtime }: TreatmentCardProps) {
+  const [open, setOpen] = useState(false);
   return (
     <Card className="w-full max-w-sm  rounded-2xl shadow-sm hover:shadow-md transition-shadow">
       <CardContent className="p-4 space-y-2">
@@ -16,7 +20,10 @@ export function TreatmentCard({ title, description, downtime }: TreatmentCardPro
         <p className="text-xs text-gray-500 font-medium">Downtime: {downtime}</p>
       </CardContent>
       <CardFooter className="flex gap-2 pt-0">
-        <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white rounded-md">
+        <Button size="sm" className=" bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+        onClick={() => setOpen(!open)}
+        aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+        >
           Book
         </Button>
         <Button
@@ -24,9 +31,10 @@ export function TreatmentCard({ title, description, downtime }: TreatmentCardPro
           variant="outline"
           className="border-green-200 text-green-700 bg-green-50 hover:bg-green-100 rounded-md"
         >
-          Call
+          <a href={`${constantData.specialists[0].callLink}`}>Call</a>
         </Button>
       </CardFooter>
+      {open && <AppointForm setOpen={setOpen} />}
     </Card>
   );
 }
