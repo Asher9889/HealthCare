@@ -37,7 +37,8 @@ import ConditionCityWiseTreatment from "./condition-citywise-treatment/Condition
 import FeatureCard from "./feature-card/FeatureCard";
 import AnimatedTestimonial from "./animated-testimonial/AnimatedTestimonial";
 import StarRating from "./star-rating/StarRating";
+import ConditionInfo from "./condition-info/ConditionInfo";
 
 export {
-    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating
+    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating, ConditionInfo
 }
