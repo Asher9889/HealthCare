@@ -1,16 +1,15 @@
 import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
 import { useParams} from "react-router-dom";
-import { TreatmentCard } from "../common/treatment-card/TreatmentCard";
-import BenefitCard  from "../common/benefit-card/BenefitCard";
+import { TreatmentCard } from "../../piles/common/treatment-card/TreatmentCard";
+import BenefitCard  from "../../piles/common/benefit-card/BenefitCard";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
-import FAQ from "./FAQ";
-import TreatmentProcess from "../common/treatment-process/TreatmentProcess";
-
+import FAQ from "../common/FAQ";
+import TreatmentProcess from "../../piles/common/treatment-process/TreatmentProcess";
 
 const treatments = [
   {
-    title: "Laser Piles Treatment",
+    title: "Laser Anal Fistula Treatment",
     description: "Minimally invasive, minimal blood loss, quick recovery (1–3 days). Ideal for Grade II–III.",
     downtime: "1–3 days",
   },
@@ -79,7 +78,6 @@ const testimonials = [
   },
 ];
 
-
 const benefits = [
   { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
   { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
@@ -87,8 +85,7 @@ const benefits = [
   { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
-
-const PilesInSpecialCity = () => {
+const FistulaInSpecialCity = () => {
   let { city} = useParams();
   
   // Capitalize first letter of city name
@@ -98,12 +95,12 @@ const PilesInSpecialCity = () => {
     return <div>Loading...</div>;
   }
 
-
+ 
 
   return (
     <div className="min-h-screen">
         <ConditionHeroSection
-            title={`Piles Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
+            title={`Anal Fistula Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
             description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
             primaryBtn={{ label: "Book Free Consultation" }}
             secondaryBtn={{ label: "Call Now" }}
@@ -147,7 +144,7 @@ const PilesInSpecialCity = () => {
         </section>
         <TreatmentProcess />
         <section className="pb-20 px-4">
-            <Heading text1="FAQs on Piles Surgery in" text2={city}/>
+            <Heading text1="FAQs on Anal Fistula Surgery in" text2={city}/>
             <FAQ city={city} />
         </section>
         
@@ -172,7 +169,7 @@ const PilesInSpecialCity = () => {
 
           <section className="py-20">
             <ConditionCityWiseTreatment
-            treatmentName="Piles"
+            treatmentName="Anal Fistula"
             costSubtitle="Pricing varies by case severity, city, and insurance coverage."
             paymentOptions="Payment Options: EMI Available | Cashless Insurance"
             costFactors={[
@@ -192,4 +189,4 @@ const PilesInSpecialCity = () => {
   )
 }
 
-export default PilesInSpecialCity;
+export default FistulaInSpecialCity;

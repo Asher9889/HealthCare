@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { Asthetic, FistulaTreatment, Gynecology, PilesInSpecialCity, PilesTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, Urology } from "./pages";
+import { Asthetic, FistulaInSpecialCity, FistulaTreatment, Gynecology, PilesInSpecialCity, PilesTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -177,7 +177,8 @@ const routes = navItems.flatMap((item) => {
 
 
 const cityWiseRoutes = [
-  { path: "/treatment/piles/:city",  element: PilesInSpecialCity}
+  { path: "/treatment/piles/:city",  element: PilesInSpecialCity},
+  { path: "/treatment/fistula/:city",  element: FistulaInSpecialCity}
 ];
 
 

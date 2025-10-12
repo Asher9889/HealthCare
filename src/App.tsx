@@ -52,8 +52,6 @@ function App() {
         ))}
         {/* City Wise routes */}
         {cityWiseRoutes?.length > 0 && cityWiseRoutes.map((r, idx) => (
-            console.log("Processing route:", r.path),
-
           <Route 
             key={r?.path + idx}
             path={r?.path}
