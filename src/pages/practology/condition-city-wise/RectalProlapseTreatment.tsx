@@ -371,7 +371,7 @@ const RectalProlapseTreatment = () => {
                 costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                 paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                 costFactors={[
-                  "Grade and type of piles",
+                  "Grade and type of rectal prolapse",
                   "Hospital category and room",
                   "Insurance coverage and approvals",
                   "Additional diagnostics if needed",

@@ -332,7 +332,7 @@ const FistulaTreatment = () => {
                 costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                 paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                 costFactors={[
-                  "Grade and type of piles",
+                  "Grade and type of fistula",
                   "Hospital category and room",
                   "Insurance coverage and approvals",
                   "Additional diagnostics if needed",
