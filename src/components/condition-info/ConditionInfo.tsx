@@ -16,7 +16,7 @@ interface ConditionInfoProps {
   description: string;
   tabsData: TabItem[];
   expertHeading?: string;
-  doctorName: string;
+  doctorName?: string;
   doctorDescription: React.ReactNode | string
   doctorLink: string;
   ctaText?: string;

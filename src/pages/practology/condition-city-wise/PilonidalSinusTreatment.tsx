@@ -338,10 +338,10 @@ const PilonidalSinusTreatment = () => {
             <section className="py-20 px-4 max-w-3xl mx-auto">
               <ConditionTreatmentForm  cities={constantData.cities}  />
             </section>
-
+            
             <section className="py-20">
               <ConditionCityWiseTreatment
-                treatmentName="Pilonidal Sinus"
+                treatmentName="Piles"
                 costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                 paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                 costFactors={[
