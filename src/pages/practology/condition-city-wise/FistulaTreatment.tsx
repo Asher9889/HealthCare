@@ -1,8 +1,7 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import PilesInfo from "./piles/common/piles-info/PilesInfo";
 import FAQ from "@/components/faq/FAQ";
 
 
@@ -94,8 +93,130 @@ const faqs = [
         </div>
       ),
     },
-  ];
+];
   
+import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
+
+export const analFistulaData = {
+  title1: "Anal Fistula",
+  title2: "Treatment & Information",
+  description:
+    "An anal fistula is a small tunnel that develops between the end of the rectum and the skin around the anus, usually after an anal abscess. It causes repeated infections, pain, and pus discharge. If left untreated, a fistula can worsen and affect daily comfort. At PureCheckup, our specialists diagnose and treat fistula in ano using advanced laser technology that ensures safe, quick, and lasting relief.",
+
+  tabsData: [
+    {
+      value: "types",
+      label: "Types",
+      icon: <Activity className="text-blue-600" />,
+      content: (
+        <div>
+          <p className="mb-4">
+            Medical experts classify anal fistulas based on their connection with the anal sphincter muscles.
+            The main types include:
+          </p>
+          <ul className="list-disc list-inside space-y-2">
+            <li> <strong>Intersphincteric Fistula</strong> – runs between the internal and external sphincter.</li>
+            <li> <strong>Transsphincteric Fistula</strong> – passes through both sphincters.</li>
+            <li> <strong>Suprasphincteric Fistula</strong> – extends above the sphincter muscles.</li>
+            <li> <strong>Extrasphincteric Fistula</strong> – runs from the rectum to the skin outside the anal region.</li>
+          </ul>
+          <p className="mt-4">
+            Each type requires a personalized approach for laser fistula treatment, ensuring minimal damage to surrounding tissues.
+          </p>
+        </div>
+      ),
+    },
+    {
+      value: "causes",
+      label: "Causes",
+      icon: <Syringe className="text-green-600" />,
+      content: (
+        <div>
+          <p className="mb-4">Common medical causes of anal fistula include:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Untreated anal abscess or infection</li>
+            <li>Chronic inflammatory bowel disease (IBD)</li>
+            <li>Trauma or injury to the anal region</li>
+            <li>Tuberculosis or post-surgical complications</li>
+            <li>Poor hygiene or prolonged constipation</li>
+          </ul>
+          <p className="mt-4">
+            Understanding the cause helps doctors decide whether fistula surgery or laser fistula treatment is the best option for long-term relief.
+          </p>
+        </div>
+      ),
+    },
+    {
+      value: "symptoms",
+      label: "Symptoms",
+      icon: <HeartPulse className="text-pink-600" />,
+      content: (
+        <div>
+          <p className="mb-4">
+            Recognizing early fistula symptoms can prevent complications. Common signs include:
+          </p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Pain, swelling, and redness near the anus</li>
+            <li>Recurrent pus or blood discharge</li>
+            <li>Persistent itching or irritation</li>
+            <li>Foul-smelling discharge</li>
+            <li>Fever and fatigue (in severe cases)</li>
+          </ul>
+          <p className="mt-4">
+            If you notice these symptoms, it’s essential to consult the best fistula doctor near you for accurate diagnosis and treatment.
+          </p>
+        </div>
+      ),
+    },
+    {
+      value: "treatment",
+      label: "Treatment",
+      icon: <Pill className="text-purple-600" />,
+      content: (
+        <div>
+          <p className="mb-4">
+            Modern fistula treatments focus on complete healing with minimal recurrence. At PureCheckup, treatment plans are customized after thorough clinical evaluation. Common options include:
+          </p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Medication and antibiotics (for minor infections)</li>
+            <li>Fistulotomy – traditional open surgery</li>
+            <li>Seton placement – used for complex fistulas</li>
+            <li>Laser Fistula Surgery (FiLaC or DLPL technique) – a cutting-edge, minimally invasive procedure.</li>
+          </ul>
+          <p className="mt-4">
+            Laser Fistula Surgery ensures precision removal of the fistula tract without cutting sphincter muscles, leading to faster recovery, less pain, and almost no recurrence.
+          </p>
+        </div>
+      ),
+    },
+    {
+      value: "benefits",
+      label: "Benefits",
+      icon: <Stethoscope className="text-orange-600" />,
+      content: (
+        <div>
+          <p className="mb-4">Laser treatment for anal fistula offers several proven benefits:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Painless and bloodless procedure</li>
+            <li>No stitches or large cuts</li>
+            <li>Daycare procedure with same-day discharge</li>
+            <li>Quick healing and reduced infection risk</li>
+            <li>Minimal recurrence rates</li>
+            <li>Safe for patients of all age groups</li>
+          </ul>
+          <p className="mt-4">
+            Thousands of patients now prefer laser fistula surgery in India for its comfort, safety, and reliability.
+          </p>
+        </div>
+      ),
+    },
+  ],
+
+  doctorName: "Expert Laser Fistula Surgeon – PureCheckup Healthcare",
+  doctorDescription:
+    "PureCheckup Healthcare provides specialist surgeons who lead the anal fistula treatment program with advanced expertise. They have extensive experience in performing laser fistula surgeries, ensuring high success rates and minimal recurrence. Patients trust PureCheckup Healthcare for its personalized treatment approach, ethical care, and long-term results. 📅 For a consultation or to book your laser fistula surgery, visit PureCheckup.com or contact our team to schedule an appointment with our specialist surgeons today.",
+  doctorLink: "https://purecheckup.com",
+};
 
 
 const FistulaTreatment = () => {
@@ -126,7 +247,7 @@ const FistulaTreatment = () => {
     {
       id: 1,
       icon: <Scissors className="w-7 h-7 text-blue-600" />,
-      title: "Laser Piles Surgery (Recommended)",
+      title: "Laser Anal Fistula Surgery (Recommended)",
       points: [
         "No cuts, stitches, or pain",
         "Safe and effective",
@@ -174,8 +295,23 @@ const FistulaTreatment = () => {
                 <SpecialistCard key={doc.id} specialist={doc} />
               ))}
             </section>
+
             <WhyPristynCare />
-            <PilesInfo />
+
+            <ConditionInfo
+							title1="What is"
+							title2="Anal Fistula?"
+							description="An anal fistula is a small tunnel that develops between the end of the rectum and the skin around the anus, usually after an anal abscess. It causes repeated infections, pain, and pus discharge.
+								If left untreated, a fistula can worsen and affect daily comfort.
+								At PureCheckup, our specialists diagnose and treat fistula in ano using advanced laser technology that ensures safe, quick, and lasting relief.
+								"
+							tabsData={analFistulaData.tabsData}
+							doctorName="Dr. Tanmay Jain"
+							doctorDescription="specializes in laser piles treatment, providing advanced care options for effective and lasting relief."
+							doctorLink="https://PureCheckup.com"
+							ctaText="Book Free Appointment"
+            />
+
             <section className="py-20 px-4">
               <Heading text1="Treatment" text2="Options" className="mb-10" />
               <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
