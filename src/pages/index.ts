@@ -5,10 +5,11 @@ import PilonidalSinusTreatment from "./practology/condition-city-wise/PilonidalS
 import RectalProlapseTreatment from "./practology/condition-city-wise/RectalProlapseTreatment";
 import PilesInSpecialCity from "./practology/condition-city-wise/piles/piles-city-wise/PilesInSpecialCity";
 import FistulaInSpecialCity from "./practology/condition-city-wise/fistula/fistula-city-wise/FistulaInSpecialCity";
-
+import PilonidalSinusInSpecialCity from "./practology/condition-city-wise/pilonidal-sinus/pilonidal-sinus-city-wise/PilonidalSinusInSpecialCity";
+import RectalProlapseInSpecialCity from "./practology/condition-city-wise/rectal-prolapse/rectal-prolapse-city-wise/RectalProlapseInSpecialCity";
 import Asthetic from "./asthetic/Asthetic";
 import Gynecology from "./gynecology/Gynecology";
 import Laparoscopy from "./laparoscopy/Laparoscopy";
 import Urology from "./urology/Urology";
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity }
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity }

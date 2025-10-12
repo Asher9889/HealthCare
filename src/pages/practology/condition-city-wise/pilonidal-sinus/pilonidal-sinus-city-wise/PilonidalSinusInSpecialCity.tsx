@@ -9,7 +9,7 @@ import TreatmentProcess from "../../piles/common/treatment-process/TreatmentProc
 
 const treatments = [
   {
-    title: "Laser Anal Fistula Treatment",
+    title: "Laser Pilonidal Sinus Treatment",
     description: "Minimally invasive, minimal blood loss, quick recovery (1–3 days). Ideal for Grade II–III.",
     downtime: "1–3 days",
   },
@@ -85,7 +85,7 @@ const benefits = [
   { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
-const FistulaInSpecialCity = () => {
+const PilonidalSinusInSpecialCity = () => {
   let { city} = useParams();
   
   // Capitalize first letter of city name
@@ -100,7 +100,7 @@ const FistulaInSpecialCity = () => {
   return (
     <div className="min-h-screen">
         <ConditionHeroSection
-            title={`Anal Fistula Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
+            title={`Pilonidal Sinus Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
             description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
             primaryBtn={{ label: "Book Free Consultation" }}
             secondaryBtn={{ label: "Call Now" }}
@@ -144,7 +144,7 @@ const FistulaInSpecialCity = () => {
         </section>
         <TreatmentProcess />
         <section className="pb-20 px-4">
-            <Heading text1="FAQs on Anal Fistula Surgery in" text2={city}/>
+            <Heading text1="FAQs on Anal Pilonidal Sinus in" text2={city}/>
             <FAQ city={city} />
         </section>
         
@@ -169,7 +169,7 @@ const FistulaInSpecialCity = () => {
 
           <section className="py-20">
             <ConditionCityWiseTreatment
-            treatmentName="Anal Fistula"
+            treatmentName="Pilonidal Sinus"
             costSubtitle="Pricing varies by case severity, city, and insurance coverage."
             paymentOptions="Payment Options: EMI Available | Cashless Insurance"
             costFactors={[
@@ -189,4 +189,4 @@ const FistulaInSpecialCity = () => {
   )
 }
 
-export default FistulaInSpecialCity;
+export default PilonidalSinusInSpecialCity;
