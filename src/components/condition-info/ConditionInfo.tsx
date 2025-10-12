@@ -15,8 +15,9 @@ interface ConditionInfoProps {
   title2: string;
   description: string;
   tabsData: TabItem[];
+  expertHeading?: string;
   doctorName: string;
-  doctorDescription: string;
+  doctorDescription: React.ReactNode | string
   doctorLink: string;
   ctaText?: string;
 }
@@ -26,6 +27,7 @@ export default function ConditionInfo({
   title2,
   description,
   tabsData,
+  expertHeading,
   doctorName,
   doctorDescription,
   doctorLink,
@@ -89,7 +91,7 @@ export default function ConditionInfo({
           <Card className="border-0 shadow-xl rounded-3xl bg-gradient-to-r from-green-50 to-green-100">
             <CardContent className="p-10 text-gray-800">
               <h3 className="text-2xl font-bold mb-4 text-gray-900">
-                Meet Our Specialist
+               {expertHeading || "Meet Our Specialist"}
               </h3>
               <p className="text-lg leading-relaxed">
                 <strong>{doctorName}</strong> {doctorDescription}

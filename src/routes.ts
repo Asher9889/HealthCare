@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { Asthetic, FistulaTreatment, Gynecology, PilesInSpecialCity, PilesTreatment, Urology } from "./pages";
+import { Asthetic, FistulaTreatment, Gynecology, PilesInSpecialCity, PilesTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -45,8 +45,8 @@ export const navItems = [
     children: [
       { label: "Piles Treatment", path: "/treatment/piles", element: PilesTreatment  },
       { label: "Fistula Treatment", path: "/treatment/fistula", element: FistulaTreatment },
-      { label: "Pilonidal Sinus Treatment", path: "/treatment/pilonidal-sinus", element: PageNotFound },
-      { label: "Rectal Prolapse", path: "/treatment/rectal-prolapse", element: PageNotFound },
+      { label: "Pilonidal Sinus Treatment", path: "/treatment/pilonidal-sinus", element: PilonidalSinusTreatment },
+      { label: "Rectal Prolapse", path: "/treatment/rectal-prolapse", element: RectalProlapseTreatment },
     ],
   },
   // https://purecheckup.com/c/laparoscopy/
