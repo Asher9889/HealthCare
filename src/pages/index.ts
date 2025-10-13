@@ -10,6 +10,10 @@ import RectalProlapseInSpecialCity from "./practology/condition-city-wise/rectal
 import Asthetic from "./asthetic/Asthetic";
 import Gynecology from "./gynecology/Gynecology";
 import Laparoscopy from "./laparoscopy/Laparoscopy";
-import Urology from "./urology/Urology";
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity }
+import Urology from "./urology/Urology";
+import HerniaTreatment from "./laparoscopy/condition-wise-treatment/HerniaTreatment";
+import GallstonesTreatment from "./laparoscopy/condition-wise-treatment/GallstonesTreatment";
+import AppendicitisTreatment from "./laparoscopy/condition-wise-treatment/AppendicitisTreatment";
+
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment }

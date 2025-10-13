@@ -55,15 +55,17 @@ export default function ConditionInfo({
 
         {/* Tabs */}
         <Tabs defaultValue={tabsData[0]?.value || ""} className="w-full">
-          <TabsList className="flex flex-row gap-4 overflow-x-auto">
+          <TabsList className="flex flex-row  overflow-x-auto overflow-y-hidden w-full max-w-7xl no-scrollbar">
             {tabsData.map((tab) => (
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className="focus:bg-(--orange-button-color) focus:text-white px-4 flex items-center gap-2"
+                className="flex-shrink-0 focus:bg-orange-500 focus:text-white px-4 py-2 rounded-md transition-colors hover:bg-gray-100"
               >
-                {tab.icon}
-                {tab.label}
+                <span className="flex items-center gap-2">
+                  {tab.icon}
+                  <span className="whitespace-nowrap">{tab.label}</span>
+                </span>
               </TabsTrigger>
             ))}
           </TabsList>

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { Asthetic, FistulaInSpecialCity, FistulaTreatment, Gynecology, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, Urology } from "./pages";
+import { AppendicitisTreatment, Asthetic, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, Urology } from "./pages";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -56,9 +56,9 @@ export const navItems = [
     element: Laparoscopy,
     icon: Microscope,
     children: [
-      { label: "Hernia Surgery", path: "/treatment/hernia", element: PageNotFound },
-      { label: "Gallstones Treatment", path: "/treatment/gallstone", element: PageNotFound },
-      { label: "Appendicitis", path: "/treatment/appendicitis", element: PageNotFound },
+      { label: "Hernia Surgery", path: "/treatment/hernia", element: HerniaTreatment },
+      { label: "Gallstones Treatment", path: "/treatment/gallstone", element: GallstonesTreatment },
+      { label: "Appendicitis", path: "/treatment/appendicitis", element: AppendicitisTreatment },
       { label: "Inguinal Hernia Treatment", path: "/treatment/inguinal-hernia", element: PageNotFound },
       { label: "Umbilical Hernia Treatment", path: "/treatment/umbilical-hernia", element: PageNotFound }]
   },
