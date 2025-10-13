@@ -17,5 +17,6 @@ import GallstonesTreatment from "./laparoscopy/condition-wise-treatment/Gallston
 import AppendicitisTreatment from "./laparoscopy/condition-wise-treatment/AppendicitisTreatment";
 import InguinalHerniaTreatment from "./laparoscopy/condition-wise-treatment/InguinalHerniaTreatment";
 import UmbilicalHerniaTreatment from "./laparoscopy/condition-wise-treatment/UmbilicalHerniaTreatment";
+import AppendicitisInSpecialCity from "./laparoscopy/condition-wise-treatment/appendicitis/city-wise-appendicitis/AppendicitisInSpecialCity";
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment }
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity }

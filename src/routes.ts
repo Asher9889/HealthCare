@@ -10,7 +10,8 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisTreatment, Asthetic, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, UmbilicalHerniaTreatment, Urology } from "./pages";
+import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, UmbilicalHerniaTreatment, Urology } from "./pages";
+import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
 // Lazy load your pages (replace these with actual components)
 const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
@@ -180,7 +181,14 @@ const cityWiseRoutes = [
   { path: "/treatment/piles/:city",  element: PilesInSpecialCity},
   { path: "/treatment/fistula/:city",  element: FistulaInSpecialCity},
   { path: "/treatment/pilonidal-sinus/:city",  element: PilonidalSinusInSpecialCity},
-  { path: "/treatment/rectal-prolapse/:city",  element: RectalProlapseInSpecialCity}
+  { path: "/treatment/rectal-prolapse/:city",  element: RectalProlapseInSpecialCity},
+
+  { path: "/treatment/hernia/:city",  element: HerniaInSpecialCity},
+  // { path: "/treatment/gallstone/:city",  element: GallstonesInSpecialCity},
+  { path: "/treatment/appendicitis/:city",  element: AppendicitisInSpecialCity},
+  // { path: "/treatment/inguinal-hernia/:city",  element: InguinalHerniaInSpecialCity},
+  // { path: "/treatment/umbilical-hernia/:city",  element: UmbilicalHerniaInSpecialCity},
+  
 ];
 
 

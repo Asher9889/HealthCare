@@ -1,15 +1,13 @@
 import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
 import { useParams} from "react-router-dom";
-import { TreatmentCard } from "@/components";
-import { BenefitCard }  from "@/components";
+import { TreatmentCard, TreatmentProcess, BenefitCard } from "@/components";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
-import FAQ from "../common/FAQ";
-import { TreatmentProcess } from "@/components";
+// import FAQ from "../common/FAQ";
 
 const treatments = [
   {
-    title: "Laser Hernia Surgery Treatment",
+    title: "Laser Rectal Prolapse Treatment",
     description: "Minimally invasive, minimal blood loss, quick recovery (1–3 days). Ideal for Grade II–III.",
     downtime: "1–3 days",
   },
@@ -85,7 +83,7 @@ const benefits = [
   { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
-const HerniaInSpecialCity = () => {
+const RectalProlapseInSpecialCity = () => {
   let { city} = useParams();
   
   // Capitalize first letter of city name
@@ -145,7 +143,7 @@ const HerniaInSpecialCity = () => {
         <TreatmentProcess />
         <section className="pb-20 px-4">
             <Heading text1="FAQs on Rectal Prolapse Surgery in" text2={city}/>
-            <FAQ city={city} />
+            {/* <FAQ city={city} /> */}
         </section>
         
         <section className="px-4">
@@ -189,4 +187,4 @@ const HerniaInSpecialCity = () => {
   )
 }
 
-export default HerniaInSpecialCity;
+export default RectalProlapseInSpecialCity;

@@ -11,7 +11,13 @@ import { toast } from "sonner";
 
 const uri = import.meta.env.VITE_API_BASE_URL;
 
-const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", "Online"]}: {cities: string[], selectedCity?:string, consultations?: string[]}) => {
+interface ConditionTreatmentFormProps {
+  cities: string[];
+  selectedCity?: string;
+  consultations?: string[];
+  treatmentType?: string; // Add this line
+}
+const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", "Online"]}: ConditionTreatmentFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof ConditionTreatmentFormValidation>>({
     resolver: zodResolver(ConditionTreatmentFormValidation),
