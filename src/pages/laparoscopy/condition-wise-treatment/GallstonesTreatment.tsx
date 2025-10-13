@@ -126,7 +126,7 @@ const gallstoneData = {
       },
       {
         value: "types",
-        label: "Types of Gallstone Surgery",
+        label: "Types",
         icon: <Syringe className="text-green-600" />,
         content: (
           <div className="space-y-4">
@@ -160,7 +160,7 @@ const gallstoneData = {
       },
       {
         value: "causes",
-        label: "Causes of Gallstones",
+        label: "Causes",
         icon: <Pill className="text-purple-600" />,
         content: (
           <div>
@@ -179,7 +179,7 @@ const gallstoneData = {
       },
       {
         value: "symptoms",
-        label: "Symptoms of Gallstones",
+        label: "Symptoms",
         icon: <HeartPulse className="text-pink-600" />,
         content: (
           <div>
@@ -198,7 +198,7 @@ const gallstoneData = {
       },
       {
         value: "benefits",
-        label: "Benefits of Gallstone Surgery",
+        label: "Benefits",
         icon: <Stethoscope className="text-red-600" />,
         content: (
           <div>

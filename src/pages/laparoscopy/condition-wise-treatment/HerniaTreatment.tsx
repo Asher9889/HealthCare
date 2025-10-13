@@ -106,7 +106,7 @@ const herniaData = {
     tabsData: [
       {
         value: "what-is-hernia",
-        label: "What Is a Hernia?",
+        label: "Hernia?",
         icon: <Activity className="text-blue-600" />,
         content: (
           <div>
@@ -118,7 +118,7 @@ const herniaData = {
       },
       {
         value: "laparoscopic-surgery",
-        label: "Laparoscopic Surgery",
+        label: "Laparoscopic Hernia Surgery",
         icon: <Syringe className="text-green-600" />,
         content: (
           <div>
@@ -130,7 +130,7 @@ const herniaData = {
       },
       {
         value: "types",
-        label: "Types of Hernia",
+        label: "Types",
         icon: <HeartPulse className="text-pink-600" />,
         content: (
           <div>
@@ -219,7 +219,7 @@ const herniaData = {
       },
       {
         value: "benefits",
-        label: "Benefits of Laparoscopic Surgery",
+        label: "Benefits",
         icon: <Stethoscope className="text-teal-600" />,
         content: (
           <div>

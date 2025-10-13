@@ -120,7 +120,7 @@ const appendectomyData = {
   tabsData: [
     {
       value: "what-is-appendectomy",
-      label: "What Is an Appendectomy?",
+      label: "What is an Appendectomy?",
       icon: <Activity className="text-blue-600" />,
       content: (
         <div>
@@ -135,7 +135,7 @@ const appendectomyData = {
     },
     {
       value: "types",
-      label: "Types of Appendectomy Surgery",
+      label: "Types",
       icon: <Syringe className="text-green-600" />,
       content: (
         <div className="space-y-4">
@@ -161,7 +161,7 @@ const appendectomyData = {
     },
     {
       value: "causes",
-      label: "Causes of Appendicitis",
+      label: "Causes",
       icon: <Pill className="text-purple-600" />,
       content: (
         <div>
@@ -182,7 +182,7 @@ const appendectomyData = {
     },
     {
       value: "symptoms",
-      label: "Symptoms of Appendicitis",
+      label: "Symptoms",
       icon: <HeartPulse className="text-pink-600" />,
       content: (
         <div>
@@ -204,17 +204,17 @@ const appendectomyData = {
     },
     {
       value: "benefits",
-      label: "Benefits of Appendectomy Surgery",
+      label: "Benefits",
       icon: <Stethoscope className="text-red-600" />,
       content: (
         <div>
           <ul className="list-disc list-inside space-y-2">
-            <li>✅ Permanent relief from abdominal pain and infection</li>
-            <li>✅ Prevents appendix rupture and peritonitis</li>
-            <li>✅ Quick discharge — most patients go home within 24 hours</li>
-            <li>✅ Advanced laparoscopic and laser techniques for faster healing</li>
-            <li>✅ Insurance-covered and affordable packages</li>
-            <li>✅ 24x7 support and postoperative care from PureCheckup experts</li>
+            <li>Permanent relief from abdominal pain and infection</li>
+            <li>Prevents appendix rupture and peritonitis</li>
+            <li>Quick discharge — most patients go home within 24 hours</li>
+            <li>Advanced laparoscopic and laser techniques for faster healing</li>
+            <li>Insurance-covered and affordable packages</li>
+            <li>24x7 support and postoperative care from PureCheckup experts</li>
           </ul>
         </div>
       ),

@@ -55,7 +55,7 @@ export default function ConditionInfo({
 
         {/* Tabs */}
         <Tabs defaultValue={tabsData[0]?.value || ""} className="w-full">
-          <TabsList className="flex flex-row  overflow-x-auto overflow-y-hidden w-full max-w-7xl no-scrollbar">
+          <TabsList className="flex flex-row  overflow-x-auto overflow-y-hidden max-w-7xl no-scrollbar">
             {tabsData.map((tab) => (
               <TabsTrigger
                 key={tab.value}
