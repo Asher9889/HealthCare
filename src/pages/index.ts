@@ -18,6 +18,10 @@ import LaserCircumcision from "./urology/condition-wise-treatment/LaserCircumcis
 import StaplerCircumcision from "./urology/condition-wise-treatment/StaplerCircumcision";
 import Hydrocele from "./urology/condition-wise-treatment/Hydrocele";
 import ESWL from "./urology/condition-wise-treatment/ESWL";
+import PCNL from "./urology/condition-wise-treatment/PCNL";
+import URSL from "./urology/condition-wise-treatment/URSL";
+import RIRS from "./urology/condition-wise-treatment/RIRS";
+import Frenuloplasty from "./urology/condition-wise-treatment/Frenuloplasty";
 
 
 
@@ -29,4 +33,4 @@ import InguinalHerniaTreatment from "./laparoscopy/condition-wise-treatment/Ingu
 import UmbilicalHerniaTreatment from "./laparoscopy/condition-wise-treatment/UmbilicalHerniaTreatment";
 import AppendicitisInSpecialCity from "./laparoscopy/condition-wise-treatment/appendicitis/city-wise-appendicitis/AppendicitisInSpecialCity";
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL }
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL, PCNL, URSL, RIRS, Frenuloplasty }
