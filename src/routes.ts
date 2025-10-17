@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis } from "./pages";
+import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis } from "./pages";
 import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
 // Lazy load your pages (replace these with actual components)
@@ -81,10 +81,10 @@ export const navItems = [
       { label: "Frenuloplasty Surgery", path: "/treatment/frenuloplasty-surgery", element: Frenuloplasty },
       { label: "Balanitis", path: "/treatment/balanitis", element: Balanitis },
       { label: "Balanoposthitis", path: "/treatment/balanoposthitis", element: Balanoposthitis },
-      { label: "Paraphimosis", path: "/treatment/paraphimosis", element: PageNotFound },
-      { label: "Foreskin Infection", path: "/treatment/foreskin-infection", element: PageNotFound },
-      { label: "Tight Foreskin", path: "/treatment/tight-foreskin", element: PageNotFound },
-      { label: "Phimosis", path: "/treatment/phimosis", element: PageNotFound },
+      { label: "Paraphimosis", path: "/treatment/paraphimosis", element: Paraphimosis },
+      { label: "Foreskin Infection", path: "/treatment/foreskin-infection", element: Foreskin },
+      { label: "Tight Foreskin", path: "/treatment/tight-foreskin", element: TightForeskin },
+      { label: "Phimosis", path: "/treatment/phimosis", element: Phimosis },
       { label: "Corn Removal", path: "/treatment/corn-removal", element: PageNotFound },
       { label: "Vasectomy", path: "/treatment/vasectomy", element: PageNotFound },
       { label: "Testicular Torsion", path: "/treatment/testicular-torsion", element: PageNotFound },
