@@ -8,38 +8,38 @@ import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 const faqs = [
   {
     id: "one",
-    question: "What is the cost of balanitis surgery treatment in India?",
+    question: "What is the cost of balanoposthitis surgery treatment in India?",
     answer:
-      "The cost of balanitis surgery varies depending on hospital and procedure type. PureCheckup provides affordable and transparent treatment options customized to each patient’s needs.",
+      "The cost varies depending on the procedure type and hospital. PureCheckup provides personalized cost estimates tailored to each patient’s needs.",
   },
   {
     id: "two",
-    question: "Does insurance cover balanitis surgery treatment?",
+    question: "Does insurance cover balanoposthitis surgery treatment?",
     answer:
-      "Yes, most major health insurance plans cover balanitis surgery. PureCheckup assists patients with insurance claim processing for a smooth, cashless experience.",
+      "Yes, most major health insurance plans cover balanoposthitis surgery. PureCheckup assists with insurance verification and smooth claim processing.",
   },
   {
     id: "three",
-    question: "Which healthcare service provider offers the best treatment at the best price?",
+    question: "Which healthcare provider offers the best treatment at the best price?",
     answer:
-      "PureCheckup connects you with top-rated urologists and hospitals across India, ensuring high-quality care at competitive prices with full insurance support.",
+      "PureCheckup connects patients with top-rated urologists and hospitals across India, ensuring quality care at competitive prices with comprehensive support.",
   },
   {
     id: "four",
-    question: "How can I book a balanitis treatment surgery with PureCheckup?",
+    question: "How to book a balanoposthitis treatment surgery with PureCheckup?",
     answer: (
       <div className="text-(--text-primary) font-medium space-y-2">
-        <p>Booking balanitis surgery with PureCheckup is simple:</p>
+        <p>Booking balanoposthitis surgery with PureCheckup is simple:</p>
         <ul className="list-decimal list-inside space-y-1">
           <li>
             Visit{" "}
             <a
-              href="https://purecheckup.com/treatment/balanitis"
+              href="https://purecheckup.com/treatment/balanoposthitis"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline"
             >
-              purecheckup.com/treatment/balanitis
+              purecheckup.com/treatment/balanoposthitis
             </a>
           </li>
           <li>Fill in your details or call our 24×7 helpline at +91-9211930749</li>
@@ -50,60 +50,60 @@ const faqs = [
   },
   {
     id: "five",
-    question: "What is the best treatment for balanitis surgery?",
+    question: "What is the best treatment for balanoposthitis surgery?",
     answer:
-      "The best treatment depends on severity and condition of the patient. Options include circumcision, frenuloplasty, laser surgery, or targeted tissue excision for effective relief.",
+      "The best treatment depends on your condition. Options include circumcision or preputioplasty, as recommended by expert surgeons after proper diagnosis.",
   },
   {
     id: "six",
-    question: "What are the first signs indicating the need for balanitis surgery?",
+    question: "What are the first signs of a balanoposthitis surgical treatment?",
     answer:
-      "Persistent redness, swelling, pain during urination, foul discharge, or recurrent infections despite medication indicate the need for surgical evaluation.",
+      "Early signs include redness, swelling, itching, pain or discomfort during urination. Immediate consultation can prevent complications.",
   },
   {
     id: "seven",
-    question: "How painful is balanitis surgery treatment?",
+    question: "How painful is balanoposthitis surgery treatment?",
     answer:
-      "Modern minimally invasive and laser techniques minimize pain. Surgery is typically performed under local or regional anesthesia with manageable post-operative discomfort.",
+      "The procedure is minimally invasive, performed under local or general anesthesia. Post-surgery discomfort is minimal and manageable.",
   },
   {
     id: "eight",
-    question: "Is balanitis surgery safe for all ages?",
+    question: "Is balanoposthitis surgery safe for all ages?",
     answer:
-      "Yes, balanitis surgery is safe for adolescents and adults. Specialized care plans are available for older patients or those with medical conditions.",
+      "Yes, it is safe for both children and adults when performed by experienced urologists with proper care and monitoring.",
   },
   {
     id: "nine",
-    question: "How long is the recovery period after balanitis surgery?",
+    question: "How long is the recovery after balanoposthitis surgery?",
     answer:
-      "Recovery usually takes 1–2 weeks. Patients may have minor restrictions on sexual activity and strenuous exercise during this period.",
+      "Most patients recover within 1–2 weeks, depending on the procedure type, with follow-up care and guidance from PureCheckup specialists.",
   },
   {
     id: "ten",
-    question: "Can balanitis recur after surgery?",
+    question: "Can balanoposthitis recur after surgery?",
     answer:
-      "Recurrence is rare when surgery is performed by experienced surgeons and patients follow proper post-operative care and hygiene guidelines.",
+      "Recurrence is rare when proper hygiene is maintained and post-surgery care instructions are followed.",
   },
 ];
 
-const balanitisData = {
-  title1: "Balanitis ?",
+const balanoposthitisData = {
+  title1: "Balanoposthitis ?",
   title2: "Surgery & Information",
   description:
-    "Balanitis surgery treats inflammation of the glans penis (balanitis), especially when medications fail. PureCheckup provides expert treatment using minimally invasive techniques for safe, effective, and fast recovery, with insurance coverage and personalized care.",
+    "Balanoposthitis surgery treats inflammation or infection of the glans penis and foreskin. PureCheckup provides safe, minimally invasive treatment with expert urologists, fast recovery, and complete post-surgery guidance.",
 
   tabsData: [
     {
-      value: "what-is-balanitis",
-      label: "What is Balanitis Surgery?",
+      value: "what-is-balanoposthitis",
+      label: "What is Balanoposthitis Surgery?",
       icon: <Activity className="text-blue-600" />,
       content: (
         <div className="space-y-3">
           <p>
-            Balanitis surgery is performed to treat inflammation or infection of the glans penis that does not respond to medications or conservative treatments.
+            Balanoposthitis surgery is performed to treat inflammation or infection of the glans penis and foreskin that does not respond to medications or conservative treatment.
           </p>
           <p>
-            The procedure removes infected tissue, relieves pain, and prevents recurrent infections, using modern minimally invasive techniques for faster recovery.
+            The surgery restores normal function, prevents recurrent infections, and improves overall penile health using safe, minimally invasive techniques.
           </p>
         </div>
       ),
@@ -114,12 +114,12 @@ const balanitisData = {
       icon: <Syringe className="text-green-600" />,
       content: (
         <div className="space-y-3">
-          <p>Types of balanitis surgery available in India include:</p>
+          <p>Types of balanoposthitis surgery performed in India:</p>
           <ul className="list-disc list-inside space-y-2">
-            <li><strong>Circumcision Surgery:</strong> Complete removal of the foreskin to prevent recurrent balanitis.</li>
-            <li><strong>Frenuloplasty Surgery:</strong> Repair of a tight frenulum contributing to irritation and infection.</li>
-            <li><strong>Topical Debridement or Excision:</strong> Removal of affected tissue in localized infections.</li>
-            <li><strong>Laser Balanitis Surgery:</strong> Advanced method ensuring minimal pain and faster healing.</li>
+            <li><strong>Circumcision:</strong> Complete removal of the foreskin to prevent recurrent infections.</li>
+            <li><strong>Preputioplasty:</strong> Foreskin-preserving procedure for mild to moderate inflammation.</li>
+            <li><strong>Frenuloplasty:</strong> Corrects tight frenulum contributing to balanoposthitis.</li>
+            <li><strong>Debridement & Antibiotic Therapy:</strong> For severe infection prior to surgical intervention.</li>
           </ul>
         </div>
       ),
@@ -130,13 +130,13 @@ const balanitisData = {
       icon: <Pill className="text-purple-600" />,
       content: (
         <div className="space-y-3">
-          <p>Balanitis surgery is recommended when:</p>
+          <p>Balanoposthitis surgery is required when caused by:</p>
           <ul className="list-disc list-inside space-y-2">
-            <li>Chronic infections (bacterial, fungal, or viral)</li>
-            <li>Poor hygiene or buildup under the foreskin</li>
-            <li>Diabetes or immunocompromised conditions</li>
-            <li>Foreskin abnormalities such as tight foreskin or phimosis</li>
-            <li>Recurrent balanitis causing scar tissue or discomfort</li>
+            <li>Poor personal hygiene</li>
+            <li>Recurrent bacterial or fungal infections</li>
+            <li>Diabetes or immune system disorders</li>
+            <li>Allergic reactions to soaps or chemicals</li>
+            <li>Tight foreskin (Phimosis) causing discomfort or infections</li>
           </ul>
         </div>
       ),
@@ -147,13 +147,13 @@ const balanitisData = {
       icon: <HeartPulse className="text-pink-600" />,
       content: (
         <div className="space-y-3">
-          <p>Signs indicating the need for balanitis surgery:</p>
+          <p>Signs indicating the need for balanoposthitis surgery:</p>
           <ul className="list-disc list-inside space-y-2">
-            <li>Redness and swelling of the glans penis</li>
-            <li>Pain or discomfort during urination or sexual activity</li>
-            <li>Persistent discharge or foul odor</li>
-            <li>Formation of scar tissue or lesions</li>
-            <li>Recurring infections despite medications</li>
+            <li>Redness and swelling of the glans and foreskin</li>
+            <li>Pain or discomfort during urination</li>
+            <li>Persistent itching or burning sensation</li>
+            <li>Foul-smelling discharge</li>
+            <li>Difficulty retracting the foreskin</li>
           </ul>
         </div>
       ),
@@ -164,38 +164,38 @@ const balanitisData = {
       icon: <Stethoscope className="text-red-600" />,
       content: (
         <div className="space-y-3">
-          <p>Balanitis surgery offers multiple benefits:</p>
+          <p>Benefits of balanoposthitis surgery:</p>
           <ul className="list-disc list-inside space-y-2">
             <li>Permanent relief from recurrent infections</li>
-            <li>Reduction in pain and discomfort</li>
-            <li>Improved hygiene and sexual health</li>
-            <li>Minimally invasive options for faster recovery</li>
-            <li>Covered under major health insurance plans</li>
+            <li>Improved hygiene and penile health</li>
+            <li>Enhanced comfort during urination and sexual activity</li>
+            <li>Minimal risk of recurrence with proper aftercare</li>
+            <li>Fast recovery using modern minimally invasive techniques</li>
           </ul>
         </div>
       ),
     },
   ],
 
-  doctorName: "Expert Balanitis Surgeons – PureCheckup Healthcare",
+  doctorName: "Expert Balanoposthitis Surgeons – PureCheckup Healthcare",
   doctorDescription: (
     <div className="space-y-4">
       <p>
-        PureCheckup provides expert balanitis surgery with certified urologists using modern, minimally invasive techniques for safe and fast recovery.
+        PureCheckup provides expert balanoposthitis surgery with certified urologists using advanced, minimally invasive techniques for safe and effective treatment.
       </p>
       <ul className="list-disc list-inside space-y-2">
         <li>Performed by experienced urologists and surgeons</li>
         <li>Minimally invasive and pain-minimized procedures</li>
-        <li>Short recovery period</li>
+        <li>Fast recovery period</li>
         <li>Cashless insurance and EMI options available</li>
         <li>Available in major cities across India</li>
       </ul>
       <p>
-        Trust PureCheckup for professional, safe, and effective balanitis treatment tailored to your needs.
+        Trust PureCheckup for professional, confidential, and high-quality balanoposthitis treatment tailored to your needs.
       </p>
     </div>
   ),
-  doctorLink: "https://purecheckup.com/treatment/balanitis",
+  doctorLink: "https://purecheckup.com/treatment/balanoposthitis",
 };
 
 const benefits = [
@@ -225,7 +225,7 @@ const treatmentOptions = [
   {
     id: 1,
     icon: <Scissors className="w-7 h-7 text-blue-600" />,
-    title: "Balanitis Surgery (Recommended)",
+    title: "Advanced Balanoposthitis Surgery (Recommended)",
     points: [
       "No cuts, stitches, or pain",
       "Safe and effective",
@@ -249,11 +249,11 @@ const treatmentOptions = [
   },
 ];
    
-const Balanitis = () => {
+const Balanoposthitis = () => {
     return (
         <>
             <ConditionHeroSection
-            title="Advanced Balanitis Surgery – Safe, Effective, and Hassle-Free"
+            title="Comprehensive Balanoposthitis Treatment – Causes, Symptoms & Expert Surgery"
             description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
             primaryBtn={{ label: "Book Free Consultation" }}
             secondaryBtn={{ label: "Call Now: +91 9211930749" }}
@@ -279,12 +279,12 @@ const Balanitis = () => {
 
             <ConditionInfo
                 title1="What is"
-                title2={balanitisData.title1}
-                description={balanitisData.description}
-                tabsData={balanitisData.tabsData}
-                expertHeading= {balanitisData.doctorName} 
+                title2={balanoposthitisData.title1}
+                description={balanoposthitisData.description}
+                tabsData={balanoposthitisData.tabsData}
+                expertHeading= {balanoposthitisData.doctorName} 
                 doctorName="" 
-                doctorDescription={balanitisData.doctorDescription}
+                doctorDescription={balanoposthitisData.doctorDescription}
                 doctorLink="https://purecheckup.com"
                 ctaText="Book Free Appointment"
             />
@@ -309,11 +309,11 @@ const Balanitis = () => {
             
             <section className="py-20">
               <ConditionCityWiseTreatment
-                treatmentName="Balanitis"
+                treatmentName="Balanoposthitis"
                 costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                 paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                 costFactors={[
-                  "Grade and type of Balanitis",
+                  "Grade and type of Balanoposthitis",
                   "Hospital category and room",
                   "Insurance coverage and approvals",
                   "Additional diagnostics if needed",
@@ -328,4 +328,4 @@ const Balanitis = () => {
     )
 }
 
-export default Balanitis;
+export default Balanoposthitis;

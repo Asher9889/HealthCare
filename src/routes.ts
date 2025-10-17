@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty } from "./pages";
+import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis } from "./pages";
 import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
 // Lazy load your pages (replace these with actual components)
@@ -79,8 +79,8 @@ export const navItems = [
       { label: "PCNL", path: "/treatment/pcnl", element: PCNL },
       { label: "URSL", path: "/treatment/ursl", element: URSL },
       { label: "Frenuloplasty Surgery", path: "/treatment/frenuloplasty-surgery", element: Frenuloplasty },
-      { label: "Balanitis", path: "/treatment/balanitis", element: PageNotFound },
-      { label: "Balanoposthitis", path: "/treatment/balanoposthitis", element: PageNotFound },
+      { label: "Balanitis", path: "/treatment/balanitis", element: Balanitis },
+      { label: "Balanoposthitis", path: "/treatment/balanoposthitis", element: Balanoposthitis },
       { label: "Paraphimosis", path: "/treatment/paraphimosis", element: PageNotFound },
       { label: "Foreskin Infection", path: "/treatment/foreskin-infection", element: PageNotFound },
       { label: "Tight Foreskin", path: "/treatment/tight-foreskin", element: PageNotFound },
