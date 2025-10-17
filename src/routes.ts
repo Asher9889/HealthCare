@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis } from "./pages";
+import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery } from "./pages";
 import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
 // Lazy load your pages (replace these with actual components)
@@ -85,11 +85,11 @@ export const navItems = [
       { label: "Foreskin Infection", path: "/treatment/foreskin-infection", element: Foreskin },
       { label: "Tight Foreskin", path: "/treatment/tight-foreskin", element: TightForeskin },
       { label: "Phimosis", path: "/treatment/phimosis", element: Phimosis },
-      { label: "Corn Removal", path: "/treatment/corn-removal", element: PageNotFound },
-      { label: "Vasectomy", path: "/treatment/vasectomy", element: PageNotFound },
-      { label: "Testicular Torsion", path: "/treatment/testicular-torsion", element: PageNotFound },
-      { label: "Epididymal Cyst", path: "/treatment/epididymal-cyst", element: PageNotFound },
-      { label: "Toenail Removal", path: "/treatment/toenail-removal", element: PageNotFound }
+      { label: "Corn Removal", path: "/treatment/corn-removal", element: CornRemoval },
+      { label: "Vasectomy", path: "/treatment/vasectomy", element: Vasectomy },
+      { label: "Testicular Torsion", path: "/treatment/testicular-torsion", element: TesticularTorsion },
+      { label: "Epididymal Cyst", path: "/treatment/epididymal-cyst", element: EpididymalCyst },
+      { label: "Toenail Removal", path: "/treatment/toenail-removal", element: Toenail }
     ],
   },
   {
@@ -104,8 +104,8 @@ export const navItems = [
     icon: Sparkles,
     element: Asthetic,
     children: [
-      { label: "Plastic Surgeries", path: "/aesthetics/plastic-surgeries", element: PageNotFound  },
-      { label: "Cosmetic Surgery", path: "/aesthetics/cosmetic-surgery", element: PageNotFound  },
+      { label: "Plastic Surgeries", path: "/aesthetics/plastic-surgeries", element: PlasticSurgery  },
+      { label: "Cosmetic Surgery", path: "/aesthetics/cosmetic-surgery", element: CosmeticSurgery  },
     ],
   },
  // Patient Service

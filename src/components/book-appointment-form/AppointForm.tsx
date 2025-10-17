@@ -44,7 +44,6 @@ const AppointForm = ({setOpen}: AppointFormProps) => {
     };
 
     const handleSubmit = async (e:any) => {
-        console.log("clicked")
         e.preventDefault();
         // ✅ Basic Validations
         if (!formData.fullName || formData.fullName.trim().length < 4) {
