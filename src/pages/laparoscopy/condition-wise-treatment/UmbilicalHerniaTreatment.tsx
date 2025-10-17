@@ -325,10 +325,10 @@ const UmbilicalHerniaTreatment = () => {
 
             <ConditionInfo
                 title1="What is"
-                title2="Inguinal Hernia?"
+                title2={umbilicalHerniaData.title1}
                 description={umbilicalHerniaData.description}
                 tabsData={umbilicalHerniaData.tabsData}
-                expertHeading= "Expert Inguinal Hernia Surgery – PureCheckup" 
+                expertHeading= "Expert Umbilical Hernia Surgery – PureCheckup" 
                 doctorName="" 
                 doctorDescription={umbilicalHerniaData.doctorDescription}
                 doctorLink="https://purecheckup.com"

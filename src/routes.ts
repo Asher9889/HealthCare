@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, UmbilicalHerniaTreatment, Urology } from "./pages";
+import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL } from "./pages";
 import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
 // Lazy load your pages (replace these with actual components)
@@ -69,12 +69,12 @@ export const navItems = [
     element: Urology,
     icon: HeartPulse,
     children: [
-      { label: "Circumcision", path: "/treatment/circumcision", element: PageNotFound },
-      { label: "Stapler Circumcision", path: "/treatment/stapler-circumcision", element: PageNotFound },
-      { label: "Laser Circumcision", path: "/treatment/laser-circumcision", element: PageNotFound },
-      { label: "Kidney Stones Treatment", path: "/treatment/kidney-stones-treatment", element: PageNotFound },
-      { label: "Hydrocele", path: "/treatment/hydrocele", element: PageNotFound },
-      { label: "EWSL", path: "/treatment/eswl", element: PageNotFound },
+      { label: "Circumcision", path: "/treatment/circumcision", element: CircumcisionTreatment },
+      { label: "Stapler Circumcision", path: "/treatment/stapler-circumcision", element: StaplerCircumcision },
+      { label: "Laser Circumcision", path: "/treatment/laser-circumcision", element: LaserCircumcision },
+      { label: "Kidney Stones Treatment", path: "/treatment/kidney-stones-treatment", element: KidneyStonesTreatment },
+      { label: "Hydrocele", path: "/treatment/hydrocele", element: Hydrocele },
+      { label: "EWSL", path: "/treatment/eswl", element: ESWL },
       { label: "RIRS", path: "/treatment/rirs", element: PageNotFound },
       { label: "PCNL", path: "/treatment/pcnl", element: PageNotFound },
       { label: "URSL", path: "/treatment/ursl", element: PageNotFound },

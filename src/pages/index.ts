@@ -12,6 +12,16 @@ import Gynecology from "./gynecology/Gynecology";
 import Laparoscopy from "./laparoscopy/Laparoscopy";
 
 import Urology from "./urology/Urology";
+import CircumcisionTreatment from "./urology/condition-wise-treatment/CircumcisionTreatment";
+import KidneyStonesTreatment from "./urology/condition-wise-treatment/KidneyStonesTreatment";
+import LaserCircumcision from "./urology/condition-wise-treatment/LaserCircumcision";
+import StaplerCircumcision from "./urology/condition-wise-treatment/StaplerCircumcision";
+import Hydrocele from "./urology/condition-wise-treatment/Hydrocele";
+import ESWL from "./urology/condition-wise-treatment/ESWL";
+
+
+
+
 import HerniaTreatment from "./laparoscopy/condition-wise-treatment/HerniaTreatment";
 import GallstonesTreatment from "./laparoscopy/condition-wise-treatment/GallstonesTreatment";
 import AppendicitisTreatment from "./laparoscopy/condition-wise-treatment/AppendicitisTreatment";
@@ -19,4 +29,4 @@ import InguinalHerniaTreatment from "./laparoscopy/condition-wise-treatment/Ingu
 import UmbilicalHerniaTreatment from "./laparoscopy/condition-wise-treatment/UmbilicalHerniaTreatment";
 import AppendicitisInSpecialCity from "./laparoscopy/condition-wise-treatment/appendicitis/city-wise-appendicitis/AppendicitisInSpecialCity";
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity }
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL }
