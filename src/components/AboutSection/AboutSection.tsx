@@ -5,7 +5,7 @@ interface CardItem {
   id: string;
   title: string;
   description: string;
-}
+}  
 
 interface AboutSectionProps {
   heading: string;
