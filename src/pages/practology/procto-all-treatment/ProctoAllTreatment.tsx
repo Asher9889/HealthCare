@@ -159,7 +159,7 @@ export default function ProctologyTreatments() {
           </Button>
           <CallNow />
           {appointmentOpen && (
-            <AppointForm />
+            <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
           )}
         </div>
       </motion.div>

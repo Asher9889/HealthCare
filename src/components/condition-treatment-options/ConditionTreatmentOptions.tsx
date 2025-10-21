@@ -60,7 +60,7 @@ export default function ConditionTreatmentOptions({ treatmentOptions }: { treatm
           </motion.div>
         ))}
       </div>
-     {open &&  <AppointForm setOpen={setOpen}/>}
+     {open &&  <AppointForm open={open} setOpen={setOpen}/>}
     </div>
   );
 }

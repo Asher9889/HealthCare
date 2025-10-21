@@ -41,7 +41,7 @@ const AboutSection = ({
           >
             {buttonText}
           </button>
-          {appointmentOpen && <AppointForm />}
+          {appointmentOpen && <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />}
         </div>
 
         {/* Right Details Section */}

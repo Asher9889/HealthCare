@@ -16,7 +16,7 @@ interface HeroProps {
 }
 
 export default function DynamicHeroSection({ heroContent }: { heroContent: HeroProps }) {
-    const [appointmentOpen, _] = useState(false) // Appointment modal open/close
+    const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
   
   return (
     <div className="bg-[#D6E4EF] py-6 px-4 flex justify-center">
@@ -37,13 +37,12 @@ export default function DynamicHeroSection({ heroContent }: { heroContent: HeroP
           {/* Book Consultation  */}
           <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center md:items-start">
             <button className="px-4  py-2 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 rounded-md text-white flex flex-row justify-center items-center"
-              aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
-
+              onClick={() => setAppointmentOpen(true)}
             >
               {heroContent.button1Text}
             </button>
             {appointmentOpen && (
-            <AppointForm />
+            <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
           )}
             {/* <Button className="w-full h-10 sm:w-auto bg-blue-600 hover:bg-blue-700 text-white">
              

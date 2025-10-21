@@ -48,7 +48,7 @@ export default function BookAppointMentPageView() {
               Book Free Appointment
             </Button>
             <CallNow />
-            {appointmentOpen && <AppointForm />}
+            {appointmentOpen && <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />}
           </div>
         </motion.div>
       </div>

@@ -22,7 +22,7 @@ const AboutPracto = () => {
             Book Free Appointment
           </button>
           {appointmentOpen && (
-            <AppointForm />
+            <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
           )}
         </div>
 

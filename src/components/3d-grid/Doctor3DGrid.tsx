@@ -112,7 +112,7 @@ export default function Doctors3DGrid() {
                       Book Appointment
                     </Button>
                      {appointmentOpen && (
-                        <AppointForm />
+                        <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
                       )}
                   </CardItem>
                 </div>

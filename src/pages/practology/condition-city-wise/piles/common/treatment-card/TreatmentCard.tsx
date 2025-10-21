@@ -34,7 +34,7 @@ export function TreatmentCard({ title, description, downtime }: TreatmentCardPro
           <a href={`${constantData.specialists[0].callLink}`}>Call</a>
         </Button>
       </CardFooter>
-      {open && <AppointForm setOpen={setOpen} />}
+      {open && <AppointForm open={open} setOpen={setOpen} />}
     </Card>
   );
 }

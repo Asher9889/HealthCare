@@ -13,7 +13,7 @@ async function loadPreline() {
 function App() {
 
   const location = useLocation();
-
+  // needed for FAQ
   useEffect(() => {
     const initPreline = async () => {
       await loadPreline();

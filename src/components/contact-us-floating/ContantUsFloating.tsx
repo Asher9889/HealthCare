@@ -58,11 +58,8 @@ export default function ContactUsFloating() {
       {/* Appointment Modal (React-only, no Preline overlay) */}
       {appointmentOpen && (
         // <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60">
-         
-
-            
            <div>
-                <AppointForm />
+                <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
            </div> 
           
         // </div>

@@ -4,9 +4,9 @@ import { AppointForm, Sidebar } from "../index"
 import whatsaap from "../../assets/whatsapp.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-const Navbar = () => {
 
-    const [_, setOpen] = useState(false);
+const Navbar = () => {
+    const [open, setOpen] = useState(false);
   return (
     <nav className="bg-(--dark-blue-color) text-white px-6 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
@@ -40,10 +40,10 @@ const Navbar = () => {
               alt="whatsapp icon"
             />
           </button>
-          <button type="button" className="border border-white rounded px-4 py-2 font-semibold hover:scale-[0.99]  transition text-sm md:text-base disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal">
+          <button onClick={() => setOpen(true)} type="button" className="border border-white rounded px-4 py-2 font-semibold hover:scale-[0.99]  transition text-sm md:text-base disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal">
             Book Free Appointment
           </button>
-          <AppointForm setOpen={setOpen} />
+          <AppointForm open={open} setOpen={setOpen} />
         </div>
       </div>
     </nav>

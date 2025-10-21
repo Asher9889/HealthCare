@@ -59,7 +59,7 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
           </div>
         </div>
       </CardContent>
-     { formOpen && <AppointForm setOpen={setFormOpen} />}
+     { formOpen && <AppointForm open={formOpen} setOpen={setFormOpen} />}
      
     </Card>
   )
