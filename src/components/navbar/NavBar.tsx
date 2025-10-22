@@ -24,7 +24,7 @@ const Navbar = () => {
             placeholder="Search disease, doctors, treatment..."
             className="px-3 py-2 w-full text-black outline-none text-sm"
           />
-          <button className="px-3 text-orange-500">
+          <button type="button" className="px-3 text-orange-500">
             <FaSearch />
           </button>
         </div>

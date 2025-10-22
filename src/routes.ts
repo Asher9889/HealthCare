@@ -1,4 +1,3 @@
-// import { lazy } from "react";
 import {
   Stethoscope,
   Microscope,
@@ -10,17 +9,70 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { AppendicitisInSpecialCity, AppendicitisTreatment, Asthetic, CircumcisionTreatment, FistulaInSpecialCity, FistulaTreatment, GallstonesTreatment, Gynecology, HerniaTreatment, InguinalHerniaTreatment, KidneyStonesTreatment, LaserCircumcision, PilesInSpecialCity, PilesTreatment, PilonidalSinusInSpecialCity, PilonidalSinusTreatment, RectalProlapseInSpecialCity, RectalProlapseTreatment, StaplerCircumcision, UmbilicalHerniaTreatment, Urology, Hydrocele, ESWL, RIRS, PCNL, URSL, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery } from "./pages";
-import HerniaInSpecialCity from "./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity";
 
-// Lazy load your pages (replace these with actual components)
-const Laparoscopy = lazy(() => import("./pages/laparoscopy/Laparoscopy"));
-const Practology = lazy(() => import("./pages/practology/Practology"));
-// const PilesPage = lazy(() => import("./pages/proctology/PilesPage"));
-// const FistulaPage = lazy(() => import("./pages/proctology/FistulaPage"));
-// const FissurePage = lazy(() => import("./pages/proctology/FissurePage"));
-// const PilonidalPage = lazy(() => import("./pages/proctology/PilonidalPage"));
-// const RectalPage = lazy(() => import("./pages/proctology/RectalPage"));
+// Utility function for type-safe lazy loading
+type LazyImport = {
+  [key: string]: React.ComponentType<any>;
+};
+
+const lazyImport = <T extends keyof LazyImport>(
+  exportName: T
+): React.LazyExoticComponent<LazyImport[T]> => {
+  return lazy(
+    () =>
+      import("./pages").then((module) => ({
+        default: (module as unknown as LazyImport)[exportName],
+      }))
+  );
+};
+
+// Lazy load all components
+const Asthetic = lazyImport("Asthetic");
+const Practology = lazyImport("Practology");
+const Laparoscopy = lazyImport("Laparoscopy");
+const Urology = lazyImport("Urology");
+const Gynecology = lazyImport("Gynecology");
+const PilesTreatment = lazyImport("PilesTreatment");
+const PilesInSpecialCity = lazyImport("PilesInSpecialCity");
+const FistulaTreatment = lazyImport("FistulaTreatment");
+const PilonidalSinusTreatment = lazyImport("PilonidalSinusTreatment");
+const RectalProlapseTreatment = lazyImport("RectalProlapseTreatment");
+const FistulaInSpecialCity = lazyImport("FistulaInSpecialCity");
+const PilonidalSinusInSpecialCity = lazyImport("PilonidalSinusInSpecialCity");
+const RectalProlapseInSpecialCity = lazyImport("RectalProlapseInSpecialCity");
+const HerniaTreatment = lazyImport("HerniaTreatment");
+const GallstonesTreatment = lazyImport("GallstonesTreatment");
+const AppendicitisTreatment = lazyImport("AppendicitisTreatment");
+const InguinalHerniaTreatment = lazyImport("InguinalHerniaTreatment");
+const UmbilicalHerniaTreatment = lazyImport("UmbilicalHerniaTreatment");
+const AppendicitisInSpecialCity = lazyImport("AppendicitisInSpecialCity");
+const CircumcisionTreatment = lazyImport("CircumcisionTreatment");
+const KidneyStonesTreatment = lazyImport("KidneyStonesTreatment");
+const LaserCircumcision = lazyImport("LaserCircumcision");
+const StaplerCircumcision = lazyImport("StaplerCircumcision");
+const Hydrocele = lazyImport("Hydrocele");
+const ESWL = lazyImport("ESWL");
+const PCNL = lazyImport("PCNL");
+const URSL = lazyImport("URSL");
+const RIRS = lazyImport("RIRS");
+const Frenuloplasty = lazyImport("Frenuloplasty");
+const Balanitis = lazyImport("Balanitis");
+const Balanoposthitis = lazyImport("Balanoposthitis");
+const Paraphimosis = lazyImport("Paraphimosis");
+const Foreskin = lazyImport("Foreskin");
+const TightForeskin = lazyImport("TightForeskin");
+const Phimosis = lazyImport("Phimosis");
+const CornRemoval = lazyImport("CornRemoval");
+const Vasectomy = lazyImport("Vasectomy");
+const TesticularTorsion = lazyImport("TesticularTorsion");
+const EpididymalCyst = lazyImport("EpididymalCyst");
+const Toenail = lazyImport("Toenail");
+const PlasticSurgery = lazyImport("PlasticSurgery");
+const CosmeticSurgery = lazyImport("CosmeticSurgery");
+const HerniaInSpecialCity = lazy(() => 
+  import("./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity")
+    .then(module => ({ default: module.default }))
+);
 
 // const HerniaPage = lazy(() => import("./pages/laproscopy/HerniaPage"));
 // const GallstonesPage = lazy(() => import("./pages/laproscopy/GallstonesPage"));

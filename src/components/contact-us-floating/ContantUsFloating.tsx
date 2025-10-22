@@ -20,7 +20,7 @@ export default function ContactUsFloating() {
               ${open ? "translate-y-[-70px] scale-100 opacity-100" : "scale-0 opacity-0 pointer-events-none"}`}
             onClick={() => window.open("https://wa.me/9211930749", "_blank")}
           >
-            <img className="h-10 w-10" src={wtsp} />
+            <img className="h-10 w-10" src={wtsp} alt="WhatsApp" />
           </Button>
 
           {/* Call */}
