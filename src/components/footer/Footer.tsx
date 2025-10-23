@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
 
   useEffect(()=>{
     window.scrollTo(0, 0);
-  }, [navigate])
+  }, [navigate]);
 
   const footerLinks = [
     {

@@ -51,10 +51,10 @@ const doctors = [
 
 
 export default function Doctors3DGrid() {
-      const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
-  
+  const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
+
   return (
-    <section className="">
+    <section>
       <div>
         {/* Left side */}
         <div className="">   {/* grid sm:grid-cols-2 lg:grid-cols-4 */}
@@ -62,7 +62,7 @@ export default function Doctors3DGrid() {
             <CardContainer key={index} className="inter-var w-80">
               <CardBody className="bg-white relative group/card w-full   shadow-sm hover:shadow-2xl transition-all duration-300">
                 {/* Doctor Image */}
-                <CardItem  className="w-full">
+                <CardItem className="w-full">
                   <img
                     src={doc.image}
                     alt={doc.name}
@@ -84,25 +84,25 @@ export default function Doctors3DGrid() {
                 >
                   {doc.designation} • {doc.experience}
                 </CardItem>
-                { doc.phone && <CardItem
+                {doc.phone && <CardItem
                   translateZ="40"
                   as="p"
                   className="font-medium text-md text-gray-600 px-6"
                 >
                   Phone: {doc.phone}
                 </CardItem>}
-                
+
                 {doc.clients && <CardItem
                   translateZ="40"
                   as="p"
                   className="font-medium text-md text-gray-600 px-6"
                 >
-                 Happy Patients: {doc.clients}
+                  Happy Patients: {doc.clients}
                 </CardItem>}
-                
+
 
                 {/* CTA Button */}
-                <div className="flex justify-center py-6">
+                <div className="w-full flex justify-center py-6">
                   <CardItem translateZ="60" translateY={10}>
                     <Button className="px-6 py-2 rounded-lg text-md font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-md"
                       aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
@@ -111,18 +111,19 @@ export default function Doctors3DGrid() {
                     >
                       Book Appointment
                     </Button>
-                     {appointmentOpen && (
-                        <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
-                      )}
+
                   </CardItem>
                 </div>
               </CardBody>
             </CardContainer>
           ))}
         </div>
-         
-         {/* Right Side */}
+
+        {/* Right Side */}
       </div>
+      {appointmentOpen && (
+        <AppointForm open={appointmentOpen} setOpen={setAppointmentOpen} />
+      )}
 
     </section>
   );
