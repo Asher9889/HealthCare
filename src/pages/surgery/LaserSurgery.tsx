@@ -8,92 +8,99 @@ import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 const faqs = [
   {
     id: "one",
-    question: "What is the cost of plastic surgery treatment in India?",
+    question: "What is the cost of laser surgery treatment in India?",
     answer:
-      "The cost depends on the type of procedure, hospital, and surgeon’s experience. Personalized estimates are recommended after consultation.",
+      "The cost of laser surgery in India depends on your condition, procedure type, and city. At PureCheckup, we offer affordable, transparent pricing and free consultations to discuss your treatment plan.",
   },
   {
     id: "two",
-    question: "Does insurance cover plastic surgery treatment?",
+    question: "Does insurance cover laser surgery treatment?",
     answer:
-      "Reconstructive plastic surgeries caused by burns, trauma, or congenital issues are often covered. Cosmetic enhancements are usually not covered.",
+      "Yes, most laser surgeries at PureCheckup are covered under leading health insurance plans. Our dedicated insurance team assists patients with cashless approval and claim processing.",
   },
   {
     id: "three",
-    question: "Which healthcare provider offers the best plastic surgery in India?",
+    question: "Which healthcare provider offers the best laser surgery treatment in India?",
     answer:
-      "PureCheckup partners with top-tier surgeons and NABH-accredited hospitals offering safe, affordable plastic surgery across major Indian cities.",
+      "PureCheckup is among India’s most trusted healthcare providers, offering advanced laser surgery treatments performed by experienced specialists using world-class equipment.",
   },
   {
     id: "four",
-    question: "How to book a plastic surgery treatment with PureCheckup?",
+    question: "How to book a laser surgery with PureCheckup?",
     answer: (
       <div className="space-y-2 text-(--text-primary) font-medium">
-        <p>Booking is simple:</p>
+        <p>Booking your laser surgery at PureCheckup is simple:</p>
         <ul className="list-decimal list-inside space-y-1">
-          <li>Visit PureCheckup.com</li>
-          <li>Choose “Plastic Surgery”</li>
-          <li>Fill out the consultation form</li>
-          <li>Our care team will guide you through scheduling and treatment</li>
+          <li>Visit our official website – PureCheckup.com</li>
+          <li>Fill out the consultation or contact form</li>
+          <li>Our care team will call to schedule your appointment</li>
+          <li>We assist with consultation, insurance, and hospital selection</li>
         </ul>
       </div>
     ),
   },
   {
     id: "five",
-    question: "What is the best treatment for plastic surgery?",
+    question: "What is the best treatment for laser surgery?",
     answer:
-      "It depends on your concern — rhinoplasty for nasal correction, liposuction for fat reduction, breast reconstruction for post-surgery restoration, etc.",
+      "The best laser surgery treatment depends on your medical condition. At PureCheckup, doctors personalize every plan based on diagnosis and health history for safe and fast recovery.",
   },
   {
     id: "six",
-    question: "What are the first signs that I might need plastic surgery?",
+    question: "What are the first signs that may require laser surgery?",
     answer:
-      "Visible deformities, scars, asymmetry, or loss of facial/body proportion affecting confidence or comfort are signs to consult a specialist.",
+      "Common signs include chronic pain, swelling, bleeding, or infection that doesn’t improve with medication. PureCheckup’s specialists assess your symptoms to recommend the right laser procedure.",
   },
   {
     id: "seven",
-    question: "How painful is plastic surgery treatment?",
+    question: "How painful is laser surgery treatment?",
     answer:
-      "Modern minimally invasive and laser-assisted techniques ensure the procedure is safe, nearly painless, and allows faster recovery.",
+      "Laser surgeries at PureCheckup are nearly painless due to advanced anesthesia and precision laser systems. Most patients experience minimal discomfort and resume activities quickly.",
   },
   {
     id: "eight",
-    question: "Is plastic surgery safe in India?",
+    question: "How long does it take to recover after laser surgery?",
     answer:
-      "Yes. India has world-class hospitals and board-certified surgeons performing thousands of safe, successful procedures annually.",
+      "Most PureCheckup patients recover within 24 to 72 hours after surgery. Our expert team provides personalized aftercare to ensure a smooth healing process.",
   },
   {
     id: "nine",
-    question: "How long does it take to recover after plastic surgery?",
+    question: "Is laser surgery safe for all age groups?",
     answer:
-      "Recovery varies by procedure, from a few days for minor treatments to a few weeks for major surgeries.",
+      "Yes. Laser treatments at PureCheckup are safe for most age groups when performed by certified surgeons. Every treatment plan is customized to ensure maximum safety and results.",
   },
   {
     id: "ten",
-    question: "Are the results of plastic surgery permanent?",
+    question: "Why is laser surgery better than traditional surgery?",
     answer:
-      "Most results are long-lasting, provided you maintain a healthy lifestyle and follow post-treatment care guidelines.",
+      "Laser surgery is safer, faster, and more precise. Patients benefit from no stitches, minimal bleeding, less infection risk, and faster recovery — making it a superior modern alternative to traditional surgery.",
   },
 ];
 
-const plasticSurgeryData = {
-  title1: "Plastic Surgery ?",
-  title2: "Advanced Reconstructive & Cosmetic Procedures",
+const laserSurgeryData = {
+  title1: "Laser Surgery?",
+  title2: "Advanced Minimally Invasive Surgical Treatments",
   description:
-    "Plastic surgery focuses on reconstructing, reshaping, and enhancing the human body to restore both function and aesthetics. Modern techniques in India allow natural-looking results with minimal downtime.",
+    "Laser surgery uses focused laser light to treat or remove tissues with extreme precision. It ensures minimal pain, reduced bleeding, and faster recovery — making it a preferred choice for modern treatments in proctology, urology, gynecology, dermatology, and cosmetic care.",
+
   tabsData: [
     {
-      value: "what-is-plastic-surgery",
-      label: "What is Plastic Surgery?",
+      value: "what-is-laser-surgery",
+      label: "What is Laser Surgery?",
       icon: <Activity className="text-blue-600" />,
       content: (
         <div className="space-y-3">
           <p>
-            Plastic surgery addresses congenital deformities, trauma, burn injuries, and cosmetic enhancement. Procedures are tailored to restore appearance and functionality while boosting confidence.
+            Laser surgery is a modern, minimally invasive medical procedure that
+            uses focused laser light to treat, repair, or remove tissues with
+            utmost precision. It offers pain-free, scar-free, and quick recovery
+            treatments across various specialties.
           </p>
           <p>
-            With minimally invasive and advanced laser-assisted techniques, patients experience safe treatments, faster recovery, and natural results.
+            At PureCheckup, we use advanced laser technology to treat conditions
+            such as piles, fissures, fistula, varicose veins, circumcision,
+            hernia, and gallbladder issues — ensuring minimal bleeding and rapid
+            healing.
           </p>
         </div>
       ),
@@ -105,14 +112,33 @@ const plasticSurgeryData = {
       content: (
         <div className="space-y-3">
           <ul className="list-disc list-inside space-y-2">
-            <li><strong>Facial Plastic Surgery:</strong> Rhinoplasty, facelift, eyelid surgery, lip or chin enhancement.</li>
-            <li><strong>Body Contouring:</strong> Liposuction, tummy tuck, arm lift, thigh lift.</li>
-            <li><strong>Breast Surgery:</strong> Augmentation, reduction, reconstruction, and lift.</li>
-            <li><strong>Reconstructive Surgery:</strong> Burn reconstruction, scar revision, cleft lip/palate repair, hand surgery.</li>
-            <li><strong>Hair Restoration:</strong> FUE and FUT transplantation techniques.</li>
-            <li><strong>Post-Weight Loss Surgery:</strong> Excess skin removal and full-body sculpting.</li>
-            <li><strong>Intimate Aesthetic Surgery:</strong> Labiaplasty, vaginal tightening, genital reconstruction.</li>
+            <li>
+              <strong>Proctology Laser Surgeries:</strong> Treatment for piles,
+              fissure, and fistula — painless, stitch-free, and same-day
+              discharge.
+            </li>
+            <li>
+              <strong>Urology Laser Surgeries:</strong> Laser circumcision,
+              kidney stone removal, and prostate surgery.
+            </li>
+            <li>
+              <strong>Gynecology Laser Surgeries:</strong> Vaginal tightening,
+              ovarian cyst removal, and endometriosis treatment.
+            </li>
+            <li>
+              <strong>Cosmetic & Aesthetic Surgeries:</strong> Skin
+              resurfacing, hair/tattoo removal, scar revision, and acne scar
+              therapy.
+            </li>
+            <li>
+              <strong>General & Laparoscopic Laser Surgeries:</strong> Laser
+              hernia repair, gallbladder removal, and varicose vein treatment.
+            </li>
           </ul>
+          <p>
+            All procedures at PureCheckup are performed by certified surgeons
+            using FDA-approved equipment for maximum safety and precision.
+          </p>
         </div>
       ),
     },
@@ -123,13 +149,17 @@ const plasticSurgeryData = {
       content: (
         <div className="space-y-3">
           <ul className="list-disc list-inside space-y-2">
-            <li>Congenital deformities (e.g., cleft lip, ear deformities)</li>
-            <li>Trauma or burn injury repair</li>
-            <li>Improving appearance and self-esteem</li>
-            <li>Reversing aging effects</li>
-            <li>Enhancing body proportion and symmetry</li>
-            <li>Post-cancer or post-surgery reconstruction</li>
+            <li>Chronic infections or inflammation</li>
+            <li>Genetic or hereditary disorders</li>
+            <li>Obesity and sedentary lifestyle</li>
+            <li>Hormonal imbalances</li>
+            <li>Tissue injury or internal damage</li>
+            <li>Abnormal tissue growth like cysts or piles</li>
           </ul>
+          <p>
+            Our experts assess each case individually to identify the root cause
+            and design a laser-based treatment plan for long-term results.
+          </p>
         </div>
       ),
     },
@@ -140,13 +170,17 @@ const plasticSurgeryData = {
       content: (
         <div className="space-y-3">
           <ul className="list-disc list-inside space-y-2">
-            <li>Physical deformity or scars causing discomfort</li>
-            <li>Breathing difficulties due to nasal structure</li>
-            <li>Asymmetrical features affecting confidence</li>
-            <li>Sagging or loose skin post-weight loss</li>
-            <li>Post-trauma or burn scars</li>
-            <li>Functional issues from birth defects or injury</li>
+            <li>Persistent pain, swelling, or bleeding</li>
+            <li>Chronic infection or discharge from the affected area</li>
+            <li>Lumps, bulges, or visible swelling (hernia, varicose veins)</li>
+            <li>Burning or discomfort during urination or bowel movement</li>
+            <li>Non-healing wounds or scars</li>
+            <li>Irregularities like moles, warts, or cysts</li>
           </ul>
+          <p>
+            Our PureCheckup team uses advanced imaging and diagnostics before
+            recommending surgery to ensure safe and accurate treatment.
+          </p>
         </div>
       ),
     },
@@ -157,33 +191,44 @@ const plasticSurgeryData = {
       content: (
         <div className="space-y-3">
           <ul className="list-disc list-inside space-y-2">
-            <li>Enhanced physical appearance and confidence</li>
-            <li>Correction of birth or trauma-related deformities</li>
-            <li>Long-lasting aesthetic improvement</li>
-            <li>Improved functional ability (breathing, movement, etc.)</li>
-            <li>Quick recovery with minimally invasive techniques</li>
-            <li>Affordable cost compared to global standards</li>
-            <li>Access to highly qualified, certified surgeons</li>
+            <li>Painless and bloodless procedures</li>
+            <li>No stitches required — faster healing</li>
+            <li>Day-care treatments with same-day discharge</li>
+            <li>Return to normal life within 24–48 hours</li>
+            <li>Laser precision ensures minimal tissue damage</li>
+            <li>Lower infection risk with sterile, contact-free methods</li>
+            <li>Better cosmetic results for all surgical types</li>
           </ul>
+          <p>
+            At PureCheckup, we focus on comfort, speed, and lasting medical
+            outcomes through modern laser innovation.
+          </p>
         </div>
       ),
     },
   ],
 
-  doctorName: "Expert Plastic Surgery Treatment – PureCheckup",
+  doctorName: "Expert Laser Surgery Treatment – PureCheckup",
   doctorDescription: (
     <div className="space-y-4">
-      <p>PureCheckup provides end-to-end care with:</p>
+      <p>
+        PureCheckup leads India’s laser surgery revolution with cutting-edge
+        technology and world-class specialists.
+      </p>
       <ul className="list-disc list-inside space-y-2">
-        <li>Personalized consultation with leading cosmetic surgeons</li>
-        <li>Advanced surgical techniques using FDA-approved equipment</li>
-        <li>100% transparent process with no hidden charges</li>
-        <li>End-to-end support from consultation to recovery</li>
-        <li>Cashless treatment options across hospitals</li>
+        <li>Certified and experienced laser surgeons</li>
+        <li>Advanced operation theatres with global safety standards</li>
+        <li>Cashless insurance support for major policies</li>
+        <li>Free consultation and pre-surgery evaluation</li>
+        <li>Post-surgery follow-ups and complete recovery support</li>
       </ul>
+      <p>
+        Our mission is to make advanced healthcare accessible, affordable, and
+        pain-free — because at PureCheckup, healthcare should heal, not hurt.
+      </p>
     </div>
   ),
-  doctorLink: "https://purecheckup.com/treatment/plastic-surgery",
+  doctorLink: "https://purecheckup.com/treatment/laser-surgery",
 };
 
 const benefits = [
@@ -213,7 +258,7 @@ const treatmentOptions = [
   {
     id: 1,
     icon: <Scissors className="w-7 h-7 text-blue-600" />,
-    title: "Advanced Plastic Surgery (Recommended)",
+    title: "Advanced Laser Surgery (Recommended)",
     points: [
       "No cuts, stitches, or pain",
       "Safe and effective",
@@ -241,7 +286,7 @@ const LaserSurgery = () => {
     return (
         <>
             <ConditionHeroSection
-            title="Transform Your Look Safely with Advanced Plastic Surgery Treatments in India"
+            title="Advanced Laser Surgery for Painless, Scar-Free & Quick Recovery"
             description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
             primaryBtn={{ label: "Book Free Consultation" }}
             secondaryBtn={{ label: "Call Now: +91 9211930749" }}
@@ -267,12 +312,12 @@ const LaserSurgery = () => {
 
             <ConditionInfo
                 title1="What is"
-                title2={plasticSurgeryData.title1}
-                description={plasticSurgeryData.description}
-                tabsData={plasticSurgeryData.tabsData}
-                expertHeading= {plasticSurgeryData.doctorName}
+                title2={laserSurgeryData.title1}
+                description={laserSurgeryData.description}
+                tabsData={laserSurgeryData.tabsData}
+                expertHeading= {laserSurgeryData.doctorName}
                 doctorName="" 
-                doctorDescription={plasticSurgeryData.doctorDescription}
+                doctorDescription={laserSurgeryData.doctorDescription}
                 doctorLink="https://purecheckup.com"
                 ctaText="Book Free Appointment"
             />
@@ -297,11 +342,11 @@ const LaserSurgery = () => {
             
             <section className="py-20">
               <ConditionCityWiseTreatment
-                treatmentName="Plastic Surgery"
+                treatmentName="Laser Surgery"
                 costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                 paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                 costFactors={[
-                  "Grade and type of Plastic Surgery",
+                  "Grade and type of Laser Surgery",
                   "Hospital category and room",
                   "Insurance coverage and approvals",
                   "Additional diagnostics if needed",

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
+import { LaparoscopySurgery, LaserSurgery } from "./pages";
 
 // Utility function for type-safe lazy loading
 type LazyImport = {
@@ -199,11 +200,11 @@ export const navItems = [
     name: "Footer",
     skip: true,
     icon: Building2,
-    element: PageNotFound, // Replace with Company component
+    // element: PageNotFound, // Replace with Company component
     children: [
-      { label: "Surgery", path: "/c/surgery", element: PageNotFound },
-      { label: "Laser Surgery", path: "/surgery/laser-surgery", element: PageNotFound },
-      { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: PageNotFound },
+      { label: "Surgery", path: "/c/surgery", element: PageNotFound }, // surgery/laser-surgery
+      { label: "Laser Surgery", path: "/surgery/laser-surgery", element: LaserSurgery },
+      { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: LaparoscopySurgery },
     ],
   },
 ];
@@ -222,11 +223,6 @@ console.log(flatMapped);
 
  */
 const routes = navItems.flatMap((item) => {
-  // Skip the entire item (including children) if skip is true
-  if (item?.skip) {
-    return [];
-  }
-
   // Process children, filtering out any with skip: true
   const childRoutes = item.children?.map(child => ({
       path: child.path,
