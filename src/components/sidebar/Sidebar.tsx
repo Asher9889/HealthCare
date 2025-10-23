@@ -78,7 +78,7 @@ const Sidebar = () => {
               data-hs-accordion-always-open
             >
               <ul className="space-y-1">
-                {navItems.map(({ name, icon: Icon, path, children }, index) =>
+                {navItems.filter((nav => !nav.skip)).map(({ name, icon: Icon, path, children }, index) =>
                   children ? (
                     <li key={name + index} className="hs-accordion" id={`${name}-accordion`}>
                       <Link

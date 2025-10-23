@@ -92,6 +92,7 @@ const HerniaInSpecialCity = lazy(() =>
 export const navItems = [
   {
     name: "Proctology",
+    skip: false,
     path: "/c/proctology",
     element: Practology,
     icon: Stethoscope,
@@ -105,6 +106,7 @@ export const navItems = [
   // https://purecheckup.com/c/laparoscopy/
   {
     name: "Laproscopy",
+    skip: false,
     path: "/c/laproscopy",
     element: Laparoscopy,
     icon: Microscope,
@@ -117,6 +119,7 @@ export const navItems = [
   },
   {
     name: "Urology",
+    skip: false,
     path: "/c/urology",
     element: Urology,
     icon: HeartPulse,
@@ -146,12 +149,14 @@ export const navItems = [
   },
   {
     name: "Gynaecology",
+    skip: false,
     path: "/c/gynaecology",
     icon: Baby,
     element: Gynecology
   },
   {
     name: "Aesthetics",
+    skip: false,
     path: "/c/aesthetics/",
     icon: Sparkles,
     element: Asthetic,
@@ -163,6 +168,7 @@ export const navItems = [
  // Patient Service
   {
     name: "Patient",
+    skip: false,
     icon: User,
     // element: PageNotFound, // Replace with Patient component
     children: [
@@ -178,6 +184,7 @@ export const navItems = [
   // Our Company
   {
     name: "Our Company",
+    skip: false,
     icon: Building2,
     // element: PageNotFound, // Replace with Company component
     children: [
@@ -188,16 +195,17 @@ export const navItems = [
     ],
   },
 
-  // {
-  //   name: "Footer",
-  //   icon: Building2,
-  //   // element: PageNotFound, // Replace with Company component
-  //   children: [
-  //     { label: "Surgery", path: "/c/surgery", element: PageNotFound },
-  //     { label: "Laser Surgery", path: "/surgery/laser-surgery", element: PageNotFound },
-  //     { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: PageNotFound },
-  //   ],
-  // },
+  {
+    name: "Footer",
+    skip: true,
+    icon: Building2,
+    element: PageNotFound, // Replace with Company component
+    children: [
+      { label: "Surgery", path: "/c/surgery", element: PageNotFound },
+      { label: "Laser Surgery", path: "/surgery/laser-surgery", element: PageNotFound },
+      { label: "Laproscopy Surgery ", path: "/surgery/laparoscopic-surgery", element: PageNotFound },
+    ],
+  },
 ];
 
 // ---------------- FLATTEN INTO ROUTES ----------------
@@ -214,12 +222,18 @@ console.log(flatMapped);
 
  */
 const routes = navItems.flatMap((item) => {
-  const childRoutes = item.children?.map((child) => ({
-    path: child.path,
-    element: child.element,
-  })) || [];
+  // Skip the entire item (including children) if skip is true
+  if (item?.skip) {
+    return [];
+  }
 
-  // Only include parent if it has its own path
+  // Process children, filtering out any with skip: true
+  const childRoutes = item.children?.map(child => ({
+      path: child.path,
+      element: child.element,
+    })) || [];
+
+  // Only include parent if it has its own path and is not skipped
   if (item.path) {
     return [{ path: item.path, element: item.element }, ...childRoutes];
   }
