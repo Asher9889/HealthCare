@@ -39,7 +39,7 @@ const Sidebar = () => {
               <p className="font-semibold text-xl text-white">Menu</p>
               <button
                 onClick={toggleSidebar}
-                className="lg:hidden p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition"
+                className="lg:hidden w-8 h-8 rounded-full  hover:bg-white/20 text-white transition"
               >
                 ✕
               </button>
