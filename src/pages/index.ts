@@ -4,6 +4,7 @@ import FistulaTreatment from "./practology/condition-city-wise/FistulaTreatment"
 import PilonidalSinusTreatment from "./practology/condition-city-wise/PilonidalSinusTreatment";
 import RectalProlapseTreatment from "./practology/condition-city-wise/RectalProlapseTreatment";
 import PilesInSpecialCity from "./practology/condition-city-wise/piles/piles-city-wise/PilesInSpecialCity";
+
 import FistulaInSpecialCity from "./practology/condition-city-wise/fistula/fistula-city-wise/FistulaInSpecialCity";
 import PilonidalSinusInSpecialCity from "./practology/condition-city-wise/pilonidal-sinus/pilonidal-sinus-city-wise/PilonidalSinusInSpecialCity";
 import RectalProlapseInSpecialCity from "./practology/condition-city-wise/rectal-prolapse/rectal-prolapse-city-wise/RectalProlapseInSpecialCity";
@@ -47,6 +48,7 @@ import UmbilicalHerniaTreatment from "./laparoscopy/condition-wise-treatment/Umb
 import AppendicitisInSpecialCity from "./laparoscopy/condition-wise-treatment/appendicitis/city-wise-appendicitis/AppendicitisInSpecialCity";
 import LaserSurgery from "./surgery/LaserSurgery";
 import LaparoscopySurgery from "./surgery/LaparoscopySurgery";
+import FissureTreatment from "./practology/condition-city-wise/FissureTreatment";
 
 
-export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL, PCNL, URSL, RIRS, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery, LaserSurgery, LaparoscopySurgery }
+export { Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL, PCNL, URSL, RIRS, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery, LaserSurgery, LaparoscopySurgery, FissureTreatment }

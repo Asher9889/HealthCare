@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { PageNotFound } from "./components";
 import { lazy } from "react";
-import { LaparoscopySurgery, LaserSurgery } from "./pages";
+import { FissureTreatment, LaparoscopySurgery, LaserSurgery } from "./pages";
 
 // Utility function for type-safe lazy loading
 type LazyImport = {
@@ -100,6 +100,7 @@ export const navItems = [
     children: [
       { label: "Piles Treatment", path: "/treatment/piles", element: PilesTreatment  },
       { label: "Fistula Treatment", path: "/treatment/fistula", element: FistulaTreatment },
+      { label: "Fissure Treatment", path: "/treatment/fissure", element: FissureTreatment },
       { label: "Pilonidal Sinus Treatment", path: "/treatment/pilonidal-sinus", element: PilonidalSinusTreatment },
       { label: "Rectal Prolapse", path: "/treatment/rectal-prolapse", element: RectalProlapseTreatment },
     ],
@@ -175,7 +176,7 @@ export const navItems = [
     children: [
       { label: "Hindi Blog", path: "/blogs/hindi-blog", element: PageNotFound },
       { label: "English Blog", path: "/blogs/english-blog", element: PageNotFound },
-      { label: "FAQ", path: "/faq", element: PageNotFound },
+      // { label: "FAQ", path: "/faq", element: PageNotFound },
       { label: "Patient Help", path: "/patient-help", element: PageNotFound },
       { label: "No Cost EMI", path: "/no-cost-emi", element: PageNotFound },
       { label: "Health Insurance", path: "/health-insurance", element: PageNotFound },

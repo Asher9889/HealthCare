@@ -17,5 +17,4 @@ import insurance from './Support-in-insurance-claim.png';
 import usfda from './USFDA-Approved-procedure.png';
 
 
-
-export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda  };
+export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda };

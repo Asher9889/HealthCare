@@ -1,6 +1,6 @@
 import { tanmay } from "@/assets/index";
 
-const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
+const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Meerut", "Mumbai"]
 
  const specialists = [
     {
