@@ -67,6 +67,9 @@ const ContactSection: React.FC = () => {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+      if(data.statusCode !== 200) {
+        return toast.error(data.message || 'Something went wrong. Please try again later.');
+      }
       toast.success(data.message || 'Your appointment has been booked successfully!');
       setFormData({ name: '', mobile: '', city: '', disease: '' });
       setErrors({});
