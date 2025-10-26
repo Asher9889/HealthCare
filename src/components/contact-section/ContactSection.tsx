@@ -1,24 +1,88 @@
-import React from 'react';
+import { constantData } from '@/constants';
+import React, { useState } from 'react';
+import { toast } from 'sonner';
 
-const cities = [
-  "Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara"
-];
+interface IFormData {
+  name: string;
+  mobile: string;
+  city: string;
+  disease: string;
+}
 
-const diseases = [
-  "Proctology",
-  "Urology",
-  "Laproscopy",
-  "Gynaecology",
-  "Aesthetics",
-  "Patient",
-];
+const cities = constantData.cities;
+const diseases = constantData.diseases;
+
+// ✅ Reusable validator function
+const isValidMobile = (value: string): boolean => /^[6-9]\d{9}$/.test(value);
 
 const ContactSection: React.FC = () => {
+  const [formData, setFormData] = useState<IFormData>({
+    name: '',
+    mobile: '',
+    city: '',
+    disease: '',
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ mobile?: string }>({});
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+
+    // ✅ Real-time validation for mobile
+    if (name === 'mobile') {
+      if (value.length === 10 && !isValidMobile(value)) {
+        setErrors({ mobile: 'Please enter a valid mobile number.' });
+      } else {
+        setErrors({ mobile: '' });
+      }
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const { name, mobile, city, disease } = formData;
+
+    if (!name || !mobile || !city || !disease) {
+      toast.error('Please fill all the fields.');
+      return;
+    }
+
+    if (!isValidMobile(mobile)) {
+      setErrors({ mobile: 'Please enter a valid mobile number.' });
+      toast.error('Invalid mobile number. Please enter a valid 10-digit number.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/contact/advisor`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      toast.success(data.message || 'Your appointment has been booked successfully!');
+      setFormData({ name: '', mobile: '', city: '', disease: '' });
+      setErrors({});
+    } catch (error: any) {
+      console.error('❌ Error submitting form:', error.message);
+      toast.error( error.message || 'Something went wrong. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         
-        {/* Left Text Section */}
+        {/* Left Section */}
         <div className="space-y-6">
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -34,11 +98,11 @@ const ContactSection: React.FC = () => {
               Purecheck services are accessible Pan India
             </h3>
             <p className="text-gray-600">
-              PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including{" "}
+              PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including{' '}
               {cities.map((city, idx) => (
                 <span key={city} className="text-blue-600">
                   {city}
-                  {idx !== cities.length - 1 ? ", " : "."}
+                  {idx !== cities.length - 1 ? ', ' : '.'}
                 </span>
               ))}
             </p>
@@ -52,37 +116,73 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Form Section */}
+        {/* Right Section (Form) */}
         <div className="bg-[#002D45] rounded-2xl p-8 text-white w-full">
-          <h3 className="text-lg font-semibold text-center mb-6">Let's Schedule Your Surgery</h3>
-          <form className="space-y-4">
+          <h3 className="text-lg font-semibold text-center mb-6">
+            Let's Schedule Your Surgery
+          </h3>
+
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Patient Name"
               className="w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none bg-white"
             />
+
             <input
               type="tel"
-              placeholder="Mobile Number"
-              className="w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none bg-white"
+              name="mobile"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={10}
+              required
+              value={formData.mobile}
+              onChange={handleChange}
+              placeholder="Enter 10-digit mobile number"
+              className={`w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none bg-white ${
+                errors.mobile ? 'border border-red-500' : ''
+              }`}
             />
-            <select className="w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none bg-white">
-              <option>Select City</option>
-              {cities.map((city) => (
+            {errors.mobile && (
+              <p className="text-red-400 text-sm mt-1">{errors.mobile}</p>
+            )}
+
+            <select
+              name="city"
+              required
+              value={formData.city}
+              onChange={handleChange}
+              className="w-full rounded-md px-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none bg-white"
+            >
+              <option value="">Select City</option>
+              {cities.map(city => (
                 <option key={city}>{city}</option>
               ))}
             </select>
-            <select className="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none">
-              <option>Select Disease</option>
-              {diseases.map((disease) => (
+
+            <select
+              name="disease"
+              required
+              value={formData.disease}
+              onChange={handleChange}
+              className="w-full rounded-md px-4 py-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
+            >
+              <option value="">Select Disease</option>
+              {diseases.map(disease => (
                 <option key={disease}>{disease}</option>
               ))}
             </select>
+
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 transition-all text-white font-semibold py-3 rounded-md"
+              disabled={loading}
+              className="w-full bg-orange-500 hover:bg-orange-600 transition-all text-white font-semibold py-3 rounded-md disabled:opacity-70"
             >
-              Book Free Appointment
+              {loading ? 'Booking...' : 'Book Free Appointment'}
             </button>
           </form>
         </div>

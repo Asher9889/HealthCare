@@ -7,7 +7,7 @@ import {
   User,
   Building2,
 } from "lucide-react";
-import { PageNotFound } from "./components";
+import { HealthInsurance, PageNotFound } from "./components";
 import { lazy } from "react";
 import { FissureTreatment, LaparoscopySurgery, LaserSurgery } from "./pages";
 
@@ -179,7 +179,7 @@ export const navItems = [
       // { label: "FAQ", path: "/faq", element: PageNotFound },
       { label: "Patient Help", path: "/patient-help", element: PageNotFound },
       { label: "No Cost EMI", path: "/no-cost-emi", element: PageNotFound },
-      { label: "Health Insurance", path: "/health-insurance", element: PageNotFound },
+      { label: "Health Insurance", path: "/health-insurance", element: HealthInsurance },
     ],
   },
 
