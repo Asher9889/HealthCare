@@ -74,7 +74,7 @@ const ContactSection: React.FC = () => {
       setFormData({ name: '', mobile: '', city: '', disease: '' });
       setErrors({});
     } catch (error: any) {
-      console.error('❌ Error submitting form:', error.message);
+
       toast.error( error.message || 'Something went wrong. Please try again later.');
     } finally {
       setLoading(false);

@@ -1,9 +1,8 @@
 // SelectCityInput.tsx
+import { cities } from "@/constants/data"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui"
 
-const cities = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "Gurgaon", "Delhi", "Noida", "Kanpur", "Lucknow", "Mumbai"]
-
-interface SelectCityInputProps {
+export interface SelectCityInputProps {
   value?: string
   onChange?: (city: string) => void
 }

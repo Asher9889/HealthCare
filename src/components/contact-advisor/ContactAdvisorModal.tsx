@@ -1,153 +1,140 @@
-import * as React from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner" // optional, if you use sonner for notifications
+import { useEffect, useMemo, useState } from "react";
+import { Controller } from "react-hook-form";
+import {
+  Dialog, DialogContent, DialogHeader,
+  DialogTitle, DialogDescription, DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { FormLabel, SelectCityInput } from "@/components";
+import { useContactAdvisorForm } from "./hooks/useContactAdvisorForm";
+import { getRequiredFields } from "@/utils";
+import { contactAdvisorSchema } from "./schema/contactAdvisor.schema";
 
-export default function ContactAdvisorModal({text, className}: {text: string, className?: string}) {
-  const [open, setOpen] = React.useState(false)
-  const [form, setForm] = React.useState({
-    name: "",
-    mobile: "",
-    treatment: "",
-  })
-  const [errors, setErrors] = React.useState({
-    mobile: ""
-  })
+type ContactAdvisorModalProps = {
+  openBtnText?: string;
+  heading1?: string;
+  heading2?: string;
+  className?: string;
+  submitBtnText?: string;
+};
 
-  const validateMobile = (value: string) => {
-    if (!/^\d*$/.test(value)) {
-      return "Please enter only numbers"
+export default function ContactAdvisorModal({
+  heading1,
+  heading2,
+  className,
+  openBtnText,
+  submitBtnText,
+}: ContactAdvisorModalProps) {
+  const [open, setOpen] = useState(false);
+  const { form, onSubmit } = useContactAdvisorForm(() => setOpen(false));
+
+    // ✅ Precompute once (memoized)
+  const requiredFields: Record<"name" | "city" | "mobile" | "disease", boolean> = useMemo(
+    () => getRequiredFields(contactAdvisorSchema),
+    []
+  );
+
+  useEffect(()=> {
+    return () => {
+      form.reset();
     }
-    if (value.length > 0 && value.length < 10) {
-      return "Mobile number must be 10 digits"
-    }
-    return ""
-  }
-
-  const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    
-    // Only update if the input is empty or contains only digits
-    if (value === "" || /^\d*$/.test(value)) {
-      setForm({ ...form, mobile: value })
-      
-      if (errors.mobile) {
-        const error = validateMobile(value)
-        setErrors({ ...errors, mobile: error })
-      }
-    }
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Validate all fields
-    const mobileError = validateMobile(form.mobile)
-    setErrors({ mobile: mobileError })
-
-    // Check if there are any errors or empty fields
-    if (mobileError || !form.name || !form.mobile) {
-      if (!form.name || !form.mobile) {
-        toast.error("Please fill all fields before submitting.")
-      }
-      return
-    }
-
-    // Additional validation for mobile number length
-    if (form.mobile.length !== 10) {
-      setErrors(prev => ({ ...prev, mobile: "Mobile number must be 10 digits" }))
-      return
-    }
-    // Simulate form submission
-    console.log("Form Data Submitted:", form)
-    toast.success("Our advisor will contact you shortly!")
-
-    // Reset form & close dialog
-    setForm({ name: "", mobile: "", treatment: "" })
-    setOpen(false)
-  }
+  },[open])
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      {/* Trigger Button */}
       <DialogTrigger asChild>
-        <Button className={`bg-(--orange-button-color) hover:opacity-90 text-white px-6 py-3 rounded-xl ${className}`}>
-          { text }
+        <Button className={`bg-(--orange-button-color) text-white ${className}`}>
+          {openBtnText}
         </Button>
       </DialogTrigger>
 
-      {/* Modal Content */}
       <DialogContent className="sm:max-w-md bg-white rounded-2xl shadow-lg border border-(--sidebar-border-color)">
         <DialogHeader>
           <DialogTitle className="text-2xl font-semibold text-(--text-primary)">
-            Talk to Our Insurance Advisor
+            {heading1}
           </DialogTitle>
           <DialogDescription className="text-(--text-secondary)">
-            Fill out the form and our advisor will reach out to assist you with your treatment & insurance claim process.
+            {heading2}
           </DialogDescription>
         </DialogHeader>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="grid gap-2">
-            <Label htmlFor="name" className="text-(--text-primary)">Full Name</Label>
-            <Input
-              id="name"
-              required
-              placeholder="Enter your name"
-              value={form.name}
-              onChange={e => setForm({ ...form, name: e.target.value })}
-              className="border border-(--sidebar-border-color)"
-            />
-          </div>
+        <form onSubmit={form.handleSubmit(onSubmit)} noValidate className="space-y-4 mt-4">
+          {/* Name */}
+          <Controller
+            control={form.control}
+            name="name"
+            render={({ field, fieldState }) => (
+              <div className="grid gap-2">
+                <FormLabel htmlFor="name" required={requiredFields.name}>Full Name</FormLabel>
+                <Input className="font-normal text-sm" id="name" placeholder="Enter your full name"
+                  {...field} 
+                />
+                {fieldState.error && (
+                  <span className="text-red-500 text-sm">{fieldState.error.message}</span>
+                )}
+              </div>
+            )} 
+          />
 
+          {/* City */}  
+          <Controller
+            control={form.control}
+            name="city"
+            render={({ fieldState }) => (
           <div className="grid gap-2">
-            <div className="flex justify-between items-center">
-              <Label htmlFor="mobile" className="text-(--text-primary)">Mobile Number</Label>
-            </div>
-            <Input
-              id="mobile"
-              required
-              type="tel"
-              inputMode="numeric"
-              pattern="[0-9]*"
-              maxLength={10}
-              placeholder="Enter 10-digit mobile number"
-              value={form.mobile}
-              onChange={handleMobileChange}
-              onBlur={() => {
-                const error = validateMobile(form.mobile)
-                setErrors({ ...errors, mobile: error })
-              }}
-              className={`border ${errors.mobile ? 'border-red-500' : 'border-(--sidebar-border-color)'} focus-visible:ring-2 focus-visible:ring-offset-2`}
+            <FormLabel htmlFor="city" required={requiredFields.city}>City</FormLabel>
+            <SelectCityInput
+              value={form.watch("city")}
+              onChange={(city) => form.setValue("city", city)}
             />
-            {errors.mobile && (
-              <span className="text-sm text-red-500">{errors.mobile}</span>
+            {fieldState.error && (
+              <span className="text-red-500 text-sm">{fieldState.error.message}</span>
             )}
           </div>
-
-          <div className="grid gap-2">
-            <Label htmlFor="treatment" className="text-(--text-primary)">Treatment / Surgery Name</Label>
-            <Textarea
-              id="treatment"
-              placeholder="e.g., Fissure Surgery, Hernia Repair, etc."
-              value={form.treatment}
-              onChange={e => setForm({ ...form, treatment: e.target.value })}
-              className="border border-(--sidebar-border-color)"
-            />
+            )}
+          />
+      
+          {/* Mobile */}
+          <Controller
+            control={form.control}
+            name="mobile"
+            render={({ field, fieldState }) => (
+              <div className="grid gap-2">
+                <FormLabel htmlFor="mobile" required={requiredFields.mobile}>Mobile Number</FormLabel>
+                <Input id="mobile" maxLength={10} type="tel" {...field} className="font-normal text-sm"
+                 placeholder="Enter 10-digit mobile number"
+                 {...field}
+                 />
+                {fieldState.error && (
+              <span className="text-red-500 text-sm">{fieldState.error.message}</span>
+            )}
           </div>
+            )}
+          />
 
-          <Button
-            type="submit"
-            className="w-full bg-(--primary-bg-color) text-white font-semibold py-2 rounded-xl hover:opacity-90"
-          >
-            Submit
+          {/* Disease */}
+          <Controller
+            control={form.control}
+            name="disease"
+            render={({ field, fieldState }) => (
+              <div className="grid gap-2">
+                <FormLabel htmlFor="disease" required={requiredFields.disease}>Treatment / Surgery Name</FormLabel>
+                <Textarea id="disease" {...field} placeholder="e.g., Fissure Surgery" className="font-normal text-sm"
+                  {...field}
+                />
+                {fieldState.error && (
+                  <span className="text-red-500 text-sm">{fieldState.error.message}</span>
+                )}
+              </div>
+            )}
+          />
+          <Button type="submit" className="w-full bg-(--primary-bg-color) text-white font-semibold rounded-xl hover:opacity-90">
+            {submitBtnText || "Submit"}
           </Button>
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

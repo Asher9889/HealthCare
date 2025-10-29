@@ -101,7 +101,6 @@ const diseases = [
     "Urinary Tract Infection",
     "Urinary Incontinence",
     "Erectile Dysfunction",
-    "Urethral Stricture",
     "Stress Urinary Incontinence",
     "Circumcision",
     "Kidney Stones",

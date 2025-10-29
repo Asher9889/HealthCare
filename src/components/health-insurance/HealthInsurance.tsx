@@ -176,7 +176,13 @@ export default function HealthInsurance() {
         <p className="text-lg text-(--text-light) max-w-2xl mx-auto mb-8">
           Protect your family’s health and finances with our trusted, hassle-free medical coverage.
         </p>
-         <ContactAdvisorModal text="Get a Free Quote" className="rounded-full" />
+        <ContactAdvisorModal 
+         openBtnText="Get a Free Quote" 
+         heading1="Talk to Our Advisor" 
+         heading2="Fill out the form and our advisor will reach out to assist you with your treatment & insurance claim process." 
+         submitBtnText="Submit" 
+         className="rounded-full" 
+        />
       </section>
 
       {/* Benefits Section */}
@@ -223,7 +229,7 @@ export default function HealthInsurance() {
               </div>
               <div className="md:text-right">
                 {/* Using Modal Button Here */}
-                <ContactAdvisorModal text="Contact Advisor" className="" />
+                <ContactAdvisorModal openBtnText="Contact Advisor" className="" />
               </div>
             </div>
 
@@ -245,7 +251,7 @@ export default function HealthInsurance() {
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible>
             {faqs.map((faq) => (
-              <AccordionItem value={faq.id}>
+              <AccordionItem key={faq.id} value={faq.id}>
                 <AccordionTrigger className="text-lg font-semibold">{faq.question}</AccordionTrigger>
                 <AccordionContent className="text-(--text-secondary)">{faq.answer}</AccordionContent>
               </AccordionItem>
@@ -258,7 +264,7 @@ export default function HealthInsurance() {
       <footer className="bg-(--dark-blue-color) text-white py-12 text-center">
         <h3 className="text-2xl font-semibold mb-4">Need Help Choosing the Right Plan?</h3>
         <p className="text-(--text-light) mb-6">Talk to our insurance advisor today — we’ll guide you through every step.</p>
-        <ContactAdvisorModal text="Get a Free Quote" className=""/>
+        <ContactAdvisorModal openBtnText="Get a Free Quote" className=""/>
       </footer>
     </div>
   )
