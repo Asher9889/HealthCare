@@ -17,7 +17,6 @@ interface HeroProps {
 
 export default function DynamicHeroSection({ heroContent }: { heroContent: HeroProps }) {
     const [appointmentOpen, setAppointmentOpen] = useState(false) // Appointment modal open/close
-  
   return (
     <div className="bg-[#D6E4EF] py-6 px-4 flex justify-center">
       <Card className="w-full max-w-7xl rounded-3xl shadow-md flex flex-col md:flex-row overflow-hidden px-4">
