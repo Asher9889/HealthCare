@@ -174,7 +174,7 @@ export default function HealthInsurance() {
       <section className="bg-(--dark-blue-color) text-white py-20 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Comprehensive Health Insurance Plans</h1>
         <p className="text-lg text-(--text-light) max-w-2xl mx-auto mb-8">
-          Protect your family’s health and finances with our trusted, hassle-free medical coverage.
+          Secure your family’s health and savings with fast claims, wide hospital coverage, and complete peace of mind.
         </p>
         <ContactAdvisorModal 
          openBtnText="Get a Free Quote" 
@@ -229,7 +229,7 @@ export default function HealthInsurance() {
               </div>
               <div className="md:text-right">
                 {/* Using Modal Button Here */}
-                <ContactAdvisorModal openBtnText="Contact Advisor" className="" />
+                <ContactAdvisorModal openBtnText="Contact Advisor" heading1="Talk to Expert Our Advisor" heading2="Fill out the form and our advisor will reach out to assist you with your treatment & insurance claim process." className="" />
               </div>
             </div>
 

@@ -11,6 +11,7 @@ import { FormLabel, SelectCityInput } from "@/components";
 import { useContactAdvisorForm } from "./hooks/useContactAdvisorForm";
 import { getRequiredFields } from "@/utils";
 import { contactAdvisorSchema } from "./schema/contactAdvisor.schema";
+import { Spinner } from "../ui";
 
 type ContactAdvisorModalProps = {
   openBtnText?: string;
@@ -27,8 +28,10 @@ export default function ContactAdvisorModal({
   openBtnText,
   submitBtnText,
 }: ContactAdvisorModalProps) {
-  const [open, setOpen] = useState(false);
-  const { form, onSubmit } = useContactAdvisorForm(() => setOpen(false));
+  const [open, setOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isSuccessOpen, setSuccessOpen] = useState<boolean>(false);
+  const { form, onSubmit, successMsg } = useContactAdvisorForm({onSuccess: () => setOpen(false), loading,  setLoading, setSuccessOpen});
 
     // ✅ Precompute once (memoized)
   const requiredFields: Record<"name" | "city" | "mobile" | "disease", boolean> = useMemo(
@@ -43,20 +46,21 @@ export default function ContactAdvisorModal({
   },[open])
 
   return (
+    <>
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button className={`bg-(--orange-button-color) text-white ${className}`}>
-          {openBtnText}
+          {openBtnText || "Contact Advisor"}
         </Button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-md bg-white rounded-2xl shadow-lg border border-(--sidebar-border-color)">
         <DialogHeader>
           <DialogTitle className="text-2xl font-semibold text-(--text-primary)">
-            {heading1}
+            {heading1 || "Talk to Expert Our Advisor"}
           </DialogTitle>
           <DialogDescription className="text-(--text-secondary)">
-            {heading2}
+            {heading2 || "Fill out the form and our advisor will reach out to assist you with your treatment & insurance claim process."}
           </DialogDescription>
         </DialogHeader>
 
@@ -82,12 +86,11 @@ export default function ContactAdvisorModal({
           <Controller
             control={form.control}
             name="city"
-            render={({ fieldState }) => (
+            render={({ field, fieldState }) => (
           <div className="grid gap-2">
             <FormLabel htmlFor="city" required={requiredFields.city}>City</FormLabel>
             <SelectCityInput
-              value={form.watch("city")}
-              onChange={(city) => form.setValue("city", city)}
+             {...field}
             />
             {fieldState.error && (
               <span className="text-red-500 text-sm">{fieldState.error.message}</span>
@@ -130,11 +133,25 @@ export default function ContactAdvisorModal({
               </div>
             )}
           />
-          <Button type="submit" className="w-full bg-(--primary-bg-color) text-white font-semibold rounded-xl hover:opacity-90">
-            {submitBtnText || "Submit"}
+          <Button type="submit" disabled={loading} className="w-full bg-(--orange-button-color) text-white font-semibold rounded-xl hover:opacity-90 hover:scale-99 transition-all duration-300 ease-in-out">
+            {loading ? <Spinner /> : submitBtnText || "Submit"}
           </Button>
         </form>
       </DialogContent>
     </Dialog>
+    
+    {/* Success Dialog */}
+     <Dialog open={isSuccessOpen} onOpenChange={setSuccessOpen}>
+        <DialogContent className="max-w-md rounded-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-green-600 text-xl">Thank you for reaching out!</DialogTitle>
+            <DialogDescription className="text-md">{successMsg}</DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end">
+            <Button className="bg-(--orange-button-color) text-white font-semibold rounded-xl hover:opacity-90 hover:scale-99 transition-all duration-300 ease-in-out" onClick={() => setSuccessOpen(false)}>Close</Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
