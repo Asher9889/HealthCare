@@ -24,26 +24,28 @@ export const quickEmiCheckSchema = z.object({
     .string()
     .trim()
     .max(50, "Disease name must be at most 50 characters long")
-    .optional(),
+    .regex(/^[a-zA-Z\s]+$/, "Disease name must contain only letters and spaces"),
 
   estimatedCost: z
-    .union([
-      z.string().regex(/^[0-9,]+$/, "Estimated cost must contain only numbers"),
-      z.number(),
-    ])
-    .optional(),
+    .string()
+    .trim()
+    .refine(
+      (val) => val === undefined || val === "" || /^[0-9]+$/.test(val),
+      "Must contain only numbers"
+    )
+    .optional(), 
 
   tenure: z
-    .union([
-      z.literal(3),
-      z.literal(6),
-      z.literal(9),
-      z.literal(12),
-    ])
+    .string()
+    .trim()
+    .refine(
+      (val) =>
+        val === undefined ||
+      val === "" ||
+      (/^[0-9]+$/.test(val) && [3, 6, 9, 12].includes(Number(val))),
+      "Please enter a valid tenure (3, 6, 9, or 12 months)"
+    )
     .optional()
-    .refine((val) => val === undefined || [3, 6, 9, 12].includes(val), {
-      message: "Please enter a valid tenure (3, 6, 9, or 12 months)",
-    }),
 });
 
 export type QuickEmiCheckFormData = z.infer<typeof quickEmiCheckSchema>;

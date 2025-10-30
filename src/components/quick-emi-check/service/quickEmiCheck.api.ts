@@ -6,7 +6,11 @@ export const quickEmiCheckApi = {
     const res = await axiosInstance.request({
         url: endPoints.quickEmiCheck.url(),
         method: endPoints.quickEmiCheck.method,
-        data
+        data: {
+          ...data,
+          estimatedCost: data.estimatedCost ? Number(data.estimatedCost) : undefined,
+          tenure: data.tenure ? Number(data.tenure) : undefined,
+        }
     })
 
     return res.data;

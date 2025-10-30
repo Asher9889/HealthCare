@@ -4,7 +4,7 @@ export const endPoints = {
         method: 'POST',
     },
     quickEmiCheck: {
-        url: () => `/quick-emi-check`,
+        url: () => `/contact/quick-emi-check`,
         method: 'POST',
     },
 }

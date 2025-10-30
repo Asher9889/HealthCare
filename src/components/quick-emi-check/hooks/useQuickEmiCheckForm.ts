@@ -1,23 +1,26 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
 import { quickEmiCheckSchema, type QuickEmiCheckFormData } from "../schema/quickEmiCheck.schema";
 import { quickEmiCheckApi } from "../service/quickEmiCheck.api";
 import { useState } from "react";
 
+
 type useQuickEmiCheckFormProps = {
-  onSuccess: () => void;
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  setSuccessOpen: (successOpen: boolean) => void;
 };
 
-export const useQuickEmiCheckForm = ({onSuccess, loading, setLoading, setSuccessOpen}: useQuickEmiCheckFormProps) => {
-  const [successMsg, setSuccessMsg] = useState<string | null>(null); // 👈 Add state for success message
+export const useQuickEmiCheckForm = ({ loading, setLoading}: useQuickEmiCheckFormProps) => {
+  const [dialog, setDialog] = useState({
+    open: false,
+    type: "success" as "success" | "error" | "info",
+    title: "",
+    message: "",
+  });
 
   const form = useForm<QuickEmiCheckFormData>({
     resolver: zodResolver(quickEmiCheckSchema),
-    defaultValues: { name: "", mobile: "", disease: "", city: "", estimatedCost: 0, tenure: 3 },
+    defaultValues: { name: "", mobile: "", disease: "", city: "", estimatedCost: "", tenure: "" },
     mode: "onChange",          // Show error *only* after user leaves the field
     reValidateMode: "onChange", // Revalidate live as user types — hides error once valid
   });
@@ -27,15 +30,23 @@ export const useQuickEmiCheckForm = ({onSuccess, loading, setLoading, setSuccess
       setLoading(true);
       const res = await quickEmiCheckApi.submit(data);
       form.reset();
-      onSuccess();
-      setSuccessMsg(res?.message);
-      setSuccessOpen(true)
+      setDialog({
+        open: true,
+        type: "success",
+        title: "Success!",
+        message: res?.message,
+      })
     } catch (err: any) {
-      toast.error(err.message || "Submission failed");
+       setDialog({
+        open: true,
+        type: "error",
+        title: "Submission Failed",
+        message: err.message || "Something went wrong while submitting the form.",
+      });
     } finally {
       setLoading(false)
     }
   };
 
-  return { form, onSubmit, successMsg };
+  return { form, onSubmit,  dialog, setDialog };
 };
