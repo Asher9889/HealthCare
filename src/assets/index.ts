@@ -15,6 +15,7 @@ import ncemi from './No-cost-EMI.png';
 import hsptl from './1-day-hospitalization.png';
 import insurance from './Support-in-insurance-claim.png';
 import usfda from './USFDA-Approved-procedure.png';
+import hdfc from "./no-cost-emi/HDFC_Bank_Logo.png"
 
 
-export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda };
+export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda, hdfc};

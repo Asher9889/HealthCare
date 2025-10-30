@@ -148,7 +148,7 @@ export default function ContactAdvisorModal({
             <DialogDescription className="text-md">{successMsg}</DialogDescription>
           </DialogHeader>
           <div className="flex justify-end">
-            <Button className="bg-(--orange-button-color) text-white font-semibold rounded-xl hover:opacity-90 hover:scale-99 transition-all duration-300 ease-in-out" onClick={() => setSuccessOpen(false)}>Close</Button>
+            <Button className="EmiEligibilitySection text-white font-semibold rounded-xl hover:opacity-90 hover:scale-99 transition-all duration-300 ease-in-out" onClick={() => setSuccessOpen(false)}>Close</Button>
           </div>
         </DialogContent>
       </Dialog>
