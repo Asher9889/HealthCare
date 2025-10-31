@@ -4,15 +4,17 @@ import { Button } from "@/components/ui/button";
 import { DynamicDialog, FormLabel, SelectCityInput } from "@/components";
 import { Controller } from "react-hook-form";
 import { useQuickEmiCheckForm } from "./hooks/useQuickEmiCheckForm";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getRequiredFields } from "@/utils";
 import { quickEmiCheckSchema } from "./schema/quickEmiCheck.schema";
 import { Spinner } from "../ui";
+import type { QuickEmiFormConfig } from "@/pages/Patient/no-cost-emi/hero-section/HeroSection";
 
-const QuickEmiCheck = ({heading}: {heading?: string}) => {
+
+const QuickEmiCheck = ({ config, highlight }: QuickEmiFormConfig) => {
     const [loading, setLoading] = useState<boolean>(false);
 
-    const { form, onSubmit,  dialog, setDialog } = useQuickEmiCheckForm({
+    const { form, onSubmit, dialog, setDialog } = useQuickEmiCheckForm({
         loading,
         setLoading,
     }
@@ -24,13 +26,19 @@ const QuickEmiCheck = ({heading}: {heading?: string}) => {
         () => getRequiredFields(quickEmiCheckSchema),
         []
     );
+    useEffect(() => {
+        if (highlight) {
+            setTimeout(() => config?.setFocusEmiForm(false), 2000);
+        }
+    }, [highlight]);
     return (
         <div>
-            <Card className="rounded-2xl border-none shadow-inner">
+            <Card className={`rounded-2xl shadow-inner transition-all duration-500 ${highlight ? "border-1 border-red-500" : "border border-transparent"
+                }`}>
                 <CardContent className="">
                     <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 space-y-4">
                         <h3 className="text-xl font-semibold text-[var(--dark-blue-color)]">
-                            { heading }
+                            {config?.heading}
                         </h3>
 
                         <div className="space-y-2">
@@ -131,7 +139,7 @@ const QuickEmiCheck = ({heading}: {heading?: string}) => {
                                 render={({ field, fieldState }) => (
                                     <div className="grid gap-2">
                                         <FormLabel htmlFor="tenure" required={requiredFields.tenure}>Preferred Tenure</FormLabel>
-                                        <Input  id="tenure" placeholder="3 / 6 / 9 / 12 months" {...field} value={field.value?.trim()} />
+                                        <Input id="tenure" placeholder="3 / 6 / 9 / 12 months" {...field} value={field.value?.trim()} />
                                         {fieldState.error && (
                                             <span className="text-red-500 text-sm">{fieldState.error.message}</span>
                                         )}
@@ -148,7 +156,7 @@ const QuickEmiCheck = ({heading}: {heading?: string}) => {
                         >
                             {loading ? <Spinner /> : "Check EMI Eligibility"}
                         </Button>
-                        
+
                     </form>
                     <p className="text-xs text-[var(--text-light)] text-center">
                         No documents needed to start. Instant callback in 10 minutes.

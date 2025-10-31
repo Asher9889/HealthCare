@@ -3,8 +3,27 @@ import { Phone } from "lucide-react";
 import { QuickEmiCheck } from "@/components";
 import { motion } from "framer-motion";
 import img from "@/assets/no-cost-emi/emi-hero-illustration.webp";
+import { useRef, useState } from "react";
+
+export type QuickEmiFormConfig = {
+  config?: {
+    heading: string;
+    focusEmiForm: boolean;
+    setFocusEmiForm: (value: boolean) => void;
+  }
+  highlight?: boolean;
+}
 
 export default function EmiEligibilitySection() {
+  const [highlight, setFocusEmiForm] = useState(false);
+  const applyFormRef = useRef<HTMLDivElement>(null);
+
+  const quickEmiFormConfig = {
+    heading: "Quick EMI Check",
+    focusEmiForm: highlight,
+    setFocusEmiForm: setFocusEmiForm,
+  };
+
   return (
     <section className="w-full bg-gradient-to-br from-[var(--primary-bg-light-blue)] via-[#f6fbff] to-white py-16 relative overflow-hidden">
       {/* Decorative background blob */}
@@ -37,6 +56,7 @@ export default function EmiEligibilitySection() {
 
           <div className="flex flex-wrap items-center gap-4">
             <Button
+              onClick={() => setFocusEmiForm(true)}
               size="lg"
               className="bg-[var(--orange-button-color)] text-white font-medium px-6 transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg"
             >
@@ -71,12 +91,13 @@ export default function EmiEligibilitySection() {
 
         {/* RIGHT FORM SECTION */}
         <motion.div
+          ref={applyFormRef}
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="z-10"
         >
-          <QuickEmiCheck heading="Quick EMI Check"/>
+          <QuickEmiCheck config={quickEmiFormConfig} highlight={highlight}  />
         </motion.div>
       </div>
     </section>

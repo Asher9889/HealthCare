@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   Percent,
   Zap,
@@ -42,7 +42,7 @@ const features = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -50,7 +50,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },
   show: {
     opacity: 1,
