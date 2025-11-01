@@ -7,21 +7,25 @@ import { useRef, useState } from "react";
 
 export type QuickEmiFormConfig = {
   config?: {
-    heading: string;
+    heading?: string;
     focusEmiForm: boolean;
     setFocusEmiForm: (value: boolean) => void;
   }
-  highlight?: boolean;
 }
 
-export default function EmiEligibilitySection() {
-  const [highlight, setFocusEmiForm] = useState(false);
+export default function HeroSection() {
+  const [highlight, setHighlight] = useState(false);
   const applyFormRef = useRef<HTMLDivElement>(null);
-
   const quickEmiFormConfig = {
     heading: "Quick EMI Check",
     focusEmiForm: highlight,
-    setFocusEmiForm: setFocusEmiForm,
+    setFocusEmiForm: setHighlight
+  };
+
+   const scrollToApplyForm = () => {
+    applyFormRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    setHighlight(true);
+    setTimeout(() => setHighlight(false), 2000);
   };
 
   return (
@@ -56,7 +60,7 @@ export default function EmiEligibilitySection() {
 
           <div className="flex flex-wrap items-center gap-4">
             <Button
-              onClick={() => setFocusEmiForm(true)}
+              onClick={scrollToApplyForm}
               size="lg"
               className="bg-[var(--orange-button-color)] text-white font-medium px-6 transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg"
             >
@@ -97,7 +101,7 @@ export default function EmiEligibilitySection() {
           transition={{ duration: 0.6 }}
           className="z-10"
         >
-          <QuickEmiCheck config={quickEmiFormConfig} highlight={highlight}  />
+          <QuickEmiCheck config={quickEmiFormConfig}   />
         </motion.div>
       </div>
     </section>

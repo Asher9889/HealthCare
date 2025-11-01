@@ -11,7 +11,7 @@ import { Spinner } from "../ui";
 import type { QuickEmiFormConfig } from "@/pages/Patient/no-cost-emi/hero-section/HeroSection";
 
 
-const QuickEmiCheck = ({ config, highlight }: QuickEmiFormConfig) => {
+const QuickEmiCheck = ({ config }: QuickEmiFormConfig) => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const { form, onSubmit, dialog, setDialog } = useQuickEmiCheckForm({
@@ -27,13 +27,13 @@ const QuickEmiCheck = ({ config, highlight }: QuickEmiFormConfig) => {
         []
     );
     useEffect(() => {
-        if (highlight) {
+        if (config?.focusEmiForm) {
             setTimeout(() => config?.setFocusEmiForm(false), 2000);
         }
-    }, [highlight]);
+    }, [config?.focusEmiForm]);
     return (
         <div>
-            <Card className={`rounded-2xl shadow-inner transition-all duration-500 ${highlight ? "border-1 border-red-500" : "border border-transparent"
+            <Card className={`rounded-2xl shadow-inner transition-all duration-500 ${config?.focusEmiForm ? "border-1 border-red-500" : "border border-transparent"
                 }`}>
                 <CardContent className="">
                     <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 space-y-4">

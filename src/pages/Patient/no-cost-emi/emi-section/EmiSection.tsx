@@ -11,12 +11,12 @@ export default function EmiSection() {
 
   const scrollToApplyForm = () => {
     applyFormRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    // Trigger highlight
     setHighlight(true);
-
-    // Auto-remove after 2 seconds
     setTimeout(() => setHighlight(false), 2000);
+  };
+  const quickEmiFormConfig = {
+    focusEmiForm: highlight,
+    setFocusEmiForm: setHighlight
   };
 
   return (
@@ -61,7 +61,7 @@ export default function EmiSection() {
             <h3 className="text-xl font-semibold text-gray-800">Apply for EMI</h3>
           </div>
           <Separator className="mb-4" />
-          <QuickEmiCheck highlight={highlight}/>
+          <QuickEmiCheck config={quickEmiFormConfig}/>
         </motion.div>
       </div>
     </section>

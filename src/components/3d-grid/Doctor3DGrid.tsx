@@ -5,7 +5,6 @@ import { tanmay } from "@/assets";
 import { useState } from "react";
 import AppointForm from "../book-appointment-form/AppointForm";
 // import StickyScroll from "../ui/sticky-scroll-reveal";
-// import { title } from "process";
 
 const doctors = [
   {
@@ -17,9 +16,10 @@ const doctors = [
     image: tanmay,
   },
   // {
-  //   name: "Dr. Ritu Patel",
-  //   designation: "Colorectal Surgeon",
-  //   experience: "18+ yrs",
+  //   name: "Dr. Rahul Sharma",
+  //   designation: "Specialist- Laparoscopic Surgeon",
+  //   experience: "35+ yrs",
+  //   clients: "40,000+",
   //   image: "https://randomuser.me/api/portraits/women/44.jpg",
   // },
   // {
