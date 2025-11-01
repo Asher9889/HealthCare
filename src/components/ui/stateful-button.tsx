@@ -65,6 +65,7 @@ const Button = ({ className, children, ...props }: ButtonProps) => {
 
   const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     await animateLoading();
+    window.open("https://wa.me/919211930749", "_blank")
     await props.onClick?.(event);
     await animateSuccess();
   };
