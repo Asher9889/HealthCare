@@ -49,7 +49,8 @@ import QuickEmiCheck from "./quick-emi-check/QuickEmiCheck";
 import DynamicDialog from "./dynamic-dialog/DynamicDialog";
 import EmiCalculator from "./emi-calculator/EmiCalculator";
 import CallbackRequestForm from "./callback-request-form/CallbackRequestForm";
+import ContactInfoBar from "./contact-info-bar/ContactInfoBar";
 
 export {
-    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating, ConditionInfo, TreatmentCard, BenefitCard, TreatmentProcess, HealthInsurance, ContactAdvisorModal, FormLabel, QuickEmiCheck, DynamicDialog, EmiCalculator, CallbackRequestForm
+    Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating, ConditionInfo, TreatmentCard, BenefitCard, TreatmentProcess, HealthInsurance, ContactAdvisorModal, FormLabel, QuickEmiCheck, DynamicDialog, EmiCalculator, CallbackRequestForm, ContactInfoBar
 }

@@ -8,21 +8,40 @@ import { FormLabel } from "@/components";
 import useCallbackFormRequest from "./hooks/useCallbackFormRequest";
 import { SelectItem, SelectTrigger, SelectValue, SelectContent, Select, Spinner } from "../ui";
 import { helpTypeValues } from "./schema/callbackRequestForm.schema";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
-export default function CallbackRequestForm() {
+const CallbackRequestForm  = (() => {
   const { form, onSubmit, loading, dialog, setDialog } = useCallbackFormRequest();
 
   const handleDialogClose = () => setDialog((prev) => ({ ...prev, open: false }));
 
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [highlight, setHighlight] = useState(false);
+
+  useEffect(() => {
+    const handleScrollToForm = () => {
+      if (!sectionRef.current) return;
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      setHighlight(true);
+      // remove highlight after a delay
+      setTimeout(() => setHighlight(false), 2000);
+    };
+
+    window.addEventListener("scroll-to-callback-form", handleScrollToForm);
+    return () => window.removeEventListener("scroll-to-callback-form", handleScrollToForm);
+  }, []);
+
+
   return (
     <motion.section
+      ref={sectionRef}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-3xl mx-auto bg-blue-50/50 border border-blue-100 rounded-2xl p-8 shadow-sm"
+      className={`max-w-7xl p-10 mx-auto bg-blue-50/50 border border-blue-100 ${highlight ? "border-1 border-red-500" : ""} rounded-2xl shadow-sm`}
     >
-      <div className="space-y-2 mb-6 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-[var(--dark-blue-color)]">
+      <div className="space-y-2 mb-6 text-start">
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--dark-blue-color)]">
           Request a Callback
         </h2>
         <p className="text-gray-600 text-sm md:text-base">
@@ -45,7 +64,7 @@ export default function CallbackRequestForm() {
                     <Input
                       placeholder="Enter your full name"
                       {...field}
-                      className="rounded-xl border-gray-300 bg-white"
+                      className=" border-gray-300 bg-white"
                     />
                     {fieldState.error && <p className="text-sm text-red-500 mt-1">{fieldState.error.message}</p>}
                   </div>
@@ -68,7 +87,7 @@ export default function CallbackRequestForm() {
                     {...field}
                     value={field.value?.replace(/[^0-9]/g, "")}
                     maxLength={10}
-                    className="rounded-xl border-gray-300 bg-white"
+                    className="border-gray-300 bg-white"
                   />
                   {fieldState.error && <p className="text-sm text-red-500 mt-1">{fieldState.error.message}</p>}
                   </div>
@@ -163,4 +182,6 @@ export default function CallbackRequestForm() {
       </form>
     </motion.section>
   );
-}
+})
+
+export default forwardRef(CallbackRequestForm);

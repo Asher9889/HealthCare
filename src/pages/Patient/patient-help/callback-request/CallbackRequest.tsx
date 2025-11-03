@@ -2,7 +2,10 @@ import { CallbackRequestForm } from "@/components"
 
 const CallbackRequest = () => {
     return (
-        <CallbackRequestForm />
+        <div className="py-10">
+
+            <CallbackRequestForm />
+        </div>
     )
 }
 

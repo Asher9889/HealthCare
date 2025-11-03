@@ -1,18 +1,8 @@
 import { MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading } from "../index"
-const cities = [
-    "Jaipur",
-    "Ahmedabad",
-    "Bhopal",
-    "Vadodara",
-    "Indore",
-    "Kanpur",
-    "Noida",
-    "Gurgaon",
-    "Delhi",
-    "Lucknow",
-];
+import { constantData } from "@/constants";
+const cities = constantData.cities;
 
 export default function TopCities() {
     return (

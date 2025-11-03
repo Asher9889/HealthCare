@@ -5,8 +5,14 @@ import { Separator } from "@/components/ui/separator";
 import { CallNow, WhatsaapButton } from "@/components";
 
 export default function HeroSection() {
+
+
+  const handleRequestClick = () => {
+    window.dispatchEvent(new CustomEvent("scroll-to-callback-form"));
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-4 py-8">
+    <section className="max-w-7xl mx-auto py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +36,8 @@ export default function HeroSection() {
             <CallNow />
             <WhatsaapButton children="WhatsApp" className="rounded-md" />
           <Button
-            className="bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-xl font-medium flex items-center gap-2 px-5"
+            onClick={handleRequestClick}
+            className="bg-blue-100 h-10 hover:bg-blue-200 text-blue-700 rounded-xl font-medium flex items-center gap-2 px-5"
           >
             <PhoneCall className="w-4 h-4" />
             Request Callback

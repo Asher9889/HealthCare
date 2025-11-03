@@ -2,7 +2,7 @@
 import { constantData } from "@/constants";
 import z from "zod";
 
-const cities = constantData.cities;
+const cities = constantData.citiesLiteral;
 export const helpTypeValues = ["Treatment", "Surgery", "Medicine", "Other"] as const;
 export const CallbackFormSchema = z.object({
   name: z.string({required_error: "Name is required"})
