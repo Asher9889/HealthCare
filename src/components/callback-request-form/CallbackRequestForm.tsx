@@ -3,15 +3,16 @@ import { Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { SelectCityInput } from "@/components";
+import { DynamicDialog, SelectCityInput } from "@/components";
 import { FormLabel } from "@/components";
-import { Loader2, CheckCircle2 } from "lucide-react";
 import useCallbackFormRequest from "./hooks/useCallbackFormRequest";
-import { SelectItem, SelectTrigger, SelectValue, SelectContent, Select } from "../ui";
+import { SelectItem, SelectTrigger, SelectValue, SelectContent, Select, Spinner } from "../ui";
 import { helpTypeValues } from "./schema/callbackRequestForm.schema";
 
 export default function CallbackRequestForm() {
-  const { form, onSubmit, successMsg, loading } = useCallbackFormRequest();
+  const { form, onSubmit, loading, dialog, setDialog } = useCallbackFormRequest();
+
+  const handleDialogClose = () => setDialog((prev) => ({ ...prev, open: false }));
 
   return (
     <motion.section
@@ -146,21 +147,19 @@ export default function CallbackRequestForm() {
           className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold h-11"
           disabled={loading}
         >
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
-            </>
-          ) : (
-            "Submit Request"
-          )}
+          {loading? <Spinner /> : "Submit Request"}
         </Button>
-
-        {successMsg && (
-          <div className="flex items-center gap-2 text-green-600 text-sm mt-3">
-            <CheckCircle2 className="w-4 h-4" />
-            <span>{successMsg}</span>
-          </div>
-        )}
+        <DynamicDialog 
+          open={dialog.open}
+          onClose={handleDialogClose}
+          type={dialog.type}
+          title={dialog.title}
+          message={dialog.message}
+          primaryAction={{
+            label: "Close",
+            onClick: handleDialogClose
+          }}
+        />
       </form>
     </motion.section>
   );
