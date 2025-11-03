@@ -7,4 +7,10 @@ export const endPoints = {
         url: () => `/contact/quick-emi-check`,
         method: 'POST',
     },
+    callbackForm: {
+        url: `/contact/request-callback`,
+        method: 'POST',
+    },
+
+
 }
