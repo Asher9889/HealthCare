@@ -1,5 +1,5 @@
 import { laproscopy } from "@/assets";
-import { AboutSection, AppointFormWithNoReason, Doctors3DGrid, DynamicHeroSection, Heading, SEO, TopCities } from "@/components"
+import { AboutSection, AppointFormWithNoReason, DoctorCard, DynamicHeroSection, Heading, SEO, TopCities } from "@/components"
 import WhyChoose from "./why-choose/WhyChoose";
 import StatsBar from "../home/StatusBar/StatsBar";
 import TreatmentSteps from "../practology/treatment-step/TreatmentSteps";
@@ -7,6 +7,7 @@ import FAQ from "./faq/FAQ";
 import LaparoscopySection from "./laparoscopy-section/LaparoScopySection";
 import { UserCheck, Microscope, HeartPulse, BadgeDollarSign, Users, Building2, FileCheck2, Wallet, Video } from "lucide-react";
 import FeatureSection from "@/components/FeatureSection/FeatureSection";
+import { laproscopyDoctorCardData } from "@/constants/data";
 
 
 
@@ -121,11 +122,15 @@ const Laparoscopy = () => {
                     <div className="text-center">
                         <Heading text1="Our Laparoscopy" text2="Specialists" />
                     </div>
-                    <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
-                        <Doctors3DGrid />
-                        <span className="px-6">
+                    <div className="max-w-7xl mx-auto flex-nowrap  mt-10">
+                        <div className="justify-center items-top flex flex-col lg:flex-row flex-wrap gap-10">
+                            {laproscopyDoctorCardData.map((doctor) => (
+                                <DoctorCard name={doctor.name} specialties={doctor.specialties} experience={doctor.experience} phone={doctor.phone} happyPatients={doctor.happyPatients} imageUrl={doctor.imageUrl} />
+                            ))}
+                            <span className="px-6 mx-auto">
                             <AppointFormWithNoReason />
                         </span>
+                        </div>
                     </div>
                 </div>
                 <TopCities />

@@ -1,6 +1,7 @@
 import practoImg from "./practology/practology.png";
 import practoHero from "./practology/practo-hero.jpg";
 import tanmay from "./tanmay.webp";
+import amit from "./amit.webp";
 import cms from "./cms.png";
 import wtsp from "./whatsapp.svg"
 import laproscopy from "./laproscopy/laproscopy.webp";
@@ -16,6 +17,6 @@ import hsptl from './1-day-hospitalization.png';
 import insurance from './Support-in-insurance-claim.png';
 import usfda from './USFDA-Approved-procedure.png';
 import hdfc from "./no-cost-emi/HDFC_Bank_Logo.png"
-
-
-export { practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda, hdfc};
+import ashish from "./ashish.webp"
+import rahul from "./rahul.webp"
+export {rahul, amit, practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda, hdfc, ashish};

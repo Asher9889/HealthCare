@@ -1,4 +1,4 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading,  StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
@@ -256,12 +256,13 @@ const CosmeticSurgery = () => {
             </section>
 
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            {/* <section className="py-20 mx-auto px-4 max-w-7xl">
               <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
               {constantData.specialists.map((doc) => (
                 <SpecialistCard key={doc.id} specialist={doc} />
               ))}
-            </section>
+            </section> */}
 
             <WhyPristynCare />
 
