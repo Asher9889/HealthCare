@@ -1,35 +1,42 @@
 "use client";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const specialties = [
   {
     title: "Proctology – Laser Treatment for Piles, Fissures & Fistulas",
+    path: "/c/proctology",
     description:
       "PureCheckup offers advanced proctology treatments using laser surgery for piles, fissures, fistulas, and pilonidal sinus. These minimally invasive procedures ensure quick recovery, minimal pain, and lower risk of recurrence. Patients benefit from expert care, modern technology, and a smooth surgical journey from consultation to recovery.",
   },
-  {
+  { 
     title: "Laparoscopic Surgery – Minimally Invasive Excellence",
+    path: "/c/laproscopy",
     description:
       "We specialize in laparoscopic surgeries for hernia, gallbladder stones, and appendicitis using small incisions for faster healing and less scarring. With high-definition imaging and precision instruments, our expert surgeons ensure shorter hospital stays, reduced discomfort, and excellent clinical outcomes.",
   },
   {
     title: "Gynecology – Surgical Solutions for Women’s Health",
+    path: "/c/gynecology",
     description:
       "PureCheckup provides expert gynecological care for conditions like fibroids, ovarian cysts, endometriosis, and abnormal vagina bleeding. We use the latest minimally invasive techniques to ensure safe and effective results. Every treatment plan is tailored by experienced gynecologists to meet individual needs.",
   },
   {
     title: "Urology – Advanced Laser Urology Treatments",
+    path: "/c/urology",
     description:
       "Our urology specialists treat conditions like kidney stones, urinary incontinence, prostate issues, phimosis, and erectile dysfunction using advanced laser and stapler techniques. We offer personalized care with fast recovery, minimal discomfort, and modern diagnostic tools for accurate treatment.",
   },
   {
     title: "Aesthetic Surgery – Cosmetic Enhancements with Confidence",
+    path: "/c/aesthetics",
     description:
       "We provide safe and personalized aesthetic surgeries such as liposuction, gynecomastia treatment, and cosmetic gynecology. Our procedures are designed to enhance appearance, boost confidence, and ensure long-lasting, natural-looking results with minimal downtime.",
   },
   {
     title: "Plastic Surgery – Reconstructive & Cosmetic Excellence",
+    path: "/aesthetics/plastic-surgeries",
     description:
       "PureCheckup offers both reconstructive and cosmetic plastic surgeries, including scar revision, rhinoplasty, facelifts, and body contouring. With a focus on safety, precision, and patient satisfaction, our expert surgeons deliver superior outcomes using the latest surgical techniques.",
   },
@@ -51,6 +58,7 @@ const innovations = [
 ];
 
 export default function SpecialtiesShowcase() {
+  const navigate = useNavigate();
   return (
     <section className="relative py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] overflow-hidden">
       {/* Glow Blobs */}
@@ -95,7 +103,7 @@ export default function SpecialtiesShowcase() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-300"
             >
-              <h3 className="text-xl font-bold text-blue-400 mb-4">
+              <h3 onClick={() => navigate(item.path)} className="text-xl font-bold text-blue-400 mb-4 hover:underline cursor-pointer">
                 {item.title}
               </h3>
               <p className="text-gray-200 leading-relaxed">

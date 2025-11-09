@@ -4,51 +4,65 @@ import lapro from "../../../assets/Laparoscopy.png";
 import procto from "../../../assets/Proctology.jpg";
 import uro from "../../../assets/Urology.jpg";
 import aes from "../../../assets/aesthetic.webp";
+import {  useNavigate } from 'react-router-dom';
 
 interface Speciality {
   title: string;
+  path: string;
   desc: string;
   image: string;
 }
 const specialities: Speciality[] = [
   {
     title: 'Proctology',
+    path: '/c/proctology',
     desc: 'Specialised & advanced treatment for Anorectal Diseases ...',
     image: procto,
   },
   {
     title: "Urology",
+    path: '/c/urology',
     desc: 'Surgical treatment for urogenital issues in men and women ...',
     image: uro,
   },
   {
     title: 'Laparoscopy',
+    path: '/c/laproscopy',
     desc: 'Keyhole surgery for abdominal and pelvic disorders ...',
     image: lapro,
   },
   {
     title: 'Gynaecology',
+    path: '/c/gynaecology',
     desc: 'Comprehensive care for women’s reproductive health and related disorders ...',
     image: gyno,
   },
   {
     title: 'Aesthetics',
+    path: '/c/aesthetics',
     desc: 'Advanced cosmetic treatments to enhance appearance and confidence ...',
     image: aes,
   },
 ];
 
 
-const SpecialityCard = ({ title, desc, image }:Speciality) => (
-  <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition flex items-start gap-4 w-full">
-    <img src={image} alt={title} className="w-16 h-16 object-cover rounded-md" />
-    <div className="flex-1">
-      <h3 className="text-lg font-semibold text-[#002b45]">{title}</h3>
-      <p className="text-sm text-gray-600">{desc}</p>
+const SpecialityCard = ({ title, desc, image, path }: Speciality) => {
+  const navigate = useNavigate();
+
+  return (
+    <div
+      className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition flex items-start gap-4 w-full cursor-pointer"
+    >
+      <img src={image} alt={title} className="w-16 h-16 object-cover rounded-md" />
+      <div className="flex-1">
+        <h3  onClick={() => navigate(path)} className="text-lg font-semibold text-[#002b45] hover:underline">{title}</h3>
+        <p className="text-sm text-gray-600">{desc}</p>
+      </div>
+      <FiArrowRight className="text-blue-600 text-xl self-center" />
     </div>
-    <FiArrowRight className="text-blue-600 text-xl self-center" />
-  </div>
-);
+  );
+};
+
 
 const Specialities = () => {
   return (
