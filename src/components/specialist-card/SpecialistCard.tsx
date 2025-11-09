@@ -6,11 +6,11 @@ import { useState } from "react"
 type Specialist = {
   id: number
   name: string
-  title: string
+  title?: string
   experience: string
-  surgeries: string
-  description: string
-  image: any
+  surgeries?: string
+  description?: string
+  image?: any
   appointmentLink?: string
   callLink?: string
 }

@@ -31,7 +31,7 @@ export default function TreatmentCard({ title, description, downtime }: Treatmen
           variant="outline"
           className="border-green-200 text-green-700 bg-green-50 hover:bg-green-100 rounded-md"
         >
-          <a href={`${constantData.specialists[0].callLink}`}>Call</a>
+          <a href={`${constantData.specialists[0].phone}`}>Call</a>
         </Button>
       </CardFooter>
       {open && <AppointForm open={open} setOpen={setOpen} />}

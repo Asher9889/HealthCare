@@ -8,6 +8,7 @@ const diseases = ["Proctology", "Urology", "Laproscopy", "Gynaecology", "Aesthet
 
 const specialists = [
    {
+    id: 1,
     name: "Dr. Tanmay Jain",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "18+ yrs",
@@ -16,6 +17,7 @@ const specialists = [
     imageUrl: tanmay,
   },
   {
+    id: 2,
     name: "Dr. Amit Kumar Gupta",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "17+ yrs",
@@ -24,6 +26,7 @@ const specialists = [
     imageUrl: amit,
   },
   {
+    id: 3,
     name: "Dr. Rahul Sharma",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "35+ yrs",
@@ -32,6 +35,7 @@ const specialists = [
     imageUrl: rahul,
   },
   {
+    id: 4,
     name: "Dr. Aashish Vohra",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "18+ yrs",
