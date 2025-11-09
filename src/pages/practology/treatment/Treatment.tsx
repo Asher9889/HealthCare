@@ -2,30 +2,36 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Flame, Activity, GitBranch, Shield, Link2, Heart } from "lucide-react";
 import { Heading } from "@/components";
+import { useNavigate } from "react-router-dom";
 
 const treatments = [
   {
     title: "Piles",
+    path: "/treatment/piles",
     description: "Laser hemorrhoidoplasty for quick relief.",
     icon: Flame,
   },
   {
     title: "Anal Fissure",
+    path: "/treatment/fissure",
     description: "Sphincter-sparing techniques to heal tears.",
     icon: Activity,
   },
   {
     title: "Anal Fistula",
+    path: "/treatment/fistula",
     description: "Laser FiLaC and VAAFT options.",
     icon: GitBranch,
   },
   {
     title: "Pilonidal Sinus",
+    path: "/treatment/pilonidal-sinus",
     description: "Laser ablation with minimal downtime.",
     icon: Shield,
   },
   {
     title: "AV Fistula",
+    path: "/treatment/fistula",
     description: "Expert evaluation and management.",
     icon: Link2,
   },
@@ -37,6 +43,11 @@ const treatments = [
 ];
 
 export default function Treatment() {
+  const navigate = useNavigate();
+
+  function handleNavigate(path: string) {
+    navigate(path);
+  }
   return (
     <section className="px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -72,7 +83,7 @@ export default function Treatment() {
                       <treatment.icon className="h-6 w-6 text-gray-800" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-(--text-primary) hover:underline cursor-pointer">
+                      <h3 onClick={() => handleNavigate(treatment.path!!)} className="text-lg font-semibold text-(--text-primary) hover:underline cursor-pointer">
                         {treatment.title}
                       </h3>
                       <p className="text-sm text-gray-600 mt-1">
