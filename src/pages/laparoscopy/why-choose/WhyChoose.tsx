@@ -1,29 +1,35 @@
 import { Heading } from "@/components";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const conditions = [
   {
     name: "Hernia",
+    path: "/treatment/hernia",
     description: "Protrusion of internal organs into abdominal muscle wall ...",
     image: "https://cdn-icons-png.flaticon.com/512/2966/2966484.png",
   },
   {
     name: "Gallstones",
+    path: "/treatment/gallstone",
     description: "Hardened deposits of bile in the gallbladder ...",
     image: "https://cdn-icons-png.flaticon.com/512/4149/4149676.png",
   },
   {
     name: "Appendicitis",
+    path: "/treatment/appendicitis",
     description: "Inflammation, swelling, or infection in the appendix ...",
     image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
   },
   {
     name: "Inguinal Hernia",
+    path: "/treatment/inguinal-hernia",
     description: "Protrusion of tissues through the inguinal canal ...",
     image: "https://cdn-icons-png.flaticon.com/512/483/483356.png",
   },
   {
     name: "Umbilical Hernia",
+    path: "/treatment/umbilical-hernia",
     description: "Intestine bulging through an opening near the navel ...",
     image: "https://cdn-icons-png.flaticon.com/512/4320/4320337.png",
   },
@@ -35,6 +41,13 @@ const conditions = [
 ];
 
 export default function ConditionsGrid() {
+
+  const navigate = useNavigate();
+
+  function handleNavigate(path: string) {
+    navigate(path);
+  }
+
   return (
     <div>
       <div className="text-center mb-8">
@@ -63,7 +76,7 @@ export default function ConditionsGrid() {
 
             {/* Text */}
             <div className="ml-4 flex-1">
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 onClick={() => handleNavigate(item.path!!)} className="text-lg font-semibold text-gray-800 hover:underline cursor-pointer hover:text-(--orange-button-color) transition-all duration-300">
                 {item.name}
               </h3>
               <p className="text-sm text-gray-500 mt-1 line-clamp-2">
