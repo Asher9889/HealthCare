@@ -180,6 +180,7 @@ export const navItems = [
       { label: "Patient Help", path: "/patient-help", element: PatientHelp },
       { label: "No Cost EMI", path: "/no-cost-emi", element: NoCostEmi },
       { label: "Health Insurance", path: "/health-insurance", element: HealthInsurance },
+      { label: "Doctors Section", path: "/doctor-section", element: PageNotFound },
     ],
   },
 
@@ -193,7 +194,6 @@ export const navItems = [
       { label: "About Us", path: "/about-us", element: PageNotFound },
       { label: "Contact Us", path: "/contact-us", element: PageNotFound },
       { label: "Privacy Policy", path: "/privacy-policy", element: PageNotFound },
-      { label: "Doctors Section", path: "/doctor-section", element: PageNotFound },
     ],
   },
 
