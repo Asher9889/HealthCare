@@ -18,7 +18,7 @@ const specialties = [
   },
   {
     title: "Gynecology – Surgical Solutions for Women’s Health",
-    path: "/c/gynecology",
+    path: "/c/gynaecology",
     description:
       "PureCheckup provides expert gynecological care for conditions like fibroids, ovarian cysts, endometriosis, and abnormal vagina bleeding. We use the latest minimally invasive techniques to ensure safe and effective results. Every treatment plan is tailored by experienced gynecologists to meet individual needs.",
   },
