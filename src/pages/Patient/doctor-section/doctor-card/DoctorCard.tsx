@@ -5,7 +5,7 @@ import { specialists } from "@/constants/data";
 
 
 
-export default function DoctorSection() {
+export default function DoctorInfo() {
   return (
     <section className="container mx-auto py-16 px-4">
       <div className="mx-auto mb-10 max-w-2xl space-y-2 text-center">
