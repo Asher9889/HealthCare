@@ -174,8 +174,8 @@ export const navItems = [
     icon: User,
     // element: PageNotFound, // Replace with Patient component
     children: [
-      { label: "Hindi Blog", path: "/blogs/hindi-blog", element: PageNotFound },
-      { label: "English Blog", path: "/blogs/english-blog", element: EnglishBlog},
+      // { label: "Hindi Blog", path: "/blogs/hindi-blog", element: PageNotFound },
+      { label: "English Blogs", path: "/blogs/english-blog", element: EnglishBlog},
       // { label: "FAQ", path: "/faq", element: PageNotFound },
       { label: "Patient Help", path: "/patient-help", element: PatientHelp },
       { label: "No Cost EMI", path: "/no-cost-emi", element: NoCostEmi },
