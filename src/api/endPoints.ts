@@ -11,6 +11,16 @@ export const endPoints = {
         url: `/contact/request-callback`,
         method: 'POST',
     },
-
-
+    quickDoctorConnect: {
+        url: () => `/contact/quick-doctor-connect`,
+        method: 'POST',
+    },
+     getAllBlogs: {
+        url: `/blogs`,
+        method: 'GET',
+    },
+    getBlog: {
+        url: "/blogs/:slug",
+        method: "GET"
+    },
 }

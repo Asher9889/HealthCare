@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import routes, { cityWiseRoutes } from './routes';
 import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound } from './components';
 import { Toaster } from 'sonner';
+import BlogViewPage from './pages/Patient/english-blog/blog/BlogView';
 
 async function loadPreline() {
   return import('preline/dist/index.js');
@@ -52,12 +53,13 @@ function App() {
         ))}
         {/* City Wise routes */}
         {cityWiseRoutes?.length > 0 && cityWiseRoutes.map((r, idx) => (
-          <Route 
+          <Route
             key={r?.path + idx}
             path={r?.path}
-            element={r?.element ? <r.element /> : "gh"}         
+            element={r?.element ? <r.element /> : "gh"}
           />
         ))}
+        <Route path="/blogs/:slug" element={<BlogViewPage />} />
 
         {/* Home Route */}
         <Route path="/" element={<Home />} />
