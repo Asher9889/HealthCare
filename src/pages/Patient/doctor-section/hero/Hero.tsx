@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib";
 import { Button } from "@/components/ui/button";
-import { QuickEmiCheck } from "@/components";
 import { useRef, useState } from "react";
 import QuickDoctorConnect from "@/components/quick-doctor-connect/QuickDoctorConnect";
 
