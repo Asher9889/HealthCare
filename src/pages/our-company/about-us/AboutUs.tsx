@@ -6,8 +6,12 @@ import Hero from './Hero';
 import PresenceAndValues from './presence-values/PresenceAndValues';
 import Consultation from './consultation/Consultation';
 import { FAQ } from '@/components';
-
+import { AppointForm } from '@/components';
+import { useState } from 'react';
+import SettingStandards from './setting-standards/SettingStandard';
+import ExcellenceSection from './excellence-section/ExcellenceSection';
 const AboutUs = () => {
+    const [open, setOpen] = useState(false)
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -246,7 +250,10 @@ const AboutUs = () => {
                         ))}
                     </motion.div>
                 </div>
+                <SettingStandards />
             </section>
+
+            <ExcellenceSection />
 
             <PresenceAndValues />
 
@@ -258,7 +265,7 @@ const AboutUs = () => {
                         <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
                             Your journey to better health starts here. Easy to access, easy to understand, and easy to trust.
                         </p>
-                        <Button className="bg-white text-[var(--primary-bg-color)] hover:bg-gray-100 text-lg px-10 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-bold">
+                        <Button onClick={() => setOpen(true)} className="bg-white text-[var(--primary-bg-color)] hover:bg-gray-100 text-lg px-10 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-bold">
                             Consultation details
                         </Button>
                     </div>
@@ -271,9 +278,12 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            <FAQ faqs={faqs} />
+            <section className='px-4'>
+                <FAQ faqs={faqs} />
+            </section>
 
             <Consultation />
+            <AppointForm open={open} setOpen={setOpen} />
         </div>
     );
 };

@@ -208,9 +208,9 @@ const ConditionTreatmentForm = ({cities, selectedCity, consultations=["Clinic", 
 
               {/* Buttons */}
               <div className="flex gap-3 pt-2">
-                <Button type="button" variant="outline" className="rounded-xl">
+                {/* <Button type="button" variant="outline" className="rounded-xl">
                   More Info
-                </Button>
+                </Button> */}
                 <Button 
                   type="submit" 
                   className="w-[200px] bg-blue-600 hover:bg-blue-700 text-white rounded-xl"

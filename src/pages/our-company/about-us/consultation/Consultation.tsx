@@ -1,10 +1,9 @@
 
-import { User, Phone, MapPin, Activity, Send, Lock, ShieldCheck, Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
+import { Lock, ShieldCheck, Clock } from 'lucide-react';
+
+import { Card } from '@/components/ui/card';
 import { cities } from '@/constants/data';
-import { SelectCityInput } from '@/components';
+import { ConditionTreatmentForm } from '@/components';
 
 
 const Consultation = () => {
@@ -37,13 +36,13 @@ const Consultation = () => {
                     </div>
 
                     {/* Right Side - Form */}
-                    <Card className="border-none shadow-lg bg-white">
-                        <CardContent className="p-6 md:p-8 space-y-6">
-                            <h3 className="text-xl font-bold text-[var(--text-primary)]">
+                    <Card className="border-none shadow-lg bg-white px-4">
+                        {/* <CardContent className="p-6 md:p-8 space-y-6"> */}
+                            {/* <h3 className="text-xl font-bold text-[var(--text-primary)]">
                                 Consultation details
-                            </h3>
+                            </h3> */}
 
-                            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                            {/* <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="relative">
                                         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -79,7 +78,8 @@ const Consultation = () => {
                                     <Send className="w-4 h-4 mr-2" />
                                     Book Free Appointment
                                 </Button>
-                            </form>
+                            </form> */}
+                            <ConditionTreatmentForm  cities={cities} />
 
                             <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-100">
                                 <div className="flex items-center gap-2 text-xs font-medium text-gray-500 bg-gray-50 px-3 py-1.5 rounded-md">
@@ -99,7 +99,7 @@ const Consultation = () => {
                             <p className="text-xs text-center text-gray-400">
                                 By booking, you agree to our Terms & Privacy Policy.
                             </p>
-                        </CardContent>
+                        {/* </CardContent> */}
                     </Card>
                 </div>
             </section>
