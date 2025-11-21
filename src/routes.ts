@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { HealthInsurance, PageNotFound } from "./components";
 import { lazy } from "react";
-import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp } from "./pages";
+import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp, AboutUs } from "./pages";
 
 // Utility function for type-safe lazy loading
 type LazyImport = {
@@ -70,7 +70,7 @@ const EpididymalCyst = lazyImport("EpididymalCyst");
 const Toenail = lazyImport("Toenail");
 const PlasticSurgery = lazyImport("PlasticSurgery");
 const CosmeticSurgery = lazyImport("CosmeticSurgery");
-const HerniaInSpecialCity = lazy(() => 
+const HerniaInSpecialCity = lazy(() =>
   import("./pages/laparoscopy/condition-wise-treatment/hernia/city-wise-hernia/HerniaInSpecialCity")
     .then(module => ({ default: module.default }))
 );
@@ -98,7 +98,7 @@ export const navItems = [
     element: Practology,
     icon: Stethoscope,
     children: [
-      { label: "Piles Treatment", path: "/treatment/piles", element: PilesTreatment  },
+      { label: "Piles Treatment", path: "/treatment/piles", element: PilesTreatment },
       { label: "Fistula Treatment", path: "/treatment/fistula", element: FistulaTreatment },
       { label: "Fissure Treatment", path: "/treatment/fissure", element: FissureTreatment },
       { label: "Pilonidal Sinus Treatment", path: "/treatment/pilonidal-sinus", element: PilonidalSinusTreatment },
@@ -163,11 +163,11 @@ export const navItems = [
     icon: Sparkles,
     element: Asthetic,
     children: [
-      { label: "Plastic Surgeries", path: "/aesthetics/plastic-surgeries", element: PlasticSurgery  },
-      { label: "Cosmetic Surgery", path: "/aesthetics/cosmetic-surgery", element: CosmeticSurgery  },
+      { label: "Plastic Surgeries", path: "/aesthetics/plastic-surgeries", element: PlasticSurgery },
+      { label: "Cosmetic Surgery", path: "/aesthetics/cosmetic-surgery", element: CosmeticSurgery },
     ],
   },
- // Patient Service
+  // Patient Service
   {
     name: "Patient",
     skip: false,
@@ -175,7 +175,7 @@ export const navItems = [
     // element: PageNotFound, // Replace with Patient component
     children: [
       // { label: "Hindi Blog", path: "/blogs/hindi-blog", element: PageNotFound },
-      { label: "English Blogs", path: "/blogs/english-blog", element: EnglishBlog},
+      { label: "English Blogs", path: "/blogs/english-blog", element: EnglishBlog },
       // { label: "FAQ", path: "/faq", element: PageNotFound },
       { label: "Patient Help", path: "/patient-help", element: PatientHelp },
       { label: "No Cost EMI", path: "/no-cost-emi", element: NoCostEmi },
@@ -191,7 +191,7 @@ export const navItems = [
     icon: Building2,
     // element: PageNotFound, // Replace with Company component
     children: [
-      { label: "About Us", path: "/about-us", element: PageNotFound },
+      { label: "About Us", path: "/about-us", element: AboutUs },
       { label: "Contact Us", path: "/contact-us", element: PageNotFound },
       { label: "Privacy Policy", path: "/privacy-policy", element: PageNotFound },
     ],
@@ -226,9 +226,9 @@ console.log(flatMapped);
 const routes = navItems.flatMap((item) => {
   // Process children, filtering out any with skip: true
   const childRoutes = item.children?.map(child => ({
-      path: child.path,
-      element: child.element,
-    })) || [];
+    path: child.path,
+    element: child.element,
+  })) || [];
 
   // Only include parent if it has its own path and is not skipped
   if (item.path) {
@@ -241,17 +241,17 @@ const routes = navItems.flatMap((item) => {
 
 
 const cityWiseRoutes = [
-  { path: "/treatment/piles/:city",  element: PilesInSpecialCity},
-  { path: "/treatment/fistula/:city",  element: FistulaInSpecialCity},
-  { path: "/treatment/pilonidal-sinus/:city",  element: PilonidalSinusInSpecialCity},
-  { path: "/treatment/rectal-prolapse/:city",  element: RectalProlapseInSpecialCity},
+  { path: "/treatment/piles/:city", element: PilesInSpecialCity },
+  { path: "/treatment/fistula/:city", element: FistulaInSpecialCity },
+  { path: "/treatment/pilonidal-sinus/:city", element: PilonidalSinusInSpecialCity },
+  { path: "/treatment/rectal-prolapse/:city", element: RectalProlapseInSpecialCity },
 
-  { path: "/treatment/hernia/:city",  element: HerniaInSpecialCity},
+  { path: "/treatment/hernia/:city", element: HerniaInSpecialCity },
   // { path: "/treatment/gallstone/:city",  element: GallstonesInSpecialCity},
-  { path: "/treatment/appendicitis/:city",  element: AppendicitisInSpecialCity},
+  { path: "/treatment/appendicitis/:city", element: AppendicitisInSpecialCity },
   // { path: "/treatment/inguinal-hernia/:city",  element: InguinalHerniaInSpecialCity},
   // { path: "/treatment/umbilical-hernia/:city",  element: UmbilicalHerniaInSpecialCity},
-  
+
 ];
 
 
