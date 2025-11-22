@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Hero from './Hero';
 import PresenceAndValues from './presence-values/PresenceAndValues';
 import Consultation from './consultation/Consultation';
-import { FAQ } from '@/components';
+import { FAQ, SEO } from '@/components';
 import { AppointForm } from '@/components';
 import { useState } from 'react';
 import SettingStandards from './setting-standards/SettingStandard';
@@ -133,6 +133,7 @@ const AboutUs = () => {
     return (
         <div className="min-h-screen bg-[var(--primary-bg-background-color)] overflow-hidden">
             {/* Hero Section */}
+            <SEO page='aboutUs'/>
             <Hero />
             {/* Stats Section */}
             <motion.div

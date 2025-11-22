@@ -96,6 +96,12 @@ export const seoData = {
             "fissure treatment, fissure surgery, piles fissure laser treatment, laser fissure surgery, fissure doctor near me, anorectal fissure care, fissure pain relief, proctology treatment, no cost emi fissure treatment, best fissure clinic in india",
         canonical: "https://purecheckup.com/treatment/fissure/",
     },
+    aboutUs: {
+        title: "About Us - Transforming Surgical Care in India | PureCheckup",
+        description: "PureCheckup, HealthTech, NABH-accredited hospitals, experienced surgeons, safe surgeries, insurance-covered surgeries, end-to-end assistance, doctor selection, hospital admission, EMI, post-surgery care",
+        keywords: "About PureCheckup, Digital healthcare platform, Surgery booking platform, Patient-first healthcare, Transparent surgical care, Trusted hospital partners, Health insurance support, No-cost EMI for surgeries",
+        canonical: "https://purecheckup.com/about-us",
+    }
 
     // 👉 keep going with Pilonidal Sinus, Rectal Prolapse, Laparoscopy, Urology, Gynaecology, Aesthetics, etc.
     // You’ll just copy the data you provided into this same structure.
