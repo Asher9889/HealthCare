@@ -7,7 +7,7 @@ const citiesLiteral = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "G
 const diseases = ["Proctology", "Urology", "Laproscopy", "Gynaecology", "Aesthetics"];
 
 const specialists = [
-   {
+  {
     id: 1,
     name: "Dr. Tanmay Jain",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
@@ -15,6 +15,7 @@ const specialists = [
     phone: "9211930749",
     happyPatients: "1,00,000+",
     imageUrl: tanmay,
+    description: "Experienced surgeon specializing in minimally invasive treatments with a strong track record in patient recovery."
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const specialists = [
     phone: "",
     happyPatients: "10,000+",
     imageUrl: amit,
+    description: "Known for precision and patient-centric care, focusing on advanced laparoscopic and urological procedures."
   },
   {
     id: 3,
@@ -33,6 +35,7 @@ const specialists = [
     phone: "",
     happyPatients: "20,000+",
     imageUrl: rahul,
+    description: "Highly senior surgeon with decades of experience across complex gastrointestinal and urological surgeries."
   },
   {
     id: 4,
@@ -42,8 +45,10 @@ const specialists = [
     phone: "",
     happyPatients: "15,000+",
     imageUrl: ashish,
+    description: "Specializes in minimally invasive care, ensuring faster recovery with modern surgical techniques."
   }
-]
+];
+
 
 const proctologyDoctorCardData = [
   {

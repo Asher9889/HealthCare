@@ -8,9 +8,9 @@ type Specialist = {
   name: string
   title?: string
   experience: string
-  surgeries?: string
+  happyPatients?: string
   description?: string
-  image?: any
+  imageUrl?: any
   appointmentLink?: string
   callLink?: string
 }
@@ -19,11 +19,11 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
     const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <Card className="rounded-2xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm my-4">
       <CardContent className="flex gap-4 p-4 items-center">
         {/* Image */}
         <img
-          src={specialist.image}
+          src={specialist.imageUrl}
           alt={specialist.name}
           className="w-20 h-30 rounded-lg object-cover"
         />
@@ -34,7 +34,7 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
             {specialist.name} – {specialist.title}
           </h3>
           <p className="text-sm text-gray-600">
-            {specialist.experience} · {specialist.surgeries}
+            {specialist.experience} · {specialist.happyPatients} Surgeries
           </p>
           <p className="text-sm text-gray-500">{specialist.description}</p>
 
@@ -54,7 +54,7 @@ export default function SpecialistCard({ specialist }: { specialist: Specialist 
               className="rounded-lg"
               asChild
             >
-              <a href={specialist.callLink || "#"}>Call Clinic</a>
+              <a href={"tel:9211930749"}>Call Clinic</a>
             </Button>
           </div>
         </div>
