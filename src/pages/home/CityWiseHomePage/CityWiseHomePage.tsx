@@ -1,22 +1,30 @@
 import { FaPhoneAlt } from "react-icons/fa";
-import {   HeroSection, SEO } from "../../components";
-import AboutPureCheckup from "./AboutPureCheckup/AboutPureCheckup";
-import FaqSection from "./FaqSection/FaqSection";
-import PatientReviews from "./PatientReviews/PatientReviews";
-import Specialities from "./Specilities.tsx/Specialities";
-import StatsBar from "./StatusBar/StatsBar";
-import WhyChoose from "./WhyChoose/Whychoose";
-import WhyPristynCare from "./WhyPristineCare.tsx/WhyPristineCare";
-import SpecialtiesShowcase from "./SpecialtiesShowcase/SpecialtiesShowcase";
-import PureCheckupStandards from "./PureCheckupStandards/PureCheckupStandards";
+import { HeroSection, PageNotFound, SEO } from "../../../components";
+import AboutPureCheckup from "../AboutPureCheckup/AboutPureCheckup";
+import FaqSection from "../FaqSection/FaqSection";
+import PatientReviews from "../PatientReviews/PatientReviews";
+import Specialities from "../Specilities.tsx/Specialities";
+import StatsBar from "../StatusBar/StatsBar";
+import WhyChoose from "../WhyChoose/Whychoose";
+import WhyPristynCare from "../WhyPristineCare.tsx/WhyPristineCare";
+import SpecialtiesShowcase from "../SpecialtiesShowcase/SpecialtiesShowcase";
+import PureCheckupStandards from "../PureCheckupStandards/PureCheckupStandards";
+import { constantData } from "@/constants";
+import { useLocation } from "react-router-dom";
 
 
+const CityWiseHomePage = () => {
+    const location = useLocation()
+    const city = location.pathname.slice(1);
+    const cityName = city.charAt(0).toUpperCase() + city.slice(1);
 
-const Home = () => {
+
+    const isCityExist = constantData.cities.find((city) => city === cityName);
+    if (!isCityExist) return <PageNotFound />
     return (
         <div>
             <SEO page="home" />
-            <HeroSection />
+            <HeroSection cityName={cityName} />
             <Specialities />
             <StatsBar />
             <div className="w-full">
@@ -41,7 +49,7 @@ const Home = () => {
             <FaqSection />
         </div>
     )
+
 }
 
-
-export default Home;
+export default CityWiseHomePage;

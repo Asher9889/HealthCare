@@ -6,6 +6,7 @@ import routes, { cityWiseRoutes } from './routes';
 import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound } from './components';
 import { Toaster } from 'sonner';
 import BlogViewPage from './pages/Patient/english-blog/blog/BlogView';
+import { CityWiseHomePage } from './pages';
 
 async function loadPreline() {
   return import('preline/dist/index.js');
@@ -63,6 +64,10 @@ function App() {
 
         {/* Home Route */}
         <Route path="/" element={<Home />} />
+        <Route path="/:city" 
+        // element={<Home />} 
+        element={<CityWiseHomePage />} 
+        />
 
         {/* Catch-all route */}
         <Route path="*" element={<PageNotFound />} />

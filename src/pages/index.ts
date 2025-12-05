@@ -1,3 +1,5 @@
+import CityWiseHomePage from "./home/CityWiseHomePage/CityWiseHomePage";
+
 import Practology from "./practology/Practology";
 import PilesTreatment from "./practology/condition-city-wise/PilesTreatment";
 import FistulaTreatment from "./practology/condition-city-wise/FistulaTreatment";
@@ -56,4 +58,4 @@ import EnglishBlog from "./Patient/english-blog/EnglishBlog";
 import AboutUs from "./our-company/about-us/AboutUs";
 import ContactUs from "./our-company/contact-us/ContactUs";
 
-export { ContactUs, EnglishBlog, Asthetic, Practology, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL, PCNL, URSL, RIRS, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery, LaserSurgery, LaparoscopySurgery, FissureTreatment, NoCostEmi, PatientHelp, DoctorSection, AboutUs }
+export { ContactUs, EnglishBlog, Asthetic, Practology, CityWiseHomePage, Laparoscopy, Urology, Gynecology, PilesTreatment, PilesInSpecialCity, FistulaTreatment, PilonidalSinusTreatment, RectalProlapseTreatment, FistulaInSpecialCity, PilonidalSinusInSpecialCity, RectalProlapseInSpecialCity, HerniaTreatment, GallstonesTreatment, AppendicitisTreatment, InguinalHerniaTreatment, UmbilicalHerniaTreatment, AppendicitisInSpecialCity, CircumcisionTreatment, KidneyStonesTreatment, LaserCircumcision, StaplerCircumcision, Hydrocele, ESWL, PCNL, URSL, RIRS, Frenuloplasty, Balanitis, Balanoposthitis, Paraphimosis, Foreskin, TightForeskin, Phimosis, CornRemoval, Vasectomy, TesticularTorsion, EpididymalCyst, Toenail, PlasticSurgery, CosmeticSurgery, LaserSurgery, LaparoscopySurgery, FissureTreatment, NoCostEmi, PatientHelp, DoctorSection, AboutUs }

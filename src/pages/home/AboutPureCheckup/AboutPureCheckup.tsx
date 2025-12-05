@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building2, Hospital, Users } from "lucide-react";
+import { constantData } from "@/constants";
 
 const AboutPureCheckup = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,7 +35,7 @@ const AboutPureCheckup = () => {
         <div className="max-w-4xl mx-auto bg-white border border-gray-100 shadow-lg rounded-3xl p-8 mb-16 relative">
           <p className="text-gray-700 leading-relaxed mb-4">
             Currently serving{" "}
-            <strong>Jaipur, Ahmedabad, Indore, Vadodara, and Bhopal</strong>
+            <strong >{constantData.cities.join(", ")}</strong>
             {!isExpanded && (
               <>
                 ...{" "}

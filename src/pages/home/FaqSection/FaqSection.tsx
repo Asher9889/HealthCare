@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { constantData } from "@/constants";
 
 interface FAQ {
   question: string;
@@ -53,7 +54,7 @@ const faqs: FAQ[] = [
   {
     question: "Where is PureCheckup available?",
     answer:
-      "We currently serve Jaipur, Ahmedabad, Indore, Vadodara, Bhopal, and other cities — with more launching soon.",
+      `We currently serve ${constantData.cities.join(", ")} — with more launching soon.`,
   },
   {
     question: "Are the surgeries covered under insurance?",

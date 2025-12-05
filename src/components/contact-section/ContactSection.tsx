@@ -1,5 +1,6 @@
 import { constantData } from '@/constants';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 interface IFormData {
@@ -25,6 +26,7 @@ const ContactSection: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ mobile?: string }>({});
+  const navigate = useNavigate();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -81,6 +83,11 @@ const ContactSection: React.FC = () => {
     }
   };
 
+  const handleCityClick = (city: string) => {
+    if(!city) return;
+    navigate(`/${city.toLowerCase()}`);
+  };
+
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -103,7 +110,7 @@ const ContactSection: React.FC = () => {
             <p className="text-gray-600">
               PureCheckup brings advanced surgical care powered by the latest medical technologies to 10+ cities across India, including{' '}
               {cities.map((city, idx) => (
-                <span key={city} className="text-blue-600">
+                <span onClick={() => handleCityClick(city)} key={city} className="text-blue-600 hover:underline hover:text-blue-700 cursor-pointer transition-all duration-300">
                   {city}
                   {idx !== cities.length - 1 ? ', ' : '.'}
                 </span>

@@ -1,119 +1,125 @@
 import { FaPhoneAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 import AppointFormWithNoReason from "../book-appointment-form/AppointFormWithReason";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
-
-const HeroSection = () => {
+const HeroSection = ({ cityName = "" }: { cityName?: string }) => {
   return (
-    <div className="py-12 px-6 h-full w-full">
-      <div className="container mx-auto flex flex-col lg:flex-row gap-10 items-start">
-
-        {/* Mobile View - Appointment Form */}
+    <section className="py-6 px-6 w-full ">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-6 items-start">
+        
+        {/* MOBILE FORM */}
         <div className="md:hidden w-full">
           <AppointFormWithNoReason />
-
         </div>
 
-        {/* Left Side - Text + Highlights + Call Button */}
-        <div className="flex-1">
-          {/* NEW HEADING */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-(--primary-bg-color) leading-snug">
+        {/* LEFT CONTENT */}
+        <motion.div 
+          className="flex-1"
+          initial="hidden"
+          animate="visible"
+          transition={{ staggerChildren: 0.15 }}
+        >
+          {/* Intro Label */}
+          {cityName && (
+            <motion.h2
+              variants={fadeUp}
+              className="text-xl sm:text-2xl font-semibold text-blue-700 tracking-tight"
+            >
+              Advanced Surgery Care in <span className="text-orange-500">{cityName}</span>
+            </motion.h2>
+          )}
+
+          {/* MAIN HEADING */}
+          <motion.h1
+            variants={fadeUp}
+            className="mt-2 text-3xl sm:text-5xl font-extrabold text-(--dark-blue-color)  leading-[1.2]"
+          >
             Pure Treatment Matlab{" "}
-            <span className="text-orange-500">PureCheckup</span> – Trusted
-            Health & Surgery Partner
-          </h2>
+            <span className="text-orange-500">PureCheckup </span>
+            Trusted Health & Surgery Partner{" "}
+            {cityName && <span className="">in {cityName}</span>}
+          </motion.h1>
 
-          {/* NEW SUBHEADING */}
-          {/* <p className="mt-2 text-gray-600 font-medium text-md sm:text-lg">
-            50+ Doctors | 50+ Diseases | 10+ Cities
-          </p> */}
-          {/* Stats */}
-          <div className="flex flex-row gap-10 mt-6">
-            <div>
-              <h2 className="text-[#004aad] font-bold text-4xl">40+</h2>
-              <p className="text-gray-600 text-sm">DOCTORS</p>
+          {/* SUBHEADLINE */}
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 text-gray-600 text-lg max-w-xl"
+          >
+            Top Specialists | Trusted Procedures | Seamless Care Experience
+          </motion.p>
 
-            </div>
-            <div className=" w-[1px] bg-zinc-200" />
+          {/* STATS */}
+          <motion.div
+            variants={fadeUp}
+            className="flex gap-10 mt-4"
+          >
+            <Stat number="40+" label="DOCTORS" />
+            <Divider />
+            <Stat number="50+" label="DISEASES" />
+            <Divider />
+            <Stat number="30+" label="CITIES" />
+          </motion.div>
 
-            <div>
-              <h2 className="text-[#004aad] font-bold text-4xl">50+</h2>
-              <p className="text-gray-600 text-sm">DISEASES</p>
-            </div>
-            <div className=" w-[1px] bg-zinc-200" />
-            <div>
-              <h2 className="text-[#004aad] font-bold text-4xl">30+</h2>
-              <p className="text-gray-600 text-sm">CITIES</p>
-            </div>
-          </div>
-
-          {/* EXISTING TITLE */}
-          {/* <h2 className="mt-6 text-3xl sm:text-4xl font-bold text-blue-700 leading-snug">
-            Simplifying Surgery Experience in{" "}
-            <span className="text-orange-500">Surat</span>
-          </h2>
-          <p className="mt-4 text-gray-700 text-lg font-medium">
-            Book Free Appointments With Our Expert Doctors Near You
-          </p> */}
-
-          {/* Call Us Button */}
-          <div className="mt-8">
+          {/* CTA BUTTON */}
+          <motion.div variants={fadeUp} className="mt-6">
             <a href="tel:9211930749">
-              <button className="bg-orange-500 text-white font-semibold rounded-md px-6 py-2 flex items-center gap-2 hover:bg-orange-600 transition cursor-pointer">
-                Call Us <FaPhoneAlt /> 9211930749
+              <button className="bg-orange-500 text-white font-semibold rounded-lg px-7 py-3 flex items-center gap-2 hover:bg-orange-600 transition">
+                <FaPhoneAlt /> Call Us • 9211930749
               </button>
             </a>
-
-            <p className="mt-2 text-sm text-gray-600 font-medium">
-              Book Your Doctor's Appointment Today – Fast & Easy
+            <p className="mt-2 text-sm text-gray-600">
+              Book Your Appointment in 60 Seconds
             </p>
-          </div>
+          </motion.div>
 
-          {/* Highlights */}
-          {/* <div className="bg-white shadow-md mt-8 rounded-lg p-6 flex flex-col sm:flex-row flex-wrap gap-6 border">
-            <HighlightCard
-              icon={<span>💬</span>}
-              text="Consult for 50+ Health Conditions With Trusted Doctors Across India"
-            />
-            <HighlightCard
-              icon={<span>👨‍⚕️</span>}
-              text="Choose Between Online or In-Person Appointments With Qualified Specialists"
-            />
-            <HighlightCard
-              icon={<span>🤝</span>}
-              text="Receive Personalized Medical Support From Diagnosis to Recovery"
-            />
-          </div> */}
+          {/* FEATURE LIST */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-4 space-y-4 text-gray-700"
+          >
+            <Feature icon="📋" text="Consult for 50+ Health Conditions With Trusted Doctors Across India" />
+            <Feature icon="👨‍⚕️" text="Choose Between Online or In-Person Appointments With Qualified Specialists" />
+            <Feature icon="🤝" text="Receive Personalized Medical Support From Diagnosis to Recovery" />
+          </motion.div>
+        </motion.div>
 
-          {/* Features */}
-          <div className="mt-8 space-y-4 text-gray-700">
-            <div className="flex items-center gap-3">
-              <span>📋</span>
-              <p>Consult for 50+ Health Conditions With Trusted Doctors Across India</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span>👨‍⚕️</span>
-              <p>Choose Between Online or In-Person Appointments With Qualified Specialists</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span>📦</span>
-              <p>Receive Personalized Medical Support From Diagnosis to Recovery</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side - Appointment Form */}
-
-          <div className="hidden md:inline">
+        {/* RIGHT SIDE FORM */}
+        <motion.div
+          className="hidden md:block"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <AppointFormWithNoReason />
-
-        </div>
-        
-
-
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default HeroSection;
+
+/* ------------ SMALL SUBCOMPONENTS ------------ */
+
+const Stat = ({ number, label }: { number: string; label: string }) => (
+  <div>
+    <h2 className="text-blue-700 font-bold text-4xl">{number}</h2>
+    <p className="text-gray-600 text-sm">{label}</p>
+  </div>
+);
+
+const Divider = () => (
+  <div className="w-[1px] h-10 bg-zinc-200" />
+);
+
+const Feature = ({ icon, text }: { icon: string; text: string }) => (
+  <div className="flex items-center gap-3 text-md">
+    <span className="text-xl">{icon}</span>
+    <p>{text}</p>
+  </div>
+);
