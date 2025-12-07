@@ -41,12 +41,40 @@ const RectalProlapseTreatment = lazyImport("RectalProlapseTreatment");
 const FistulaInSpecialCity = lazyImport("FistulaInSpecialCity");
 const PilonidalSinusInSpecialCity = lazyImport("PilonidalSinusInSpecialCity");
 const RectalProlapseInSpecialCity = lazyImport("RectalProlapseInSpecialCity");
+const FissureInSpecialCity = lazyImport("FissureInSpecialCity");
 const HerniaTreatment = lazyImport("HerniaTreatment");
 const GallstonesTreatment = lazyImport("GallstonesTreatment");
 const AppendicitisTreatment = lazyImport("AppendicitisTreatment");
 const InguinalHerniaTreatment = lazyImport("InguinalHerniaTreatment");
 const UmbilicalHerniaTreatment = lazyImport("UmbilicalHerniaTreatment");
 const AppendicitisInSpecialCity = lazyImport("AppendicitisInSpecialCity");
+const StaplerCircumcisionInSpecialCity = lazyImport("StaplerCircumcisionInSpecialCity");
+const LaserCircumcisionInSpecialCity = lazyImport("LaserCircumcisionInSpecialCity");
+const HydroceleInSpecialCity = lazyImport("HydroceleInSpecialCity");
+const ESWLInSpecialCity = lazyImport("ESWLInSpecialCity");
+const RIRSInSpecialCity = lazyImport("RIRSInSpecialCity");
+const PCNLInSpecialCity = lazyImport("PCNLInSpecialCity");
+const URSLInSpecialCity = lazyImport("URSLInSpecialCity");
+const FrenuloplastyInSpecialCity = lazyImport("FrenuloplastyInSpecialCity");
+const BalanitisInSpecialCity = lazyImport("BalanitisInSpecialCity");
+const BalanoposthitisInSpecialCity = lazyImport("BalanoposthitisInSpecialCity");
+const ParaphimosisInSpecialCity = lazyImport("ParaphimosisInSpecialCity");
+const ForeskinInSpecialCity = lazyImport("ForeskinInSpecialCity");
+const TightForeskinInSpecialCity = lazyImport("TightForeskinInSpecialCity");
+const PhimosisInSpecialCity = lazyImport("PhimosisInSpecialCity");
+const CornRemovalInSpecialCity = lazyImport("CornRemovalInSpecialCity");
+const VasectomyInSpecialCity = lazyImport("VasectomyInSpecialCity");
+const TesticularTorsionInSpecialCity = lazyImport("TesticularTorsionInSpecialCity");
+const EpididymalCystInSpecialCity = lazyImport("EpididymalCystInSpecialCity");
+const ToenailInSpecialCity = lazyImport("ToenailInSpecialCity");
+const GallstonesInSpecialCity = lazyImport("GallstonesInSpecialCity");
+const InguinalHerniaInSpecialCity = lazyImport("InguinalHerniaInSpecialCity");
+const UmbilicalHerniaInSpecialCity = lazyImport("UmbilicalHerniaInSpecialCity");
+const KidneyStonesInSpecialCity = lazyImport("KidneyStonesInSpecialCity");
+const CircumcisionInSpecialCity = lazyImport("CircumcisionInSpecialCity");
+const CosmeticSurgeryInSpecialCity = lazyImport("CosmeticSurgeryInSpecialCity");
+const PlasticSurgeryInSpecialCity = lazyImport("PlasticSurgeryInSpecialCity");
+const GynecologyInSpecialCity = lazyImport("GynecologyInSpecialCity");
 const CircumcisionTreatment = lazyImport("CircumcisionTreatment");
 const KidneyStonesTreatment = lazyImport("KidneyStonesTreatment");
 const LaserCircumcision = lazyImport("LaserCircumcision");
@@ -245,13 +273,41 @@ const cityWiseRoutes = [
   { path: "/treatment/fistula/:city", element: FistulaInSpecialCity },
   { path: "/treatment/pilonidal-sinus/:city", element: PilonidalSinusInSpecialCity },
   { path: "/treatment/rectal-prolapse/:city", element: RectalProlapseInSpecialCity },
+  { path: "/treatment/fissure/:city", element: FissureInSpecialCity },
 
   { path: "/treatment/hernia/:city", element: HerniaInSpecialCity },
-  // { path: "/treatment/gallstone/:city",  element: GallstonesInSpecialCity},
+  { path: "/treatment/gallstone/:city", element: GallstonesInSpecialCity },
   { path: "/treatment/appendicitis/:city", element: AppendicitisInSpecialCity },
-  // { path: "/treatment/inguinal-hernia/:city",  element: InguinalHerniaInSpecialCity},
-  // { path: "/treatment/umbilical-hernia/:city",  element: UmbilicalHerniaInSpecialCity},
+  { path: "/treatment/inguinal-hernia/:city", element: InguinalHerniaInSpecialCity },
+  { path: "/treatment/umbilical-hernia/:city", element: UmbilicalHerniaInSpecialCity },
 
+
+  { path: "/c/gynaecology/:city", element: GynecologyInSpecialCity },
+
+  { path: "/aesthetics/cosmetic-surgery/:city", element: CosmeticSurgeryInSpecialCity },
+  { path: "/aesthetics/plastic-surgeries/:city", element: PlasticSurgeryInSpecialCity },
+
+  { path: "/treatment/kidney-stones-treatment/:city", element: KidneyStonesInSpecialCity },
+  { path: "/treatment/circumcision/:city", element: CircumcisionInSpecialCity },
+  { path: "/treatment/stapler-circumcision/:city", element: StaplerCircumcisionInSpecialCity },
+  { path: "/treatment/laser-circumcision/:city", element: LaserCircumcisionInSpecialCity },
+  { path: "/treatment/hydrocele/:city", element: HydroceleInSpecialCity },
+  { path: "/treatment/eswl/:city", element: ESWLInSpecialCity },
+  { path: "/treatment/rirs/:city", element: RIRSInSpecialCity },
+  { path: "/treatment/pcnl/:city", element: PCNLInSpecialCity },
+  { path: "/treatment/ursl/:city", element: URSLInSpecialCity },
+  { path: "/treatment/frenuloplasty-surgery/:city", element: FrenuloplastyInSpecialCity },
+  { path: "/treatment/balanitis/:city", element: BalanitisInSpecialCity },
+  { path: "/treatment/balanoposthitis/:city", element: BalanoposthitisInSpecialCity },
+  { path: "/treatment/paraphimosis/:city", element: ParaphimosisInSpecialCity },
+  { path: "/treatment/foreskin-infection/:city", element: ForeskinInSpecialCity },
+  { path: "/treatment/tight-foreskin/:city", element: TightForeskinInSpecialCity },
+  { path: "/treatment/phimosis/:city", element: PhimosisInSpecialCity },
+  { path: "/treatment/corn-removal/:city", element: CornRemovalInSpecialCity },
+  { path: "/treatment/vasectomy/:city", element: VasectomyInSpecialCity },
+  { path: "/treatment/testicular-torsion/:city", element: TesticularTorsionInSpecialCity },
+  { path: "/treatment/epididymal-cyst/:city", element: EpididymalCystInSpecialCity },
+  { path: "/treatment/toenail-removal/:city", element: ToenailInSpecialCity },
 ];
 
 

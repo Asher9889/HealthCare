@@ -64,10 +64,7 @@ function App() {
 
         {/* Home Route */}
         <Route path="/" element={<Home />} />
-        <Route path="/:city" 
-        // element={<Home />} 
-        element={<CityWiseHomePage />} 
-        />
+        <Route path="/:city" element={<CityWiseHomePage />} />
 
         {/* Catch-all route */}
         <Route path="*" element={<PageNotFound />} />
