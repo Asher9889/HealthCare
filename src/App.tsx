@@ -3,7 +3,7 @@ import './App.css'
 import Home from './pages/home/Home'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import routes, { cityWiseRoutes } from './routes';
-import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound } from './components';
+import { ContactSection, ContactUsFloating, Footer, Header, PageNotFound, CityGuard } from './components';
 import { Toaster } from 'sonner';
 import BlogViewPage from './pages/Patient/english-blog/blog/BlogView';
 import { CityWiseHomePage } from './pages';
@@ -57,14 +57,22 @@ function App() {
           <Route
             key={r?.path + idx}
             path={r?.path}
-            element={r?.element ? <r.element /> : "gh"}
+            element={r?.element ? (
+              <CityGuard>
+                <r.element />
+              </CityGuard>
+            ) : "gh"}
           />
         ))}
         <Route path="/blogs/:slug" element={<BlogViewPage />} />
 
         {/* Home Route */}
         <Route path="/" element={<Home />} />
-        <Route path="/:city" element={<CityWiseHomePage />} />
+        <Route path="/:city" element={
+          <CityGuard>
+            <CityWiseHomePage />
+          </CityGuard>
+        } />
 
         {/* Catch-all route */}
         <Route path="*" element={<PageNotFound />} />

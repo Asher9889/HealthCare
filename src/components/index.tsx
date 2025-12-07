@@ -1,4 +1,4 @@
-import Doctors3DGrid  from "./3d-grid/Doctor3DGrid";
+import Doctors3DGrid from "./3d-grid/Doctor3DGrid";
 import AppointForm from "./book-appointment-form/AppointForm";
 import AppointFormWithNoReason from "./book-appointment-form/AppointFormWithReason";
 import BookNowButton from "./book-now-button/BookNowButton";
@@ -43,7 +43,7 @@ import BenefitCard from "./benefit-card/BenefitCard";
 import TreatmentProcess from "./treatment-process/TreatmentProcess";
 import HealthInsurance from "./health-insurance/HealthInsurance";
 import ContactAdvisorModal from "./contact-advisor/ContactAdvisorModal";
-import SelectCityInput from "./common/CityInput/SelectCityInput";   
+import SelectCityInput from "./common/CityInput/SelectCityInput";
 import FormLabel from "./common/FormLabel/FormLabel";
 import QuickEmiCheck from "./quick-emi-check/QuickEmiCheck";
 import DynamicDialog from "./dynamic-dialog/DynamicDialog";
@@ -52,6 +52,9 @@ import CallbackRequestForm from "./callback-request-form/CallbackRequestForm";
 import ContactInfoBar from "./contact-info-bar/ContactInfoBar";
 import DoctorCard from "./doctor-card/DoctorCard";
 import FAQ from "./faq/FAQ";
+import CityFallback from "./city-fallback/CityFallback";
+import CityGuard from "./city-guard/CityGuard";
+
 export {
-    FAQ, Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating, ConditionInfo, TreatmentCard, BenefitCard, TreatmentProcess, HealthInsurance, ContactAdvisorModal, FormLabel, QuickEmiCheck, DynamicDialog, EmiCalculator, CallbackRequestForm, ContactInfoBar, DoctorCard
+    FAQ, Footer, Header, Navbar, SpecialtyNav, HeroSection, ContactSection, BookNowButton, Sidebar, AppointForm, DiseasesInput, PageNotFound, SelectCityInput, AppointFormWithNoReason, WobbleCard, HeroSectionOne, Button as WhatsaapButton, BackgroundBeams, StickyScroll, DynamicHeroSection, WhyPureCheckup, Doctors3DGrid, Heading, TopCities, SEO, ContactUsFloating, CallNow, AboutSection, BookAppointMentPageView, ConditionHeroSection, TreatmentBenefits, StatsBar, ConditionTreatmentForm, SpecialistCard, ConditionTreatmentOptions, CtaBanner, ConditionCityWiseTreatment, FeatureCard, AnimatedTestimonial, StarRating, ConditionInfo, TreatmentCard, BenefitCard, TreatmentProcess, HealthInsurance, ContactAdvisorModal, FormLabel, QuickEmiCheck, DynamicDialog, EmiCalculator, CallbackRequestForm, ContactInfoBar, DoctorCard, CityFallback, CityGuard
 }
