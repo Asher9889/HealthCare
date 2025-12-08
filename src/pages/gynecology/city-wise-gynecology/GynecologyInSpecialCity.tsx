@@ -117,7 +117,7 @@ const GynecologyInSpecialCity = () => {
             <StatsBar />
             <section className="py-20">
                 <AboutSection
-                    heading={`About Gynecology in ${city}`}
+                    heading={`About Gynecology`}
                     description={`At PureCheckup, we understand that every woman deserves the best care for her health and well-being. Our gynecology services in ${city} are designed to provide compassionate, personalized, and advanced medical support for women at every stage of life. Whether it’s routine checkups, pregnancy care, menstrual health, or complex gynecological conditions, our experienced doctors are here to help.`}
                     buttonText="Book Free Appointment"
                     cards={cards}
