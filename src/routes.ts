@@ -208,7 +208,7 @@ export const navItems = [
       { label: "Patient Help", path: "/patient-help", element: PatientHelp },
       { label: "No Cost EMI", path: "/no-cost-emi", element: NoCostEmi },
       { label: "Health Insurance", path: "/health-insurance", element: HealthInsurance },
-      { label: "Doctors Section", path: "/doctor-section", element: DoctorSection },
+      { label: "Our Doctors", path: "/doctor-section", element: DoctorSection },
     ],
   },
 

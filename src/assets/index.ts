@@ -19,4 +19,5 @@ import usfda from './USFDA-Approved-procedure.png';
 import hdfc from "./no-cost-emi/HDFC_Bank_Logo.png"
 import ashish from "./ashish.webp"
 import rahul from "./rahul.webp"
-export {rahul, amit, practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda, hdfc, ashish};
+import callGif from "./call.gif"
+export { callGif, rahul, amit, practoImg, practoHero, tanmay, cms, wtsp, laproscopy, urologyImg, gynoImg, astheticImg, bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda, hdfc, ashish };
