@@ -6,6 +6,10 @@ const citiesLiteral = ["Ahmedabad", "Indore", "Jaipur", "Bhopal", "Vadodara", "G
 
 const diseases = ["Proctology", "Urology", "Laproscopy", "Gynaecology", "Aesthetics"];
 
+const doctorSpecialization = ["Aesthetic/Plastic Surgeon", "Dental Surgeon", "ENT Surgeon", "General Surgeon", "Gynae/IVF Expert", "Laproscopic Surgeon", "Ophthalmologist", "Orthopedic Surgeon", "Urologist Surgeon", "Vascular Surgeon", "Others"];
+
+const doctorDegree = ["MBBS", "BDS", "MS", "MD", "MCH", "DM", "Post graduate Diploma", "DNB", "MDS", "Others"];
+
 const specialists = [
   {
     id: 1,
@@ -157,4 +161,4 @@ const urologyDoctorCardData = [
 
 
 
-export {urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }
+export { doctorDegree, doctorSpecialization, urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }

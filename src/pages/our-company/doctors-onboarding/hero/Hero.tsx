@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib";
 import { Button } from "@/components/ui/button";
-import { useRef, useState } from "react";
-import QuickDoctorConnect from "@/components/quick-doctor-connect/QuickDoctorConnect";
+import { useRef } from "react";
+import DoctorApplicationForm from "../application-form/DoctorApplicationForm";
 
 export default function Hero() {
-    const [highlight, setHighlight] = useState(false);
+    // const [highlight, setHighlight] = useState(false);
     const applyFormRef = useRef<HTMLDivElement>(null);
-    const quickEmiFormConfig = {
-        heading: "Quick Connect",
-        focusEmiForm: highlight,
-        setFocusEmiForm: setHighlight
-    };
+    // const quickEmiFormConfig = {
+    //     heading: "Quick Connect",
+    //     focusEmiForm: highlight,
+    //     setFocusEmiForm: setHighlight
+    // };
     return (
-        <section className="w-full py-16">
-            <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2">
+        <section className="w-full py-8">
+            <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
                 {/* LEFT */}
                 <motion.div
                     variants={stagger}
@@ -57,8 +57,8 @@ export default function Hero() {
                         variants={fadeUp}
                         className="flex items-center gap-4 text-sm text-muted-foreground"
                     >
-                        <span>✅ Verified profiles & secure data</span>
-                        <span>⏱ 10–15 min signup</span>
+                        <span>Verified profiles & secure data</span>
+                        <span>⏱ 1 min signup</span>
                     </motion.div>
                 </motion.div>
 
@@ -70,7 +70,8 @@ export default function Hero() {
                     transition={{ duration: 0.6 }}
                     className="z-10"
                 >
-                    <QuickDoctorConnect config={quickEmiFormConfig} />
+                    {/* <QuickDoctorConnect config={quickEmiFormConfig} /> */}
+                    <DoctorApplicationForm />
                 </motion.div>
             </div>
         </section>

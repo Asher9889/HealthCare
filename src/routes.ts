@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { HealthInsurance, PageNotFound } from "./components";
 import { lazy } from "react";
-import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp, AboutUs, ContactUs } from "./pages";
+import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp, AboutUs, ContactUs, DoctorsOnboarding } from "./pages";
 
 // Utility function for type-safe lazy loading
 type LazyImport = {
@@ -219,6 +219,7 @@ export const navItems = [
     icon: Building2,
     // element: PageNotFound, // Replace with Company component
     children: [
+      { label: "Doctors On-boarding", path: "/doctor-onboarding", element: DoctorsOnboarding }, // surgery/laser-surgery
       { label: "About Us", path: "/about-us", element: AboutUs },
       { label: "Contact Us", path: "/contact-us", element: ContactUs },
       { label: "Privacy Policy", path: "/privacy-policy", element: PageNotFound },

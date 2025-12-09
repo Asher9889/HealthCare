@@ -16,7 +16,7 @@ import { quickDoctorConnectSchema } from "./schema/quickDoctorConnect";
 const QuickDoctorConnect = ({ config }: QuickEmiFormConfig) => {
     const [loading, setLoading] = useState<boolean>(false);
 
-    const { form, onSubmit, dialog, setDialog } = useQuickDoctorConnectForm({ loading, setLoading});
+    const { form, onSubmit, dialog, setDialog } = useQuickDoctorConnectForm({ loading, setLoading });
 
     const handleDialogClose = () => setDialog((prev) => ({ ...prev, open: false }));
 
@@ -112,39 +112,6 @@ const QuickDoctorConnect = ({ config }: QuickEmiFormConfig) => {
                                 )}
                             />
                         </div>
-
-                        {/* <div className="grid grid-cols-2 gap-3">
-                            <div className="space-y-2">
-                                <Controller
-                                    control={form.control}
-                                    name="estimatedCost"
-                                    render={({ field, fieldState }) => (
-                                        <div className="grid gap-2">
-                                            <FormLabel htmlFor="estimatedCost" required={requiredFields.estimatedCost}>Estimated Cost</FormLabel>
-                                            <Input id="estimatedCost" placeholder="₹ e.g., 75,000"
-                                                {...field} value={field.value?.toString()?.trim()}
-                                            />
-                                            {fieldState.error && (
-                                                <span className="text-red-500 text-sm">{fieldState.error.message}</span>
-                                            )}
-                                        </div>
-                                    )}
-                                />
-                            </div>
-                            <Controller
-                                control={form.control}
-                                name="tenure"
-                                render={({ field, fieldState }) => (
-                                    <div className="grid gap-2">
-                                        <FormLabel htmlFor="tenure" required={requiredFields.tenure}>Preferred Tenure</FormLabel>
-                                        <Input id="tenure" placeholder="3 / 6 / 9 / 12 months" {...field} value={field.value?.trim()} />
-                                        {fieldState.error && (
-                                            <span className="text-red-500 text-sm">{fieldState.error.message}</span>
-                                        )}
-                                    </div>
-                                )}
-                            />
-                        </div> */}
 
                         <Button
                             disabled={loading}
