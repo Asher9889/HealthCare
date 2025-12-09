@@ -15,12 +15,16 @@ export const endPoints = {
         url: () => `/contact/quick-doctor-connect`,
         method: 'POST',
     },
-     getAllBlogs: {
+    getAllBlogs: {
         url: `/blogs`,
         method: 'GET',
     },
     getBlog: {
         url: "/blogs/:slug",
         method: "GET"
+    },
+    onboardingDoctor: {
+        url: () => `http://localhost:4504/api/v1/contact/onboarding-doctor`,
+        method: 'POST',
     },
 }

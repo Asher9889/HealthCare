@@ -25,12 +25,15 @@ import { doctorApplicationSchema } from "./schema/application.schema";
 import { useDoctorApplicationForm } from "./hooks/useDoctorApplicationForm";
 import { Spinner } from "@/components/ui";
 import { constantData } from "@/constants";
+import React from "react";
+
 
 // import { doctorApplicationSchema } from "./schema/doctorApplication.schema";
 
-export default function DoctorApplicationForm() {
+const DoctorApplicationForm = React.forwardRef<HTMLDivElement, {}>((_, ref) => {
     const [loading, setLoading] = useState(false);
     const { form, onSubmit, dialog, setDialog } = useDoctorApplicationForm({ loading, setLoading });
+
 
     const requiredFields = useMemo(
         () => getRequiredFields(doctorApplicationSchema),
@@ -47,8 +50,8 @@ export default function DoctorApplicationForm() {
         setDialog((prev: any) => ({ ...prev, open: false }));
 
     return (
-        <div>
-            <Card className="rounded-2xl py-8 shadow-inner border border-transparent">
+        <>
+            <Card ref={ref} className="rounded-2xl py-8 shadow-inner border border-transparent">
                 <CardContent>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
@@ -281,6 +284,9 @@ export default function DoctorApplicationForm() {
                     onClick: handleDialogClose,
                 }}
             />
-        </div>
+        </>
     );
-}
+});
+
+DoctorApplicationForm.displayName = "DoctorApplicationForm";
+export default DoctorApplicationForm;

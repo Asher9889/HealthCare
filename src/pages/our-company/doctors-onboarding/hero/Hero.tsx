@@ -3,10 +3,13 @@ import { fadeUp, stagger } from "@/lib";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import DoctorApplicationForm from "../application-form/DoctorApplicationForm";
+import { useScrollHighlight } from "@/hooks/useScrollHighlight";
 
 export default function Hero() {
     // const [highlight, setHighlight] = useState(false);
     const applyFormRef = useRef<HTMLDivElement>(null);
+    const scrollToForm = useScrollHighlight(applyFormRef);
+
     // const quickEmiFormConfig = {
     //     heading: "Quick Connect",
     //     focusEmiForm: highlight,
@@ -47,7 +50,7 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div variants={fadeUp} className="flex gap-3">
-                        <Button size="lg" className="bg-[var(--orange-button-color)]">Start Application</Button>
+                        <Button size="lg" className="bg-[var(--orange-button-color)]" onClick={scrollToForm}>Start Application</Button>
                         <Button size="lg" variant="outline">
                             Explore Specializations
                         </Button>
@@ -64,14 +67,13 @@ export default function Hero() {
 
                 {/* RIGHT FORM SECTION */}
                 <motion.div
-                    ref={applyFormRef}
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6 }}
                     className="z-10"
                 >
                     {/* <QuickDoctorConnect config={quickEmiFormConfig} /> */}
-                    <DoctorApplicationForm />
+                    <DoctorApplicationForm ref={applyFormRef} />
                 </motion.div>
             </div>
         </section>

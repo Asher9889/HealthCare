@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { doctorApplicationSchema, type TDoctorApplicationFormValues } from "../schema/application.schema";
 import { useState } from "react";
+import { doctorApplicationApi } from "../services/doctorApplication.api";
 
 type UseDoctorApplicationFormProps = {
     loading: boolean;
@@ -35,6 +36,8 @@ export const useDoctorApplicationForm = ({
         reValidateMode: "onChange",
     });
 
+    // ...
+
     /**
      * Handles form submission
      */
@@ -44,9 +47,9 @@ export const useDoctorApplicationForm = ({
 
             setLoading(true);
 
-            // --- API CALL EXAMPLE ---
-            // const res = await doctorApi.submit(data);
-            console.log("Doctor Application Form Data:", data);
+            // --- API CALL ---
+            const res = await doctorApplicationApi.submit(data);
+            console.log("Doctor Application Form Response:", res);
 
             form.reset();
 
@@ -54,7 +57,7 @@ export const useDoctorApplicationForm = ({
                 open: true,
                 type: "success",
                 title: "Success!",
-                message: "Form submitted successfully!",
+                message: res.message || "Form submitted successfully!",
             });
         } catch (err: any) {
             setDialog({
