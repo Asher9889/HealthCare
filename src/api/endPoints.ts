@@ -24,7 +24,7 @@ export const endPoints = {
         method: "GET"
     },
     onboardingDoctor: {
-        url: () => `http://localhost:4504/api/v1/contact/onboarding-doctor`,
+        url: () => `/onboarding-doctor`,
         method: 'POST',
     },
 }
