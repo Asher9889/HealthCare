@@ -1,3 +1,6 @@
+import DoctorApplyCTA from "./doctor-apply-cta/DoctorApplyCTA";
+import DoctorTestimonials from "./doctor-testimonials/DoctorTestimonials";
+import FAQ from "./faq/FAQ";
 import Hero from "./hero/Hero";
 import WhyJoin from "./why-join/WhyJoin";
 
@@ -7,6 +10,9 @@ const DoctorsOnboarding = () => {
             <div className="" >
                 <Hero />
                 <WhyJoin />
+                <DoctorTestimonials />
+                <FAQ />
+                <DoctorApplyCTA />
             </div>
         </section>
     );

@@ -163,6 +163,8 @@ const urologyDoctorCardData = [
   }
 ]
 
+const supportNumber = "9211930749"
 
 
-export { doctorDegree, doctorSpecialization, urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }
+
+export { supportNumber, doctorDegree, doctorSpecialization, urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }
