@@ -1,4 +1,4 @@
-import { amit, ashish, tanmay } from "@/assets";
+import { amit, ashish, rahul, tanmay } from "@/assets";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -24,7 +24,8 @@ const testimonials = [
             "PureCheckup’s tools are intuitive and well-designed. My team uses it daily for online and in-person consultations.",
         name: "Dr. Rahul Sharma",
         specialty: "Proctology, Laproscopy, Urologist, General Surgeon, Meerut",
-        image: "https://images.unsplash.com/photo-1659353887488-b3c443982a57?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: rahul
+        // image: "https://images.unsplash.com/photo-1659353887488-b3c443982a57?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
         message: "PureCheckup has made patient management incredibly smooth. The automated workflow lets me focus more on diagnosis and care, not admin tasks.",
