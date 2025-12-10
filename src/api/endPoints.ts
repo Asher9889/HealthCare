@@ -24,7 +24,7 @@ export const endPoints = {
         method: "GET"
     },
     onboardingDoctor: {
-        url: () => `/onboarding-doctor`,
+        url: () => `/contact/onboarding-doctor`,
         method: 'POST',
     },
 }
