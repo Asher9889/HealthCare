@@ -135,7 +135,7 @@ const GynecologyInSpecialCity = () => {
             <section className="py-20">
                 <TreatmentSteps />
             </section>
-            <TopCities />
+            <TopCities disease="Gynecology" />
 
 
             <section className="py-20">

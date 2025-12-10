@@ -15,6 +15,7 @@ const specialists = [
     id: 1,
     name: "Dr. Tanmay Jain",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
+    city: "Jaipur",
     experience: "18+ yrs",
     phone: "9211930749",
     happyPatients: "1,00,000+",
@@ -25,6 +26,7 @@ const specialists = [
     id: 2,
     name: "Dr. Amit Kumar Gupta",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
+    city: "Lucknow",
     experience: "17+ yrs",
     phone: "",
     happyPatients: "10,000+",
@@ -35,6 +37,7 @@ const specialists = [
     id: 3,
     name: "Dr. Rahul Sharma",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
+    city: "Meerut",
     experience: "35+ yrs",
     phone: "",
     happyPatients: "20,000+",
@@ -45,6 +48,7 @@ const specialists = [
     id: 4,
     name: "Dr. Aashish Vohra",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
+    city: "Indore",
     experience: "18+ yrs",
     phone: "",
     happyPatients: "15,000+",
@@ -90,7 +94,7 @@ const proctologyDoctorCardData = [
 ]
 
 const laproscopyDoctorCardData = [
-   {
+  {
     name: "Dr. Tanmay Jain",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "18+ yrs",
@@ -125,7 +129,7 @@ const laproscopyDoctorCardData = [
 ]
 
 const urologyDoctorCardData = [
-   {
+  {
     name: "Dr. Tanmay Jain",
     specialties: ["Proctology", "Laproscopy", "Urologist", "General Surgeon"],
     experience: "18+ yrs",

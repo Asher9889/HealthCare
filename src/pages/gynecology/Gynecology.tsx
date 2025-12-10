@@ -104,7 +104,7 @@ export const gynaeFeatures = [
 const Gynecology = () => {
     return (
         <>
-        <SEO page="gynaecology"/>
+            <SEO page="gynaecology" />
             <DynamicHeroSection heroContent={heroContent} />
             <section className="py-20">
                 <Treatment />
@@ -130,8 +130,8 @@ const Gynecology = () => {
             <section className="py-20">
                 <TreatmentSteps />
             </section>
-             <TopCities />
 
+            <TopCities disease="Gynecology" />
 
             <section className="py-20">
                 <BookAppointMentPageView />

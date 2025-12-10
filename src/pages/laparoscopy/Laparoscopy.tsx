@@ -72,24 +72,24 @@ const Laparoscopy = () => {
     ];
     const cards = [
         {
-          id: "1",
-          title: "What is Laparoscopy?",
-          description:
-            "At PureCheckup.com, we offer advanced laparoscopy treatment in India for safe and effective care. Laparoscopy is a minimally invasive surgery done through small cuts using a laparoscope (camera + light). It is commonly used for hernia surgery, gallstones, appendicitis, and other abdominal treatment. Compared to open surgery, laparoscopy ensures faster recovery, less pain, minimal scars, and shorter hospital stay. Choose PureCheckup.com for expert surgeons and trusted laparoscopic care in India.",
+            id: "1",
+            title: "What is Laparoscopy?",
+            description:
+                "At PureCheckup.com, we offer advanced laparoscopy treatment in India for safe and effective care. Laparoscopy is a minimally invasive surgery done through small cuts using a laparoscope (camera + light). It is commonly used for hernia surgery, gallstones, appendicitis, and other abdominal treatment. Compared to open surgery, laparoscopy ensures faster recovery, less pain, minimal scars, and shorter hospital stay. Choose PureCheckup.com for expert surgeons and trusted laparoscopic care in India.",
         },
         {
-          id: "2",
-          title: "Conditions We Treat",
-          description:
-            "Laparoscopy is used to treat gallstones, appendicitis, hernia, ovarian cysts, endometriosis, fibroids, and ectopic pregnancy. It also helps in managing colorectal, liver, kidney disorders, and unexplained abdominal pain.",
+            id: "2",
+            title: "Conditions We Treat",
+            description:
+                "Laparoscopy is used to treat gallstones, appendicitis, hernia, ovarian cysts, endometriosis, fibroids, and ectopic pregnancy. It also helps in managing colorectal, liver, kidney disorders, and unexplained abdominal pain.",
         },
         {
-          id: "3",
-          title: "Expertise of PureCheckup",
-          description:
-            "100% laparoscopic treatments by highly experienced surgeons, NABH-accredited partner hospitals, and complete pre & post-surgery care.",
+            id: "3",
+            title: "Expertise of PureCheckup",
+            description:
+                "100% laparoscopic treatments by highly experienced surgeons, NABH-accredited partner hospitals, and complete pre & post-surgery care.",
         },
-      ];
+    ];
     return (
         <>
             <div className="bg-(--primary-bg-light-blue)">
@@ -128,12 +128,12 @@ const Laparoscopy = () => {
                                 <DoctorCard name={doctor.name} specialties={doctor.specialties} experience={doctor.experience} phone={doctor.phone} happyPatients={doctor.happyPatients} imageUrl={doctor.imageUrl} />
                             ))}
                             <span className="px-6 mx-auto">
-                            <AppointFormWithNoReason />
-                        </span>
+                                <AppointFormWithNoReason />
+                            </span>
                         </div>
                     </div>
                 </div>
-                <TopCities />
+                <TopCities disease="Laparoscopy" />
                 <section className="py-20">
                     <LaparoscopySection />
                 </section>

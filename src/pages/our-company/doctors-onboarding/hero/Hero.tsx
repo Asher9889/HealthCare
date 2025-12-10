@@ -17,7 +17,7 @@ export default function Hero() {
     // };
     return (
         <section className="w-full py-8">
-            <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
+            <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2">
                 {/* LEFT */}
                 <motion.div
                     variants={stagger}
@@ -51,9 +51,9 @@ export default function Hero() {
 
                     <motion.div variants={fadeUp} className="flex gap-3">
                         <Button size="lg" className="bg-[var(--orange-button-color)]" onClick={scrollToForm}>Start Application</Button>
-                        <Button size="lg" variant="outline">
+                        {/* <Button size="lg" variant="outline">
                             Explore Specializations
-                        </Button>
+                        </Button> */}
                     </motion.div>
 
                     <motion.div

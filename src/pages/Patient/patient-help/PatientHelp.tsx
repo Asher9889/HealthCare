@@ -6,13 +6,13 @@ import PatientHelpFaqs from "./faq/PatientHelpFaqs";
 const PatientHelp = () => {
     return (
         <>
-        <div className="px-4">
-            <HeroSection />
-            <CallbackRequest />
-        </div>
+            <div className="px-4">
+                <HeroSection />
+                <CallbackRequest />
+            </div>
             <ContactInfoBar />
             <PatientHelpFaqs />
-            <TopCities />
+            <TopCities disease="Medical" />
         </>
     );
 };

@@ -1,4 +1,4 @@
-import { AppointFormWithNoReason, DoctorCard,  DynamicHeroSection, Heading, SEO, TopCities, WhyPureCheckup } from "@/components";
+import { AppointFormWithNoReason, DoctorCard, DynamicHeroSection, Heading, SEO, TopCities, WhyPureCheckup } from "@/components";
 // import { HeroSectionOne } from "./home-page/HeroSectionOne"
 import { practoHero } from "@/assets";
 import Treatment from "./treatment/Treatment";
@@ -25,7 +25,7 @@ const Practology = () => {
         <>
             <div className="bg-[#D6E4EF]">
                 <SEO page="proctology" />
-               
+
                 <DynamicHeroSection heroContent={heroContent} />
                 {/* <BackgroundBeams /> */}
                 <div className="py-20">
@@ -52,12 +52,12 @@ const Practology = () => {
                                 <DoctorCard name={doctor.name} specialties={doctor.specialties} experience={doctor.experience} phone={doctor.phone} happyPatients={doctor.happyPatients} imageUrl={doctor.imageUrl} />
                             ))}
                             <span className="px-6 mx-auto">
-                            <AppointFormWithNoReason />
-                        </span>
+                                <AppointFormWithNoReason />
+                            </span>
                         </div>
                     </div>
                 </div>
-                <TopCities />
+                <TopCities disease="Proctology" />
                 <section className="pb-20">
                     <ProctoAllTreatment />
                 </section>
@@ -65,7 +65,7 @@ const Practology = () => {
                     <Heading text1="FAQ's" />
                     <Accordian />
                 </div>
-               
+
             </div>
         </>
     )

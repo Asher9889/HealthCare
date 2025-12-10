@@ -208,7 +208,7 @@ export const navItems = [
       { label: "Patient Help", path: "/patient-help", element: PatientHelp },
       { label: "No Cost EMI", path: "/no-cost-emi", element: NoCostEmi },
       { label: "Health Insurance", path: "/health-insurance", element: HealthInsurance },
-      { label: "Our Doctors", path: "/doctor-section", element: DoctorSection },
+      { label: "Our Doctors", path: "/our-doctors", element: DoctorSection },
     ],
   },
 
@@ -239,19 +239,6 @@ export const navItems = [
   },
 ];
 
-// ---------------- FLATTEN INTO ROUTES ----------------
-/**
- * const numbers = [1, 2, 3];
-
-const mapped = numbers.map(n => [n, n * 2]);
-console.log(mapped);
-// [[1, 2], [2, 4], [3, 6]]   <-- nested arrays
-
-const flatMapped = numbers.flatMap(n => [n, n * 2]);
-console.log(flatMapped);
-// [1, 2, 2, 4, 3, 6]         <-- flattened 1 level
-
- */
 const routes = navItems.flatMap((item) => {
   // Process children, filtering out any with skip: true
   const childRoutes = item.children?.map(child => ({

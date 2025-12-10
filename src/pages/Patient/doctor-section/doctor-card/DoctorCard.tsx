@@ -22,6 +22,7 @@ interface Specialist {
   specialties: string[];
   experience: string;
   phone?: string;
+  city: string;
   happyPatients: string;
   imageUrl: string;
   description?: string;
@@ -35,6 +36,7 @@ function DoctorCard({
   imageUrl,
   description,
   phone,
+  city
 }: Specialist) {
   const [open, setOpen] = useState(false);
 
@@ -85,7 +87,7 @@ function DoctorCard({
 
         <div className="mt-2 flex items-center gap-2 text-sm text-blue-700">
           <span>📍</span>
-          <span>Delhi</span>
+          <span>{city}</span>
         </div>
       </div>
 
