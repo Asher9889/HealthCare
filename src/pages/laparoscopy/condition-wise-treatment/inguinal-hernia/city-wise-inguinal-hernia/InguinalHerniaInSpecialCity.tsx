@@ -1,5 +1,5 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, CtaBanner, Heading, SEO, SpecialistCard, StatsBar, TreatmentBenefits, TreatmentCard } from "@/components"
+import { Scissors, Clock, ShieldCheck, Headphones } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
@@ -13,109 +13,66 @@ const InguinalHerniaInSpecialCity = () => {
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of inguinal hernia surgery in ${city}?`,
+            question: "What is the best treatment for an inguinal hernia in Jaipur?",
             answer:
-                `The inguinal hernia surgery cost in ${city} ranges between ₹35,000 and ₹95,000, depending on the hospital, surgeon’s expertise, and the type of procedure (open, laparoscopic, or laser).`,
+                "The best option depends on the case, but laparoscopic hernia repair is often preferred for faster recovery and less pain. PureCheckup connects you with top hernia specialists in Jaipur who’ll recommend the ideal approach.",
         },
         {
             id: "two",
-            question: `Does insurance cover inguinal hernia surgery treatment in ${city}?`,
+            question: "How is the cost of Inguinal Hernia surgery determined in Jaipur?",
             answer:
-                "Yes, most health insurance plans cover inguinal hernia surgery since it’s a medically necessary procedure. PureCheckup also provides cashless insurance assistance for eligible patients.",
+                "Costs vary based on the type of procedure, hospital choice, and patient condition. For an exact estimate, you can request a free consultation through PureCheckup.",
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best treatment at the best price in ${city}?`,
+            question: "Is Inguinal Hernia surgery painful?",
             answer:
-                `PureCheckup partners with top-rated hospitals and expert surgeons in ${city} to offer affordable, advanced, and safe hernia treatments with EMI and insurance support.`,
+                "Surgery is performed under anesthesia. With laparoscopic techniques, most patients experience minimal post-operative pain and faster recovery compared to open surgery.",
         },
         {
             id: "four",
-            question: "How to book inguinal hernia surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking your inguinal hernia surgery with PureCheckup is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/hernia"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/hernia
-                            </a>
-                        </li>
-                        <li>Fill out the consultation form</li>
-                        <li>Or call our 24×7 helpline to schedule a free consultation and same-day diagnosis</li>
-                    </ul>
-                    <p>Our team helps with insurance, hospital admission, and post-surgery care for a smooth experience.</p>
-                </div>
-            ),
+            question: "Who are the best hernia surgeons in Jaipur?",
+            answer:
+                "PureCheckup partners with experienced hernia surgeons in Jaipur and accredited hospitals. We match you with specialists based on your medical needs and location.",
         },
         {
             id: "five",
-            question: "What is the best treatment for an inguinal hernia?",
+            question: "Does insurance cover Inguinal Hernia surgery in Jaipur?",
             answer:
-                "The best treatment for an inguinal hernia is laparoscopic or laser surgery, which ensures quick recovery, minimal pain, and very small scars compared to open surgery.",
+                "Many health insurance plans cover hernia surgery. PureCheckup assists with cashless claims and helps verify your specific policy coverage.",
         },
         {
             id: "six",
-            question: "What are the first signs of an inguinal hernia?",
+            question: "What is the typical recovery time after Inguinal Hernia surgery?",
             answer:
-                "The early signs include a visible bulge in the groin area, discomfort while standing or walking, and pain while coughing or lifting heavy objects.",
+                "Recovery depends on the procedure. With laparoscopic repair, patients usually resume light activities within a few days and full activity within a few weeks, as advised by their surgeon.",
         },
         {
             id: "seven",
-            question: "How painful is inguinal hernia surgery?",
+            question: "Can a hernia heal without surgery?",
             answer:
-                "Modern laser and laparoscopic hernia surgeries are almost painless. You may experience mild discomfort for a few days, but most patients resume normal activities within a week.",
+                "No, an inguinal hernia does not heal on its own. Surgical repair is the only reliable treatment to prevent complications and recurrence.",
         },
         {
             id: "eight",
-            question: "How long does it take to recover from inguinal hernia surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Recovery depends on the type of surgery performed:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>
-                            <strong>Laparoscopic or laser surgery:</strong> 7–10 days
-                        </li>
-                        <li>
-                            <strong>Open surgery:</strong> 2–3 weeks
-                        </li>
-                    </ul>
-                    <p>Most patients return to daily activities quickly under medical supervision.</p>
-                </div>
-            ),
+            question: "Which hospitals offer the best hernia treatment in Jaipur?",
+            answer:
+                "PureCheckup works with leading hospitals across Jaipur that specialize in hernia repair and minimally invasive surgery. We recommend the best hospital options based on your condition and preferences.",
         },
         {
             id: "nine",
-            question: "Can an inguinal hernia recur after surgery?",
+            question: "What is the success rate of hernia surgery in Jaipur?",
             answer:
-                "If the surgery is performed by an experienced surgeon and proper post-operative care is followed, the chances of recurrence are extremely low (less than 1%).",
+                "When performed by experienced surgeons using modern laparoscopic techniques, success rates are very high with excellent patient outcomes.",
         },
         {
             id: "ten",
-            question: `Why choose PureCheckup for inguinal hernia treatment in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Expert and experienced surgeons in {city}</li>
-                        <li>Laser and laparoscopic technology</li>
-                        <li>Cashless insurance and EMI options</li>
-                        <li>24×7 dedicated patient support</li>
-                        <li>Free doctor consultation</li>
-                    </ul>
-                    <p>
-                        PureCheckup ensures advanced, safe, and affordable inguinal hernia surgery with end-to-end assistance and a
-                        smooth recovery journey.
-                    </p>
-                </div>
-            ),
+            question: "How can I book an appointment for hernia surgery in Jaipur?",
+            answer:
+                "Call 9211930749 or visit PureCheckup.com to book a free consultation. Our care coordinators will connect you with an expert hernia specialist in Jaipur and guide you through the next steps.",
         },
     ];
+
 
 
     const inguinalHerniaData = {
@@ -280,46 +237,75 @@ const InguinalHerniaInSpecialCity = () => {
         },
     ];
 
-    const treatmentOptions = [
+    const treatments = [
         {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "Laser Inguinal Hernia Surgery (Recommended)",
-            points: [
-                "No cuts, stitches, or pain",
-                "Safe and effective",
-                "Quick recovery",
-            ],
-            highlight: false,
+            title: "Laparoscopic Inguinal Hernia Repair",
+            description:
+                "Minimally invasive surgery using small incisions and a camera for faster recovery and reduced pain. Ideal for patients seeking quick recovery and minimal scarring.",
+            downtime: "2–5 days",
         },
         {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Non-Surgical Treatments",
-            points: ["Medicines", "Lifestyle and diet corrections"],
-            highlight: false,
+            title: "Open Hernia Repair (Herniorrhaphy)",
+            description:
+                "Traditional surgery recommended for large or complicated hernias, offering highly effective and long-lasting results. Ideal for recurrent or complex hernias.",
+            downtime: "2–3 weeks",
         },
         {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Conventional Surgery (For Severe Cases)",
-            points: ["Recommended in advanced stages"],
-            highlight: false,
+            title: "Mesh Hernioplasty (Tension-Free Repair)",
+            description:
+                "A surgical mesh is placed to strengthen the abdominal wall and significantly reduce recurrence. Ideal for weak abdominal walls or frequent hernia recurrence.",
+            downtime: "4–7 days",
+        },
+        {
+            title: "Laparoscopic Bilateral Hernia Repair",
+            description:
+                "Minimally invasive laparoscopic procedure designed to treat hernias on both sides of the groin simultaneously. Ideal for bilateral inguinal hernia patients.",
+            downtime: "5–7 days",
+        },
+        {
+            title: "Recurrent Hernia Surgery",
+            description:
+                "A specialized corrective procedure for patients who have had previous hernia repairs that failed or recurred. Ideal for recurrent or post-surgical hernias.",
+            downtime: "7–10 days",
+        },
+        {
+            title: "3D Mesh Laparoscopic Repair (Latest Technique)",
+            description:
+                "Advanced procedure using 3D mesh technology for superior abdominal wall reinforcement and long-term durability. Ideal for patients seeking modern, safe, and durable hernia treatment.",
+            downtime: "3–5 days",
         },
     ];
+
 
     if (!city) {
         return <div>Loading...</div>;
     }
 
+    const seoData = {
+        title: `Inguinal Hernia Surgery in ${city} | Call 9211930749 | PureCheckup`,
+        description: `Get advanced Inguinal Hernia treatment in ${city} with expert laparoscopic surgeons, affordable cost, and 0% EMI support. Book your free consultation at PureCheckup today.`,
+        keywords: `
+    Inguinal Hernia treatment in ${city},
+    Best hernia doctor in ${city},
+    Laparoscopic hernia surgery in ${city},
+    Hernia specialist near me,
+    Inguinal hernia hospital ${city},
+    Hernia surgery cost in ${city},
+    Hernia repair doctor ${city},
+    PureCheckup ${city}
+  `,
+        canonical: `https://purecheckup.com/treatment/inguinal-hernia/${city}`,
+    }
+
     return (
         <>
+            <SEO {...seoData} />
             <ConditionHeroSection
-                title={`Inguinal Hernia Surgery in ${city} – Cost, Types, Symptoms & Best Treatment`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Best Inguinal Hernia Surgery in ${city} – 100% Safe & Painless Treatment`}
+                description={`Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across City`}
                 primaryBtn={{ label: "Book Free Consultation" }}
                 secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                features={["NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
                 cities={constantData.cities}
                 selectedCity={city}
                 consultations={["Clinic", "Online"]}
@@ -352,9 +338,18 @@ const InguinalHerniaInSpecialCity = () => {
                 ctaText="Book Free Appointment"
             />
 
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
             <section className="py-20 px-4">

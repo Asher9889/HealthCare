@@ -1,5 +1,5 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, CtaBanner, Heading, SEO, SpecialistCard, StatsBar, TreatmentBenefits, TreatmentCard } from "@/components"
+import { Scissors, Clock, ShieldCheck, Headphones } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
@@ -10,103 +10,77 @@ const UmbilicalHerniaInSpecialCity = () => {
     let { city } = useParams();
     city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
 
-    const faqs = [
-        {
-            id: "one",
-            question: `What is the cost of Umbilical Hernia surgery in ${city}?`,
-            answer:
-                `The cost of umbilical hernia surgery in ${city} varies depending on the hospital, surgeon’s expertise, and whether it’s an open or laparoscopic procedure. PureCheckup’s experts provide a personalized cost plan based on your needs and location.`,
-        },
-        {
-            id: "two",
-            question: `Does insurance cover Umbilical Hernia surgery treatment in ${city}?`,
-            answer:
-                "Yes, most health insurance plans cover umbilical hernia surgery, including hospital and procedure charges. PureCheckup offers cashless and reimbursement support for patients with active health insurance.",
-        },
-        {
-            id: "three",
-            question: `Which healthcare provider offers the best treatment at the best price in ${city}?`,
-            answer:
-                `PureCheckup partners with ${city}’s top hospitals and expert hernia surgeons to provide affordable and advanced umbilical hernia treatment with transparent pricing, EMI options, and insurance support.`,
-        },
-        {
-            id: "four",
-            question: "How to book Umbilical Hernia surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking your Umbilical Hernia surgery with PureCheckup is quick and easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/umbilical-hernia"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/umbilical-hernia
-                            </a>
-                        </li>
-                        <li>Search for Umbilical Hernia Surgery</li>
-                        <li>Fill in your details or call our 24×7 care helpline</li>
-                    </ul>
-                    <p>
-                        Our team will schedule your consultation and surgery with the nearest qualified specialist and assist with
-                        insurance and postoperative support.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            id: "five",
-            question: "What is the best treatment for an Umbilical Hernia?",
-            answer:
-                "Laparoscopic mesh repair is the most preferred treatment for umbilical hernia due to minimal pain, faster recovery, smaller scars, and a very low recurrence rate.",
-        },
-        {
-            id: "six",
-            question: "What are the first signs of an Umbilical Hernia?",
-            answer:
-                "A small lump or bulge near the belly button that becomes more visible when coughing, bending, or standing is the first sign of an umbilical hernia. You may also experience pain or pressure around the navel area.",
-        },
-        {
-            id: "seven",
-            question: "How painful is Umbilical Hernia surgery?",
-            answer:
-                "Modern laparoscopic and mesh repair techniques make umbilical hernia surgery virtually painless. Most patients experience mild discomfort and recover within 3–5 days.",
-        },
-        {
-            id: "eight",
-            question: "How long does Umbilical Hernia surgery take?",
-            answer:
-                "The procedure usually takes between 30 and 60 minutes, and most patients can return home the same day after observation.",
-        },
-        {
-            id: "nine",
-            question: "Can an Umbilical Hernia come back after surgery?",
-            answer:
-                "Recurrence is extremely rare when the surgery is performed by an experienced surgeon using mesh reinforcement. Maintaining a healthy weight and avoiding heavy lifting helps prevent recurrence.",
-        },
-        {
-            id: "ten",
-            question: `Why choose PureCheckup for Umbilical Hernia Surgery in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Network of expert surgeons & NABH-accredited hospitals in {city}</li>
-                        <li>Affordable pricing with cashless insurance support</li>
-                        <li>Personalized care manager for every patient</li>
-                        <li>Zero-cost EMI options</li>
-                        <li>Free consultation and doorstep pickup support</li>
-                    </ul>
-                    <p>
-                        PureCheckup ensures a safe, painless, and affordable umbilical hernia treatment experience with end-to-end
-                        guidance from consultation to recovery.
-                    </p>
-                </div>
-            ),
-        },
-    ];
+   const faqs = [
+  {
+    id: "one",
+    question: `Which is the best hospital for umbilical hernia surgery in ${city}?`,
+    answer: `PureCheckup connects you with top NABH-accredited hospitals in ${city} offering advanced laparoscopic and open hernia repair treatments.`,
+  },
+  {
+    id: "two",
+    question: `How much does umbilical hernia surgery cost in ${city}?`,
+    answer:
+      `The cost of umbilical hernia surgery in ${city} varies based on the hospital, doctor’s experience, and type of treatment. PureCheckup also provides No-Cost EMI and insurance assistance for easy payment.`,
+  },
+  {
+    id: "three",
+    question: `Who is the best doctor for umbilical hernia treatment in ${city}?`,
+    answer:
+      `PureCheckup’s partner laparoscopic surgeons in ${city} specialize in minimally invasive hernia repair procedures that ensure faster recovery and minimal discomfort.`,
+  },
+  {
+    id: "four",
+    question: `Is umbilical hernia surgery available near me in ${city}?`,
+    answer:
+      `Yes. PureCheckup provides Umbilical Hernia Treatment near you in ${city}, offering free consultation, expert care, and complete treatment support.`,
+  },
+  {
+    id: "five",
+    question: `How long does it take to recover after hernia surgery in ${city}?`,
+    answer:
+      `Most patients recover within a few days and can return to normal activities soon after undergoing laparoscopic umbilical hernia repair in ${city}.`,
+  },
+  {
+    id: "six",
+    question: "Is umbilical hernia surgery painful?",
+    answer:
+      "No. The surgery is performed under anesthesia. With laparoscopic techniques, pain is minimal and healing is much faster compared to open surgery.",
+  },
+  {
+    id: "seven",
+    question: `Can an umbilical hernia be treated without surgery in ${city}?`,
+    answer:
+      "In adults, umbilical hernias typically require surgical repair for complete recovery. Non-surgical approaches offer only temporary relief.",
+  },
+  {
+    id: "eight",
+    question: `Does PureCheckup offer insurance and EMI for hernia surgery in ${city}?`,
+    answer:
+      `Yes. PureCheckup provides insurance support and 0% EMI options to make umbilical hernia treatment in ${city} affordable and hassle-free.`,
+  },
+  {
+    id: "nine",
+    question: `How do I book a free consultation for umbilical hernia in ${city}?`,
+    answer:
+      `You can call 9211930749 or visit PureCheckup.com to schedule a free doctor consultation in ${city}.`,
+  },
+  {
+    id: "ten",
+    question: `Why choose PureCheckup for Umbilical Hernia Treatment in ${city}?`,
+    answer: (
+      <div className="text-(--text-primary) font-medium space-y-2">
+        <ul className="list-disc list-inside space-y-1">
+          <li>Free Doctor Consultation</li>
+          <li>0% EMI & Insurance Assistance</li>
+          <li>Top Laparoscopic Surgeons</li>
+          <li>Day-Care Surgery Options</li>
+          <li>24×7 Medical Coordination</li>
+        </ul>
+      </div>
+    ),
+  },
+];
+
 
     const umbilicalHerniaData = {
         title1: "Umbilical Hernia",
@@ -270,40 +244,64 @@ const UmbilicalHerniaInSpecialCity = () => {
         },
     ];
 
-    const treatmentOptions = [
-        {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "Laser Umbilical Hernia Surgery (Recommended)",
-            points: [
-                "No cuts, stitches, or pain",
-                "Safe and effective",
-                "Quick recovery",
-            ],
-            highlight: false,
-        },
-        {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Non-Surgical Treatments",
-            points: ["Medicines", "Lifestyle and diet corrections"],
-            highlight: false,
-        },
-        {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Conventional Surgery (For Severe Cases)",
-            points: ["Recommended in advanced stages"],
-            highlight: false,
-        },
-    ];
+    const treatments = [
+  {
+    title: "Laparoscopic Umbilical Hernia Repair",
+    description:
+      "Minimally invasive procedure using small incisions and a laparoscope. Offers faster recovery, minimal pain, and no large scars.",
+    downtime: "2–4 days",
+  },
+  {
+    title: "Open Umbilical Hernia Repair",
+    description:
+      "Traditional surgical method used for larger hernias or cases with complications. Involves a small incision at the navel with mesh reinforcement.",
+    downtime: "1–2 weeks",
+  },
+  {
+    title: "Mesh Hernioplasty",
+    description:
+      "An advanced technique where a synthetic mesh is placed to strengthen the abdominal wall and prevent recurrence. Ideal for adult hernia repair.",
+    downtime: "2–5 days",
+  },
+  {
+    title: "Tension-Free Hernia Repair",
+    description:
+      "A modern technique that avoids muscle tension, reducing post-surgery discomfort and speeding up overall healing.",
+    downtime: "3–5 days",
+  },
+  {
+    title: "Day-Care Umbilical Hernia Surgery",
+    description:
+      "Ideal for small hernias. Patients can go home the same day after surgery with minimal pain and very quick recovery.",
+    downtime: "24–48 hours",
+  },
+];
+
 
     if (!city) {
         return <div>Loading...</div>;
     }
 
+    const seoData = {
+        title: `Umbilical Hernia Surgery in ${city} | Call 9211930749 | PureCheckup`,
+        description: `Get expert Umbilical Hernia treatment in ${city} with experienced surgeons, insurance support, and No-Cost EMI. Book your free consultation today at PureCheckup.`,
+        keywords: `
+    Umbilical Hernia Treatment in ${city},
+    Umbilical Hernia Surgery in ${city},
+    Best Umbilical Hernia Doctor in ${city},
+    Umbilical Hernia Hospital near me,
+    Laparoscopic Hernia Surgery ${city},
+    Affordable Hernia Treatment ${city},
+    Umbilical Hernia Surgeon ${city},
+    Hernia Repair Surgery in ${city},
+    PureCheckup ${city}
+  `,
+        canonical: `https://purecheckup.com/treatment/umbilical-hernia/${city}`,
+    }
+
     return (
         <>
+            <SEO {...seoData} />
             <ConditionHeroSection
                 title={`Umbilical Hernia Surgery in ${city} – Cost, Procedure, Recovery & Expert Care`}
                 description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
@@ -342,10 +340,20 @@ const UmbilicalHerniaInSpecialCity = () => {
                 ctaText="Book Free Appointment"
             />
 
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
-            </section>
+             <section className="px-4 py-8 max-w-7xl mx-auto">
+                    <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {treatments.map((t, idx) => (
+                        <TreatmentCard
+                          key={idx}
+                          title={t.title}
+                          description={t.description}
+                          downtime={t.downtime}
+                        />
+                      ))}
+                    </div>
+                  </section>
+            
 
             <section className="py-20 px-4">
                 <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
