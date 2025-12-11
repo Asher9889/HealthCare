@@ -20,18 +20,18 @@ export function TreatmentCard({ title, description, downtime }: TreatmentCardPro
         <p className="text-xs text-gray-500 font-medium">Downtime: {downtime}</p>
       </CardContent>
       <CardFooter className="flex gap-2 pt-0">
-        <Button size="sm" className=" bg-blue-600 hover:bg-blue-700 text-white rounded-md"
-        onClick={() => setOpen(!open)}
-        aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
+        <Button size="default" className=" bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+          onClick={() => setOpen(!open)}
+          aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-slide-down-animation-modal" data-hs-overlay="#hs-slide-down-animation-modal"
         >
           Book
         </Button>
         <Button
-          size="sm"
+          size="default"
           variant="outline"
           className="border-green-200 text-green-700 bg-green-50 hover:bg-green-100 rounded-md"
         >
-          <a href={`${constantData.specialists[0].phone}`}>Call</a>
+          <a href={`tel:${constantData.supportNumber}`}>Call</a>
         </Button>
       </CardFooter>
       {open && <AppointForm open={open} setOpen={setOpen} />}

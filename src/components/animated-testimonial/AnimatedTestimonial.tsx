@@ -4,7 +4,7 @@ interface Testimonial {
     quote: string;
     name: string;
     designation: string;
-    src: string;
+    src?: string;
     stars: number;
 }
 
