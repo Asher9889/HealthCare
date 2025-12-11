@@ -1,39 +1,45 @@
 import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { TreatmentCard } from "../../piles/common/treatment-card/TreatmentCard";
-import BenefitCard  from "../../piles/common/benefit-card/BenefitCard";
+import BenefitCard from "../../piles/common/benefit-card/BenefitCard";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
-import FAQ from "../common/FAQ";
+import { FAQ } from '@/components'
 import TreatmentProcess from "../../piles/common/treatment-process/TreatmentProcess";
 
 const treatments = [
   {
     title: "Laser Anal Fistula Treatment",
-    description: "Minimally invasive, minimal blood loss, quick recovery (1–3 days). Ideal for Grade II–III.",
+    description:
+      "A minimally invasive, bloodless procedure that uses laser energy to seal the fistula tract from within. Offers quicker healing, low recurrence, and minimal post-operative pain.",
     downtime: "1–3 days",
   },
   {
-    title: "Rubber Band Ligation",
-    description: "Fast outpatient procedure for internal hemorrhoids; low recovery time.",
+    title: "Fistulectomy (Surgical Removal)",
+    description:
+      "Traditional surgery involving complete removal of the fistula tract. Recommended for complex, branching, or recurrent fistulas requiring full excision.",
+    downtime: "2–3 weeks",
+  },
+  {
+    title: "VAAFT (Video-Assisted Anal Fistula Treatment)",
+    description:
+      "A modern endoscopic procedure using a tiny camera to visualize and clean the fistula tract internally, followed by precise closure. Minimally painful and preserves continence.",
     downtime: "2–5 days",
   },
   {
-    title: "Sclerotherapy",
-    description: "Injection-based shrinkage for smaller internal piles; quick and painless.",
-    downtime: "24–48 hours",
+    title: "LIFT (Ligation of Intersphincteric Fistula Tract)",
+    description:
+      "A sphincter-preserving technique suitable for deep or high fistulas. Effectively closes the tract while ensuring no risk of anal incontinence.",
+    downtime: "3–6 days",
   },
   {
-    title: "Rafaelo (Radiofrequency)",
-    description: "Advanced radiofrequency option for reduced pain and recurrence — modern choice in Jaipur.",
-    downtime: "2–4 days",
-  },
-  {
-    title: "Hemorrhoidectomy",
-    description: "Surgical removal for large or recurrent piles; recommended when other treatments fail.",
+    title: "Seton Placement",
+    description:
+      "A controlled drainage method used for complex or high fistulas. Helps reduce infection and gradually promotes healing while maintaining tract patency.",
     downtime: "2–4 weeks",
   },
 ];
+
 
 const testimonials = [
   {
@@ -86,8 +92,8 @@ const benefits = [
 ];
 
 const FistulaInSpecialCity = () => {
-  let { city} = useParams();
-  
+  let { city } = useParams();
+
   // Capitalize first letter of city name
   city = city && city.charAt(0).toUpperCase() + city.slice(1);
 
@@ -95,95 +101,156 @@ const FistulaInSpecialCity = () => {
     return <div>Loading...</div>;
   }
 
- 
+  const faqs = [
+    {
+      id: "one",
+      question: `Which is the best hospital for anal fistula treatment in ${city}?`,
+      answer: `PureCheckup partners with NABH-accredited hospitals in ${city} to provide advanced laser and surgical fistula treatments.`,
+    },
+    {
+      id: "two",
+      question: "How is anal fistula treated at PureCheckup?",
+      answer:
+        "PureCheckup offers Laser Fistula Surgery, VAAFT, and LIFT procedures to ensure faster healing, minimal pain, and reduced recurrence.",
+    },
+    {
+      id: "three",
+      question: `Who are the best doctors for fistula in ${city}?`,
+      answer: `PureCheckup’s expert colorectal and general surgeons in ${city} specialize in modern, minimally invasive fistula treatment methods.`,
+    },
+    {
+      id: "four",
+      question: `Is laser treatment for fistula available in ${city}?`,
+      answer: `Yes, PureCheckup provides Laser Fistula Treatment in ${city}, offering quicker recovery, less pain, and lower recurrence rates.`,
+    },
+    {
+      id: "five",
+      question: "What are the symptoms of anal fistula?",
+      answer:
+        "Common symptoms include pain, pus discharge, swelling or a small opening near the anus, and irritation during bowel movements.",
+    },
+    {
+      id: "six",
+      question: "Is anal fistula surgery painful?",
+      answer:
+        "No. Advanced procedures like Laser Surgery and VAAFT are performed under anesthesia and are nearly painless, with faster healing.",
+    },
+    {
+      id: "seven",
+      question: "Can fistula heal without surgery?",
+      answer:
+        "Chronic or deep fistulas typically require surgery for complete cure. Home remedies may provide temporary relief but cannot close the tract.",
+    },
+    {
+      id: "eight",
+      question: `How long is the recovery after fistula surgery in ${city}?`,
+      answer:
+        `Most patients resume light daily activities within a few days after surgery, depending on the procedure and individual healing.`,
+    },
+    {
+      id: "nine",
+      question: "Does PureCheckup offer EMI or insurance coverage?",
+      answer:
+        `Yes, PureCheckup provides No-Cost EMI and full insurance assistance for fistula surgeries in ${city}.`,
+    },
+    {
+      id: "ten",
+      question: `How can I book a free consultation in ${city}?`,
+      answer:
+        `Call 9211930749 or book online at PureCheckup.com to schedule your free consultation with a fistula specialist in ${city}.`,
+    },
+  ];
+
+
+
 
   return (
     <div className="min-h-screen">
-        <ConditionHeroSection
-            title={`Anal Fistula Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
-            description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
-            primaryBtn={{ label: "Book Free Consultation" }}
-            secondaryBtn={{ label: "Call Now" }}
-            features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
-            cities={constantData.cities}
-            selectedCity={city}
-            consultations={["Clinic", "Online"]} 
-        />
-        <StatsBar />
-        <section className="py-20 mx-auto max-w-7xl px-4">
-          <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-          {constantData.specialists.map((doc) => (
-            <SpecialistCard key={doc.id} specialist={doc} />
+      <ConditionHeroSection
+        title={`Anal Fistula Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
+        description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
+        primaryBtn={{ label: "Book Free Consultation" }}
+        secondaryBtn={{ label: "Call Now" }}
+        features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
+        cities={constantData.cities}
+        selectedCity={city}
+        consultations={["Clinic", "Online"]}
+      />
+      <StatsBar />
+      <section className="py-20 mx-auto max-w-7xl px-4">
+        <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
+        {constantData.specialists.map((doc) => (
+          <SpecialistCard key={doc.id} specialist={doc} />
+        ))}
+      </section>
+
+      <section className="px-4 py-8 max-w-7xl mx-auto">
+        <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {treatments.map((t, idx) => (
+            <TreatmentCard
+              key={idx}
+              title={t.title}
+              description={t.description}
+              downtime={t.downtime}
+            />
           ))}
-        </section>
+        </div>
+      </section>
 
-        <section className="px-4 py-8 max-w-7xl mx-auto">
-            <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {treatments.map((t, idx) => (
-                <TreatmentCard
-                    key={idx}
-                    title={t.title}
-                    description={t.description}
-                    downtime={t.downtime}
-                />
-                ))}
-            </div>
-        </section>
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((b, idx) => (
+            <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+          ))}
+        </div>
+      </section>
+      <section className="">
+        <Heading text1="Patient Stories" text2={city} />
+        <AnimatedTestimonial testimonials={testimonials} />
+      </section>
+      <TreatmentProcess />
+      <section className="pb-20 px-4">
+        <Heading text1="FAQs on Anal Fistula Surgery in" text2={city} />
+        <FAQ faqs={faqs} />
+      </section>
 
-        <section className="max-w-7xl mx-auto px-4 py-20">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {benefits.map((b, idx) => (
-                <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
-                ))}
-            </div>
-        </section>
-        <section className="">
-          <Heading text1="Patient Stories" text2={city}/>
-          <AnimatedTestimonial testimonials={testimonials}/>
-        </section>
-        <TreatmentProcess />
-        <section className="pb-20 px-4">
-            <Heading text1="FAQs on Anal Fistula Surgery in" text2={city}/>
-            <FAQ city={city} />
-        </section>
-        
-        <section className="px-4">
-            <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-        </section>
+      <section className="px-4">
+        <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+      </section>
 
-        
 
-        <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Left Side Image */}
-            <div
-              className="hidden md:block bg-cover bg-center rounded-2xl"
-              style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
-            />
+          <div
+            className="hidden md:block bg-cover bg-center rounded-2xl"
+            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+          />
 
-          <ConditionTreatmentForm selectedCity={city}  cities={constantData.cities}  />
-          </div>
-        </section>
+          <ConditionTreatmentForm selectedCity={city} cities={constantData.cities} />
+        </div>
+      </section>
 
-          <section className="py-20">
-            <ConditionCityWiseTreatment
-            treatmentName="Anal Fistula"
-            costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-            paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-            costFactors={[
-                "Grade and type of piles",
-                "Hospital category and room",
-                "Insurance coverage and approvals",
-                "Additional diagnostics if needed",
-            ]}
-            cities={constantData.cities}
-            mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-            primaryButtonText="Get Free Cost Estimate Now"
-            secondaryButtonText="View Nearby Clinics"
-            />
-        </section>
+      <section className="py-20">
+        <ConditionCityWiseTreatment
+          treatmentName="Anal Fistula"
+          costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+          paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+          costFactors={[
+            "Grade and type of piles",
+            "Hospital category and room",
+            "Insurance coverage and approvals",
+            "Additional diagnostics if needed",
+          ]}
+          cities={constantData.cities}
+          mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+          primaryButtonText="Get Free Cost Estimate Now"
+          secondaryButtonText="View Nearby Clinics"
+        />
+      </section>
 
     </div>
   )
