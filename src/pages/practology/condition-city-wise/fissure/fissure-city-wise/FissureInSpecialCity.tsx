@@ -1,99 +1,86 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, CtaBanner, Heading, SEO, SpecialistCard, StatsBar, TreatmentBenefits, TreatmentOptionsCityWise } from "@/components"
+import { Scissors, Clock, ShieldCheck, Headphones } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
 import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { Zap, Crosshair, Layers, Droplet, ToolCase, RefreshCw, Heart, Database, Clipboard, } from "lucide-react";
+
 
 const FissureInSpecialCity = () => {
     let { city } = useParams();
     city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
 
+    const seoData = {
+        title: `Anal Fissure Surgery in ${city} Call 9211930749 | PureCheckup`,
+        description:
+            `Trusted Anal Fissure Treatment in ${city} by expert surgeons. Safe, painless & effective care. No-Cost EMI. Book free consultation at PureCheckup`,
+        keywords:
+            `Anal Fissure Treatment in ${city}, Fissure Surgery in ${city}, Laser Fissure Treatment in ${city}, Best Fissure Doctor in ${city}, Fissure Specialist in ${city}, Fissure Hospital near me, Fissure Treatment Hospital ${city}, PureCheckup ${city}, Painless Fissure Treatment ${city}`,
+        canonical: `https://purecheckup.com/treatment/fissure/${city}`,
+    }
+
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of fissure surgery in ${city}?`,
-            answer:
-                `The cost varies based on the procedure type and hospital in ${city}. Laser fissure surgery typically ranges from ₹55,000 to ₹91,800, while open surgery costs between ₹30,000 and ₹45,000.`,
+            question: `Which is the best hospital for anal fissure treatment in ${city}?`,
+            answer: `PureCheckup partners with top NABH-accredited hospitals in ${city} to offer painless fissure surgery and advanced laser-based treatments.`,
         },
         {
             id: "two",
-            question: "Does insurance cover fissure surgery treatment?",
+            question: "How is an anal fissure treated at PureCheckup?",
             answer:
-                "Yes, most health insurance policies in India cover fissure surgery, including pre- and post-hospitalization expenses. PureCheckup assists patients with insurance verification and cashless hospitalization.",
+                "PureCheckup provides Laser Treatment, Botox Therapy, and LIS Surgery to ensure effective and fast recovery for fissure patients.",
         },
         {
             id: "three",
-            question:
-                `Which healthcare service provider offers the best fissure treatment in ${city}?`,
-            answer:
-                `PureCheckup collaborates with ${city}’s leading hospitals and experienced proctologists to provide affordable, high-quality fissure treatment with complete care support.`,
+            question: `Who are the best doctors for fissure treatment in ${city}?`,
+            answer: `PureCheckup’s experienced proctologists and colorectal surgeons specialize in fissure care across ${city}.`,
         },
         {
             id: "four",
-            question: "How to book fissure surgery with PureCheckup?",
-            answer: (
-                <div className="space-y-2 text-(--text-primary) font-medium">
-                    <p>Booking your fissure surgery with PureCheckup is quick and easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Visit our official website – PureCheckup.com</li>
-                        <li>Fill out the consultation or callback form</li>
-                        <li>Our care team will contact you to schedule an appointment</li>
-                        <li>We assist with consultation, insurance, and hospital coordination</li>
-                    </ul>
-                </div>
-            ),
+            question: `Is laser fissure treatment available in ${city}?`,
+            answer: `Yes, PureCheckup offers Laser Fissure Treatment in ${city} with minimal downtime, reduced pain, and faster healing.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for an anal fissure?",
+            question: "Can a fissure heal without surgery?",
             answer:
-                "For chronic fissures, advanced options like Laser Fissurectomy and Lateral Internal Sphincterotomy (LIS) are commonly recommended. PureCheckup doctors tailor the treatment plan based on your diagnosis.",
+                "Yes, mild fissures can heal with medicines, hydration, and dietary changes. However, chronic fissures usually require medical procedures such as Laser or LIS.",
         },
         {
             id: "six",
-            question: "What are the first signs of a fissure?",
+            question: "How long does fissure surgery take to heal?",
             answer:
-                "Common early signs include sharp pain during bowel movements, bright red blood on toilet paper, and visible cracks or tears near the anus.",
+                "Laser and LIS surgeries typically heal within 3–10 days depending on the severity and patient health.",
         },
         {
             id: "seven",
-            question: "How painful is fissure surgery?",
+            question: "Is fissure treatment painful?",
             answer:
-                "Modern fissure surgeries, especially laser-based ones, are minimally invasive and nearly painless. Patients usually experience only mild discomfort with faster recovery times.",
+                "No, modern fissure treatments like Laser Surgery and Botox Therapy are nearly painless and highly safe.",
         },
         {
             id: "eight",
-            question: "Is hospitalization required for fissure surgery?",
+            question: `What is the cost of fissure treatment in ${city}?`,
             answer:
-                "Most fissure surgeries are daycare procedures, meaning you can go home the same day after the surgery, with minimal downtime.",
+                "PureCheckup offers affordable fissure treatment in India with 0% EMI options, insurance assistance, and transparent pricing.",
         },
         {
             id: "nine",
-            question: "How long does it take to recover from fissure surgery?",
+            question: `Does PureCheckup offer same-day consultation in ${city}?`,
             answer:
-                "Recovery varies depending on the procedure. Laser surgery patients often resume daily activities within 1–2 weeks, while recovery from open procedures may take slightly longer.",
+                `Yes, PureCheckup provides free same-day consultation with fissure specialists across ${city}.`,
         },
         {
             id: "ten",
-            question: "Are there any dietary restrictions after fissure surgery?",
-            answer: (
-                <div className="space-y-2 text-(--text-primary) font-medium">
-                    <p>
-                        Yes, maintaining a high-fiber diet and good hydration is essential for smooth
-                        recovery. Here are the general recommendations:
-                    </p>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Eat fiber-rich foods such as fruits, vegetables, and whole grains</li>
-                        <li>Drink plenty of water to prevent constipation</li>
-                        <li>Avoid spicy, oily, or heavily processed foods</li>
-                        <li>Do not strain during bowel movements</li>
-                    </ul>
-                </div>
-            ),
+            question: `How can I book a free consultation in ${city}?`,
+            answer:
+                "Simply call 9211930749 or visit PureCheckup.com to book your appointment instantly.",
         },
     ];
+
 
     const analFissureData = {
         title1: "Anal Fissure Surgery ?",
@@ -246,31 +233,87 @@ const FissureInSpecialCity = () => {
         },
     ];
 
-    const treatmentOptions = [
+    const treatments = [
         {
             id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "Advanced Fissure Treatment (Recommended)",
-            points: [
-                "No cuts, stitches, or pain",
-                "Safe and effective",
-                "Quick recovery",
-            ],
-            highlight: false,
+            title: "Laser Fissure Surgery",
+            description:
+                "Advanced laser technique for fissure removal with minimal pain and bleeding.",
+            downtime: "1–3 days",
+            highlight: true,
+            icon: <Zap className="w-6 h-6 text-red-600" />,
         },
         {
             id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Non-Surgical Treatments",
-            points: ["Medicines", "Lifestyle and diet corrections"],
-            highlight: false,
+            title: "Lateral Internal Sphincterotomy (LIS)",
+            description:
+                "A precise surgical method to relax anal muscles and promote quick healing for chronic fissures.",
+            downtime: "1–2 weeks",
+            icon: <Scissors className="w-6 h-6 text-blue-600" />,
         },
         {
             id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Conventional Surgery (For Severe Cases)",
-            points: ["Recommended in advanced stages"],
-            highlight: false,
+            title: "Fissurectomy Surgery",
+            description:
+                "Excision of the fissure tissue to allow regeneration of healthy tissue and relieve discomfort.",
+            downtime: "2–4 weeks",
+            icon: <Crosshair className="w-6 h-6 text-purple-600" />,
+        },
+        {
+            id: 4,
+            title: "Laser-Assisted Fissurectomy",
+            description:
+                "Combines fissure removal with laser sealing for reduced recurrence and faster healing.",
+            downtime: "2–5 days",
+            icon: <Layers className="w-6 h-6 text-indigo-600" />,
+        },
+        {
+            id: 5,
+            title: "Botox Injection Procedure",
+            description:
+                "Minimally invasive technique using Botox to relax anal muscles and promote healing without major surgery.",
+            downtime: "1–3 days",
+            icon: <Droplet className="w-6 h-6 text-pink-600" />,
+        },
+        {
+            id: 6,
+            title: "Combined Laser + LIS Treatment",
+            description:
+                "For chronic or complex fissures, combining laser precision with sphincterotomy provides lasting relief.",
+            downtime: "3–5 days",
+            icon: <ToolCase className="w-6 h-6 text-yellow-600" />,
+        },
+        {
+            id: 7,
+            title: "Anal Dilatation (Minimally Invasive Surgery)",
+            description:
+                "Gentle widening of the anal canal under anesthesia to relieve spasm and pain.",
+            downtime: "2–3 days",
+            icon: <RefreshCw className="w-6 h-6 text-emerald-600" />,
+        },
+        {
+            id: 8,
+            title: "Advanced Laser Fissure Repair",
+            description:
+                "Modern-day care laser surgery with almost no blood loss and same-day discharge.",
+            downtime: "1–2 days",
+            icon: <Heart className="w-6 h-6 text-red-500" />,
+        },
+        {
+            id: 9,
+            title: "Reconstructive Anal Surgery (for Chronic Cases)",
+            description:
+                "Performed for severe fissures with scar tissue or complications from previous surgery.",
+            downtime: "2–4 weeks",
+            icon: <Database className="w-6 h-6 text-slate-600" />,
+        },
+        {
+            id: 10,
+            title: "Post-Surgical Care & Follow-up",
+            description:
+                "Includes pain management, wound healing support, and recurrence prevention guidance.",
+            downtime: "Ongoing",
+            icon: <Clipboard className="w-6 h-6 text-neutral-700" />,
         },
     ];
 
@@ -280,6 +323,7 @@ const FissureInSpecialCity = () => {
 
     return (
         <>
+            <SEO title={seoData.title} description={seoData.description} keywords={seoData.keywords} canonical={seoData.canonical} />
             <ConditionHeroSection
                 title={`Expert Anal Fissure Treatment & Surgery in ${city} – Safe, Advanced & Affordable`}
                 description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
@@ -319,12 +363,13 @@ const FissureInSpecialCity = () => {
             />
 
             <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+                <Heading text1="Treatment Options Available in" text2={city} className="mb-10" />
+                <TreatmentOptionsCityWise treatments={treatments} />
+                {/* <ConditionTreatmentOptions treatmentOptions={treatmentOptions} /> */}
             </section>
 
             <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+                <Heading text1="Top 10 FAQs on Anal Fissure Treatment in" text2={city} className="mb-10" />
                 <FAQ faqs={faqs} />
             </section>
 

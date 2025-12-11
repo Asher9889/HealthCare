@@ -3,11 +3,22 @@ import { Helmet } from "react-helmet-async";
 import { seoData } from "../../config";
 
 interface SEOProps {
-  page: keyof typeof seoData;
+  page?: keyof typeof seoData;
+  title?: string;              // For dynamic title
+  description?: string;        // For dynamic description
+  keywords?: string;           // For dynamic keywords
+  canonical?: string;
 }
 
-const SEO = ({ page }: SEOProps) => {
-  const meta = seoData[page];
+const SEO = (props: SEOProps) => {
+  const page = props.page;
+  const dynamicProps = {
+    title: props.title,
+    description: props.description,
+    keywords: props.keywords,
+    canonical: props.canonical,
+  };
+  const meta = page?.trim() ? seoData[page] : dynamicProps;
 
   if (!meta) return null;
 
