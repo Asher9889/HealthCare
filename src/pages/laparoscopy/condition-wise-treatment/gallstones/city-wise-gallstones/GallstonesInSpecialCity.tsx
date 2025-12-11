@@ -1,5 +1,5 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, CtaBanner, Heading, SEO, SpecialistCard, StatsBar, TreatmentBenefits, TreatmentCard } from "@/components"
+import { Scissors, Clock, ShieldCheck, Headphones } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
@@ -10,101 +10,66 @@ const GallstonesInSpecialCity = () => {
     let { city } = useParams();
     city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
 
-    const faqs = [
-        {
-            id: "one",
-            question: "What is gallstone surgery?",
-            answer:
-                "Gallstone surgery, also known as cholecystectomy, is a medical procedure to remove the gallbladder that contains stones (gallstones). It can be performed using laparoscopic, open, or laser-assisted techniques for safe and permanent relief.",
-        },
-        {
-            id: "two",
-            question: "Which is the best type of surgery for gallstones?",
-            answer:
-                "The best surgery for gallstones is usually laparoscopic or laser gallstone surgery, as both are minimally invasive, painless, and allow quick recovery with minimal scarring.",
-        },
-        {
-            id: "three",
-            question: `What is the cost of gallstone surgery in ${city}?`,
-            answer:
-                `The average cost of gallstone surgery in ${city} ranges from ₹45,000 to ₹95,000, depending on the hospital type and whether it’s laparoscopic, open, or laser surgery. PureCheckup offers affordable packages with cashless insurance options.`,
-        },
-        {
-            id: "four",
-            question: `Does insurance cover gallstone surgery in ${city}?`,
-            answer:
-                "Yes, most health insurance plans cover gallstone surgery, including hospitalization, anesthesia, and doctor’s fees. At PureCheckup, our team provides end-to-end insurance assistance for a hassle-free experience.",
-        },
-        {
-            id: "five",
-            question: "How long does it take to recover from gallstone surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Recovery depends on the type of surgery:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>
-                            <strong>Laparoscopic / Laser surgery:</strong> 1–3 days
-                        </li>
-                        <li>
-                            <strong>Open surgery:</strong> 7–10 days
-                        </li>
-                    </ul>
-                    <p>
-                        Most patients at PureCheckup are discharged on the same day or the next day.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            id: "six",
-            question: "Is gallstone surgery painful?",
-            answer:
-                "No, gallstone surgery is not painful because it is performed under anesthesia. Laser and laparoscopic surgeries cause minimal post-surgery discomfort, allowing patients to resume normal activities quickly.",
-        },
-        {
-            id: "seven",
-            question: "Can gallstones come back after surgery?",
-            answer:
-                "Once the gallbladder is removed, gallstones do not return. However, maintaining a healthy diet and active lifestyle helps avoid other digestive issues.",
-        },
-        {
-            id: "eight",
-            question: "What happens if gallstones are not treated?",
-            answer:
-                "If left untreated, gallstones can lead to severe pain, infection, inflammation, or pancreatitis, which can become life-threatening. Early diagnosis and surgery are strongly recommended.",
-        },
-        {
-            id: "nine",
-            question: `Why choose PureCheckup for gallstone surgery in ${city}?`,
-            answer:
-                `PureCheckup offers advanced laparoscopic and laser gallstone surgeries performed by expert surgeons in ${city}. We provide cashless insurance, free consultations, same-day discharge, and full post-surgery care — making us one of the most trusted healthcare providers.`,
-        },
-        {
-            id: "ten",
-            question: "How can I book gallstone surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking your gallstone surgery is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/gallstone"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/gallstone
-                            </a>
-                        </li>
-                        <li>Fill out the consultation form</li>
-                        <li>Or call our 24×7 patient helpline to schedule your free consultation and surgery appointment</li>
-                    </ul>
-                    <p>👉 Our team provides complete insurance and post-surgery support for a smooth experience.</p>
-                </div>
-            ),
-        },
-    ];
+   const faqs = [
+  {
+    id: "one",
+    question: `What is the cost of gallstone surgery in ${city}?`,
+    answer: `The cost of gallstone surgery in ${city} varies depending on the hospital, surgical method, surgeon’s experience, and insurance coverage. PureCheckup helps you find the most affordable and transparent treatment options.`,
+  },
+  {
+    id: "two",
+    question: `Is laparoscopic gallstone surgery painful?`,
+    answer:
+      "No. Laparoscopic gallstone surgery is a minimally invasive procedure performed under anesthesia, ensuring minimal pain and faster recovery compared to traditional open surgery.",
+  },
+  {
+    id: "three",
+    question: "How long does it take to recover after gallstone surgery?",
+    answer:
+      "Most patients can resume light activities within a few days and fully recover within a week, based on their doctor’s guidance.",
+  },
+  {
+    id: "four",
+    question: "Can gallstones be treated without surgery?",
+    answer:
+      "In mild cases, medications or lifestyle changes may help, but surgery remains the most effective and permanent solution to prevent repeated gallstone attacks.",
+  },
+  {
+    id: "five",
+    question: `Does PureCheckup provide insurance support in ${city}?`,
+    answer: `Yes, PureCheckup offers cashless insurance assistance and No-Cost EMI options at trusted hospitals across ${city}.`,
+  },
+  {
+    id: "six",
+    question: "How do I know if I need gallstone surgery?",
+    answer:
+      "You may need surgery if you experience intense abdominal pain, nausea, or vomiting. An ultrasound scan or medical evaluation will confirm whether surgery is required.",
+  },
+  {
+    id: "seven",
+    question: "Is gallbladder removal safe for long-term health?",
+    answer:
+      "Yes. Gallbladder removal (cholecystectomy) is a very safe and common procedure. After recovery, your body digests food normally without long-term issues.",
+  },
+  {
+    id: "eight",
+    question: "How long does gallstone surgery take?",
+    answer:
+      "Laparoscopic gallstone surgery usually takes less than an hour. Most patients return home the same day or the following day.",
+  },
+  {
+    id: "nine",
+    question: "What are the benefits of laparoscopic gallstone surgery?",
+    answer:
+      "It offers smaller incisions, less pain, faster healing, minimal scarring, and shorter hospital stays compared to open surgery.",
+  },
+  {
+    id: "ten",
+    question: `Why choose PureCheckup for gallstone treatment in ${city}?`,
+    answer: `PureCheckup provides expert surgeons, modern hospitals, transparent processes, insurance assistance, and personalized support — ensuring a smooth and stress-free treatment journey in ${city}.`,
+  },
+];
+
 
     const gallstoneData = {
         title1: "Gallstone",
@@ -262,43 +227,62 @@ const GallstonesInSpecialCity = () => {
         },
     ];
 
-    const treatmentOptions = [
+    const treatments = [
         {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "Laser Gallstone Surgery (Recommended)",
-            points: [
-                "No cuts, stitches, or pain",
-                "Safe and effective",
-                "Quick recovery",
-            ],
-            highlight: false,
+            title: "Laparoscopic Cholecystectomy (Keyhole Surgery)",
+            description:
+                "Minimally invasive procedure to remove the gallbladder through small incisions. Quick recovery, minimal pain, and no major scarring.",
+            downtime: "2–5 days",
         },
         {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Non-Surgical Treatments",
-            points: ["Medicines", "Lifestyle and diet corrections"],
-            highlight: false,
+            title: "Open Gallbladder Surgery",
+            description:
+                "Recommended for patients with large stones or complications. Involves a single larger incision for complete gallbladder removal.",
+            downtime: "2–3 weeks",
         },
         {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Conventional Surgery (For Severe Cases)",
-            points: ["Recommended in advanced stages"],
-            highlight: false,
+            title: "Non-Surgical Gallstone Management",
+            description:
+                "Used for patients unfit for surgery. Involves medications, dietary control, and ultrasound monitoring to manage symptoms.",
+            downtime: "Not applicable",
+        },
+        {
+            title: "Endoscopic Retrograde Cholangiopancreatography (ERCP)",
+            description:
+                "A specialized endoscopic technique used to remove stones from the bile duct or relieve blockage before surgery.",
+            downtime: "1–3 days",
+        },
+        {
+            title: "Post-Surgery Recovery & Diet Consultation",
+            description:
+                "Customized diet and lifestyle plans by experts to ensure faster healing, prevent recurrence, and improve digestive health.",
+            downtime: "1–2 days",
         },
     ];
+
 
     if (!city) {
         return <div>Loading...</div>;
     }
+    const seoData = {
+        title: `Gallstone Surgery in ${city} | Call 9211930749 | PureCheckup`,
+        description: `Get affordable gallstone surgery in ${city} with expert laparoscopic surgeons. Book your free consultation and No-Cost EMI option today at PureCheckup.`,
+        keywords: [
+            `Free doctor consultation ${city}`,
+            `gallstone treatment ${city}`,
+            `gallbladder surgery ${city}`,
+            `laparoscopic gallstone removal ${city}`,
+            `PureCheckup ${city}`,
+        ].join(", "),
+        canonical: `https://purecheckup.com/treatment/gallstone/${city.toLowerCase()}`,
+    }
 
     return (
         <>
+            <SEO {...seoData} />
             <ConditionHeroSection
-                title={`Gallstone Surgery in ${city} by Expert Surgeons – Painless, Quick & Cost-Effective`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Gallbladder Stone Treatment in ${city} – Advanced Laparoscopic Surgery at PureCheckup`}
+                description={`Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across City .`}
                 primaryBtn={{ label: "Book Free Consultation" }}
                 secondaryBtn={{ label: "Call Now: +91 9211930749" }}
                 features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
@@ -334,9 +318,18 @@ const GallstonesInSpecialCity = () => {
                 ctaText="Book Free Appointment"
             />
 
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto mt-16">
+                <Heading text1="Treatment Options Available in" text2={city || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
             <section className="py-20 px-4">

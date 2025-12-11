@@ -4,36 +4,42 @@ import { useParams} from "react-router-dom";
 import { TreatmentCard } from "@/components";
 import { BenefitCard }  from "@/components";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
-import FAQ from "../common/FAQ";
+import { FAQ } from "@/components";
 import { TreatmentProcess } from "@/components";
 
 const treatments = [
   {
-    title: "Laser Hernia Surgery Treatment",
-    description: "Minimally invasive, minimal blood loss, quick recovery (1–3 days). Ideal for Grade II–III.",
-    downtime: "1–3 days",
-  },
-  {
-    title: "Rubber Band Ligation",
-    description: "Fast outpatient procedure for internal hemorrhoids; low recovery time.",
+    title: "Laparoscopic Hernia Repair",
+    description:
+      "A minimally invasive procedure performed through tiny incisions using a laparoscope. Ensures faster recovery, minimal pain, and almost no visible scarring.",
     downtime: "2–5 days",
   },
   {
-    title: "Sclerotherapy",
-    description: "Injection-based shrinkage for smaller internal piles; quick and painless.",
-    downtime: "24–48 hours",
+    title: "Open Hernia Surgery",
+    description:
+      "A traditional method involving a single larger incision to repair the hernia using mesh or sutures. Effective for large, recurrent, or complex hernias.",
+    downtime: "1–2 weeks",
   },
   {
-    title: "Rafaelo (Radiofrequency)",
-    description: "Advanced radiofrequency option for reduced pain and recurrence — modern choice in Jaipur.",
-    downtime: "2–4 days",
+    title: "Mesh Repair Technique",
+    description:
+      "Reinforces the weakened abdominal wall using a surgical mesh to reduce recurrence. Commonly used in both open and laparoscopic repairs.",
+    downtime: "3–6 days",
   },
   {
-    title: "Hemorrhoidectomy",
-    description: "Surgical removal for large or recurrent piles; recommended when other treatments fail.",
-    downtime: "2–4 weeks",
+    title: "Emergency Hernia Repair",
+    description:
+      "Performed when the hernia becomes strangulated or obstructed. Immediate surgery is required to prevent severe complications and restore blood flow.",
+    downtime: "Varies per condition",
+  },
+  {
+    title: "Non-Surgical Management (Watchful Waiting)",
+    description:
+      "Recommended for small, painless hernias. Involves regular monitoring and lifestyle adjustments until surgery is necessary.",
+    downtime: "No downtime",
   },
 ];
+
 
 const testimonials = [
   {
@@ -41,7 +47,7 @@ const testimonials = [
       "I was suffering from piles for years. After the treatment, my pain and bleeding stopped completely. I feel like I got my life back.",
     name: "Preeti Sharma",
     designation: "Patient from Jaipur",
-    src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=3540&auto=format&fit=crop",
     stars: 5,
   },
   {
@@ -49,7 +55,7 @@ const testimonials = [
       "The doctors were very patient and explained everything in detail. The laser treatment was painless and I was able to return to work within two days.",
     name: "Priya Verma",
     designation: "Patient from Delhi",
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=3540&auto=format&fit=crop",
     stars: 4.5,
   },
   {
@@ -57,7 +63,7 @@ const testimonials = [
       "I was really scared before the procedure, but the staff made me comfortable. The recovery was quick and much easier than I expected.",
     name: "Amit Patel",
     designation: "Patient from Ahmedabad",
-    src: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=3540&auto=format&fit=crop",
     stars: 4,
   },
   {
@@ -65,7 +71,7 @@ const testimonials = [
       "I had tried many home remedies but nothing worked. After consulting here, my piles problem was solved without any complications.",
     name: "Sanjeev Gupta",
     designation: "Patient from Lucknow",
-    src: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=3540&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=3540&auto=format&fit=crop",
     stars: 5,
   },
   {
@@ -73,7 +79,7 @@ const testimonials = [
       "Excellent treatment and modern facilities. The doctor’s approach was very reassuring and I am completely cured now.",
     name: "Vikram Singh",
     designation: "Patient from Mumbai",
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2592&auto=format&fit=crop",
+    // src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2592&auto=format&fit=crop",
     stars: 5,
   },
 ];
@@ -95,13 +101,73 @@ const HerniaInSpecialCity = () => {
     return <div>Loading...</div>;
   }
 
+  const faqs = [
+  {
+    id: "one",
+    question: `What is the best treatment for hernia in ${city}?`,
+    answer: `The most preferred and effective treatment for hernia in ${city} is laparoscopic hernia repair. It is minimally invasive, offers faster recovery, minimal pain, and very small scars. It is suitable for inguinal, umbilical, and incisional hernias.`,
+  },
+  {
+    id: "two",
+    question: "How long does it take to recover after hernia surgery?",
+    answer:
+      "Recovery time depends on the surgical technique. Laparoscopic repair typically requires 2–5 days, while open repair takes 1–2 weeks. Most patients resume normal activities within a few days under medical guidance.",
+  },
+  {
+    id: "three",
+    question: `Is hernia surgery painful in ${city}?`,
+    answer:
+      `No. Hernia surgery at PureCheckup in ${city} is performed under anesthesia, so there is no pain during the procedure. After surgery, discomfort is minimal and easily managed with prescribed medicines.`,
+  },
+  {
+    id: "four",
+    question: "Can a hernia heal without surgery?",
+    answer:
+      "A hernia cannot heal on its own. Small, painless hernias may be managed temporarily through watchful waiting, but surgery is the only permanent solution once symptoms appear or the hernia enlarges.",
+  },
+  {
+    id: "five",
+    question: `Is hernia surgery covered under insurance in ${city}?`,
+    answer:
+      `Yes. Most major health insurance plans cover hernia surgery in ${city}. PureCheckup assists with complete documentation, cashless approval, and reimbursement support for a smooth experience.`,
+  },
+  {
+    id: "six",
+    question: "What happens if a hernia is left untreated?",
+    answer:
+      "If untreated, a hernia may grow larger and can become strangulated, cutting off blood supply to the trapped tissue. This is a medical emergency requiring immediate surgery.",
+  },
+  {
+    id: "seven",
+    question: `How do I choose the best hernia surgeon in ${city}?`,
+    answer: `Choose a qualified general or laparoscopic surgeon with strong experience, good hospital facilities, and positive patient outcomes. PureCheckup connects you with verified and experienced hernia specialists in ${city}.`,
+  },
+  {
+    id: "eight",
+    question: "What precautions should I take after hernia surgery?",
+    answer:
+      "Avoid lifting heavy objects for 4–6 weeks, eat fiber-rich foods to prevent constipation, keep the incision area clean and dry, and attend all follow-up appointments for proper healing.",
+  },
+  {
+    id: "nine",
+    question: "Are there any risks in hernia surgery?",
+    answer:
+      "Hernia surgery is generally safe. Rarely, mild swelling or discomfort may occur, which settles with medication. At PureCheckup, all procedures are performed by certified surgeons in sterile conditions to ensure safety.",
+  },
+  {
+    id: "ten",
+    question: `How can I book a hernia consultation in ${city}?`,
+    answer: `You can book a free consultation by calling 9211930749, visiting PureCheckup.com/treatment/hernia/${city}, or chatting with our team on WhatsApp for instant assistance.`,
+  },
+];
+
  
 
   return (
     <div className="min-h-screen">
         <ConditionHeroSection
-            title={`Rectal Prolapse Treatment in ${city} — Fast, Minimally-Invasive Care by Specialists`}
-            description="Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across Jaipur."
+            title={`Best Hernia Treatment & Surgery in ${city} – Safe, Affordable & Advanced Care at PureCheckup`}
+            description={`Pain-free laser, Rafaelo & advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${city?.toLocaleLowerCase()}`}
             primaryBtn={{ label: "Book Free Consultation" }}
             secondaryBtn={{ label: "Call Now" }}
             features={["Expert Doctors", "Quick Recovery", "Top proctologists & gastroenterologists", "Same-week return to work"]}
@@ -145,7 +211,7 @@ const HerniaInSpecialCity = () => {
         <TreatmentProcess />
         <section className="pb-20 px-4">
             <Heading text1="FAQs on Rectal Prolapse Surgery in" text2={city}/>
-            <FAQ city={city} />
+            <FAQ faqs={faqs} />
         </section>
         
         <section className="px-4">
