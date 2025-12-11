@@ -89,7 +89,7 @@ const benefits = [
   { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
-const RectalProlapseInSpecialCity = () => {
+const AppendicitisInSpecialCity = () => {
   let { city } = useParams();
 
   // Capitalize first letter of city name
@@ -100,67 +100,67 @@ const RectalProlapseInSpecialCity = () => {
   }
 
   const faqs = [
-  {
-    id: "one",
-    question: "What are the common symptoms of appendicitis?",
-    answer:
-      "Severe lower-right abdominal pain, nausea, vomiting, fever, and loss of appetite are common warning signs.",
-  },
-  {
-    id: "two",
-    question: "How is appendicitis diagnosed?",
-    answer:
-      "Doctors perform a physical examination, ultrasound, or CT scan to confirm appendix inflammation or infection.",
-  },
-  {
-    id: "three",
-    question: "When is surgery required for appendicitis?",
-    answer:
-      "Surgery is recommended immediately when the appendix is inflamed or at risk of bursting.",
-  },
-  {
-    id: "four",
-    question: "What is laparoscopic appendectomy?",
-    answer:
-      "It is a minimally invasive surgery performed using tiny incisions, offering faster healing and minimal scarring.",
-  },
-  {
-    id: "five",
-    question: "Is laparoscopic surgery safe for children or elderly patients?",
-    answer:
-      "Yes, laparoscopic appendectomy is considered safe for both children and elderly patients when performed by experienced surgeons.",
-  },
-  {
-    id: "six",
-    question: "How long does recovery take after appendectomy?",
-    answer:
-      "Most patients resume normal activities within a week with minor restrictions.",
-  },
-  {
-    id: "seven",
-    question: "Can appendicitis be treated without surgery?",
-    answer:
-      "Mild cases may be temporarily managed with antibiotics, but surgery is the only permanent cure for appendicitis.",
-  },
-  {
-    id: "eight",
-    question: `Does PureCheckup offer cashless insurance in ${city}?`,
-    answer:
-      `Yes, PureCheckup provides cashless insurance claim assistance and 0% EMI options at partner hospitals in ${city}.`,
-  },
-  {
-    id: "nine",
-    question: "Are there dietary restrictions after appendectomy?",
-    answer:
-      "A soft, fiber-rich diet is recommended for 1–2 weeks to support smooth digestion and healing.",
-  },
-  {
-    id: "ten",
-    question: `Why choose PureCheckup for appendicitis treatment in ${city}?`,
-    answer:
-      `PureCheckup offers trusted surgeons, modern hospitals, transparent treatment processes, and 24×7 support to ensure a safe and smooth recovery in ${city}.`,
-  },
-];
+    {
+      id: "one",
+      question: "What are the common symptoms of appendicitis?",
+      answer:
+        "Severe lower-right abdominal pain, nausea, vomiting, fever, and loss of appetite are common warning signs.",
+    },
+    {
+      id: "two",
+      question: "How is appendicitis diagnosed?",
+      answer:
+        "Doctors perform a physical examination, ultrasound, or CT scan to confirm appendix inflammation or infection.",
+    },
+    {
+      id: "three",
+      question: "When is surgery required for appendicitis?",
+      answer:
+        "Surgery is recommended immediately when the appendix is inflamed or at risk of bursting.",
+    },
+    {
+      id: "four",
+      question: "What is laparoscopic appendectomy?",
+      answer:
+        "It is a minimally invasive surgery performed using tiny incisions, offering faster healing and minimal scarring.",
+    },
+    {
+      id: "five",
+      question: "Is laparoscopic surgery safe for children or elderly patients?",
+      answer:
+        "Yes, laparoscopic appendectomy is considered safe for both children and elderly patients when performed by experienced surgeons.",
+    },
+    {
+      id: "six",
+      question: "How long does recovery take after appendectomy?",
+      answer:
+        "Most patients resume normal activities within a week with minor restrictions.",
+    },
+    {
+      id: "seven",
+      question: "Can appendicitis be treated without surgery?",
+      answer:
+        "Mild cases may be temporarily managed with antibiotics, but surgery is the only permanent cure for appendicitis.",
+    },
+    {
+      id: "eight",
+      question: `Does PureCheckup offer cashless insurance in ${city}?`,
+      answer:
+        `Yes, PureCheckup provides cashless insurance claim assistance and 0% EMI options at partner hospitals in ${city}.`,
+    },
+    {
+      id: "nine",
+      question: "Are there dietary restrictions after appendectomy?",
+      answer:
+        "A soft, fiber-rich diet is recommended for 1–2 weeks to support smooth digestion and healing.",
+    },
+    {
+      id: "ten",
+      question: `Why choose PureCheckup for appendicitis treatment in ${city}?`,
+      answer:
+        `PureCheckup offers trusted surgeons, modern hospitals, transparent treatment processes, and 24×7 support to ensure a safe and smooth recovery in ${city}.`,
+    },
+  ];
 
 
   const seoData = {
@@ -255,11 +255,11 @@ const RectalProlapseInSpecialCity = () => {
 
       <section className="py-20">
         <ConditionCityWiseTreatment
-          treatmentName="Rectal Prolapse"
+          treatmentName="Appendicitis"
           costSubtitle="Pricing varies by case severity, city, and insurance coverage."
           paymentOptions="Payment Options: EMI Available | Cashless Insurance"
           costFactors={[
-            "Grade and type of piles",
+            "Grade and type of appendicitis",
             "Hospital category and room",
             "Insurance coverage and approvals",
             "Additional diagnostics if needed",
@@ -275,4 +275,4 @@ const RectalProlapseInSpecialCity = () => {
   )
 }
 
-export default RectalProlapseInSpecialCity;
+export default AppendicitisInSpecialCity;

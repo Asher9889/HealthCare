@@ -353,7 +353,7 @@ const InguinalHerniaInSpecialCity = () => {
             </section>
 
             <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+                <Heading text1="Frequently Asked Questions in " text2={`${city}`} className="mb-10" />
                 <FAQ faqs={faqs} />
             </section>
 

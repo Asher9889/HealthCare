@@ -10,65 +10,65 @@ const GallstonesInSpecialCity = () => {
     let { city } = useParams();
     city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
 
-   const faqs = [
-  {
-    id: "one",
-    question: `What is the cost of gallstone surgery in ${city}?`,
-    answer: `The cost of gallstone surgery in ${city} varies depending on the hospital, surgical method, surgeon’s experience, and insurance coverage. PureCheckup helps you find the most affordable and transparent treatment options.`,
-  },
-  {
-    id: "two",
-    question: `Is laparoscopic gallstone surgery painful?`,
-    answer:
-      "No. Laparoscopic gallstone surgery is a minimally invasive procedure performed under anesthesia, ensuring minimal pain and faster recovery compared to traditional open surgery.",
-  },
-  {
-    id: "three",
-    question: "How long does it take to recover after gallstone surgery?",
-    answer:
-      "Most patients can resume light activities within a few days and fully recover within a week, based on their doctor’s guidance.",
-  },
-  {
-    id: "four",
-    question: "Can gallstones be treated without surgery?",
-    answer:
-      "In mild cases, medications or lifestyle changes may help, but surgery remains the most effective and permanent solution to prevent repeated gallstone attacks.",
-  },
-  {
-    id: "five",
-    question: `Does PureCheckup provide insurance support in ${city}?`,
-    answer: `Yes, PureCheckup offers cashless insurance assistance and No-Cost EMI options at trusted hospitals across ${city}.`,
-  },
-  {
-    id: "six",
-    question: "How do I know if I need gallstone surgery?",
-    answer:
-      "You may need surgery if you experience intense abdominal pain, nausea, or vomiting. An ultrasound scan or medical evaluation will confirm whether surgery is required.",
-  },
-  {
-    id: "seven",
-    question: "Is gallbladder removal safe for long-term health?",
-    answer:
-      "Yes. Gallbladder removal (cholecystectomy) is a very safe and common procedure. After recovery, your body digests food normally without long-term issues.",
-  },
-  {
-    id: "eight",
-    question: "How long does gallstone surgery take?",
-    answer:
-      "Laparoscopic gallstone surgery usually takes less than an hour. Most patients return home the same day or the following day.",
-  },
-  {
-    id: "nine",
-    question: "What are the benefits of laparoscopic gallstone surgery?",
-    answer:
-      "It offers smaller incisions, less pain, faster healing, minimal scarring, and shorter hospital stays compared to open surgery.",
-  },
-  {
-    id: "ten",
-    question: `Why choose PureCheckup for gallstone treatment in ${city}?`,
-    answer: `PureCheckup provides expert surgeons, modern hospitals, transparent processes, insurance assistance, and personalized support — ensuring a smooth and stress-free treatment journey in ${city}.`,
-  },
-];
+    const faqs = [
+        {
+            id: "one",
+            question: `What is the cost of gallstone surgery in ${city}?`,
+            answer: `The cost of gallstone surgery in ${city} varies depending on the hospital, surgical method, surgeon’s experience, and insurance coverage. PureCheckup helps you find the most affordable and transparent treatment options.`,
+        },
+        {
+            id: "two",
+            question: `Is laparoscopic gallstone surgery painful?`,
+            answer:
+                "No. Laparoscopic gallstone surgery is a minimally invasive procedure performed under anesthesia, ensuring minimal pain and faster recovery compared to traditional open surgery.",
+        },
+        {
+            id: "three",
+            question: "How long does it take to recover after gallstone surgery?",
+            answer:
+                "Most patients can resume light activities within a few days and fully recover within a week, based on their doctor’s guidance.",
+        },
+        {
+            id: "four",
+            question: "Can gallstones be treated without surgery?",
+            answer:
+                "In mild cases, medications or lifestyle changes may help, but surgery remains the most effective and permanent solution to prevent repeated gallstone attacks.",
+        },
+        {
+            id: "five",
+            question: `Does PureCheckup provide insurance support in ${city}?`,
+            answer: `Yes, PureCheckup offers cashless insurance assistance and No-Cost EMI options at trusted hospitals across ${city}.`,
+        },
+        {
+            id: "six",
+            question: "How do I know if I need gallstone surgery?",
+            answer:
+                "You may need surgery if you experience intense abdominal pain, nausea, or vomiting. An ultrasound scan or medical evaluation will confirm whether surgery is required.",
+        },
+        {
+            id: "seven",
+            question: "Is gallbladder removal safe for long-term health?",
+            answer:
+                "Yes. Gallbladder removal (cholecystectomy) is a very safe and common procedure. After recovery, your body digests food normally without long-term issues.",
+        },
+        {
+            id: "eight",
+            question: "How long does gallstone surgery take?",
+            answer:
+                "Laparoscopic gallstone surgery usually takes less than an hour. Most patients return home the same day or the following day.",
+        },
+        {
+            id: "nine",
+            question: "What are the benefits of laparoscopic gallstone surgery?",
+            answer:
+                "It offers smaller incisions, less pain, faster healing, minimal scarring, and shorter hospital stays compared to open surgery.",
+        },
+        {
+            id: "ten",
+            question: `Why choose PureCheckup for gallstone treatment in ${city}?`,
+            answer: `PureCheckup provides expert surgeons, modern hospitals, transparent processes, insurance assistance, and personalized support — ensuring a smooth and stress-free treatment journey in ${city}.`,
+        },
+    ];
 
 
     const gallstoneData = {
@@ -333,7 +333,7 @@ const GallstonesInSpecialCity = () => {
             </section>
 
             <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+                <Heading text1="Frequently Asked Questions in " text2={`${city}`} className="mb-10" />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -351,7 +351,7 @@ const GallstonesInSpecialCity = () => {
                     costSubtitle={`Pricing varies by case severity, city (${city}), and insurance coverage.`}
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Laparoscopic Hernia",
+                        "Grade and type of Gallstone",
                         "Hospital category and room",
                         "Insurance coverage and approvals",
                         "Additional diagnostics if needed",

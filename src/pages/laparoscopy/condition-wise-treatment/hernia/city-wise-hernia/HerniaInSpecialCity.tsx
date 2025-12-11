@@ -210,7 +210,7 @@ const HerniaInSpecialCity = () => {
       </section>
       <TreatmentProcess />
       <section className="pb-20 px-4">
-        <Heading text1="FAQs on Rectal Prolapse Surgery in" text2={city} />
+        <Heading text1="FAQs on Hernia Treatment in" text2={city} />
         <FAQ faqs={faqs} />
       </section>
 
@@ -235,11 +235,11 @@ const HerniaInSpecialCity = () => {
 
       <section className="py-20">
         <ConditionCityWiseTreatment
-          treatmentName="Rectal Prolapse"
+          treatmentName="Hernia"
           costSubtitle="Pricing varies by case severity, city, and insurance coverage."
           paymentOptions="Payment Options: EMI Available | Cashless Insurance"
           costFactors={[
-            "Grade and type of piles",
+            "Grade and type of Hernia",
             "Hospital category and room",
             "Insurance coverage and approvals",
             "Additional diagnostics if needed",
