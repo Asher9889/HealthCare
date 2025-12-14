@@ -14,26 +14,59 @@
     th { background: #9acd32; text-align: left; }
   </style>
 </head>
+
 <body>
-  <h2>XML Sitemap Index</h2>
-  <table>
-    <tr>
-      <th>URL</th>
-      <th>Last Modified</th>
-    </tr>
-    <xsl:for-each select="s:sitemapindex/s:sitemap">
+
+<xsl:choose>
+
+  <!-- ========================= -->
+  <!-- SITEMAP INDEX -->
+  <!-- ========================= -->
+  <xsl:when test="s:sitemapindex">
+    <h2>XML Sitemap Index</h2>
+    <table>
       <tr>
-        <td>
-          <a href="{s:loc}">
-            <xsl:value-of select="s:loc"/>
-          </a>
-        </td>
-        <td>
-          <xsl:value-of select="s:lastmod"/>
-        </td>
+        <th>URL</th>
+        <th>Last Modified</th>
       </tr>
-    </xsl:for-each>
-  </table>
+      <xsl:for-each select="s:sitemapindex/s:sitemap">
+        <tr>
+          <td>
+            <a href="{s:loc}">
+              <xsl:value-of select="s:loc"/>
+            </a>
+          </td>
+          <td>
+            <xsl:value-of select="s:lastmod"/>
+          </td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </xsl:when>
+
+  <!-- ========================= -->
+  <!-- URL SET -->
+  <!-- ========================= -->
+  <xsl:when test="s:urlset">
+    <h2>URL Sitemap</h2>
+    <table>
+      <tr>
+        <th>URL</th>
+      </tr>
+      <xsl:for-each select="s:urlset/s:url">
+        <tr>
+          <td>
+            <a href="{s:loc}">
+              <xsl:value-of select="s:loc"/>
+            </a>
+          </td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </xsl:when>
+
+</xsl:choose>
+
 </body>
 </html>
 </xsl:template>
