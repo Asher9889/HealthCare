@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/static-pages.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/categories.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/surgeries.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/treatments.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/treatment-city-pages.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://www.purecheckup.com/sitemaps/blogs.xml</loc>
+    <lastmod>2025-12-14</lastmod>
+  </sitemap>
+
+</sitemapindex>
