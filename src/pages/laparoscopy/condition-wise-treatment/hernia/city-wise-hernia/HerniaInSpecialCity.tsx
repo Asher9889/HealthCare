@@ -40,7 +40,6 @@ const treatments = [
   },
 ];
 
-
 const testimonials = [
   {
     quote:
@@ -176,6 +175,7 @@ const HerniaInSpecialCity = () => {
         consultations={["Clinic", "Online"]}
       />
       <StatsBar />
+
       <section className="py-20 mx-auto max-w-7xl px-4">
         <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
         {constantData.specialists.map((doc) => (
@@ -204,10 +204,12 @@ const HerniaInSpecialCity = () => {
           ))}
         </div>
       </section>
+
       <section className="">
         <Heading text1="Patient Stories" text2={city} />
         <AnimatedTestimonial testimonials={testimonials} />
       </section>
+
       <TreatmentProcess />
       <section className="pb-20 px-4">
         <Heading text1="FAQs on Hernia Treatment in" text2={city} />
