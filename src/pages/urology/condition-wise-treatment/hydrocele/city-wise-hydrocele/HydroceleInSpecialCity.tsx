@@ -1,366 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const hydroceleData = {
-    title1: "Hydrocele ?",
-    title2: "Treatment & Information",
-    description:
-        "A hydrocele is a condition where fluid accumulates around the testicle, causing swelling in the scrotum. It is often painless but can lead to discomfort, heaviness, or embarrassment. While some hydroceles resolve on their own, persistent cases require surgery (hydrocelectomy) for permanent relief.",
-
-    tabsData: [
-        {
-            value: "what-is-hydrocele",
-            label: "What is Hydrocele ?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-2">
-                    <p>
-                        A hydrocele is a common urological condition characterized by fluid collection around one or both testicles, leading to scrotal swelling. It may be congenital (in infants) or acquired (in adults due to injury, infection, or inflammation).
-                    </p>
-                    <p>
-                        Persistent hydroceles typically need surgical treatment called <strong>hydrocelectomy</strong> to prevent complications and restore comfort.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types of Surgery",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Two primary hydrocele surgery options in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>
-                            <strong>Conventional (Open) Hydrocelectomy:</strong> Removal or repair of the hydrocele sac through a small scrotal or groin incision. Safe and effective under local or general anesthesia.
-                        </li>
-                        <li>
-                            <strong>Laparoscopic Hydrocelectomy (Minimally Invasive):</strong> Performed using a tiny camera and instruments for minimal pain, faster recovery, and minimal scarring.
-                        </li>
-                    </ul>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Faster recovery</li>
-                        <li>Less pain and bleeding</li>
-                        <li>Minimal scarring</li>
-                        <li>Same-day discharge</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Hydrocele can develop due to:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Infection or injury in the testicles or scrotum</li>
-                        <li>Blockage in the spermatic cord or lymphatics</li>
-                        <li>Inflammation due to epididymitis or orchitis</li>
-                        <li>Birth defects (in infants)</li>
-                        <li>Post-surgical complications or trauma</li>
-                    </ul>
-                    <p>If swelling persists for more than a few weeks, consult a urology specialist immediately.</p>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Common symptoms include:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Painless swelling in one or both testicles</li>
-                        <li>Feeling of heaviness in the scrotum</li>
-                        <li>Fluid-filled sac appearance</li>
-                        <li>Dull ache or discomfort during movement</li>
-                        <li>Difficulty walking or sitting due to enlarged scrotum</li>
-                    </ul>
-                    <p>Early diagnosis helps prevent complications like infection or hernia formation.</p>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of hydrocele surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Permanent removal of swelling and discomfort</li>
-                        <li>Improved physical comfort and mobility</li>
-                        <li>Minimal pain and scarring (with laparoscopic surgery)</li>
-                        <li>Quick recovery — resume normal life in 2–3 days</li>
-                        <li>Boosts confidence and sexual wellness</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Hydrocele Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                At PureCheckup, we provide advanced hydrocele surgery performed by top urologists and laparoscopic surgeons across India.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Modern, minimally invasive surgical technology</li>
-                <li>24x7 medical support and care</li>
-                <li>Free doctor consultations</li>
-                <li>Complete insurance assistance</li>
-                <li>Affordable packages starting from ₹25,000*</li>
-            </ul>
-            <p>
-                Whether you’re seeking hydrocele surgery near you or cashless treatment, PureCheckup ensures a safe, smooth, and stress-free experience.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com",
-};
-
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Laser Hydrocele Surgery",
+        description:
+            "Minimally invasive laser procedure for hydrocele. Safe, precise, and offers faster recovery with minimal discomfort.",
+        downtime: "2–4 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Hydrocelectomy (Open Surgery)",
+        description:
+            "Traditional surgical option for larger or long-standing hydroceles. Performed by expert surgeons with high success rates.",
+        downtime: "5–7 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Needle Aspiration for Hydrocele",
+        description:
+            "A quick outpatient procedure for temporary relief by removing accumulated fluid. Best for patients avoiding surgery.",
+        downtime: "1–2 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Sclerotherapy for Hydrocele",
+        description:
+            "Non-surgical treatment where fluid is drained, and medication is used to prevent recurrence. Suitable for selected cases.",
+        downtime: "2–3 days",
+    },
+    {
+        title: "Post-Surgery Care & Dressing",
+        description:
+            "Comprehensive post-treatment care to ensure proper healing, prevent infections, and support long-term comfort.",
+        downtime: "None",
+    },
+    {
+        title: "Follow-up Consultation & Recovery Guidance",
+        description:
+            "Scheduled follow-ups to monitor healing, guide activity restrictions, and provide lifestyle tips for a smooth recovery.",
+        downtime: "None",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Laparoscopic Hydrocelectomy (Recommended)",
-        points: [
-            "Minimally invasive, less pain and bleeding",
-            "Safe and effective with minimal scarring",
-            "Quick recovery with same-day discharge",
-        ],
-        highlight: false,
+        quote:
+            "I was suffering from hydrocele for years. The laser surgery was a life changer. Minimal pain and I was back to work in 3 days.",
+        name: "Manoj Tiwari",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and support"],
-        highlight: false,
+        quote:
+            "Very experienced doctors. They explained the procedure well. Surgery was quick and recovery was smooth.",
+        name: "Ravi Kumar",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional (Open) Hydrocelectomy",
-        points: ["Recommended based on case severity"],
-        highlight: false,
+        quote:
+            "Clean facility and caring staff. The cost was reasonable and insurance process was hassle-free.",
+        name: "Suresh Patel",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "I was scarce of surgery but the team made me comfortable. Laser hydrocelectomy is definitely recommended.",
+        name: "Amit Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Good post-op care. The swelling went down quickly and I had no complications.",
+        name: "Vijay Das",
+        designation: "Patient",
+        stars: 4,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const HydroceleInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of a hydrocele treatment surgery in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        The cost typically ranges from ₹25,000 to ₹60,000 and varies by {city}, hospital type, surgery technique, and surgeon experience.
-                    </p>
-                    <p>
-                        <strong>PureCheckup</strong> provides transparent pricing with no hidden charges.
-                    </p>
-                </div>
-            ),
+            question: `Why choose PureCheckup for hydrocele treatment in ${formattedCity}?`,
+            answer: `PureCheckup provides expert surgeons, advanced technology, and safe procedures for hydrocele treatment in ${formattedCity}, ensuring reliable and effective results.`,
         },
         {
             id: "two",
-            question: "Does insurance cover hydrocele treatment surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        Yes, most health insurance plans cover hydrocele surgery, including consultation, operation, and hospitalization.
-                    </p>
-                    <p>
-                        <strong>PureCheckup</strong> assists with eligibility checks and cashless claims.
-                    </p>
-                </div>
-            ),
+            question: `How do I book a free consultation for hydrocele treatment in ${formattedCity}?`,
+            answer: `You can book a free consultation for hydrocele treatment in ${formattedCity} through PureCheckup’s online platform or by calling our support team.`,
         },
         {
             id: "three",
-            question: `Which provider offers the best treatment at the best price in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        <strong>PureCheckup</strong> offers top-rated, affordable, and cashless hydrocele surgeries performed by experienced urologists across {city}.
-                    </p>
-                </div>
-            ),
+            question: `What is the online platform to book a hydrocele treatment in ${formattedCity}?`,
+            answer: `PureCheckup offers a secure online booking system where patients in ${formattedCity} can schedule hydrocele treatment consultations with specialist surgeons.`,
         },
         {
             id: "four",
-            question: "How to book a hydrocele treatment surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com
-                            </a>
-                        </li>
-                        <li>Fill in your details to request a free consultation</li>
-                        <li>Or call our 24×7 helpline at <strong>+91-9211930749</strong> for a same-day appointment</li>
-                    </ul>
-                </div>
-            ),
+            question: `Is hydrocele treatment at PureCheckup safe in ${formattedCity}?`,
+            answer: `Yes, PureCheckup in ${formattedCity} follows strict medical protocols and uses modern techniques to ensure safe and effective hydrocele treatment.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for a hydrocele?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        The most definitive treatment is <strong>hydrocelectomy</strong>. Minimally invasive laparoscopic hydrocelectomy is painless and ensures quick recovery.
-                    </p>
-                </div>
-            ),
+            question: `How long does recovery take after hydrocele treatment in ${formattedCity}?`,
+            answer: `Recovery varies by treatment type, but most patients in ${formattedCity} experience quick healing and minimal downtime with PureCheckup’s advanced procedures.`,
         },
         {
             id: "six",
-            question: "What are the first signs of a hydrocele?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Swelling in the scrotum, heaviness, and fluid build-up appearance are early signs. If swelling persists, seek medical attention.</p>
-                </div>
-            ),
+            question: `What types of hydrocele treatments are available in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} offers Laser Hydrocele Surgery, Hydrocelectomy, Needle Aspiration, Sclerotherapy, and complete post-surgery care.`,
         },
         {
             id: "seven",
-            question: "How painful is hydrocele treatment surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        With modern laparoscopic techniques under anesthesia, the procedure is nearly painless and recovery is comfortable.
-                    </p>
-                </div>
-            ),
+            question: `Can I consult a surgeon online for hydrocele treatment in ${formattedCity}?`,
+            answer: `Yes, PureCheckup provides online consultations in ${formattedCity} where you can discuss symptoms, treatment options, and pricing with expert surgeons.`,
         },
         {
             id: "eight",
-            question: "How long does it take to recover from hydrocele surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        Most patients return to daily activities within 2–3 days and achieve full recovery in 1–2 weeks.
-                    </p>
-                </div>
-            ),
+            question: `How much does hydrocele treatment cost in ${formattedCity}?`,
+            answer: `The cost of hydrocele treatment in ${formattedCity} depends on the procedure type. PureCheckup offers free consultations and No-Cost EMI options.`,
         },
         {
             id: "nine",
-            question: "Can a hydrocele come back after surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>
-                        Recurrence is rare, especially when performed by experienced surgeons like those at PureCheckup.
-                    </p>
-                </div>
-            ),
+            question: `Are hydrocele treatments at PureCheckup painless in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} uses minimally invasive and laser-based techniques to ensure the treatment is as painless and comfortable as possible.`,
         },
         {
             id: "ten",
-            question: "Why choose PureCheckup for hydrocele surgery?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Advanced minimally invasive surgical technology</li>
-                        <li>24x7 medical support and free consultations</li>
-                        <li>Insurance assistance and affordable packages</li>
-                    </ul>
-                </div>
-            ),
+            question: `How can I care for myself after hydrocele treatment in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} provides detailed post-care instructions, follow-up visits, and recovery guidance to ensure smooth and fast healing.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Hydrocele Laser Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Get safe and advanced Hydrocele Laser Surgery in ${formattedCity} with expert surgeons quick recovery, minimal pain, free consultation, no-cost EMI | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`hydrocele treatment in ${formattedCity}, hydrocele surgery in ${formattedCity}, laser hydrocele surgery in ${formattedCity}, hydrocele operation in ${formattedCity}, hydrocele doctor in ${formattedCity}, hydrocele specialist in ${formattedCity}, hydrocele treatment near me in ${formattedCity}, best hydrocele surgeon in ${formattedCity}, hydrocele laser treatment cost in ${formattedCity}, painless hydrocele surgery in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/hydrocele/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Advanced Hydrocele Treatment Surgery in ${city} – Safe, Painless & Affordable`}
-                description={`Minimally invasive hydrocelectomy in ${city} with faster recovery, same-day discharge, and full insurance support.`}
+                title={`Get Safe & Advanced Hydrocele Treatment and Laser Surgery in ${formattedCity} – Experienced Surgeons, 24/7 Support, Fast & Painless Recovery`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={hydroceleData.title1}
-                description={hydroceleData.description}
-                tabsData={hydroceleData.tabsData}
-                expertHeading={`Expert Hydrocele Treatment Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={hydroceleData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Hydrocele Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -368,20 +225,26 @@ const HydroceleInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Hydrocele in ${city}`}
+                    treatmentName="Hydrocele"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "City and hospital location",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Type of surgery (open or laparoscopic)",
+                        "Type of procedure (Laser/Open)",
+                        "Unilateral or Bilateral Hydrocele",
+                        "Hospital category",
+                        "Anesthesia charges",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -389,7 +252,8 @@ const HydroceleInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

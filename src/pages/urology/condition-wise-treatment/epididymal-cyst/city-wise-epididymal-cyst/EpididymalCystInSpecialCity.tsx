@@ -1,285 +1,217 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const epididymalCystData = {
-    title1: "Epididymal Cyst Surgery ?",
-    title2: "Minimally Invasive Urological Procedure",
-    description:
-        "Epididymal cyst surgery (spermatocelectomy) is performed to remove fluid-filled cysts in the epididymis. Minimally invasive techniques ensure less pain, faster recovery, and minimal scarring, preserving fertility and comfort.",
-    tabsData: [
-        {
-            value: "what-is-cyst",
-            label: "What is Epididymal Cyst Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        The surgery removes cysts from the epididymis using open, microsurgical, or laser-assisted techniques. It typically takes 30–45 minutes, with most patients returning home the same day.
-                    </p>
-                    <p>
-                        The procedure relieves discomfort, protects fertility, and prevents recurrence.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Conventional Excision:</strong> Standard open surgery for larger cysts.</li>
-                        <li><strong>Microsurgical Removal:</strong> Fertility-preserving method with reduced complications.</li>
-                        <li><strong>Laser-Assisted Removal:</strong> Minimally invasive, reduces bleeding and recovery time.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Blockage in epididymal ducts</li>
-                        <li>Prior infection or inflammation</li>
-                        <li>Hormonal changes</li>
-                        <li>Age-related factors (common above 40)</li>
-                        <li>Scrotal trauma or injury</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Painless lump or swelling near the testicle</li>
-                        <li>Heaviness or dragging sensation in the scrotum</li>
-                        <li>Mild discomfort during activity</li>
-                        <li>Occasional pain or tenderness</li>
-                        <li>Persistent swelling</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Permanent cyst removal</li>
-                        <li>Relief from pain and discomfort</li>
-                        <li>Improved fertility in select cases</li>
-                        <li>Quick recovery and minimal downtime</li>
-                        <li>Enhanced confidence and quality of life</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Epididymal Cyst Surgery – PureCheckup",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>PureCheckup connects patients with top urologists and advanced hospitals offering:</p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Experienced surgeons specializing in minimally invasive cyst removal</li>
-                <li>Personalized treatment plans</li>
-                <li>24/7 medical assistance and guidance</li>
-                <li>Hassle-free documentation and insurance support</li>
-                <li>Post-surgery follow-up and recovery support</li>
-            </ul>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/epididymal-cyst",
-};
-
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Epididymal Cyst Surgery (Minimally Invasive)",
+        description:
+            "Safe, minimally invasive procedure to remove cysts causing swelling, discomfort, or pain in the scrotum. Ensures long-term relief with fast recovery.",
+        downtime: "3–5 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Microsurgical Epididymal Cyst Removal",
+        description:
+            "Precision surgery using microsurgical techniques to preserve fertility and avoid damage to surrounding structures. Ideal for complex or large cysts.",
+        downtime: "5–7 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Conservative Management (Small Cysts)",
+        description:
+            "For small asymptomatic cysts, expert monitoring and symptom-based care are provided with guidance from experienced urologists.",
+        downtime: "None",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Aspiration & Sclerotherapy (Selective Cases)",
+        description:
+            "Non-surgical fluid drainage for selected patients not suitable for surgery. Provides temporary relief.",
+        downtime: "1–2 days",
+    },
+    {
+        title: "Post-Treatment Care & Follow-Up",
+        description:
+            "Professional follow-up care ensures smooth healing, prevents recurrence, and reduces complications.",
+        downtime: "N/A",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advanced Epididymal Cyst Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I had a lump for months. The doctor at PureCheckup diagnosed it quickly as a cyst. Surgery was smooth.",
+        name: "Suresh Menon",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "Minimal pain and fast recovery. I was back to my routine in a few days.",
+        name: "Karan Johar",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "The microsurgery option was great. No complications at all.",
+        name: "Vikram Rathore",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Very supportive staff and clean hospital. Insurance claim was easy.",
+        name: "Anil Kapoor",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Thank you PureCheckup for the excellent service. Highly recommend.",
+        name: "Rajeev Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const EpididymalCystInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of epididymal cyst surgery treatment in ${city}?`,
-            answer:
-                `The cost in ${city} varies depending on hospital and surgical type. PureCheckup provides affordable, transparent pricing without compromising quality.`,
+            question: `What is the best treatment for an epididymal cyst in ${formattedCity}?`,
+            answer: `The best treatment for an epididymal cyst in ${formattedCity} depends on its size and symptoms. PureCheckup offers minimally invasive surgery for symptomatic cysts and conservative monitoring for smaller ones, ensuring safe and effective relief.`,
         },
         {
             id: "two",
-            question: "Does insurance cover epididymal cyst surgery treatment?",
-            answer:
-                "Yes, most health insurance plans cover epididymal cyst surgery as it is medically necessary. PureCheckup assists with claim support and cashless approval.",
+            question: `When is epididymal cyst surgery needed?`,
+            answer: `Surgery is required when the cyst causes pain, swelling, discomfort, sexual issues, or affects daily activities. PureCheckup specialists evaluate the cyst and recommend the safest approach.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best treatment at a reasonable price in ${city}?`,
-            answer:
-                `PureCheckup partners with top-rated urologists and multi-specialty hospitals across ${city} to deliver expert care at the best value.`,
+            question: `How much does epididymal cyst surgery cost in ${formattedCity}?`,
+            answer: `The cost varies based on severity and procedure type. PureCheckup provides transparent pricing, free consultation, and no-cost EMI options for affordable treatment in ${formattedCity}.`,
         },
         {
             id: "four",
-            question: "How can I book an epididymal cyst treatment surgery with PureCheckup?",
-            answer: (
-                <div className="space-y-2 text-(--text-primary) font-medium">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Visit PureCheckup.com</li>
-                        <li>Fill out the online consultation form</li>
-                        <li>Call the helpline for same-day appointment scheduling</li>
-                    </ul>
-                </div>
-            ),
+            question: `Is epididymal cyst surgery safe?`,
+            answer: `Yes. Epididymal cyst surgery is a safe, minimally invasive procedure performed by trained urologists. PureCheckup ensures sterile environments, expert care, and fast recovery.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for an epididymal cyst?",
-            answer:
-                "Surgical removal, known as epididymal cyst excision or spermatocelectomy, is the most effective and permanent treatment for large or symptomatic cysts.",
+            question: `How long does recovery take after epididymal cyst surgery?`,
+            answer: `Most patients recover within 3–7 days. Full healing may take 2–3 weeks. PureCheckup provides complete guidance for safe and quick recovery.`,
         },
         {
             id: "six",
-            question: "What are the first signs of an epididymal cyst?",
-            answer:
-                "Early signs include a painless lump or swelling near the testicle and a heaviness or dragging sensation in the scrotum.",
+            question: `Can an epididymal cyst cause fertility problems?`,
+            answer: `Most cysts do not affect fertility, but very large cysts or untreated inflammation may cause complications. Early evaluation at PureCheckup helps prevent fertility-related issues.`,
         },
         {
             id: "seven",
-            question: "How painful is epididymal cyst surgery treatment?",
-            answer:
-                "The surgery is virtually painless, performed under local or general anesthesia. Post-surgery discomfort is minimal and manageable.",
+            question: `Are epididymal cysts cancerous?`,
+            answer: `No. Epididymal cysts are benign fluid-filled sacs and are not cancerous. However, diagnosis by an expert in ${formattedCity} is recommended to rule out other conditions.`,
         },
         {
             id: "eight",
-            question: "How long does recovery take after epididymal cyst surgery?",
-            answer:
-                "Most patients return to normal activities within 3–5 days and achieve full recovery within two weeks.",
+            question: `What symptoms indicate the need for epididymal cyst treatment?`,
+            answer: `Pain, swelling, heaviness in the scrotum, discomfort while walking, or visible lumps indicate that treatment may be required.`,
         },
         {
             id: "nine",
-            question: "Is epididymal cyst surgery safe?",
-            answer:
-                "Yes. When performed by experienced urologists, the procedure is highly safe and effective, with very low risk of complications.",
+            question: `How do I book a free consultation for epididymal cyst treatment in ${formattedCity}?`,
+            answer: `You can book through the PureCheckup website by selecting your city and treatment. Free consultations are available with no-cost EMI support.`,
         },
         {
             id: "ten",
-            question: "Can epididymal cysts come back after surgery?",
-            answer:
-                "Recurrence is rare, especially when the entire cyst and its lining are completely removed. Regular follow-ups ensure long-term results.",
+            question: `Can epididymal cysts go away on their own?`,
+            answer: `Small cysts may remain stable and symptom-free. Large or painful cysts usually require medical or surgical treatment for long-term relief.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Epididymal Cyst Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Advanced Epididymal cyst removal in ${formattedCity} by PureCheckup. Free consultation, minimal downtime, expert surgeons, and no-cost EMI available.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`epididymal cyst treatment in ${formattedCity}, epididymal cyst surgery in ${formattedCity}, epididymal cyst removal in ${formattedCity}, best epididymal cyst doctor in ${formattedCity}, epididymal cyst symptoms in ${formattedCity}, epididymal cyst causes in ${formattedCity}, epididymal cyst treatment cost in ${formattedCity}, recovery after epididymal cyst surgery in ${formattedCity}, online consultation for epididymal cyst in ${formattedCity}, epididymal cyst specialist in ${formattedCity}, epididymal cyst clinic in ${formattedCity}, affordable epididymal cyst treatment in ${formattedCity}, epididymal cyst surgeon near me in ${formattedCity}, minimally invasive epididymal cyst surgery in ${formattedCity}, top epididymal cyst hospital in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/epididymal-cyst/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Advanced & Painless Epididymal Cyst Surgery in ${city} | Quick Recovery & Expert Urologists`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Affordable Epididymal Cyst Surgery in ${formattedCity}- Expert Surgeons, Fast Recovery`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={epididymalCystData.title1}
-                description={epididymalCystData.description}
-                tabsData={epididymalCystData.tabsData}
-                expertHeading={`Expert Epididymal Cyst Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={epididymalCystData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Epididymal Cyst Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -287,20 +219,26 @@ const EpididymalCystInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Epididymal Cyst in ${city}`}
+                    treatmentName="Epididymal Cyst"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Epididymal Cyst",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Surgery type (Standard/Microsurgery)",
+                        "Cyst size & complexity",
+                        "Hospital charges",
+                        "Follow-up care",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -308,7 +246,8 @@ const EpididymalCystInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

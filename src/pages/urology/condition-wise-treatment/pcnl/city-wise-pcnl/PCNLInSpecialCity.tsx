@@ -1,310 +1,211 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const pcnlData = {
-    title1: "PCNL",
-    title2: "Surgery & Information",
-    description:
-        "Percutaneous Nephrolithotomy (PCNL) is a minimally invasive surgical procedure for removing large, multiple, or complex kidney stones through a small incision in the skin. PCNL offers precise stone removal, faster recovery, and lower complications compared to traditional open surgery. PureCheckup connects patients with expert urologists and top hospitals across India, offering safe, effective, and insured PCNL treatment.",
-
-    tabsData: [
-        {
-            value: "what-is-pcnl",
-            label: "What is PCNL?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        PCNL is a minimally invasive procedure designed to remove kidney stones through a small incision in the skin. Unlike open surgery, it uses specialized instruments for precise and effective stone removal.
-                    </p>
-                    <p>
-                        The procedure is highly recommended for large, multiple, or complex stones, ensuring minimal pain, faster recovery, and a shorter hospital stay.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types of PCNL Surgery",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>PureCheckup provides advanced PCNL procedures in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Standard PCNL:</strong> Traditional percutaneous kidney stone removal.</li>
-                        <li><strong>Mini-PCNL:</strong> Uses smaller instruments, less pain, and faster recovery.</li>
-                        <li><strong>Ultra-Mini & Micro-PCNL:</strong> Ideal for pediatric or very small stones.</li>
-                        <li><strong>ECIRS (Endoscopic Combined Intrarenal Surgery):</strong> Combines PCNL with flexible ureteroscopy for complex stones.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>PCNL is indicated in cases of:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Large stones unsuitable for ESWL</li>
-                        <li>Staghorn or complex kidney stones</li>
-                        <li>Recurrent urinary tract infections caused by stones</li>
-                        <li>Stones causing kidney obstruction or damage</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>You may need PCNL if you experience:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Severe back or flank pain</li>
-                        <li>Blood in urine (hematuria)</li>
-                        <li>Frequent urinary tract infections</li>
-                        <li>Nausea or vomiting due to kidney obstruction</li>
-                        <li>Difficulty passing stones naturally</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of PCNL include:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Minimally invasive procedure with small incision</li>
-                        <li>High success rate for large or complex stones</li>
-                        <li>Faster recovery than open surgery</li>
-                        <li>Reduced pain and shorter hospital stay</li>
-                        <li>Ability to remove multiple stones in a single session</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert PCNL Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                At PureCheckup, PCNL surgeries are performed by top urologists using state-of-the-art instruments and techniques for precise and effective kidney stone removal.
-            </p>
-            <p>
-                Our hospitals provide comprehensive care from consultation to post-operative follow-up, ensuring safe, minimally invasive treatment.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Performed by experienced urologists and kidney stone specialists</li>
-                <li>Advanced surgical technology and instrumentation</li>
-                <li>Minimal hospital stay and faster recovery</li>
-                <li>Insurance coverage and EMI options available</li>
-                <li>Available in major cities across India</li>
-            </ul>
-            <p>
-                Choose PureCheckup for a professional, safe, and effective PCNL surgery experience tailored to your medical needs.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/pcnl",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Standard PCNL (Percutaneous Nephrolithotomy)",
+        description:
+            "A keyhole surgical procedure for large or complex kidney stones (>2 cm). A small incision is made in the back to directly access and remove stones. High success rate and ideal for hard, dense stones.",
+        downtime: "7–10 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Mini-PCNL (Minimally Invasive PCNL)",
+        description:
+            "A smaller, advanced version of PCNL using miniature instruments. Reduces bleeding, pain, and hospital stay. Best for medium to large stones requiring precision removal.",
+        downtime: "3–6 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Ultra Mini-PCNL",
+        description:
+            "Uses ultra-small instruments for reduced tissue damage and faster recovery. Suitable for stones up to 1.5–2 cm. Offers quicker healing compared to standard PCNL.",
+        downtime: "2–4 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Micro-PCNL (Microchannel PCNL)",
+        description:
+            "The least invasive PCNL technique using a microchannel to access the kidney. Ideal for small to moderate stones requiring surgical removal without major cuts.",
+        downtime: "1–3 days",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advanced PCNL Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I had a huge staghorn stone. Doctors said open surgery, but PureCheckup suggested PCNL. It was done with just a small hole and I am stone-free now.",
+        name: "Vikram Rathore",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "My father underwent Mini-PCNL. He is diabetic but the procedure was safe and recovery was smooth. Very tankful to the team.",
+        name: "Neeraj Gupta",
+        designation: "Son of Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "Experienced doctors and good hospital facilities. The surgery went exactly as planned.",
+        name: "Sanjay Mishra",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Recovery took about a week but the pain was manageable. The stone clearance was 100%.",
+        name: "Ankit Jain",
+        designation: "Patient",
+        stars: 4,
+    },
+    {
+        quote:
+            "insurance claim was handled by their team seamlessly. I focused only on my health.",
+        name: "Rahul Khanna",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const PCNLInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of PCNL treatment surgery in ${city}?`,
-            answer:
-                `The cost of PCNL surgery in ${city} varies depending on the hospital, city, and complexity of kidney stones. Contact PureCheckup for a personalized consultation and cost estimate.`,
+            question: `What is PCNL surgery, and who needs it in ${formattedCity}?`,
+            answer: `Percutaneous Nephrolithotomy (PCNL) is a minimally invasive surgical procedure to remove large or complex kidney stones. It is recommended for patients in ${formattedCity} with stones larger than 2 cm, staghorn stones, or stones that cannot be treated with ESWL or RIRS. PCNL ensures high stone clearance with minimal recovery time.`,
         },
         {
             id: "two",
-            question: "Does insurance cover PCNL treatment surgery?",
-            answer:
-                "Yes, most major health insurance providers cover PCNL surgery. PureCheckup assists patients with insurance verification, cashless approval, and claim processing for a hassle-free experience.",
+            question: `Why choose PureCheckup for PCNL surgery in ${formattedCity}?`,
+            answer: `PureCheckup offers expert PCNL surgery in ${formattedCity} using state-of-the-art hospitals and experienced urologists. We provide complete patient support, including pre-surgery evaluation, free consultation, flexible appointments, and post-surgery follow-up. Our focus on safety, precision, and local accessibility makes us a trusted choice.`,
         },
         {
             id: "three",
-            question: `Which healthcare provider offers the best PCNL treatment in ${city}?`,
-            answer:
-                `PureCheckup partners with ${city}’s top hospitals and experienced urologists to provide safe, high-quality, and affordable PCNL treatment with advanced surgical technology and complete patient support.`,
+            question: `What is the cost of PCNL treatment in ${formattedCity}?`,
+            answer: `The cost of PCNL surgery in ${formattedCity} varies depending on the stone size, hospital facilities, and pre-surgery tests. PureCheckup provides transparent pricing, offers free consultation, and No-Cost EMI options, ensuring affordable and hassle-free treatment.`,
         },
         {
             id: "four",
-            question: "How to book a PCNL treatment surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking PCNL surgery with PureCheckup is simple and convenient:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/pcnl"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/pcnl
-                            </a>
-                        </li>
-                        <li>Fill in your details to request a consultation</li>
-                        <li>Or call our 24×7 helpline at +91-9211930749 for same-day assistance</li>
-                    </ul>
-                    <p>
-                        Our care team will schedule your consultation with an expert urologist and guide you through insurance and pre-surgery preparations.
-                    </p>
-                </div>
-            ),
+            question: `How do I book a PCNL consultation in ${formattedCity}?`,
+            answer: `Booking a PCNL consultation in ${formattedCity} is easy with PureCheckup. You can call 9211930749, fill out our online form, or chat via WhatsApp. Our coordinators will schedule a free consultation with the best urologists in your area.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for kidney stones?",
-            answer:
-                "PCNL is the gold-standard treatment for large, multiple, or complex kidney stones. Complementary therapies may be recommended for complete stone clearance and faster recovery.",
+            question: `Is PCNL safe for large kidney stones in ${formattedCity}?`,
+            answer: `Yes. PCNL is a safe and effective procedure for large kidney stones in ${formattedCity}. Performed under expert supervision, it uses a small keyhole incision to remove stones with minimal risk and faster recovery compared to open surgery.`,
         },
         {
             id: "six",
-            question: "What are the first signs indicating the need for PCNL treatment?",
-            answer:
-                "Early symptoms include severe back or flank pain, blood in urine (hematuria), frequent urinary infections, nausea or vomiting due to kidney obstruction, and difficulty passing stones. Consult a urologist for evaluation.",
+            question: `How long is the recovery after PCNL in ${formattedCity}?`,
+            answer: `Patients undergoing PCNL in ${formattedCity} typically recover within 5–10 days, depending on stone size and overall health. Most patients can resume normal activities gradually while following post-surgery care instructions from our urologists.`,
         },
         {
             id: "seven",
-            question: "How painful is PCNL treatment surgery?",
-            answer:
-                "PCNL is minimally invasive, performed under anesthesia, and post-operative pain is manageable. Recovery is generally faster and less painful than open surgery.",
+            question: `Who performs PCNL surgery at PureCheckup in ${formattedCity}?`,
+            answer: `PCNL surgeries in ${formattedCity} are performed by board-certified and experienced urologists. Our specialists are trained in minimally invasive techniques, ensuring high success rates and safe, precise stone removal.`,
         },
         {
             id: "eight",
-            question: "Can PCNL be performed on children?",
-            answer:
-                "Yes, Mini-PCNL and Micro-PCNL are safe and effective for pediatric patients, ensuring minimal discomfort and rapid recovery.",
+            question: `Do I need hospitalization after PCNL in ${formattedCity}?`,
+            answer: `Yes, a short hospital stay of 1–3 days is typically required after PCNL in ${formattedCity} to monitor recovery and ensure proper healing. PureCheckup coordinates hospital admission, post-operative care, and discharge efficiently.`,
         },
         {
             id: "nine",
-            question: "How long does it take to recover after PCNL surgery?",
-            answer:
-                "Most patients can resume normal activities within 1–2 weeks depending on stone size, complexity, and overall health. Full recovery is guided by your urologist.",
+            question: `Is PCNL better than RIRS or ESWL for stone removal in ${formattedCity}?`,
+            answer: `PCNL is preferred in ${formattedCity} for large, complex, or hard kidney stones, while RIRS or ESWL are better for smaller stones. PCNL offers higher stone clearance in a single session, making it ideal when other procedures are insufficient.`,
         },
         {
             id: "ten",
-            question: "Are there any complications of PCNL surgery?",
-            answer:
-                "PCNL is generally safe with low risk of complications. Minor bleeding or infection may occur, but your urologist will monitor and manage all potential risks effectively.",
+            question: `What tests are needed before PCNL surgery in ${formattedCity}?`,
+            answer: `Before PCNL in ${formattedCity}, patients undergo routine blood tests, urine analysis, ultrasound, and CT scans to evaluate stone size and location. PureCheckup ensures all necessary investigations are completed locally for accurate and safe treatment planning.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Safe PCNL Surgery ${formattedCity} | PureCheckup | 9211930749`}</title>
+                <meta
+                    name="description"
+                    content={`Get the best PCNL treatment in ${formattedCity} with PureCheckup. Minimally invasive stone removal by expert surgeons. Free consultation & No-cost EMI available.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`pcnl surgery in ${formattedCity}, pcnl treatment in ${formattedCity}, pcnl procedure in ${formattedCity}, pcnl surgeon in ${formattedCity}, pcnl for kidney stones in ${formattedCity}, percutaneous nephrolithotomy in ${formattedCity}, minimally invasive pcnl in ${formattedCity}, laser pcnl treatment in ${formattedCity}, micro pcnl surgery in ${formattedCity}, ultra mini pcnl in ${formattedCity}, kidney stone removal pcnl in ${formattedCity}, pcnl specialist in ${formattedCity} ,best pcnl hospital in ${formattedCity}, pcnl cost in ${formattedCity}, mini pcnl surgery in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/pcnl/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`PCNL Surgery in ${city} – Safe, Effective & Expert Kidney Stone Treatment by PureCheckup`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`PCNL Surgery in ${formattedCity} – Advanced Kidney Stone Removal by Expert Urologists`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={pcnlData.title1}
-                description={pcnlData.description}
-                tabsData={pcnlData.tabsData}
-                expertHeading={`Expert Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={pcnlData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on PCNL Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -312,20 +213,26 @@ const PCNLInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`PCNL in ${city}`}
-                    costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+                    treatmentName="PCNL"
+                    costSubtitle="Pricing varies by case severity, stone complexity, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of PCNL",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Stone size and type (Staghorn/Simple)",
+                        "Technique used (Standard/Mini/Micro)",
+                        "Hospital room category",
+                        "Length of hospital stay",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -333,7 +240,8 @@ const PCNLInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

@@ -1,304 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const frenuloplastyData = {
-    title1: "Frenuloplasty ?",
-    title2: "Surgery & Information",
-    description:
-        "Frenuloplasty surgery is a corrective procedure to release a short or tight frenulum, improving mobility, speech, comfort, and functionality. PureCheckup offers expert frenuloplasty treatment using advanced surgical techniques, ensuring minimal pain, faster recovery, and high-quality care with insurance support.",
-
-    tabsData: [
-        {
-            value: "what-is-frenuloplasty",
-            label: "What is Frenuloplasty?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Frenuloplasty is a surgical procedure that releases a tight or short frenulum, the small fold of tissue connecting the tongue, lips, or genital area to underlying structures.
-                    </p>
-                    <p>
-                        It helps improve speech, oral mobility, and comfort, preventing complications such as restricted movement, pain, or functional difficulties.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Frenuloplasty procedures offered in India include:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Tongue Frenuloplasty:</strong> Corrects tongue-tie for improved speech and oral function.</li>
-                        <li><strong>Labial Frenuloplasty:</strong> Treats tight labial frenulum to prevent gum recession and discomfort.</li>
-                        <li><strong>Genital Frenuloplasty:</strong> Relieves tension in the genital frenulum to enhance comfort and prevent tearing.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Frenuloplasty is recommended when the frenulum is:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Too short or tight, restricting movement of tongue, lips, or genital area</li>
-                        <li>Causing speech difficulties or impacting oral hygiene</li>
-                        <li>Leading to pain or discomfort during daily activities</li>
-                        <li>Creating functional problems such as difficulty breastfeeding or oral activities</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Signs indicating the need for frenuloplasty:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Difficulty in speech or articulation</li>
-                        <li>Limited tongue or lip movement</li>
-                        <li>Pain or tearing during eating or sexual activity</li>
-                        <li>Gum recession or oral hygiene issues</li>
-                        <li>Persistent discomfort in the frenulum area</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Frenuloplasty surgery provides multiple benefits:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Improved mobility of tongue, lips, or genital area</li>
-                        <li>Enhanced speech and oral functions</li>
-                        <li>Pain relief and prevention of tissue tearing</li>
-                        <li>Faster recovery with minimal complications</li>
-                        <li>Improved quality of life and comfort in daily activities</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Frenuloplasty Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup offers expert frenuloplasty surgery across India with certified surgeons, modern techniques, and personalized care.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Performed by experienced surgeons for tongue, labial, and genital frenuloplasty</li>
-                <li>Minimally invasive procedures ensuring minimal pain</li>
-                <li>Short recovery period and fast healing</li>
-                <li>Cashless insurance and EMI options available</li>
-                <li>Available in major cities across India</li>
-            </ul>
-            <p>
-                Experience safe, professional, and effective frenuloplasty treatment with PureCheckup, tailored to your medical needs.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/frenuloplasty",
-};
-
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Frenuloplasty Surgery",
+        description:
+            "Minimally invasive procedure to release a tight frenulum, improving function and comfort. Safe, quick, and performed by expert surgeons.",
+        downtime: "3–5 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Circumcision Surgery",
+        description:
+            "Surgical removal of the foreskin to treat tight foreskin or recurrent infections. Quick recovery with minimal pain.",
+        downtime: "5–7 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Penile Frenulectomy",
+        description:
+            "Minor surgical procedure to release a short frenulum, restoring normal movement and reducing pain during activity.",
+        downtime: "2–4 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Hypospadias Repair Surgery",
+        description:
+            "Corrective surgery to fix congenital urethral opening issues, improving urinary function and appearance.",
+        downtime: "7–10 days",
+    },
+    {
+        title: "Urethroplasty Surgery",
+        description:
+            "Surgical correction of urethral strictures to restore normal urine flow. Performed with minimal incision and a high success rate.",
+        downtime: "5–7 days",
+    },
+    {
+        title: "Varicocele Surgery",
+        description:
+            "Surgical treatment for enlarged veins in the scrotum improves fertility and reduces discomfort.",
+        downtime: "4–6 days",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Frenuloplasty Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I had pain for a long time due to tight frenulum. Frenuloplasty at PureCheckup solved it in 20 minutes. Very happy.",
+        name: "Mohan Das",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "Discreet and professional service. The doctor made me feel comfortable. Healing was quick.",
+        name: "Siddharth Malhotra",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "I was worried about pain but laser frenuloplasty was almost painless. I went home the same day.",
+        name: "Arun Kumar",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Affordable procedure with no hidden costs. The support team was very helpful.",
+        name: "Rajesh Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Good follow-up care. The swelling subsided in 2 days. Highly recommend PureCheckup.",
+        name: "Vinay Gupta",
+        designation: "Patient",
+        stars: 4,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const FrenuloplastyInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of frenuloplasty surgery in ${city}?`,
-            answer:
-                `The cost of frenuloplasty surgery in ${city} depends on the type of procedure, hospital, and patient requirements. Contact PureCheckup for detailed guidance and personalized estimates.`,
+            question: `Why choose PureCheckup for Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `PureCheckup offers minimally invasive frenuloplasty surgery in ${formattedCity}, focusing on precise frenulum release to improve comfort, sexual function, and mobility. Expert urologists, modern OT setup, transparent pricing, and day-care discharge make it a safe and convenient choice for patients in ${formattedCity}.`,
         },
         {
             id: "two",
-            question: "Does insurance cover frenuloplasty surgery?",
-            answer:
-                "Yes, PureCheckup accepts all major insurance policies and assists patients with smooth claim processing for hassle-free treatment.",
+            question: `How do I book a Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `You can book a frenuloplasty surgery in ${formattedCity} by filling out the online appointment form or requesting a callback for same-day assistance. A dedicated care coordinator will confirm your slot, explain the process, and guide you on pre-surgery requirements.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best frenuloplasty treatment in ${city}?`,
-            answer:
-                `PureCheckup provides expert frenuloplasty surgery in ${city}, combining skilled surgeons, advanced techniques, and full insurance coverage for safe and effective outcomes.`,
+            question: `What is the online platform to book a Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `Frenuloplasty surgery in ${formattedCity} can be booked directly through PureCheckup’s official website or mobile-friendly booking page. The platform lets you choose a preferred time, upload reports, and receive confirmation and reminders digitally.`,
         },
         {
             id: "four",
-            question: "How can I book a frenuloplasty surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking frenuloplasty surgery with PureCheckup is easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/frenuloplasty"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/frenuloplasty
-                            </a>
-                        </li>
-                        <li>Fill in your details or call our 24×7 helpline at +91-9211930749</li>
-                        <li>Our team will schedule a consultation with an expert surgeon</li>
-                    </ul>
-                </div>
-            ),
+            question: `How much does Frenuloplasty Surgery cost in ${formattedCity}?`,
+            answer: `The cost of frenuloplasty surgery in ${formattedCity} generally depends on hospital category, surgeon’s experience, and anesthesia type. PureCheckup maintains clear, upfront pricing with package-based estimates shared before admission so you know the approximate total cost in advance.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for frenuloplasty surgery?",
-            answer:
-                "Expert surgical intervention under the guidance of certified surgeons ensures safe, effective, and precise results for all types of frenuloplasty procedures.",
+            question: `What is the recovery time after Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `Most patients in ${formattedCity} can walk and resume routine light activities within 1–2 days after frenuloplasty surgery. Complete healing usually takes about 3–5 days for basic comfort, with advice to avoid sexual activity and strenuous exercise for a few weeks.`,
         },
         {
             id: "six",
-            question: "What are the first signs that indicate frenuloplasty surgery is needed?",
-            answer:
-                "Early signs include difficulty in speech, limited tongue or lip movement, pain, tearing, and discomfort in oral or genital areas.",
+            question: `Are there any side effects of Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `Common, short-term side effects after frenuloplasty surgery in ${formattedCity} can include mild pain, swelling, bruising, or temporary sensitivity around the surgical area. Serious complications are rare when the procedure is done by experienced surgeons and post-operative instructions are followed correctly.`,
         },
         {
             id: "seven",
-            question: "How painful is frenuloplasty surgery?",
-            answer:
-                "Frenuloplasty is minimally invasive, often performed under local anesthesia, making it almost painless with minimal discomfort post-surgery.",
+            question: `How experienced are the surgeons performing Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `Frenuloplasty surgery at PureCheckup in ${formattedCity} is performed by trained and board-certified surgeons with extensive experience in men’s intimate surgeries. Their focus on minimally invasive techniques helps reduce complications and support faster recovery.`,
         },
         {
             id: "eight",
-            question: "How long is the recovery period after frenuloplasty surgery?",
-            answer:
-                "Most patients recover fully within 1–2 weeks, depending on the type and extent of the procedure.",
+            question: `Can I get a consultation before the Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `Yes, you can always schedule a detailed consultation in ${formattedCity} before frenuloplasty surgery to discuss symptoms, expectations, and treatment options. During this visit, the surgeon examines the frenulum, explains the procedure, and addresses all questions about recovery, cost, and outcomes.`,
         },
         {
             id: "nine",
-            question: "Are there any risks associated with frenuloplasty surgery?",
-            answer:
-                "Minimal risks exist. PureCheckup’s surgeons ensure safe procedures with negligible complications and close post-operative monitoring.",
+            question: `Is Frenuloplasty Surgery painful in ${formattedCity}?`,
+            answer: `Frenuloplasty surgery in ${formattedCity} is usually performed under local or short-acting anesthesia, so you should not feel pain during the procedure. After surgery, most patients report only mild discomfort, which is manageable with prescribed pain medicines and proper hygiene.`,
         },
         {
             id: "ten",
-            question: "Can children undergo frenuloplasty surgery?",
-            answer:
-                "Yes, children can safely undergo frenuloplasty, especially for tongue-tie correction to improve feeding, speech, and oral function.",
+            question: `What precautions should I take after Frenuloplasty Surgery in ${formattedCity}?`,
+            answer: `After frenuloplasty surgery in ${formattedCity}, keep the area clean and dry, use prescribed ointments, and wear loose, comfortable undergarments. Avoid sexual activity, masturbation, heavy exercise, and any pressure on the area until your surgeon confirms complete healing in follow-up.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Expert Frenuloplasty Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Book your Frenuloplasty Surgery in ${formattedCity} with top surgeons. Safe, fast, and affordable, Free online consultation available with no-cost EMI  | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`frenuloplasty surgery ${formattedCity}, best frenuloplasty surgery ${formattedCity}, frenuloplasty procedure ${formattedCity}, frenuloplasty treatment ${formattedCity}, frenuloplasty surgeon ${formattedCity}, affordable frenuloplasty surgery ${formattedCity}, expert frenuloplasty doctors ${formattedCity}, safe frenuloplasty surgery ${formattedCity}, frenuloplasty surgery cost in ${formattedCity}, frenuloplasty recovery time ${formattedCity}, frenuloplasty surgery near me ${formattedCity}, online frenuloplasty surgery consultation ${formattedCity}, quick frenuloplasty surgery in ${formattedCity}, minimally invasive frenuloplasty surgery ${formattedCity}, frenuloplasty surgery hospital ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/frenuloplasty-surgery/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Frenuloplasty Surgery in ${city} – Expert, Safe & Fast Recovery`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Expert Frenuloplasty Surgery in ${formattedCity} – Safe, Quick & Expert Care`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={frenuloplastyData.title1}
-                description={frenuloplastyData.description}
-                tabsData={frenuloplastyData.tabsData}
-                expertHeading={`Expert Frenuloplasty Surgery Treatment in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={frenuloplastyData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Frenuloplasty Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -306,20 +225,26 @@ const FrenuloplastyInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Frenuloplasty in ${city}`}
+                    treatmentName="Frenuloplasty"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Frenuloplasty",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Technique used (Laser/Frenulectomy)",
+                        "Anesthesia type",
+                        "Hospital charges",
+                        "Post-op care requirements",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -327,7 +252,8 @@ const FrenuloplastyInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

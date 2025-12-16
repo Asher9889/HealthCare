@@ -1,299 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const tightForeskinData = {
-    title1: "Tight Foreskin Surgery ?",
-    title2: "Phimosis Treatment & Information",
-    description:
-        "Tight foreskin surgery (phimosis surgery) treats restricted foreskin that causes pain, hygiene issues, or urination difficulties. PureCheckup offers laser, stapler, and traditional methods for painless, stitch-free, and fast-healing treatment.",
-
-    tabsData: [
-        {
-            value: "what-is-tight-foreskin-surgery",
-            label: "What is Tight Foreskin Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Tight foreskin surgery treats phimosis, where the foreskin cannot retract over the glans. It prevents pain, infections, and discomfort during urination or sexual activity.
-                    </p>
-                    <p>
-                        PureCheckup offers advanced, minimally invasive laser and stapler techniques ensuring painless, stitch-free surgery with quick recovery.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of tight foreskin surgery in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Laser Circumcision:</strong> Painless, minimal bleeding, quick recovery, no stitches.</li>
-                        <li><strong>Stapler Circumcision:</strong> Fast healing, precision using a modern stapler device.</li>
-                        <li><strong>Traditional Circumcision:</strong> Surgical removal with scalpel and sutures, used for specific cases.</li>
-                        <li><strong>Preputioplasty:</strong> Foreskin-preserving procedure for patients who do not want complete removal.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Causes of tight foreskin (phimosis):</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Poor hygiene or recurrent infections</li>
-                        <li>Repeated balanitis or inflammation</li>
-                        <li>Skin disorders or scarring</li>
-                        <li>Diabetes or other health conditions</li>
-                        <li>Congenital tightness present since birth</li>
-                        <li>Aging and loss of skin elasticity</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Symptoms indicating need for tight foreskin surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Pain or difficulty retracting foreskin</li>
-                        <li>Swelling or redness of the penis</li>
-                        <li>Discomfort during urination</li>
-                        <li>Infections or foul odor</li>
-                        <li>Pain during sexual activity</li>
-                        <li>White scar-like ring at the tip of the foreskin</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of tight foreskin surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Painless & stitch-free procedure</li>
-                        <li>Same-day discharge and quick healing</li>
-                        <li>No visible scars</li>
-                        <li>100% insurance coverage assistance</li>
-                        <li>Improved hygiene and sexual health</li>
-                        <li>Expert urologist care and 24x7 support</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Tight Foreskin Surgery – PureCheckup",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup partners with top urology surgeons and NABH-accredited hospitals across India for safe, effective, and affordable tight foreskin (phimosis) surgery.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Free doctor consultation and personalized treatment plan</li>
-                <li>Laser, stapler, and traditional surgical options</li>
-                <li>Post-surgery follow-up and healing guidance</li>
-                <li>Insurance support and cashless treatment options</li>
-                <li>Available across major cities in India</li>
-            </ul>
-            <p>
-                Trust PureCheckup for advanced, minimally invasive, and painless tight foreskin surgery.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/tight-foreskin",
-};
-
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Phimosis Surgery (Circumcision)",
+        description:
+            "Safe, minimally invasive surgery to permanently treat tight foreskin and prevent recurrent infections.",
+        downtime: "3–5 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Preputioplasty (Foreskin Loosening Surgery)",
+        description:
+            "A foreskin-preserving procedure for patients who want to avoid full circumcision.",
+        downtime: "4–6 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Laser Circumcision",
+        description:
+            "Advanced laser technique for tight foreskin removal with minimal pain and faster healing.",
+        downtime: "2–4 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Infection-Based Tight Foreskin Treatment",
+        description:
+            "Topical and oral medication to treat phimosis caused by fungal or bacterial infection.",
+        downtime: "None",
+    },
+    {
+        title: "Balloon Dilation Treatment",
+        description:
+            "Non-surgical foreskin stretching method for mild cases of phimosis.",
+        downtime: "None",
+    },
+    {
+        title: "Post-Surgery Care & Hygiene Guidance",
+        description:
+            "Personalized care plan ensuring safe healing and prevention of recurrence.",
+        downtime: "N/A",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Tight Foreskin Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "Startling results after laser circumcision. I was back to work in 3 days. No pain at all.",
+        name: "Aakash Gupta",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "I was hesitant about surgery, but the doctor suggested preputioplasty. It worked perfectly for me.",
+        name: "Manish Verma",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "PureCheckup made the process very easy. From booking to discharge, everything was smooth.",
+        name: "Ritesh Singh",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "The cost was transparent and affordable. I used the EMI option which was very helpful.",
+        name: "Vikas Sharma",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Highly recommended for tight foreskin treatment. Expert doctors and great care.",
+        name: "Arjun Das",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const TightForeskinInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of tight foreskin surgery treatment in ${city}?`,
-            answer:
-                `The cost in ${city} varies depending on the hospital and type of surgery (laser, stapler, or traditional). PureCheckup provides detailed estimates and free consultation.`,
+            question: `What is the best treatment for a tight foreskin in ${formattedCity}?`,
+            answer: `The best treatment for a tight foreskin in ${formattedCity} is minimally invasive circumcision or preputioplasty, depending on the severity. PureCheckup provides expert evaluation and fast recovery options.`,
         },
         {
             id: "two",
-            question: "Does insurance cover tight foreskin surgery treatment?",
-            answer:
-                "Yes, most major health insurance companies cover medically necessary tight foreskin surgery. PureCheckup assists with complete insurance claim processing and approval.",
+            question: `Is tight foreskin surgery painful in ${formattedCity}?`,
+            answer: `Tight foreskin surgery in ${formattedCity} is not painful because local anesthesia is used. Most patients experience mild discomfort for 1–2 days with quick recovery.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best treatment in ${city}?`,
-            answer:
-                `PureCheckup partners with leading hospitals and urologists across ${city} to ensure the best quality care at affordable prices.`,
+            question: `How much does tight foreskin surgery cost in ${formattedCity}?`,
+            answer: `The cost of tight foreskin surgery in ${formattedCity} varies based on technique and surgeon expertise. PureCheckup offers transparent pricing and no-cost EMI options.`,
         },
         {
             id: "four",
-            question: "How to book a tight foreskin surgery treatment with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Call 📞 9211930749</li>
-                        <li>Or visit <a href="https://purecheckup.com" className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">PureCheckup.com</a></li>
-                        <li>Schedule a consultation with an expert urologist</li>
-                    </ul>
-                </div>
-            ),
+            question: `How long does recovery take after tight foreskin surgery?`,
+            answer: `Most patients recover within 3–7 days, depending on the type of surgery. Laser circumcision generally allows the fastest healing.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for a tight foreskin?",
-            answer:
-                "Laser or stapler circumcision are considered the most advanced, painless, and quick-healing treatments for phimosis.",
+            question: `Can a tight foreskin be treated without surgery in ${formattedCity}?`,
+            answer: `Yes, mild cases can be treated with medication, stretching, or topical therapy. Severe or recurrent cases usually require surgery for complete relief.`,
         },
         {
             id: "six",
-            question: "What are the first signs of a tight foreskin?",
-            answer:
-                "Pain, swelling, difficulty retracting the foreskin, redness, and discomfort during urination or sexual activity are early signs of phimosis.",
+            question: `Who is the best doctor for tight foreskin treatment in ${formattedCity}?`,
+            answer: `PureCheckup connects you with top urologists and surgeons in ${formattedCity} who specialize in phimosis and tight foreskin treatments.`,
         },
         {
             id: "seven",
-            question: "How painful is tight foreskin surgery treatment?",
-            answer:
-                "Modern laser and stapler procedures are nearly painless, performed under local anesthesia, with recovery in a few days.",
+            question: `What are the symptoms of a tight foreskin in ${formattedCity}?`,
+            answer: `Symptoms include difficulty retracting the foreskin, pain, swelling, infection, and discomfort during urination or sex. Early treatment is recommended.`,
         },
         {
             id: "eight",
-            question: "Is tight foreskin surgery safe?",
-            answer:
-                "Yes, it is a safe, minor procedure when performed by experienced urologists using advanced surgical techniques.",
+            question: `Does a tight foreskin cause infection?`,
+            answer: `Yes, an untreated tight foreskin can trap moisture and bacteria, leading to infections like balanitis or UTIs.`,
         },
         {
             id: "nine",
-            question: "How long does it take to recover from tight foreskin surgery?",
-            answer:
-                "Most patients recover within 2–5 days, resuming normal activities quickly with proper post-surgery care.",
+            question: `Is circumcision necessary for tight foreskin in adults?`,
+            answer: `Circumcision is the most effective treatment for severe phimosis, but alternatives like preputioplasty are available for foreskin preservation.`,
         },
         {
             id: "ten",
-            question: "Can tight foreskin return after surgery?",
-            answer:
-                "No, once treated surgically, the condition usually does not recur if proper hygiene and care are maintained.",
+            question: `How can I book a free consultation for tight foreskin treatment in ${formattedCity}?`,
+            answer: `You can book a free consultation through PureCheckup’s online platform or request a callback for same-day appointment scheduling.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Tight Foreskin Surgery ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`PureCheckup offers safe, tight foreskin treatment in ${formattedCity}. Book a free consultation today with quick recovery and no-cost EMI support.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`tight foreskin treatment in ${formattedCity}, tight foreskin surgery in ${formattedCity}, phimosis treatment in ${formattedCity}, phimosis surgery in ${formattedCity}, symptoms of tight foreskin in ${formattedCity}, tight foreskin treatment cost in ${formattedCity}, recovery after phimosis surgery in ${formattedCity}, causes of tight foreskin in ${formattedCity}, online consultation for tight foreskin in ${formattedCity}, tight foreskin doctor near me in ${formattedCity}, best phimosis specialist in ${formattedCity}, tight foreskin clinic in ${formattedCity}, circumcision for tight foreskin in ${formattedCity}, affordable phimosis surgery in ${formattedCity}, tight foreskin surgeon in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/tight-foreskin/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Painless Tight Foreskin Surgery in ${city} — Safe & Effective`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Advanced Tight Foreskin Treatment in ${formattedCity} – Safe, Fast & Expert Care, Free Consultation`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={tightForeskinData.title1}
-                description={tightForeskinData.description}
-                tabsData={tightForeskinData.tabsData}
-                expertHeading={`Expert Tight Foreskin Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={tightForeskinData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Tight Foreskin Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -301,20 +225,26 @@ const TightForeskinInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Tight Foreskin in ${city}`}
+                    treatmentName="Tight Foreskin"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Tight Foreskin",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Surgery type (Circumcision/Preputioplasty)",
+                        "Severity of phimosis",
+                        "Hospital charges",
+                        "Anesthesia usage",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -322,7 +252,8 @@ const TightForeskinInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

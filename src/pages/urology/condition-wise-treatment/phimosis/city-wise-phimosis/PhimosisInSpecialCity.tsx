@@ -1,296 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const phimosisData = {
-    title1: "Phimosis Surgery ?",
-    title2: "Advanced Treatment for Tight Foreskin",
-    description:
-        "Phimosis surgery treats tight foreskin that cannot retract over the glans, causing pain, swelling, or infections. PureCheckup offers advanced, minimally invasive laser and stapler surgeries ensuring stitch-free, fast recovery with same-day discharge.",
-
-    tabsData: [
-        {
-            value: "what-is-phimosis-surgery",
-            label: "What is Phimosis Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Phimosis surgery treats tight foreskin (phimosis) that cannot retract over the glans, preventing pain, swelling, infections, and urinary difficulties.
-                    </p>
-                    <p>
-                        PureCheckup provides laser and stapler surgeries for painless, stitch-free procedures with quick recovery and same-day discharge.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of phimosis surgery in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Laser Circumcision / Stapler Circumcision:</strong> Bloodless, painless, quick recovery, minimal downtime.</li>
-                        <li><strong>Preputioplasty:</strong> Foreskin-preserving procedure for mild cases.</li>
-                        <li><strong>Dorsal Slit Procedure:</strong> Emergency procedure for urinary blockage or infection.</li>
-                        <li><strong>Conventional Circumcision:</strong> Surgical removal using scalpel and sutures under anesthesia.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Causes requiring phimosis surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Chronic infections like balanitis or posthitis</li>
-                        <li>Repeated inflammation of foreskin</li>
-                        <li>Diabetes-related infections</li>
-                        <li>Scarring from forced retraction or trauma</li>
-                        <li>Poor genital hygiene or untreated infections</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Symptoms indicating phimosis surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Tight foreskin that doesn’t retract</li>
-                        <li>Pain during urination or intercourse</li>
-                        <li>Redness, swelling, or infection</li>
-                        <li>White discharge under the foreskin</li>
-                        <li>Difficulty cleaning the foreskin area</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of phimosis surgery treatment:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Painless & stitch-free procedure</li>
-                        <li>Same-day discharge & quick healing</li>
-                        <li>No risk of recurrence</li>
-                        <li>Improved hygiene and confidence</li>
-                        <li>Covered under most health insurance plans</li>
-                        <li>Permanent relief from pain and infections</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Phimosis Surgery – PureCheckup",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup offers safe, modern, and hygienic phimosis surgeries using laser and stapler technology. Patients benefit from:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Free doctor consultation and personalized treatment plan</li>
-                <li>Cashless insurance facility</li>
-                <li>24x7 patient assistance</li>
-                <li>Post-surgery care and follow-up support</li>
-                <li>Advanced, minimally invasive procedures ensuring stitch-free recovery</li>
-            </ul>
-            <p>
-                Your comfort, hygiene, and confidence are our top priorities.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/phimosis",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Phimosis Surgery",
+        description:
+            "Minimally invasive procedure to correct tight foreskin, restore comfort, and prevent infections.",
+        downtime: "3–5 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Circumcision Surgery",
+        description:
+            "Surgical removal of the foreskin for chronic or severe phimosis, ensuring hygiene and long-term relief.",
+        downtime: "5–7 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Preputioplasty for Phimosis",
+        description:
+            "Advanced foreskin-preserving surgery to widen the tight foreskin, reducing discomfort and recovery time.",
+        downtime: "2–4 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Laser-Assisted Phimosis Surgery",
+        description:
+            "Precision laser surgery for safe, bloodless correction of phimosis with minimal pain.",
+        downtime: "2–3 days",
+    },
+    {
+        title: "Home Care & Post-Surgery Guidance",
+        description:
+            "Personalized recovery plan and hygiene instructions to prevent recurrence of phimosis.",
+        downtime: "N/A",
+    },
+    {
+        title: "Online Consultation & Follow-Up",
+        description:
+            "Remote consultation and follow-up care to ensure safe recovery from home.",
+        downtime: "N/A",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advanced Phimosis Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "My phimosis was severe, but the laser surgery was painless. Highly recommend PureCheckup.",
+        name: "Rohan Kumar",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "The preputioplasty option was great, I didn't want full circumcision. Thank you for the advice.",
+        name: "Sandeep Verma",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "Excellent care and support. The team helped me with insurance approval.",
+        name: "Amit Singh",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Fast recovery and no hidden charges. Very professional service.",
+        name: "Vivek Sharma",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "I was nervous, but the doctor made me feel very comfortable. The procedure was quick.",
+        name: "Rajesh Joshi",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const PhimosisInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of phimosis surgery treatment in ${city}?`,
-            answer:
-                `The cost in ${city} depends on the type of procedure, city, and hospital chosen. PureCheckup provides affordable packages with insurance coverage and flexible payment options.`,
+            question: `What is phimosis, and how is it treated in ${formattedCity}?`,
+            answer: `Phimosis is a condition where the foreskin is too tight to retract over the glans penis, causing discomfort or infections. In ${formattedCity}, phimosis is treated with minimally invasive surgery, circumcision, or preputioplasty by expert urologists at PureCheckup, ensuring fast recovery and safe outcomes.`,
         },
         {
             id: "two",
-            question: "Does insurance cover phimosis surgery treatment?",
-            answer:
-                "Yes, most health insurance policies cover phimosis surgery when medically recommended. PureCheckup offers cashless claim assistance for a smooth process.",
+            question: `How do I book a phimosis surgery consultation in ${formattedCity}?`,
+            answer: `Booking a consultation in ${formattedCity} is simple. Visit the PureCheckup website, select your city, choose phimosis treatment, and schedule a free consultation. You can also contact PureCheckup directly for personalized guidance.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best phimosis surgery treatment in ${city}?`,
-            answer:
-                `PureCheckup is a leading provider in ${city} offering laser phimosis surgeries performed by experienced urologists at NABH-accredited hospitals.`,
+            question: `Is phimosis surgery safe for children and adults in ${formattedCity}?`,
+            answer: `Yes. Phimosis surgery at PureCheckup is safe for both children and adults in ${formattedCity}. Our experienced surgeons use modern, minimally invasive techniques that minimize risk, reduce pain, and promote faster recovery.`,
         },
         {
             id: "four",
-            question: "How to book a phimosis treatment surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Fill out the online form on PureCheckup.com</li>
-                        <li>Call 📞 9211930749 for a free consultation</li>
-                        <li>Schedule a consultation and surgery with expert urologists</li>
-                    </ul>
-                </div>
-            ),
+            question: `What is the cost of phimosis surgery in ${formattedCity}?`,
+            answer: `The cost of phimosis surgery in ${formattedCity} depends on the procedure type and severity. PureCheckup offers transparent pricing, free consultation, and flexible options like no-cost EMI to make the treatment affordable for everyone.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for phimosis surgery?",
-            answer:
-                "Laser phimosis or stapler circumcision is the most advanced treatment, offering minimal pain, faster recovery, and stitch-free results.",
+            question: `How long does it take to recover from phimosis surgery in ${formattedCity}?`,
+            answer: `Recovery time usually ranges from 3 to 7 days for minimally invasive procedures. Circumcision or extensive surgeries may take up to 2 weeks. PureCheckup provides detailed post-surgery care instructions to ensure a safe and fast recovery.`,
         },
         {
             id: "six",
-            question: "What are the first signs that you might need phimosis treatment?",
-            answer:
-                "Early signs include tight foreskin, discomfort, swelling, and redness. Prompt treatment prevents infection and urinary complications.",
+            question: `Can phimosis be treated without surgery in ${formattedCity}?`,
+            answer: `Yes, mild cases of phimosis can be managed with topical steroid creams, gentle foreskin stretching exercises, and good hygiene. However, persistent or severe cases typically require surgical intervention for long-term relief.`,
         },
         {
             id: "seven",
-            question: "How painful is phimosis surgery treatment?",
-            answer:
-                "Modern laser and stapler surgeries are virtually painless, performed under local anesthesia, with recovery in 1–2 days.",
+            question: `What are the symptoms of phimosis that require surgery in ${formattedCity}?`,
+            answer: `Symptoms include tight foreskin, pain during urination or sexual activity, recurrent infections, swelling, redness, or difficulty retracting the foreskin. In ${formattedCity}, early consultation at PureCheckup ensures timely surgical intervention if needed.`,
         },
         {
             id: "eight",
-            question: "How long does it take to recover after phimosis surgery?",
-            answer:
-                "Recovery usually takes 2–5 days depending on the procedure, with post-operative care ensuring minimal discomfort.",
+            question: `How experienced are the phimosis surgeons in ${formattedCity}?`,
+            answer: `PureCheckup surgeons in ${formattedCity} are certified urologists with years of experience performing phimosis surgery and circumcision. They specialize in advanced techniques, ensuring safe, effective treatment and high patient satisfaction.`,
         },
         {
             id: "nine",
-            question: "Is phimosis surgery permanent?",
-            answer:
-                "Yes, it provides a permanent solution, eliminating foreskin tightening and preventing recurrent infections.",
+            question: `Can I get a no-cost EMI option for phimosis surgery in ${formattedCity}?`,
+            answer: `Yes, PureCheckup offers flexible payment options, including no-cost EMI for phimosis surgery in ${formattedCity}. This allows patients to undergo treatment without financial stress while receiving expert care.`,
         },
         {
             id: "ten",
-            question: "Can phimosis be treated without surgery?",
-            answer:
-                "Mild cases may respond to topical creams and gentle stretching, but surgery is the only permanent and reliable solution for long-term relief.",
+            question: `How soon can I resume normal activities after phimosis surgery in ${formattedCity}?`,
+            answer: `Most patients in ${formattedCity} can resume light daily activities within 3–5 days after minimally invasive surgery. Full physical activity or sports is usually allowed after 2–3 weeks, depending on the procedure and the doctor’s guidance.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Phimosis Surgery in ${formattedCity} – Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Looking for phimosis treatment in ${formattedCity}? Get free consultation, modern procedures, and no-cost EMI for safe, stress-free care | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`phimosis treatment in ${formattedCity}, phimosis surgery in ${formattedCity}, phimosis doctor near me in ${formattedCity}, phimosis specialist in ${formattedCity}, best phimosis surgeon in ${formattedCity}, circumcision for phimosis in ${formattedCity}, phimosis clinic in ${formattedCity}, affordable phimosis surgery in ${formattedCity}, phimosis hospital in ${formattedCity}, top phimosis center in ${formattedCity}, phimosis symptoms in ${formattedCity}, phimosis causes in ${formattedCity}, phimosis recovery time in ${formattedCity}, phimosis surgery cost in ${formattedCity}, online consultation for phimosis in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/phimosis/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Painless Phimosis Surgery in ${city} | Safe, Stitch-Free & Insurance Covered`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Phimosis Surgery in ${formattedCity} – Expert Surgeons, Fast Recovery`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={phimosisData.title1}
-                description={phimosisData.description}
-                tabsData={phimosisData.tabsData}
-                expertHeading={`Expert Phimosis Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={phimosisData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Phimosis Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -298,20 +225,26 @@ const PhimosisInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Phimosis in ${city}`}
+                    treatmentName="Phimosis"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Phimosis",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Surgery type (Circumcision/Laser/Open)",
+                        "Severity of fibrosis",
+                        "Hospital & Room Selection",
+                        "Post-op medications",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -319,7 +252,8 @@ const PhimosisInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

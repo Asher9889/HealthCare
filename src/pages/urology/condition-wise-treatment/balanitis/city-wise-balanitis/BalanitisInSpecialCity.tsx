@@ -1,305 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const balanitisData = {
-    title1: "Balanitis ?",
-    title2: "Surgery & Information",
-    description:
-        "Balanitis surgery treats inflammation of the glans penis (balanitis), especially when medications fail. PureCheckup provides expert treatment using minimally invasive techniques for safe, effective, and fast recovery, with insurance coverage and personalized care.",
-
-    tabsData: [
-        {
-            value: "what-is-balanitis",
-            label: "What is Balanitis Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Balanitis surgery is performed to treat inflammation or infection of the glans penis that does not respond to medications or conservative treatments.
-                    </p>
-                    <p>
-                        The procedure removes infected tissue, relieves pain, and prevents recurrent infections, using modern minimally invasive techniques for faster recovery.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of balanitis surgery available in India include:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Circumcision Surgery:</strong> Complete removal of the foreskin to prevent recurrent balanitis.</li>
-                        <li><strong>Frenuloplasty Surgery:</strong> Repair of a tight frenulum contributing to irritation and infection.</li>
-                        <li><strong>Topical Debridement or Excision:</strong> Removal of affected tissue in localized infections.</li>
-                        <li><strong>Laser Balanitis Surgery:</strong> Advanced method ensuring minimal pain and faster healing.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Balanitis surgery is recommended when:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Chronic infections (bacterial, fungal, or viral)</li>
-                        <li>Poor hygiene or buildup under the foreskin</li>
-                        <li>Diabetes or immunocompromised conditions</li>
-                        <li>Foreskin abnormalities such as tight foreskin or phimosis</li>
-                        <li>Recurrent balanitis causing scar tissue or discomfort</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Signs indicating the need for balanitis surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Redness and swelling of the glans penis</li>
-                        <li>Pain or discomfort during urination or sexual activity</li>
-                        <li>Persistent discharge or foul odor</li>
-                        <li>Formation of scar tissue or lesions</li>
-                        <li>Recurring infections despite medications</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Balanitis surgery offers multiple benefits:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Permanent relief from recurrent infections</li>
-                        <li>Reduction in pain and discomfort</li>
-                        <li>Improved hygiene and sexual health</li>
-                        <li>Minimally invasive options for faster recovery</li>
-                        <li>Covered under major health insurance plans</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Balanitis Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup provides expert balanitis surgery with certified urologists using modern, minimally invasive techniques for safe and fast recovery.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Performed by experienced urologists and surgeons</li>
-                <li>Minimally invasive and pain-minimized procedures</li>
-                <li>Short recovery period</li>
-                <li>Cashless insurance and EMI options available</li>
-                <li>Available in major cities across India</li>
-            </ul>
-            <p>
-                Trust PureCheckup for professional, safe, and effective balanitis treatment tailored to your needs.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/balanitis",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Balanitis Surgery",
+        description:
+            "Minimally invasive procedure to treat inflammation or infection of the glans, restoring comfort and preventing recurrence.",
+        downtime: "3–5 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Circumcision Surgery",
+        description:
+            "Surgical removal of the foreskin to treat chronic balanitis, prevent infections, and improve hygiene.",
+        downtime: "5–7 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Penile Frenulectomy",
+        description:
+            "Minor procedure to release a tight frenulum that may contribute to balanitis or discomfort during activity.",
+        downtime: "2–4 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Urethroplasty Surgery",
+        description:
+            "Corrective surgery for urethral strictures or complications that may exacerbate balanitis symptoms.",
+        downtime: "5–7 days",
+    },
+    {
+        title: "Topical & Laser Balanitis Treatment",
+        description:
+            "Non-surgical or minimally invasive laser treatment to reduce inflammation and prevent recurrence.",
+        downtime: "1–2 days",
+    },
+    {
+        title: "Hypospadias Repair Surgery",
+        description:
+            "Surgical correction of congenital urethral opening issues that may contribute to recurring balanitis.",
+        downtime: "7–10 days",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Balanitis Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I suffered from recurrent infections. Circumcision surgery at PureCheckup was the best decision. No more pain or itching.",
+        name: "Rohan Das",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "Very clean clinic and experienced doctor. The surgery was quick and I healed within a week.",
+        name: "Vikrant Singh",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "I was embarrassed but the doctor was very understanding. The laser treatment was effective.",
+        name: "Anil Kumar",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Great service and affordable rates. They handled my insurance paperwork smoothly.",
+        name: "Suresh Menon",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Thank you PureCheckup for solving my problem. I feel much better now.",
+        name: "Rajeev Gupta",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const BalanitisInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of balanitis surgery treatment in ${city}?`,
-            answer:
-                `The cost of balanitis surgery in ${city} varies depending on hospital and procedure type. PureCheckup provides affordable and transparent treatment options customized to each patient’s needs.`,
+            question: `How do I book a Balanitis Surgery in ${formattedCity}?`,
+            answer: `You can book a Balanitis Surgery in ${formattedCity} easily through PureCheckup’s online platform. Select your city, choose a preferred date, and schedule a consultation with an experienced surgeon. You can also call our helpline for instant booking.`,
         },
         {
             id: "two",
-            question: "Does insurance cover balanitis surgery treatment?",
-            answer:
-                "Yes, most major health insurance plans cover balanitis surgery. PureCheckup assists patients with insurance claim processing for a smooth, cashless experience.",
+            question: `What is the online platform to book a Balanitis Surgery in ${formattedCity}?`,
+            answer: `PureCheckup provides a secure and user-friendly online booking system for Balanitis Surgery in ${formattedCity}. Patients can browse doctors, read treatment details, compare costs, and schedule appointments conveniently.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best balanitis treatment in ${city}?`,
-            answer:
-                `PureCheckup connects you with top-rated urologists and hospitals across ${city}, ensuring high-quality care at competitive prices with full insurance support.`,
+            question: `How much does Balanitis Surgery cost in ${formattedCity}?`,
+            answer: `The cost of Balanitis Surgery in ${formattedCity} depends on the complexity and type of procedure. At PureCheckup, you get transparent pricing, with a free consultation to discuss exact costs before scheduling your surgery.`,
         },
         {
             id: "four",
-            question: "How can I book a balanitis treatment surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking balanitis surgery with PureCheckup is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/balanitis"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/balanitis
-                            </a>
-                        </li>
-                        <li>Fill in your details or call our 24×7 helpline at +91-9211930749</li>
-                        <li>Our care team will schedule a consultation with an expert urologist</li>
-                    </ul>
-                </div>
-            ),
+            question: `What is the recovery time after Balanitis Surgery in ${formattedCity}?`,
+            answer: `Recovery time typically ranges from 3–5 days, depending on the procedure. Following post-surgery instructions carefully ensures quick healing and minimal discomfort.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for balanitis surgery?",
-            answer:
-                "The best treatment depends on severity and condition of the patient. Options include circumcision, frenuloplasty, laser surgery, or targeted tissue excision for effective relief.",
+            question: `Are there any side effects of Balanitis Surgery in ${formattedCity}?`,
+            answer: `Balanitis Surgery is generally safe. Mild swelling, redness, or discomfort may occur temporarily. Serious complications are rare, and our surgeons in ${formattedCity} follow strict protocols for safe and smooth recovery.`,
         },
         {
             id: "six",
-            question: "What are the first signs indicating the need for balanitis surgery?",
-            answer:
-                "Persistent redness, swelling, pain during urination, foul discharge, or recurrent infections despite medication indicate the need for surgical evaluation.",
+            question: `How experienced are the surgeons performing Balanitis Surgery in ${formattedCity}?`,
+            answer: `All surgeons at PureCheckup in ${formattedCity} are highly qualified and experienced, having successfully treated numerous cases with excellent outcomes. They prioritize patient safety and comfort.`,
         },
         {
             id: "seven",
-            question: "How painful is balanitis surgery treatment?",
-            answer:
-                "Modern minimally invasive and laser techniques minimize pain. Surgery is typically performed under local or regional anesthesia with manageable post-operative discomfort.",
+            question: `Can I get a consultation before the Balanitis Surgery in ${formattedCity}?`,
+            answer: `Yes, PureCheckup offers free online or in-person consultations in ${formattedCity}. Surgeons evaluate your condition, explain the procedure, and provide guidance on costs, recovery, and post-surgery care.`,
         },
         {
             id: "eight",
-            question: "Is balanitis surgery safe for all ages?",
-            answer:
-                "Yes, balanitis surgery is safe for adolescents and adults. Specialized care plans are available for older patients or those with medical conditions.",
+            question: `Is Balanitis Surgery painful in ${formattedCity}?`,
+            answer: `Balanitis Surgery is minimally invasive and performed under local or general anesthesia. Most patients experience minimal discomfort, which is manageable with prescribed medications. Recovery is usually quick.`,
         },
         {
             id: "nine",
-            question: "How long is the recovery period after balanitis surgery?",
-            answer:
-                "Recovery usually takes 1–2 weeks. Patients may have minor restrictions on sexual activity and strenuous exercise during this period.",
+            question: `Why choose PureCheckup for Balanitis Surgery in ${formattedCity}?`,
+            answer: `PureCheckup is a trusted platform for Balanitis Surgery in ${formattedCity}, offering: Experienced surgeons, Safe minimally invasive procedures, Transparent pricing, and Fast recovery support.`,
         },
         {
             id: "ten",
-            question: "Can balanitis recur after surgery?",
-            answer:
-                "Recurrence is rare when surgery is performed by experienced surgeons and patients follow proper post-operative care and hygiene guidelines.",
+            question: `What precautions should I take after Balanitis Surgery in ${formattedCity}?`,
+            answer: `After Balanitis Surgery in ${formattedCity}, patients should: Keep the area clean and dry, Follow prescribed medications, Avoid strenuous activity for a few days, and Attend follow-up consultations.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Balanitis Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Book your  Balanitis Surgery in ${formattedCity} with top surgeons. Safe, fast, and affordable, Free online consultation available with no-cost EMI  | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`balanitis surgery ${formattedCity}, best balanitis surgery ${formattedCity}, balanitis procedure ${formattedCity}, balanitis treatment ${formattedCity}, balanitis surgeon ${formattedCity}, affordable balanitis surgery ${formattedCity}, expert balanitis doctors ${formattedCity}, safe balanitis surgery ${formattedCity}, balanitis surgery cost in ${formattedCity}, balanitis recovery time ${formattedCity}, balanitis surgery near me ${formattedCity}, online balanitis surgery consultation ${formattedCity}, quick balanitis surgery in ${formattedCity}, minimally invasive balanitis surgery ${formattedCity}, balanitis surgery hospital ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/balanitis/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Advanced Balanitis Surgery in ${city} – Safe, Effective, and Hassle-Free`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Get Safe & Advanced Balanitis Surgery in ${formattedCity} – Safe, Quick & Expert Care`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={balanitisData.title1}
-                description={balanitisData.description}
-                tabsData={balanitisData.tabsData}
-                expertHeading={`Expert Balanitis Surgeons in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={balanitisData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Balanitis Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -307,20 +225,26 @@ const BalanitisInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Balanitis in ${city}`}
+                    treatmentName="Balanitis"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Balanitis",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Type of procedure (Circumcision/Laser)",
+                        "Severity of infection",
+                        "Hospital room choice",
+                        "Post-op medications",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -328,7 +252,8 @@ const BalanitisInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

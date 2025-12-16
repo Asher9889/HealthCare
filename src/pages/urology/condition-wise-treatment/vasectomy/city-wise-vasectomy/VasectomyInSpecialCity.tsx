@@ -1,292 +1,199 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const vasectomyData = {
-    title1: "Vasectomy Surgery ?",
-    title2: "Permanent Male Birth Control",
-    description:
-        "Vasectomy surgery is a safe, simple, and permanent male contraceptive procedure that prevents sperm from mixing with semen. PureCheckup offers advanced conventional, no-scalpel, and laser vasectomy methods for minimal pain, quick recovery, and effective family planning.",
-
-    tabsData: [
-        {
-            value: "what-is-vasectomy",
-            label: "What is Vasectomy Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Vasectomy involves cutting or sealing the vas deferens, preventing sperm from mixing with semen. Sexual performance, hormone levels, and drive remain unaffected.
-                    </p>
-                    <p>
-                        Modern procedures are minimally invasive, painless, and completed in 15–30 minutes under local anesthesia.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of vasectomy surgery in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Conventional Vasectomy:</strong> Small scrotal incision to access and seal the vas deferens.</li>
-                        <li><strong>No-Scalpel Vasectomy (NSV):</strong> Minimally invasive puncture technique; faster recovery, no stitches.</li>
-                        <li><strong>Laser Vasectomy:</strong> Latest laser technology for precise sealing with minimal bleeding and rapid healing.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Reasons for Vasectomy",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Common reasons men choose vasectomy:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Permanent contraception</li>
-                        <li>Completion of family goals</li>
-                        <li>Partner unable to use or tolerate female birth control</li>
-                        <li>Health conditions making pregnancy risky</li>
-                        <li>Preference for one-time, long-term solution</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Indications for Surgery",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Situations indicating vasectomy suitability:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Decision for no more children</li>
-                        <li>Medical recommendation to avoid further pregnancies</li>
-                        <li>Repeated failure or side effects from temporary birth control</li>
-                        <li>Personal choice for stress-free family planning</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of vasectomy surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Permanent & reliable contraception (99.9% effective)</li>
-                        <li>Quick recovery (1–2 days)</li>
-                        <li>No impact on hormones or sexual function</li>
-                        <li>Minimally invasive with reduced pain and swelling</li>
-                        <li>Cost-effective, one-time procedure</li>
-                        <li>Peace of mind and stress-free family planning</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Vasectomy Surgery – PureCheckup",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup connects patients to top urologists and advanced surgical centers across India:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Experienced board-certified urologists</li>
-                <li>Hassle-free booking and online consultation</li>
-                <li>Post-surgery guidance and follow-ups</li>
-                <li>Insurance support and cashless assistance</li>
-                <li>Confidential and safe treatment</li>
-            </ul>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/vasectomy",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Vasectomy (No-Scalpel Vasectomy)",
+        description:
+            "A minimally invasive, safe, and permanent male sterilization procedure performed by expert urologists to prevent pregnancy. Quick, painless, and highly effective with minimal downtime.",
+        downtime: "2–3 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
-    },
-    {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
-    },
-    {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Online Consultation & Follow-Up",
+        description:
+            "Expert consultation and remote monitoring for safe corn removal recovery.",
+        downtime: "N/A",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advanced Vasectomy Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I was hesitant, but the procedure was so simple and quick. The doctor explained everything well.",
+        name: "Rajiv Malhotra",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "No scalar vasectomy is truly painless. I was back to work in 2 days. Highly recommend PureCheckup.",
+        name: "Sameer Joshi",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "Professional and discreet service. The staff was very supportive.",
+        name: "Amit Kumar",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Affordable and transparent pricing. No hidden costs at all.",
+        name: "Vikram Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Thank you for the excellent care. The recovery was smooth as promised.",
+        name: "Nikhil Gupta",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const VasectomyInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of vasectomy surgery treatment in ${city}?`,
-            answer:
-                `The cost in ${city} depends on the hospital, surgeon’s expertise, and procedure type. Contact PureCheckup for a personalized estimate.`,
+            question: `What is the safest vasectomy option available in ${formattedCity}?`,
+            answer: `The no-scalpel vasectomy offered by PureCheckup in ${formattedCity} is one of the safest methods. It uses a small puncture instead of cuts, reducing pain, bleeding, and recovery time.`,
         },
         {
             id: "two",
-            question: "Does insurance cover vasectomy surgery treatment?",
-            answer:
-                "Most insurance plans may not cover vasectomy as it is elective. PureCheckup can verify if partial coverage or related medical consultations are included.",
+            question: `Is vasectomy painful and how long does it take to recover?`,
+            answer: `Vasectomy is a minimally painful procedure performed under local anesthesia. Most patients recover fully within 2–3 days and resume normal activities soon after.`,
         },
         {
             id: "three",
-            question: `Which healthcare provider offers the best vasectomy treatment in ${city}?`,
-            answer:
-                `PureCheckup partners with top-rated hospitals and certified urologists in ${city} to ensure safe, advanced surgical care with expert post-operative support.`,
+            question: `How effective is a vasectomy performed in ${formattedCity}?`,
+            answer: `A vasectomy at PureCheckup in ${formattedCity} is more than 99% effective as a permanent birth control method, making it one of the most reliable sterilization procedures.`,
         },
         {
             id: "four",
-            question: "How to book a vasectomy surgery treatment with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Visit PureCheckup.com</li>
-                        <li>Choose “Vasectomy Surgery”</li>
-                        <li>Fill the consultation form</li>
-                        <li>Our care team schedules your specialist appointment</li>
-                    </ul>
-                </div>
-            ),
+            question: `What is the cost of vasectomy in ${formattedCity}?`,
+            answer: `The cost of vasectomy in ${formattedCity} depends on the technique used. PureCheckup provides transparent pricing with free consultation and no-cost EMI for affordability.`,
         },
         {
             id: "five",
-            question: "What is the best treatment method for vasectomy surgery?",
-            answer:
-                "No-Scalpel Vasectomy (NSV) and Laser Vasectomy are advanced, minimally invasive, painless methods with faster recovery.",
+            question: `Can I get a vasectomy without hospitalization in ${formattedCity}?`,
+            answer: `Yes, vasectomy at PureCheckup in ${formattedCity} is an outpatient procedure. You can go home the same day and resume light activities within a day.`,
         },
         {
             id: "six",
-            question: "What are the first signs of recovery after vasectomy surgery?",
-            answer:
-                "Mild swelling, tenderness, or slight bruising is normal and usually subsides within a few days with rest and prescribed medication.",
+            question: `Who performs vasectomy surgery at PureCheckup in ${formattedCity}?`,
+            answer: `Experienced urologists with advanced training perform vasectomy procedures at PureCheckup in ${formattedCity}. They specialize in minimally invasive male sterilization.`,
         },
         {
             id: "seven",
-            question: "How painful is vasectomy surgery treatment?",
-            answer:
-                "Modern vasectomy procedures are virtually painless due to local anesthesia and minimally invasive techniques. Mild discomfort resolves quickly.",
+            question: `Does vasectomy affect sexual performance or hormones?`,
+            answer: `No. Vasectomy does not impact sexual performance, testosterone levels, or libido. It only blocks sperm, not ejaculation or hormone production.`,
         },
         {
             id: "eight",
-            question: "How long does it take to recover from vasectomy surgery?",
-            answer:
-                "Most men resume work within 1–2 days. Full healing and confirmation of sterility usually take 8–12 weeks.",
+            question: `How do I book a free consultation for vasectomy in ${formattedCity}?`,
+            answer: `You can book a free consultation through PureCheckup’s online platform by selecting your city and treatment. Instant scheduling is available for all patients.`,
         },
         {
             id: "nine",
-            question: "Can vasectomy surgery be reversed?",
-            answer:
-                "Vasectomy reversal (vasovasostomy) is possible in some cases, but success rates vary. Discuss options with a urology specialist before proceeding.",
+            question: `What should I avoid after vasectomy surgery?`,
+            answer: `For 48–72 hours, avoid heavy lifting, strenuous exercise, and sexual activity. Follow your surgeon’s aftercare instructions for a smooth recovery.`,
         },
         {
             id: "ten",
-            question: "What precautions should be taken after vasectomy surgery?",
-            answer:
-                "Avoid heavy lifting, sexual activity, or strenuous exercise for a few days and follow your doctor’s instructions for optimal recovery.",
+            question: `How soon can I resume sexual activity after vasectomy?`,
+            answer: `Most patients resume sexual activity within 7–10 days. However, follow-up testing is required to confirm zero sperm count before stopping other contraception.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Vasectomy Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Safe and painless vasectomy in ${formattedCity} with free consultation and no-cost EMI at PureCheckup. Expert surgeons ensure fast recovery and reliable outcomes.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`vasectomy in ${formattedCity}, vasectomy surgery in ${formattedCity}, no-scalpel vasectomy in ${formattedCity}, vasectomy doctor near me in ${formattedCity}, vasectomy cost in ${formattedCity}, recovery after vasectomy in ${formattedCity}, vasectomy side effects in ${formattedCity}, vasectomy consultation in ${formattedCity}, vasectomy appointment online in ${formattedCity}, vasectomy specialist in ${formattedCity}, vasectomy clinic in ${formattedCity}, best vasectomy surgeon in ${formattedCity}, vasectomy hospital in ${formattedCity}, affordable vasectomy in ${formattedCity}, vasectomy procedure in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/vasectomy/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Vasectomy Surgery in ${city} (Male Sterilization): Modern, Quick & Effective`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Vasectomy Surgery in ${formattedCity} – Permanent Birth Control Made Safer and Fast Recovery, Trusted Specialists`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={vasectomyData.title1}
-                description={vasectomyData.description}
-                tabsData={vasectomyData.tabsData}
-                expertHeading={`Expert Vasectomy Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={vasectomyData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Vasectomy Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -294,20 +201,26 @@ const VasectomyInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Vasectomy in ${city}`}
+                    treatmentName="Vasectomy"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Vasectomy",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Technique used (No-Scalpel/Conventional)",
+                        "Hospital charges",
+                        "Anesthesia",
+                        "Follow-up tests",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -315,7 +228,8 @@ const VasectomyInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

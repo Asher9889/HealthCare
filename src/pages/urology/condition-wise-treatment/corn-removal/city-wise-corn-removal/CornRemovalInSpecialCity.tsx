@@ -1,299 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const cornRemovalData = {
-    title1: "Corn Removal Surgery ?",
-    title2: "Advanced Foot Care Treatment",
-    description:
-        "Corn removal surgery is a minimally invasive procedure that eliminates painful corns and calluses caused by friction, pressure, or footwear issues. PureCheckup offers laser and surgical techniques ensuring scar-free recovery, minimal discomfort, and lasting results.",
-
-    tabsData: [
-        {
-            value: "what-is-corn-removal-surgery",
-            label: "What is Corn Removal Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Corn removal surgery treats hardened skin layers (corns/calluses) on the feet or toes that fail to heal with medications or home remedies.
-                    </p>
-                    <p>
-                        PureCheckup offers advanced laser and surgical techniques for painless, scar-free, and fast recovery.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of corn removal surgery in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Laser Corn Removal:</strong> Painless, precise, vaporizes hardened tissue.</li>
-                        <li><strong>Surgical Excision:</strong> Removes deep or recurrent corns including the core.</li>
-                        <li><strong>Cryotherapy:</strong> Freezes corn cells using cold therapy without affecting nearby skin.</li>
-                        <li><strong>Chemical Peeling:</strong> Medicated solutions remove superficial corns non-surgically.</li>
-                        <li><strong>Orthopedic Correction Surgery:</strong> Corrects underlying bone deformities causing recurring corns.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Common causes of corn formation:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Tight or ill-fitting footwear</li>
-                        <li>Prolonged standing or walking</li>
-                        <li>Foot deformities or misalignment</li>
-                        <li>Poor foot hygiene</li>
-                        <li>Medical conditions like diabetes or obesity</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Symptoms indicating the need for corn removal surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Thick, rough, or hardened skin patches</li>
-                        <li>Pain or tenderness under the skin</li>
-                        <li>Burning or itching sensation</li>
-                        <li>Dry, flaky, or inflamed skin</li>
-                        <li>Discomfort while walking or wearing shoes</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of corn removal surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Complete elimination of corns without recurrence</li>
-                        <li>Quick recovery and minimal downtime</li>
-                        <li>Painless, stitch-free procedure (laser option)</li>
-                        <li>Improved foot appearance and comfort</li>
-                        <li>Prevention of infection and skin damage</li>
-                        <li>Enhanced mobility and daily activity</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Corn Removal Surgery – PureCheckup",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                At PureCheckup, patients benefit from:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Highly qualified foot and orthopedic surgeons</li>
-                <li>100% hygienic, pain-free treatment</li>
-                <li>Cashless hospitalization and insurance support</li>
-                <li>Dedicated post-surgery care and recovery guidance</li>
-                <li>24x7 patient coordination and free consultation</li>
-            </ul>
-            <p>
-                Our team ensures personalized diagnosis, safe procedures, and faster healing using modern laser and surgical equipment.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/corn-removal",
-};
-
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Corn Removal Surgery",
+        description:
+            "Surgical removal of corns from the foot or toes to relieve pain and prevent recurrence.",
+        downtime: "2–3 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Cryotherapy for Corns",
+        description:
+            "Freeze treatment to remove corns quickly with minimal pain and fast recovery.",
+        downtime: "1–2 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Laser Corn Removal",
+        description:
+            "Precision laser treatment to remove stubborn corns with minimal discomfort.",
+        downtime: "1–2 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Chemical Corn Removal",
+        description:
+            "Topical chemical treatment to dissolve corns and prevent recurrence.",
+        downtime: "0–1 days",
+    },
+    {
+        title: "Home Care & Post-Treatment Support",
+        description:
+            "Guidance on foot care, padding, and footwear to prevent future corns.",
+        downtime: "N/A",
+    },
+    {
+        title: "Online Consultation & Follow-Up",
+        description:
+            "Expert consultation and remote monitoring for safe corn removal recovery.",
+        downtime: "N/A",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advanced Corn Removal Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I had painful corns for years. The laser removal was quick and painless. I can walk comfortably now.",
+        name: "Meera Patel",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "Very professional service. The doctor explained the cause and how to prevent it. Highly recommended.",
+        name: "Rajesh Kumar",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "Affordable and effective. The clinic was clean and the staff was helpful.",
+        name: "Suman Gupta",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "I was worried about surgery but it was just a small procedure. Recovery was fast.",
+        name: "Anil Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Thank you PureCheckup for helping me get rid of my foot corns. Great experience.",
+        name: "Priya Sharma",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const CornRemovalInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of corn removal surgery treatment in ${city}?`,
-            answer:
-                `The cost in ${city} depends on the type of surgery and severity. PureCheckup provides an estimated quote after a free consultation.`,
+            question: `What is the best treatment for corn removal in ${formattedCity}?`,
+            answer: `The best treatment for corns in ${formattedCity} depends on their severity. Most patients benefit from professional corn removal, which may include surgical excision, laser treatment, or cryotherapy. PureCheckup specialists assess the root cause of friction, pressure, or footwear—and recommend the safest, most effective option for lasting relief.`,
         },
         {
             id: "two",
-            question: "Does insurance cover corn removal surgery treatment?",
-            answer:
-                "Yes, insurance may cover corn removal surgery if medically necessary. PureCheckup assists with cashless or reimbursement claims.",
+            question: `How do I book a corn removal consultation in ${formattedCity}?`,
+            answer: `You can easily book a corn removal consultation in ${formattedCity} through PureCheckup’s online appointment form. Choose your city, select “Corn Removal,” and schedule a free consultation. You can also connect with our care team for instant booking support.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best treatment at the best price in ${city}?`,
-            answer:
-                `PureCheckup partners with top hospitals and certified foot surgeons in ${city} to provide safe, affordable, and advanced corn removal treatments.`,
+            question: `Is corn removal surgery painful in ${formattedCity}?`,
+            answer: `Corn removal surgery in ${formattedCity} is typically painless because local anesthesia is used. Patients usually feel only mild pressure during the procedure. Post-treatment discomfort is minimal and subsides within 1–2 days with proper care.`,
         },
         {
             id: "four",
-            question: "How to book a corn removal surgery treatment with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking is easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Visit PureCheckup.com</li>
-                        <li>Select “Corn Removal Surgery”</li>
-                        <li>Fill out the consultation form</li>
-                        <li>Our care team will contact you for scheduling</li>
-                    </ul>
-                </div>
-            ),
+            question: `How long does it take to recover after corn removal in ${formattedCity}?`,
+            answer: `Recovery after corn removal in ${formattedCity} usually takes 2–5 days, depending on the method used. Most patients can walk immediately after the procedure and resume normal routine within a few days. Advanced techniques like laser or cryotherapy offer faster healing.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for corn removal surgery?",
-            answer:
-                "Laser corn removal is highly precise, painless, and provides quick recovery with minimal recurrence risk.",
+            question: `Are there non-surgical options for corn removal in ${formattedCity}?`,
+            answer: `Yes. Non-surgical options in ${formattedCity} include medicated pads, chemical treatments, salicylic acid creams, and footwear modifications. These are ideal for mild corns. However, recurring or deep corns often require professional removal to prevent complications.`,
         },
         {
             id: "six",
-            question: "What are the first signs of a corn requiring surgery?",
-            answer:
-                "Persistent thickened skin, deep pain while walking, or failure of creams/home remedies indicate the need for surgical evaluation.",
+            question: `What is the cost of corn removal in ${formattedCity}?`,
+            answer: `The cost of corn removal in ${formattedCity} varies based on the treatment method, clinic location, and severity of the corn. PureCheckup offers affordable treatment with transparent pricing and no-cost EMI options to ensure accessible care for all patients.`,
         },
         {
             id: "seven",
-            question: "How painful is corn removal surgery treatment?",
-            answer:
-                "Modern procedures are minimally painful or completely painless, with local anesthesia ensuring maximum comfort.",
+            question: `Can I remove corns at home safely in ${formattedCity}?`,
+            answer: `Mild corns can be managed at home with warm water soaking, pumice stone use, and proper footwear. However, cutting or shaving corns at home is unsafe and can lead to infection. Professional treatment in ${formattedCity} is recommended for quick and safe removal.`,
         },
         {
             id: "eight",
-            question: "How long does it take to recover from corn removal surgery?",
-            answer:
-                "Recovery typically takes 3–7 days, with laser treatment offering the fastest healing and minimal downtime.",
+            question: `How experienced are the corn removal doctors in ${formattedCity}?`,
+            answer: `PureCheckup’s doctors in ${formattedCity} are experienced foot specialists who perform advanced corn removal procedures daily. They are trained in minimally invasive techniques, ensuring safe removal, reduced pain, and quick recovery.`,
         },
         {
             id: "nine",
-            question: "Can corns come back after surgery?",
-            answer:
-                "Recurrence is rare if proper footwear and foot hygiene are maintained. Preventive guidance is provided post-surgery.",
+            question: `What causes corns on feet and toes in ${formattedCity}?`,
+            answer: `Corns in ${formattedCity} commonly occur due to constant pressure, friction, standing for long periods, tight footwear, high heels, or foot deformities. Identifying and treating the root cause helps prevent recurrence.`,
         },
         {
             id: "ten",
-            question: "Is corn removal surgery safe for diabetic patients?",
-            answer:
-                "Yes, under medical supervision, corn removal surgery is safe for diabetic patients and prevents complications.",
+            question: `How soon can I resume normal activities after corn removal in ${formattedCity}?`,
+            answer: `Most patients in ${formattedCity} resume normal walking the same day and return to daily activities within 2–3 days. strenuous activities or long walks are usually resumed after a few days, depending on the treatment method and doctor’s advice.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Corn Removal Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Get corn removal Surgery in ${formattedCity} with PureCheckup: expert care, no-cost EMI, and free consultation. Book online or call for safe treatment today.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`Corn Removal Treatment, Painless Corn Removal. Corn Treatment Near Me, Best Corn Removal Clinic ${formattedCity}, Non-Surgical Corn Removal, Specialist for Corn Removal ${formattedCity}, PureCheckup Corn Removal, How to Get Rid of Corns Permanently, Corn Removal Clinic in [Area], Laser Corn Removal Cost, Callus and Corn Removal Specialist, Affordable Corn Removal ${formattedCity}, Best Foot Corn Specialist, PureCheckup Corn Treatment, Corn Removal Price ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/corn-removal/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Advanced Corn Removal Surgery in ${city} – Safe, Painless & Permanent Solution`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Permanent Corn Removal Surgery in ${formattedCity} : Advanced Laser & Non-Surgical Options`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={cornRemovalData.title1}
-                description={cornRemovalData.description}
-                tabsData={cornRemovalData.tabsData}
-                expertHeading={`Expert Corn Removal Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={cornRemovalData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Corn Removal Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -301,20 +225,26 @@ const CornRemovalInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Corn Removal in ${city}`}
+                    treatmentName="Corn Removal"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Corn",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Procedure type (Laser/Surgical/Cryo)",
+                        "Number of corns",
+                        "Hospital charges",
+                        "Medications",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -322,7 +252,8 @@ const CornRemovalInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

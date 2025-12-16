@@ -1,305 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const paraphimosisData = {
-    title1: "Paraphimosis Surgery",
-    title2: "Treatment & Information",
-    description:
-        "Paraphimosis surgery treats a condition where the foreskin is trapped behind the glans, causing pain, swelling, and restricted blood flow. PureCheckup offers safe, minimally invasive surgery for immediate relief and prevention of recurrence.",
-
-    tabsData: [
-        {
-            value: "what-is-paraphimosis",
-            label: "What is Paraphimosis Surgery?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Paraphimosis surgery is performed when the foreskin becomes trapped behind the glans penis and cannot return to its normal position, causing pain, swelling, and risk of complications.
-                    </p>
-                    <p>
-                        The surgery ensures effective relief, proper healing, and prevention of recurrence using advanced, minimally invasive techniques.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Types of paraphimosis surgery performed in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Dorsal Slit Procedure:</strong> Small incision to relieve constriction and restore foreskin position.</li>
-                        <li><strong>Circumcision Surgery:</strong> Complete foreskin removal for recurrent paraphimosis.</li>
-                        <li><strong>Frenuloplasty or Preputioplasty:</strong> Minor corrections to prevent future paraphimosis while preserving foreskin.</li>
-                        <li><strong>Minimally Invasive Laser Surgery:</strong> Faster recovery, minimal pain, and reduced infection risk.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Common causes of paraphimosis requiring surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Forceful retraction of the foreskin</li>
-                        <li>Poor hygiene leading to inflammation or infection</li>
-                        <li>Untreated phimosis</li>
-                        <li>Post-catheterization or medical procedures</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Signs that indicate paraphimosis surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Swelling of the foreskin or glans</li>
-                        <li>Severe penile pain</li>
-                        <li>Difficulty urinating</li>
-                        <li>Bluish discoloration of the glans</li>
-                        <li>Persistent discomfort during sexual activity</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>Benefits of paraphimosis surgery:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Immediate relief from pain and swelling</li>
-                        <li>Prevention of tissue damage and infections</li>
-                        <li>Minimally invasive options with faster recovery</li>
-                        <li>Personalized care with expert urologists</li>
-                        <li>Safe, sterile, and advanced surgical environment</li>
-                        <li>Insurance coverage for eligible patients</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert Paraphimosis Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                PureCheckup provides top-tier paraphimosis surgery in India, performed by certified urologists using advanced surgical technology for precise, safe, and fast recovery.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Experienced surgeons with specialized expertise</li>
-                <li>Minimally invasive procedures for minimal pain</li>
-                <li>Fast recovery and post-operative care</li>
-                <li>Insurance and cashless options available</li>
-                <li>Available in major cities across India</li>
-            </ul>
-            <p>
-                Trust PureCheckup for professional, confidential, and high-quality paraphimosis treatment tailored to each patient’s needs.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/paraphimosis",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Manual Reduction Procedure",
+        description:
+            "A non-surgical technique where the urologist gently reduces the trapped foreskin to restore normal positioning. Best for early or mild cases.",
+        downtime: "1–2 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Dorsal Slit Procedure",
+        description:
+            "A minor surgical cut made on the foreskin to relieve pressure and free the trapped glans. Provides instant relief and prevents tissue damage.",
+        downtime: "3–5 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Circumcision Surgery",
+        description:
+            "Complete removal of the foreskin to prevent recurrence of paraphimosis and improve long-term hygiene. Recommended for repeated or severe episodes.",
+        downtime: "5–7 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "Emergency Paraphimosis Release",
+        description:
+            "Immediate intervention for severe or painful cases to prevent complications like swelling or tissue injury. Performed by senior urologists.",
+        downtime: "2–4 days",
+    },
+    {
+        title: "Laser Circumcision",
+        description:
+            "A minimally invasive laser procedure that ensures less pain, reduced bleeding, and faster healing compared to traditional methods.",
+        downtime: "3–5 days",
+    },
+    {
+        title: "Post-Treatment Care & Follow-Up",
+        description:
+            "Comprehensive care including hygiene guidance, medications, dressing, and online follow-up to prevent recurrence of paraphimosis.",
+        downtime: "N/A (supportive care)",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Advance Paraphimosis Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I was in severe pain due to paraphimosis. PureCheckup arranged an emergency appointment. The doctor was very skilled and relief was immediate.",
+        name: "Sunil Verma",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "The swelling was scary. Manual reduction worked for me. Thank you for the quick response.",
+        name: "Rahul Singh",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "I opted for circumcision to avoid future issues. The laser procedure was quick and healing was smooth.",
+        name: "Amit Patel",
+        designation: "Patient",
+        stars: 5,
     },
+    {
+        quote:
+            "Very professional team. They handled my case with urgency and care.",
+        name: "Deepak Sharma",
+        designation: "Patient",
+        stars: 4.5,
+    },
+    {
+        quote:
+            "Good hospital and affordable treatment. Insurance claim was processed quickly.",
+        name: "Sanjay Kumar",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const ParaphimosisInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of paraphimosis surgery treatment in ${city}?`,
-            answer:
-                `Costs in ${city} vary depending on the procedure type, hospital, and complexity. Contact PureCheckup for a detailed consultation and personalized estimate.`,
+            question: `What is the online platform to book a paraphimosis surgery?`,
+            answer: `You can book paraphimosis surgery directly on PureCheckup.com, where you can access consultation, treatment options, surgeon profiles, and EMI plans in one place.`,
         },
         {
             id: "two",
-            question: "Does insurance cover paraphimosis surgery treatment?",
-            answer:
-                "Yes, most major health insurance plans cover paraphimosis surgery. PureCheckup assists with insurance verification and claims processing.",
+            question: `What is the cost of paraphimosis surgery in ${formattedCity}?`,
+            answer: `Paraphimosis surgery in ${formattedCity} typically ranges based on the procedure type, surgeon expertise, and hospital selection. PureCheckup offers transparent pricing, no-cost EMI, and a free consultation.`,
         },
         {
             id: "three",
-            question: `Which healthcare service provider offers the best paraphimosis treatment in ${city}?`,
-            answer:
-                `PureCheckup provides expert paraphimosis surgery in ${city} with advanced technology, skilled surgeons, and comprehensive insurance support.`,
+            question: `How long does it take to recover after paraphimosis surgery?`,
+            answer: `Recovery usually takes 3–7 days, depending on the treatment method. Minimal-invasive procedures or laser options provide faster healing with less discomfort.`,
         },
         {
             id: "four",
-            question: "How to book a paraphimosis treatment surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking paraphimosis surgery with PureCheckup is easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/paraphimosis"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/paraphimosis
-                            </a>
-                        </li>
-                        <li>Fill in your details or call our 24×7 helpline</li>
-                        <li>Schedule a consultation with an expert urologist</li>
-                    </ul>
-                </div>
-            ),
+            question: `Is paraphimosis surgery safe for adults in ${formattedCity}?`,
+            answer: `Yes, paraphimosis surgery is considered safe for adults when performed by trained urologists. PureCheckup partners with certified surgeons and NABH-accredited hospitals in ${formattedCity}.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for paraphimosis surgery?",
-            answer:
-                "The treatment depends on severity. Options include dorsal slit, circumcision, preputioplasty, or minimally invasive laser surgery, all available at PureCheckup.",
+            question: `Can paraphimosis be treated without surgery in ${formattedCity}?`,
+            answer: `Mild cases can be managed with manual reduction or medications, but recurrent or severe paraphimosis often requires surgical intervention. PureCheckup doctors guide you on the best treatment option.`,
         },
         {
             id: "six",
-            question: "What are the first signs of a paraphimosis condition?",
-            answer:
-                "Initial signs include foreskin swelling, severe pain, difficulty retracting the foreskin, or difficulty urinating. Early intervention prevents complications.",
+            question: `What are the symptoms that require paraphimosis treatment in ${formattedCity}?`,
+            answer: `Symptoms include severe swelling, pain, difficulty retracting the foreskin, tight foreskin trapping, redness, and restricted blood flow. Immediate treatment is necessary to avoid complications.`,
         },
         {
             id: "seven",
-            question: "How painful is paraphimosis surgery treatment?",
-            answer:
-                "Most procedures are minimally invasive, performed under local or general anesthesia, ensuring minimal pain during and after surgery.",
+            question: `How experienced are the surgeons for paraphimosis treatment in ${formattedCity}?`,
+            answer: `PureCheckup works with highly experienced urologists in ${formattedCity} who specialize in foreskin-related conditions, emergency release procedures, and advanced circumcision surgery.`,
         },
         {
             id: "eight",
-            question: "How long does recovery take after paraphimosis surgery?",
-            answer:
-                "Recovery typically takes 1–2 weeks for minor procedures and slightly longer for circumcision, depending on individual healing and procedure type.",
+            question: `How soon can I resume normal activities after paraphimosis surgery in ${formattedCity}?`,
+            answer: `Most patients return to normal work within 2–5 days, depending on the procedure and healing speed. Doctors provide personalized recovery guidance and follow-up care.`,
         },
         {
             id: "nine",
-            question: "Can paraphimosis recur after surgery?",
-            answer:
-                "Recurrence is rare after proper surgical intervention, especially when corrective procedures like circumcision or preputioplasty are performed.",
+            question: `Why choose PureCheckup for paraphimosis surgery in ${formattedCity}?`,
+            answer: `PureCheckup offers advanced paraphimosis surgery performed by expert urologists in ${formattedCity}, with same-day procedures, free consultation, and no-cost EMI options. Patients receive complete care from diagnosis to recovery.`,
         },
         {
             id: "ten",
-            question: "Is paraphimosis surgery safe for all age groups?",
-            answer:
-                "Yes, PureCheckup provides age-appropriate care with advanced surgical techniques suitable for both adults and pediatric patients.",
+            question: `How do I book a free consultation for paraphimosis surgery in ${formattedCity}?`,
+            answer: `You can book your free consultation online through the PureCheckup platform, call the helpline, or fill out the quick appointment form. A care coordinator connects you within minutes.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Paraphimosis Surgery in ${formattedCity} Call 9211930749  | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Book your free consultation today in ${formattedCity} and choose no-cost EMI to make your Paraphimosis surgery affordable and hassle-free | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`paraphimosis treatment in ${formattedCity}, paraphimosis surgery in ${formattedCity}, balanoposthitis treatment in ${formattedCity}, balanitis treatment in ${formattedCity}, circumcision surgery in ${formattedCity}, urologist for paraphimosis in ${formattedCity}, paraphimosis specialist near me in ${formattedCity}, best urology clinic in ${formattedCity}, emergency paraphimosis treatment in ${formattedCity}, paraphimosis surgery cost in ${formattedCity}, symptoms of paraphimosis in ${formattedCity}, causes of paraphimosis in ${formattedCity}, recovery time after paraphimosis surgery, is paraphimosis surgery safe in ${formattedCity}, online consultation for paraphimosis in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/paraphimosis/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Expert Paraphimosis Surgery in ${city} – Quick Relief, Complete Care`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Paraphimosis Surgery in ${formattedCity} – Safe, Advanced & Same-Day Procedure with Free Consultation & No-Cost EMI`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={paraphimosisData.title1}
-                description={paraphimosisData.description}
-                tabsData={paraphimosisData.tabsData}
-                expertHeading={`Expert Paraphimosis Surgeons in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={paraphimosisData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Paraphimosis Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -307,20 +225,26 @@ const ParaphimosisInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`Paraphimosis in ${city}`}
+                    treatmentName="Paraphimosis"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of Paraphimosis",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Procedure type (Manual/Surgical)",
+                        "Urgency of treatment",
+                        "Hospital charges",
+                        "Post-op care",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -328,7 +252,8 @@ const ParaphimosisInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

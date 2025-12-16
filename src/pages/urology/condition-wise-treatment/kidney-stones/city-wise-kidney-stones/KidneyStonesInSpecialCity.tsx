@@ -1,354 +1,223 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
+
+const treatments = [
+    {
+        title: "Laser Kidney Stones Removal",
+        description:
+            "Minimal pain, precise laser treatment for kidney stones. Quick recovery with advanced technology.",
+        downtime: "1–3 days",
+    },
+    {
+        title: "Shock Wave Lithotripsy (SWL)",
+        description:
+            "Non-invasive procedure to break kidney stones using shock waves. Safe and effective for most stones.",
+        downtime: "1–2 days",
+    },
+    {
+        title: "Ureteroscopy for Kidney Stones",
+        description:
+            "Endoscopic procedure for stones in ureters or kidneys. High precision, minimal discomfort.",
+        downtime: "2–4 days",
+    },
+    {
+        title: "Percutaneous Nephrolithotomy (PCNL)",
+        description:
+            "For large or complex kidney stones. Small incision with guided stone removal.",
+        downtime: "4–7 days",
+    },
+    {
+        title: "Preventive Kidney Care & Medications",
+        description:
+            "Customized care and medications to prevent recurrence of kidney stones. Long-term kidney protection.",
+        downtime: "None",
+    },
+    {
+        title: "Follow-up & Diet Consultation",
+        description:
+            "Post-treatment follow-up and dietary guidance to maintain kidney health and prevent stones.",
+        downtime: "None",
+    },
+];
+
+const testimonials = [
+    {
+        quote:
+            "I had a large kidney stone and was in severe pain. The laser treatment at PureCheckup gave me instant relief. I was discharged the next day.",
+        name: "Sandeep Verma",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Very professional service. The lithotripsy procedure was quick and painless. I didn't need any cuts or stitches.",
+        name: "Pooja Sharma",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "The doctors explained everything clearly. Post-surgery care was excellent. Highly recommend for kidney stone issues.",
+        name: "Anil Gupta",
+        designation: "Patient",
+        stars: 4.5,
+    },
+    {
+        quote:
+            "Advanced technology and hygienic hospital. My recovery was smooth and the staff was very supportive.",
+        name: "Ramesh Kumar",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Affordable cost and good insurance support. Thank you PureCheckup for making the process easy.",
+        name: "Vikram Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
+];
 
 const KidneyStonesInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of kidney stone surgery in ${city}?`,
-            answer:
-                `The cost of kidney stone surgery in ${city} ranges from ₹30,000 to ₹1,05,000, depending on the stone size, location, and procedure type (RIRS, PCNL, ESWL, or URSL).`,
+            question: `Why choose PureCheckup for kidney stones treatment in ${formattedCity}?`,
+            answer: `PureCheckup offers expert urologists, advanced technology, and personalized care for kidney stone treatment in ${formattedCity}, ensuring safe and effective results.`,
         },
         {
             id: "two",
-            question: `Does insurance cover kidney stone treatment in ${city}?`,
-            answer:
-                "Yes, most health insurance policies cover kidney stone removal surgeries as they are medically necessary. PureCheckup offers cashless insurance support to make the process hassle-free.",
+            question: `How do I book a free consultation for kidney stone treatment in ${formattedCity}?`,
+            answer: `You can easily book a free consultation for kidney stone treatment in ${formattedCity} through PureCheckup’s online platform or by calling our expert support team.`,
         },
         {
             id: "three",
-            question: `Which is the best hospital for kidney stone treatment in ${city}?`,
-            answer:
-                `PureCheckup partners with the best urology hospitals in ${city}, equipped with advanced laser technology and expert surgeons for safe and effective stone removal.`,
+            question: `What is the online platform to book a kidney stone treatment in ${formattedCity}?`,
+            answer: `PureCheckup provides a secure online booking platform where patients in ${formattedCity} can schedule kidney stones treatment consultations with certified specialists.`,
         },
         {
             id: "four",
-            question: "How to book a kidney stone consultation with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking an appointment is easy:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/kidney-stones-treatment"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/kidney-stones-treatment
-                            </a>
-                        </li>
-                        <li>Fill out the form or call our 24×7 helpline</li>
-                        <li>Get a free consultation with a top urologist near you</li>
-                    </ul>
-                </div>
-            ),
+            question: `Is kidney stone treatment at PureCheckup safe in ${formattedCity}?`,
+            answer: `Yes, PureCheckup in ${formattedCity} uses state-of-the-art equipment and follows strict safety protocols to ensure kidney stone treatment is safe and effective.`,
         },
         {
             id: "five",
-            question: "What are the different types of kidney stone surgeries?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Common procedures include:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>
-                            <strong>RIRS (Retrograde Intrarenal Surgery):</strong> No-cut laser surgery for kidney stones.
-                        </li>
-                        <li>
-                            <strong>PCNL (Percutaneous Nephrolithotomy):</strong> For large kidney stones.
-                        </li>
-                        <li>
-                            <strong>URSL (Ureteroscopic Lithotripsy):</strong> For stones in the ureter.
-                        </li>
-                        <li>
-                            <strong>ESWL (Shock Wave Lithotripsy):</strong> Non-invasive shock waves to break stones.
-                        </li>
-                    </ul>
-                </div>
-            ),
+            question: `How long does recovery take after kidney stone treatment in ${formattedCity}?`,
+            answer: `Recovery times vary by treatment type, but most patients in ${formattedCity} experience minimal downtime and a quick return to daily activities with PureCheckup.`,
         },
         {
             id: "six",
-            question: "Is kidney stone removal surgery painful?",
-            answer:
-                "Modern laser surgeries like RIRS and URSL are minimally invasive and performed under anesthesia, ensuring a painless experience and quick recovery.",
+            question: `What types of kidney stone treatments are available in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} offers Laser Kidney Stones Removal, Shock Wave Lithotripsy (SWL), Ureteroscopy, Percutaneous Nephrolithotomy (PCNL), preventive care, and follow-up consultations.`,
         },
         {
             id: "seven",
-            question: "How long does it take to recover from kidney stone surgery?",
-            answer:
-                "Most patients are discharged within 24 hours and can resume normal activities in 2–3 days. Complete recovery takes about a week.",
+            question: `Can I consult urologists online for kidney stone treatment in ${formattedCity}?`,
+            answer: `Yes, PureCheckup in ${formattedCity} offers online consultations with expert urologists, allowing patients to discuss treatment options and book procedures remotely.`,
         },
         {
             id: "eight",
-            question: "Can kidney stones come back after surgery?",
-            answer:
-                "There is a chance of recurrence if proper hydration and dietary habits are not followed. Our doctors provide a personalized diet plan to prevent future stones.",
+            question: `How much does kidney stone treatment cost in ${formattedCity}?`,
+            answer: `The cost of kidney stone treatment in ${formattedCity} at PureCheckup depends on the procedure type. You can get a detailed estimate during a free consultation.`,
         },
         {
             id: "nine",
-            question: `Why choose PureCheckup for kidney stone treatment in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Expert urologists with 10+ years of experience</li>
-                        <li>Advanced laser treatments (RIRS, URSL, ESWL)</li>
-                        <li>Cashless insurance and 0% EMI options</li>
-                        <li>Free doctor consultation and follow-up</li>
-                        <li>24×7 patient care support</li>
-                    </ul>
-                </div>
-            ),
+            question: `Are the procedures at PureCheckup painless for kidney stones in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} uses minimally invasive and laser-based techniques to ensure kidney stone treatments are as painless and comfortable as possible.`,
         },
         {
             id: "ten",
-            question: "What are the symptoms of kidney stones?",
-            answer:
-                "Common symptoms include severe pain in the back or side, pain while urinating, blood in urine, nausea, and frequent urge to urinate.",
+            question: `How can I prevent kidney stones after treatment in ${formattedCity}?`,
+            answer: `PureCheckup in ${formattedCity} provides follow-up care, dietary guidance, and preventive medications to reduce the risk of kidney stone recurrence.`,
         },
     ];
-
-    const kidneyStoneData = {
-        title1: "Kidney Stone",
-        title2: "Treatment & Information",
-        description:
-            "Kidney stones (renal calculi) are hard deposits made of minerals and salts that form inside your kidneys. They can cause severe pain, urinary tract infections, and kidney damage if left untreated. At PureCheckup, we offer advanced laser treatments like RIRS, URSL, PCNL, and ESWL for painless and effective stone removal.",
-
-        tabsData: [
-            {
-                value: "what-is-kidney-stone",
-                label: "What is Kidney Stone?",
-                icon: <Activity className="text-blue-600" />,
-                content: (
-                    <div>
-                        <p>
-                            Kidney stones are hard deposits of minerals and acid salts that stick together in concentrated urine. They can be painful when passing through the urinary tract but usually cause no permanent damage if treated early.
-                        </p>
-                        <p className="mt-2">
-                            Stones can vary in size from a grain of sand to a golf ball. While small stones may pass on their own, larger stones often require medical intervention.
-                        </p>
-                        <p className="mt-2">
-                            PureCheckup provides the latest minimally invasive procedures to remove kidney stones safely and effectively.
-                        </p>
-                    </div>
-                ),
-            },
-            {
-                value: "types",
-                label: "Types",
-                icon: <Syringe className="text-green-600" />,
-                content: (
-                    <div className="space-y-4">
-                        <p>
-                            The type of treatment depends on the size, location, and type of stone:
-                        </p>
-
-                        <ul className="list-disc list-inside space-y-3">
-                            <li>
-                                <strong>Calcium Stones:</strong> Most common type, usually in the form of calcium oxalate.
-                            </li>
-                            <li>
-                                <strong>Struvite Stones:</strong> Form in response to a urinary tract infection.
-                            </li>
-                            <li>
-                                <strong>Uric Acid Stones:</strong> Form in people who don't drink enough fluids or eat a high-protein diet.
-                            </li>
-                            <li>
-                                <strong>Cystine Stones:</strong> Form in people with a hereditary disorder.
-                            </li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "causes",
-                label: "Causes",
-                icon: <Pill className="text-purple-600" />,
-                content: (
-                    <div>
-                        <p className="mb-4">
-                            Several factors can increase the risk of developing kidney stones:
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Dehydration (not drinking enough water)</li>
-                            <li>Diet high in protein, salt, and sugar</li>
-                            <li>Obesity</li>
-                            <li>Digestive diseases and surgery</li>
-                            <li>Family or personal history of kidney stones</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "symptoms",
-                label: "Symptoms",
-                icon: <HeartPulse className="text-pink-600" />,
-                content: (
-                    <div>
-                        <p className="mb-4">
-                            Signs that you might have a kidney stone include:
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Severe, sharp pain in the side and back, below the ribs</li>
-                            <li>Pain that radiates to the lower abdomen and groin</li>
-                            <li>Pain that comes in waves and fluctuates in intensity</li>
-                            <li>Pain or burning sensation while urinating</li>
-                            <li>Pink, red, or brown urine</li>
-                            <li>Nausea and vomiting</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "benefits",
-                label: "Benefit",
-                icon: <Stethoscope className="text-red-600" />,
-                content: (
-                    <div>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Painless and scarless removal of stones</li>
-                            <li>Quick relief from severe pain</li>
-                            <li>Preservation of kidney function</li>
-                            <li>Minimal hospital stay (often same-day discharge)</li>
-                            <li>Faster recovery compared to open surgery</li>
-                            <li>Reduced risk of infection and complications</li>
-                        </ul>
-                    </div>
-                ),
-            },
-        ],
-
-        doctorName: "Expert Urologists – PureCheckup Healthcare",
-        doctorDescription: (
-            <div className="space-y-4">
-                <p>
-                    PureCheckup connects you with top urologists and kidney stone specialists in your city. Our partner hospitals are equipped with state-of-the-art technology for accurate diagnosis and effective treatment.
-                </p>
-                <p>
-                    We ensure a seamless patient experience with:
-                </p>
-                <ul className="list-disc list-inside space-y-2">
-                    <li>Free consultation and second opinion</li>
-                    <li>Transparent pricing and cost estimates</li>
-                    <li>Insurance claim assistance</li>
-                    <li>Dedicated care coordinator</li>
-                </ul>
-            </div>
-        ),
-        doctorLink: "https://purecheckup.com",
-    };
-
-    const benefits = [
-        {
-            icon: Scissors,
-            title: "Advanced Laser Treatment",
-            description: "Precision removal with no cuts.",
-        },
-        {
-            icon: Clock,
-            title: "24-Hour Discharge",
-            description: "Quick recovery and return to work.",
-        },
-        {
-            icon: ShieldCheck,
-            title: "Insurance Support",
-            description: "Hassle-free cashless claims.",
-        },
-        {
-            icon: Headphones,
-            title: "Expert Care",
-            description: "Experienced urologists and support staff.",
-        },
-    ];
-
-    const treatmentOptions = [
-        {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "RIRS (Laser Surgery)",
-            points: [
-                "No cuts, no stitches",
-                "Best for kidney stones < 20mm",
-                "Next-day discharge",
-            ],
-            highlight: false,
-        },
-        {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "ESWL (Shock Wave)",
-            points: ["Non-invasive", "Breaks stones into sand", "No hospitalization"],
-            highlight: false,
-        },
-        {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "PCNL (Keyhole Surgery)",
-            points: ["For large stones > 20mm", "Small incision", "High success rate"],
-            highlight: false,
-        },
-    ];
-
-    if (!city) {
-        return <div>Loading...</div>;
-    }
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Kidney Stones Treatment in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Get advanced kidney stones treatment in ${formattedCity} . Safe, quick, and expert care. Book your free consultation  today with no-cost EMI | PureCheckup`}
+                />
+                <meta
+                    name="keywords"
+                    content={`kidney stones in ${formattedCity}, kidney stone treatment in ${formattedCity}, kidney stone surgery in ${formattedCity}, kidney stone symptoms in ${formattedCity}, kidney stone treatment near me in ${formattedCity}, laser kidney stone removal in ${formattedCity}, kidney stone removal in ${formattedCity}, ureteroscopy for kidney stones in ${formattedCity}, shock wave lithotripsy in ${formattedCity}, prevent kidney stones in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/kidney-stones-treatment/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Kidney Stone Treatment in ${city} – Advanced Laser & Shockwave Therapy`}
-                description={`Painless, scarless kidney stone removal in ${city} with same-day discharge and insurance support.`}
+                title={`Get Safe & Advanced Kidney Stones Laser Treatment in ${formattedCity} – Experienced Surgeons, 24/7 Support, Fast & Painless Recovery`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
-                selectedCity={city}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2="Kidney Stone?"
-                description={kidneyStoneData.description}
-                tabsData={kidneyStoneData.tabsData}
-                expertHeading={kidneyStoneData.doctorName}
-                doctorName=""
-                doctorDescription={kidneyStoneData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Kidney Stones Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -356,20 +225,26 @@ const KidneyStonesInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} selectedCity={city} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName="Kidney Stone"
-                    costSubtitle={`Pricing varies by stone size, procedure, city (${city}), and insurance.`}
+                    treatmentName="Kidney Stones"
+                    costSubtitle="Pricing varies by case severity, stone size, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Size and location of the stone",
-                        "Type of procedure (RIRS, PCNL, ESWL)",
-                        "Hospital category and room choice",
-                        "Stent requirement (if any)",
+                        "Size and location of stones",
+                        "Procedure type (Laser/SWL/PCNL)",
+                        "Hospital category",
+                        "Stent requirement",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -377,7 +252,8 @@ const KidneyStonesInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

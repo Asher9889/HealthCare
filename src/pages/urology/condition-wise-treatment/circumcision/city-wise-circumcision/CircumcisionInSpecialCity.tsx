@@ -1,333 +1,233 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
+
+const treatments = [
+    {
+        title: "Laser Circumcision",
+        description:
+            "Minimally invasive, bloodless, and quick procedure using advanced laser technology. Ideal for adults and children; faster healing.",
+        downtime: "24–48 hours",
+    },
+    {
+        title: "Stapler Circumcision",
+        description:
+            "Modern, device-assisted procedure ensuring uniform cuts, less pain, and reduced bleeding. Suitable for phimosis and recurrent infections.",
+        downtime: "2–5 days",
+    },
+    {
+        title: "ZSR Circumcision",
+        description:
+            "Latest stapler-based circumcision offering precise tissue removal, minimal discomfort, and rapid recovery.",
+        downtime: "24–72 hours",
+    },
+    {
+        title: "Conventional Circumcision",
+        description:
+            "Traditional surgical approach. Recommended in complex cases or when advanced methods are not suitable.",
+        downtime: "1–2 weeks",
+    },
+    {
+        title: "Dorsal Slit Procedure",
+        description:
+            "Quick outpatient method for severe phimosis, infections, or emergency cases.",
+        downtime: "3–7 days",
+    },
+];
+
+const testimonials = [
+    {
+        quote:
+            "I was suffering from phimosis and it was very painful. The laser circumcision at PureCheckup was quick and painless. Recovered in just 2 days.",
+        name: "Rahul Sharma",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "My son needed circumcision. The doctors were very gentle and explained everything. The stapler method was very clean and healed fast.",
+        name: "Anjali Gupta",
+        designation: "Parent",
+        stars: 5,
+    },
+    {
+        quote:
+            "Excellent service. From consultation to surgery, everything was smooth. Highly recommend for adult circumcision.",
+        name: "Vikram Singh",
+        designation: "Patient",
+        stars: 4.5,
+    },
+    {
+        quote:
+            "Very professional team. I was worried about pain but the ZSR procedure was comfortable. Good post-op care.",
+        name: "Amit Patel",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Clean hospital and experienced doctor. The cost was affordable and insurance was handled smoothly.",
+        name: "Suresh Kumar",
+        designation: "Patient",
+        stars: 4,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
+];
 
 const CircumcisionInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    // Capitalize first letter of city name
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of circumcision surgery in ${city}?`,
-            answer:
-                `The cost of circumcision in ${city} ranges between ₹25,000 and ₹60,000, depending on the technique used (ZSR Stapler, Laser, or Open Surgery) and the hospital choice.`,
+            question: `What is the best circumcision method available in ${formattedCity}?`,
+            answer: `Most patients prefer modern options like laser, stapler, or ZSR circumcision due to minimal pain and faster recovery.`,
         },
         {
             id: "two",
-            question: `Is circumcision covered by insurance in ${city}?`,
-            answer:
-                "Yes, circumcision is covered by insurance if it is medically necessary (e.g., for phimosis, paraphimosis, or balanitis). PureCheckup provides assistance with cashless claims.",
+            question: `How much does circumcision cost in ${formattedCity}?`,
+            answer: `Costs vary based on technique, surgeon expertise, and diagnostic requirements.`,
         },
         {
             id: "three",
-            question: `Which is the best clinic for circumcision in ${city}?`,
-            answer:
-                `PureCheckup partners with top-rated clinics and hospitals in ${city} that specialize in ZSR Stapler and Laser Circumcision, ensuring a safe and hygienic procedure.`,
+            question: "Is circumcision painful?",
+            answer: "The procedure is performed under anesthesia, ensuring minimal discomfort.",
         },
         {
             id: "four",
-            question: "How to book a circumcision appointment with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/circumcision"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/circumcision
-                            </a>
-                        </li>
-                        <li>Enter your details in the form</li>
-                        <li>Our medical coordinator will call you to schedule a free consultation</li>
-                    </ul>
-                </div>
-            ),
+            question: "How long does circumcision surgery take?",
+            answer: "Typically 10–20 minutes, depending on the method and case.",
         },
         {
             id: "five",
-            question: "Which circumcision method is the best?",
-            answer:
-                "ZSR Stapler Circumcision and Laser Circumcision are considered the best methods as they are painless, bloodless, and offer faster recovery compared to traditional open surgery.",
+            question: `What is the recovery time after circumcision in ${formattedCity}?`,
+            answer: "Advanced procedures heal in 2–5 days; conventional surgery may require 1–2 weeks.",
         },
         {
             id: "six",
-            question: "Is circumcision painful?",
-            answer:
-                "No, modern circumcision techniques like ZSR and Laser are performed under local anesthesia, making the procedure virtually painless. Post-surgery discomfort is minimal and manageable with medication.",
+            question: `Is circumcision safe for adults and children in ${formattedCity}?`,
+            answer: "Yes, circumcision is safe for all age groups when performed by trained surgeons.",
         },
         {
             id: "seven",
-            question: "How long does the recovery take?",
-            answer:
-                "Patients can usually return to work or daily activities within 2–3 days. Complete healing of the wound takes about 1–2 weeks.",
+            question: `Which doctor performs circumcision in ${formattedCity}?`,
+            answer: "Urologists, general surgeons, and specialized circumcision doctors.",
         },
         {
             id: "eight",
-            question: "Are there any side effects of circumcision?",
-            answer:
-                "Circumcision is a safe procedure with minimal risks. Rare complications may include minor bleeding or infection, which can be easily treated. It does not affect fertility or sexual function.",
+            question: `Does PureCheckup offer insurance and EMI for circumcision surgery in ${formattedCity}?`,
+            answer: "Yes, PureCheckup provides insurance assistance and No-Cost EMI options.",
         },
         {
             id: "nine",
-            question: `Why choose PureCheckup for circumcision in ${city}?`,
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Experienced surgeons specializing in male sexual health</li>
-                        <li>Advanced ZSR Stapler and Laser technology</li>
-                        <li>100% privacy and confidentiality</li>
-                        <li>Cashless insurance and EMI options</li>
-                        <li>Free post-surgery follow-up</li>
-                    </ul>
-                </div>
-            ),
+            question: "Are stitches required after circumcision?",
+            answer: "Laser and ZSR methods typically require minimal or no stitches.",
         },
         {
             id: "ten",
-            question: "What conditions does circumcision treat?",
-            answer:
-                "Circumcision is effective for treating phimosis (tight foreskin), paraphimosis (trapped foreskin), balanitis (infection), and frenulum breve (short frenulum).",
+            question: `Why choose PureCheckup for circumcision treatment in ${formattedCity}?`,
+            answer: "PureCheckup offers expert surgeons, advanced procedures, affordable pricing, and complete post-operative support.",
+        },
+        {
+            id: "eleven",
+            question: "When can I return to work after circumcision?",
+            answer: "Most patients resume light work within 24–48 hours.",
+        },
+        {
+            id: "twelve",
+            question: `How do I book a free consultation for circumcision in ${formattedCity}?`,
+            answer: "You can book through PureCheckup’s website, WhatsApp, or helpline.",
+        },
+        {
+            id: "thirteen",
+            question: "What is the online platform to book a circumcision?",
+            answer: "You can book circumcision treatment online at PureCheckup.com.",
         },
     ];
-
-    const circumcisionData = {
-        title1: "Circumcision",
-        title2: "Treatment & Information",
-        description:
-            "Circumcision is the surgical removal of the foreskin covering the head of the penis. It is a common procedure performed for medical, hygienic, or religious reasons. At PureCheckup, we specialize in advanced ZSR Stapler and Laser Circumcision techniques that ensure a painless experience, cosmetic finish, and rapid recovery.",
-
-        tabsData: [
-            {
-                value: "what-is-circumcision",
-                label: "What is Circumcision?",
-                icon: <Activity className="text-blue-600" />,
-                content: (
-                    <div>
-                        <p>
-                            Circumcision is a simple surgical procedure to remove the foreskin—the hood of skin covering the glans (head) of the penis.
-                        </p>
-                        <p className="mt-2">
-                            It is often recommended for medical conditions like phimosis (inability to retract foreskin), paraphimosis, and recurrent infections (balanitis). It also improves hygiene and reduces the risk of urinary tract infections and sexually transmitted diseases.
-                        </p>
-                        <p className="mt-2">
-                            PureCheckup offers modern, painless circumcision options that are far superior to traditional open surgery.
-                        </p>
-                    </div>
-                ),
-            },
-            {
-                value: "types",
-                label: "Types",
-                icon: <Syringe className="text-green-600" />,
-                content: (
-                    <div className="space-y-4">
-                        <p>
-                            We offer the most advanced circumcision techniques:
-                        </p>
-
-                        <ul className="list-disc list-inside space-y-3">
-                            <li>
-                                <strong>ZSR Stapler Circumcision:</strong> A revolutionary technique that uses a disposable stapler device to cut and seal the skin simultaneously. It is quick (10-15 mins), bloodless, and leaves a smooth cosmetic finish.
-                            </li>
-                            <li>
-                                <strong>Laser Circumcision:</strong> Uses a high-precision laser beam to remove the foreskin. It causes minimal tissue damage, less swelling, and faster healing than open surgery.
-                            </li>
-                            <li>
-                                <strong>Open Circumcision:</strong> The traditional method involving scalpel and stitches. It is generally reserved for complex cases where other methods are not suitable.
-                            </li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "causes",
-                label: "Medical Reasons",
-                icon: <Pill className="text-purple-600" />,
-                content: (
-                    <div>
-                        <p className="mb-4">
-                            Circumcision is medically advised for:
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li><strong>Phimosis:</strong> Tight foreskin that cannot be pulled back.</li>
-                            <li><strong>Paraphimosis:</strong> Foreskin gets stuck behind the glans and cuts off blood flow (emergency).</li>
-                            <li><strong>Balanitis:</strong> Recurrent infection or inflammation of the glans.</li>
-                            <li><strong>Balanoposthitis:</strong> Inflammation of both the glans and foreskin.</li>
-                            <li><strong>Frenulum Breve:</strong> Short frenulum causing pain during erection.</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "symptoms",
-                label: "Symptoms",
-                icon: <HeartPulse className="text-pink-600" />,
-                content: (
-                    <div>
-                        <p className="mb-4">
-                            Symptoms indicating the need for circumcision include:
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Difficulty retracting the foreskin</li>
-                            <li>Pain, swelling, or redness around the penis head</li>
-                            <li>Pain during urination or sexual intercourse</li>
-                            <li>Foul-smelling discharge under the foreskin</li>
-                            <li>Recurrent urinary tract infections</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "benefits",
-                label: "Benefit",
-                icon: <Stethoscope className="text-red-600" />,
-                content: (
-                    <div>
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Improved hygiene and easier cleaning</li>
-                            <li>Reduced risk of UTIs and STDs (including HIV)</li>
-                            <li>Prevention of penile cancer</li>
-                            <li>Resolution of phimosis and related pain</li>
-                            <li>Enhanced sexual satisfaction (in some cases)</li>
-                            <li>Cosmetically pleasing results with ZSR/Laser</li>
-                        </ul>
-                    </div>
-                ),
-            },
-        ],
-
-        doctorName: "Expert Circumcision Surgeons – PureCheckup Healthcare",
-        doctorDescription: (
-            <div className="space-y-4">
-                <p>
-                    PureCheckup is a leader in men's sexual health treatments. We work with highly skilled surgeons who have performed thousands of successful circumcisions.
-                </p>
-                <p>
-                    We prioritize patient comfort and privacy. Our clinics provide a judgment-free environment with:
-                </p>
-                <ul className="list-disc list-inside space-y-2">
-                    <li>Confidential consultations</li>
-                    <li>Fast-track admission and discharge</li>
-                    <li>Dedicated male care coordinators</li>
-                    <li>Post-surgery care kit and guidance</li>
-                </ul>
-            </div>
-        ),
-        doctorLink: "https://purecheckup.com",
-    };
-
-    const benefits = [
-        {
-            icon: Scissors,
-            title: "ZSR Stapler / Laser",
-            description: "Advanced, painless techniques.",
-        },
-        {
-            icon: Clock,
-            title: "10-Min Procedure",
-            description: "Quick and effective treatment.",
-        },
-        {
-            icon: ShieldCheck,
-            title: "100% Private",
-            description: "Confidential and judgment-free.",
-        },
-        {
-            icon: Headphones,
-            title: "Fast Recovery",
-            description: "Back to work in 2 days.",
-        },
-    ];
-
-    const treatmentOptions = [
-        {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "ZSR Stapler Circumcision",
-            points: [
-                "Most advanced method",
-                "Silicon ring falls off automatically",
-                "Best cosmetic result",
-            ],
-            highlight: false,
-        },
-        {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Laser Circumcision",
-            points: ["Precision cutting", "Minimal bleeding", "Faster healing"],
-            highlight: false,
-        },
-        {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Frenuloplasty",
-            points: ["For short frenulum", "Preserves foreskin", "Quick relief"],
-            highlight: false,
-        },
-    ];
-
-    if (!city) {
-        return <div>Loading...</div>;
-    }
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`Circumcision Treatment in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Get safe, painless circumcision in ${formattedCity} from experienced surgeons. Affordable cost, quick recovery, free consultation, and No-Cost EMI support available.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`circumcision in ${formattedCity}, circumcision surgery ${formattedCity}, circumcision treatment ${formattedCity}, male circumcision ${formattedCity}, phimosis treatment in ${formattedCity}, circumcision doctors in ${formattedCity}, circumcision clinic ${formattedCity}, adult circumcision ${formattedCity}, child circumcision ${formattedCity}, best circumcision surgeon in ${formattedCity}, circumcision cost in ${formattedCity}, painless circumcision ${formattedCity}, circumcision hospital near me`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/circumcision/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`Circumcision Surgery in ${city} – Painless ZSR & Laser Treatment`}
-                description={`Advanced, bloodless circumcision in ${city} for Phimosis & Balanitis. 100% private & safe.`}
+                title={`Circumcision for Adults & Children in ${formattedCity} – Fast Recovery with Expert Surgeons`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ ZSR Stapler", "👥 Expert Surgeons", "🛡️ 100% Confidential"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "0% EMI & Insurance Assistance", "Top Laparoscopic Surgeons", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
-                selectedCity={city}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2="Circumcision?"
-                description={circumcisionData.description}
-                tabsData={circumcisionData.tabsData}
-                expertHeading={circumcisionData.doctorName}
-                doctorName=""
-                doctorDescription={circumcisionData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on Circumcision Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -335,20 +235,28 @@ const CircumcisionInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} selectedCity={city} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Left Side Image */}
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
                     treatmentName="Circumcision"
-                    costSubtitle={`Pricing varies by technique (ZSR/Laser), city (${city}), and insurance.`}
+                    costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Technique used (ZSR Stapler, Laser, Open)",
-                        "Hospital category and room choice",
-                        "Anesthesia type (Local/General)",
-                        "Post-surgery medication and kit",
+                        "Type of Procedure (Laser/Stapler/ZSR)",
+                        "Hospital category and room",
+                        "Insurance coverage and approvals",
+                        "Additional diagnostics if needed",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -356,7 +264,8 @@ const CircumcisionInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 

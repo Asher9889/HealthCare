@@ -1,315 +1,211 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { TreatmentCard } from "@/components";
+import { BenefitCard } from "@/components";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+import { FAQ } from "@/components";
+import { TreatmentProcess } from "@/components";
+import { Helmet } from "react-helmet-async";
 
-const rirsData = {
-    title1: "RIRS ?",
-    title2: "Surgery & Information",
-    description:
-        "Retrograde Intrarenal Surgery (RIRS) is a minimally invasive procedure for treating kidney stones. It requires no external incisions and uses a flexible ureteroscope to access and fragment kidney stones using laser technology. RIRS offers a faster recovery, minimal discomfort, and high success rates, making it one of the preferred treatments for kidney stones in India.",
-
-    tabsData: [
-        {
-            value: "what-is-rirs",
-            label: "What is RIRS?",
-            icon: <Activity className="text-blue-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>
-                        Retrograde Intrarenal Surgery (RIRS) is a modern, minimally invasive method used to treat kidney stones located in the renal pelvis, calyces, or complex areas.
-                    </p>
-                    <p>
-                        During RIRS, a flexible ureteroscope is inserted through the urinary tract to visualize the kidney stones. Laser energy is then used to fragment and remove the stones without any external cuts.
-                    </p>
-                    <p>
-                        It is highly effective, especially for patients with stones that are difficult to reach using other methods, ensuring safe and precise removal.
-                    </p>
-                </div>
-            ),
-        },
-        {
-            value: "types",
-            label: "Types of RIRS Surgery",
-            icon: <Syringe className="text-green-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>PureCheckup provides different types of advanced RIRS procedures in India:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Standard RIRS:</strong> Used for single or small-to-medium stones.</li>
-                        <li><strong>Bilateral RIRS:</strong> Treats stones in both kidneys in one session.</li>
-                        <li><strong>RIRS with Stenting:</strong> Includes temporary stent placement to support healing.</li>
-                        <li><strong>Laser RIRS:</strong> Uses high-precision laser energy for safe and effective stone fragmentation.</li>
-                    </ul>
-                    <p>These procedures are performed by expert urologists across major Indian cities such as Delhi, Mumbai, Bengaluru, and Kanpur.</p>
-                </div>
-            ),
-        },
-        {
-            value: "causes",
-            label: "Causes",
-            icon: <Pill className="text-purple-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>RIRS is recommended for kidney stones caused by several factors, including:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li><strong>Dehydration:</strong> Insufficient water intake leading to concentrated urine.</li>
-                        <li><strong>Poor diet:</strong> High salt, sugar, or protein intake contributing to stone formation.</li>
-                        <li><strong>Medical conditions:</strong> Diabetes, obesity, or hyperparathyroidism.</li>
-                        <li><strong>Genetic factors:</strong> Family history of kidney stones.</li>
-                        <li><strong>Urinary infections:</strong> Certain UTIs that encourage stone formation.</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "symptoms",
-            label: "Symptoms",
-            icon: <HeartPulse className="text-pink-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>You may need RIRS if you experience any of the following symptoms:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Severe back or side pain</li>
-                        <li>Blood in urine (hematuria)</li>
-                        <li>Frequent or painful urination</li>
-                        <li>Nausea and vomiting</li>
-                        <li>Fever or chills</li>
-                    </ul>
-                </div>
-            ),
-        },
-        {
-            value: "benefits",
-            label: "Benefits",
-            icon: <Stethoscope className="text-red-600" />,
-            content: (
-                <div className="space-y-3">
-                    <p>RIRS surgery offers multiple benefits compared to traditional stone removal procedures:</p>
-                    <ul className="list-disc list-inside space-y-2">
-                        <li>Minimally invasive – no external cuts</li>
-                        <li>High precision using laser technology</li>
-                        <li>Short recovery period</li>
-                        <li>Outpatient or day-care procedure</li>
-                        <li>Low complication rates with advanced methods</li>
-                    </ul>
-                </div>
-            ),
-        },
-    ],
-
-    doctorName: "Expert RIRS Surgeons – PureCheckup Healthcare",
-    doctorDescription: (
-        <div className="space-y-4">
-            <p>
-                At PureCheckup, RIRS surgeries are performed by experienced urologists using state-of-the-art laser and endoscopic equipment.
-            </p>
-            <p>
-                Our medical network spans top hospitals across India, providing complete pre-surgery, surgery, and post-operative care under one platform.
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Performed by leading urologists and stone specialists</li>
-                <li>Advanced laser and flexible ureteroscope technology</li>
-                <li>Minimal downtime and same-day discharge</li>
-                <li>Full insurance and EMI assistance</li>
-                <li>Available in all major metro and tier-2 cities</li>
-            </ul>
-            <p>
-                Choose PureCheckup for a painless, precise, and successful RIRS experience with India’s best urology experts.
-            </p>
-        </div>
-    ),
-    doctorLink: "https://purecheckup.com/treatment/rirs",
-};
-
-const benefits = [
+const treatments = [
     {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
+        title: "Laser RIRS for Kidney Stone Removal",
+        description:
+            "Minimally invasive endoscopic procedure using a flexible scope and laser to break kidney stones into fine dust. Best for stones located in the kidney or upper ureter. No external cuts or stitches.",
+        downtime: "1–3 days",
     },
     {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
+        title: "Flexible Ureteroscopy (FURS) with Laser",
+        description:
+            "A precise stone-breaking technique is performed using a flexible ureteroscope that reaches challenging locations inside the kidney. Ideal when ESWL fails, or stones are hard in nature.",
+        downtime: "1–2 days",
     },
     {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
+        title: "Dusting & Fragmentation RIRS Technique",
+        description:
+            "An advanced laser technique that turns stones into fine dust for natural passage. Suitable for multiple small stones or stones in the lower pole of the kidney. Minimally invasive and highly effective.",
+        downtime: "1–2 days",
     },
     {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
+        title: "RIRS with Stent Placement",
+        description:
+            "Used when stones are large or the ureter is tight. A temporary stent helps maintain urine flow and aids healing after laser stone removal. Enhances success rate and reduces discomfort.",
+        downtime: "1–3 days",
     },
 ];
 
-const treatmentOptions = [
+const testimonials = [
     {
-        id: 1,
-        icon: <Scissors className="w-7 h-7 text-blue-600" />,
-        title: "Laser RIRS Surgery (Recommended)",
-        points: [
-            "No cuts, stitches, or pain",
-            "Safe and effective",
-            "Quick recovery",
-        ],
-        highlight: false,
+        quote:
+            "I had multiple kidney stones and was afraid of cuts. RIRS was magical. No cuts, no pain, and I was discharged the next day. Thank you PureCheckup!",
+        name: "Ravi Shankar",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 2,
-        icon: <Leaf className="w-7 h-7 text-green-600" />,
-        title: "Non-Surgical Treatments",
-        points: ["Medicines", "Lifestyle and diet corrections"],
-        highlight: false,
+        quote:
+            "The advanced laser technology they use is impressive. My stone was dusted completely. Recovery was super fast.",
+        name: "Aman Verma",
+        designation: "Patient",
+        stars: 5,
     },
     {
-        id: 3,
-        icon: <Hospital className="w-7 h-7 text-purple-600" />,
-        title: "Conventional Surgery (For Severe Cases)",
-        points: ["Recommended in advanced stages"],
-        highlight: false,
+        quote:
+            "Professional doctors and transparent billing. They explained the RIRS procedure very well. Highly recommended for kidney stones.",
+        name: "Kavita Singh",
+        designation: "Patient",
+        stars: 4.5,
     },
+    {
+        quote:
+            "Excellent care coordination. From admission to discharge, everything was smooth. The stent removal later was also painless.",
+        name: "Gaurav Malhotra",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Best place for RIRS treatment. The cost was affordable compared to big hospitals and the service was premium.",
+        name: "Deepak Joshi",
+        designation: "Patient",
+        stars: 5,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedure", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "1-day Hospitalization", img: hsptl, bg: bg4 },
 ];
 
 const RIRSInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of RIRS surgery in ${city}?`,
-            answer:
-                `The cost of RIRS surgery in ${city} typically ranges between ₹80,000 and ₹1,00,000, depending on the hospital, city, and complexity of kidney stones. PureCheckup offers transparent pricing and helps patients choose affordable, high-quality treatment options.`,
+            question: `Why choose PureCheckup for RIRS surgery in ${formattedCity}?`,
+            answer: `PureCheckup provides advanced laser-based RIRS surgery in ${formattedCity} through top urologists, modern hospitals, transparent pricing, and complete patient care from consultation to recovery.`,
         },
         {
             id: "two",
-            question: "Does insurance cover RIRS treatment?",
-            answer:
-                "Yes, most major health insurance providers cover RIRS surgery, making it both accessible and affordable. PureCheckup assists patients with insurance verification, cashless approval, and reimbursement support.",
+            question: `How do I book a free consultation for RIRS surgery in ${formattedCity}?`,
+            answer: `You can book a free consultation through PureCheckup by filling out the online form, calling the helpline, or sending a WhatsApp request. You will get an instant callback.`,
         },
         {
             id: "three",
-            question: `Which healthcare provider offers the best RIRS treatment in ${city}?`,
-            answer:
-                `PureCheckup connects patients with ${city}’s top hospitals and urologists specializing in RIRS. Our partnered healthcare centers provide advanced laser technology, expert surgeons, and complete insurance support at competitive prices.`,
+            question: `What is the online platform to book an RIRS surgery?`,
+            answer: `PureCheckup is a trusted online platform to book RIRS surgery with expert urologists, updated cost details, and fully-assisted hospital support.`,
         },
         {
             id: "four",
-            question: "How to book RIRS surgery with PureCheckup?",
-            answer: (
-                <div className="text-(--text-primary) font-medium space-y-2">
-                    <p>Booking RIRS surgery with PureCheckup is simple and convenient:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>
-                            Visit{" "}
-                            <a
-                                href="https://purecheckup.com/treatment/rirs"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline"
-                            >
-                                purecheckup.com/treatment/rirs
-                            </a>
-                        </li>
-                        <li>Fill in your details to request a free consultation</li>
-                        <li>Or call our 24×7 helpline at +91-9211930749 for same-day assistance</li>
-                    </ul>
-                    <p>
-                        Our care team will guide you through doctor selection, insurance verification, and pre-surgery preparation.
-                    </p>
-                </div>
-            ),
+            question: `What is the cost of RIRS surgery in ${formattedCity}?`,
+            answer: `RIRS surgery cost in ${formattedCity} depends on stone size, hospital choice, and tests required. PureCheckup provides transparent pricing with affordable package options.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for kidney stones?",
-            answer:
-                "RIRS is one of the most effective and minimally invasive treatments for kidney stones, especially those located in complex or hard-to-reach areas. It provides excellent stone clearance and faster recovery compared to traditional surgery.",
+            question: `Is RIRS a safe procedure for kidney stone removal?`,
+            answer: `Yes. RIRS is one of the safest and most advanced laser procedures for kidney stones, performed without cuts, stitches, or major risks.`,
         },
         {
             id: "six",
-            question: "What are the first signs of kidney stones that may need RIRS treatment?",
-            answer:
-                "Early signs include severe back or side pain, blood in urine (hematuria), frequent urination, nausea, vomiting, and pain during urination. If you experience these symptoms, consult a urologist for timely diagnosis and RIRS evaluation.",
+            question: `How long does RIRS surgery take?`,
+            answer: `The RIRS procedure typically takes 45–60 minutes, depending on the stone size and location.`,
         },
         {
             id: "seven",
-            question: "Is RIRS surgery painful?",
-            answer:
-                "RIRS is a minimally invasive and nearly painless procedure performed under anesthesia. Patients may experience mild discomfort or soreness post-surgery, which resolves within a few days with proper care.",
+            question: `What is the recovery time after RIRS surgery?`,
+            answer: `Most patients can resume normal activities within 24–48 hours after the RIRS procedure because it is minimally invasive.`,
         },
         {
             id: "eight",
-            question: "What is the recovery time after RIRS surgery?",
-            answer:
-                "Most patients recover within 5–7 days and resume normal activities soon after. Complete recovery and stone clearance may take a few weeks, depending on the size and number of stones.",
+            question: `Do I need to be hospitalized for RIRS surgery in ${formattedCity}?`,
+            answer: `Usually, RIRS is done as a day-care procedure. Patients are often discharged within a few hours unless the surgeon advises otherwise.`,
         },
         {
             id: "nine",
-            question: "Are there any risks associated with RIRS surgery?",
-            answer:
-                "RIRS is a safe procedure with minimal complications. Rare risks may include mild bleeding, temporary urinary discomfort, or infection—all of which are easily managed under medical supervision.",
+            question: `Who performs RIRS surgery at PureCheckup in ${formattedCity}?`,
+            answer: `Board-certified and highly experienced urologists perform RIRS surgery at partnering hospitals with advanced laser technology.`,
         },
         {
             id: "ten",
-            question: "Is RIRS suitable for all kidney stone patients?",
-            answer:
-                "RIRS is suitable for most patients with small to moderately sized stones, or stones located in complex kidney regions. A detailed evaluation by a PureCheckup urologist helps determine the most suitable treatment plan.",
+            question: `Can kidney stones return after RIRS surgery?`,
+            answer: `Kidney stones may recur depending on diet, lifestyle, or medical history. PureCheckup provides post-surgery guidance to help prevent recurrence.`,
         },
     ];
 
     return (
-        <>
+        <div className="min-h-screen">
+            <Helmet>
+                <title>{`RIRS Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
+                <meta
+                    name="description"
+                    content={`Get advanced RIRS surgery in ${formattedCity} by expert urologists. Painless, scar-free laser treatment for kidney stones. Book your free consultation.`}
+                />
+                <meta
+                    name="keywords"
+                    content={`rirs surgery in ${formattedCity}, rirs treatment in ${formattedCity}, rirs procedure in ${formattedCity}, rirs specialist in ${formattedCity}, rirs kidney stone surgery in ${formattedCity}, flexible ureteroscopy rirs in ${formattedCity}, laser stone removal in ${formattedCity}, endoscopic kidney stone surgery in ${formattedCity}, rirs for kidney stones in ${formattedCity}, minimally invasive rirs in ${formattedCity}, advanced laser stone treatment in ${formattedCity}, rirs surgeon in ${formattedCity}, best rirs hospital in ${formattedCity}, rirs cost in ${formattedCity}, laser rirs in ${formattedCity}`}
+                />
+                <link rel="canonical" href={`https://purecheckup.com/treatment/rirs/${city}`} />
+            </Helmet>
+
             <ConditionHeroSection
-                title={`RIRS Surgery in ${city} – Advanced Kidney Stone Treatment`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Get Safe& Advanced RIRS Laser Surgery in ${formattedCity} Experienced Surgeons, 24/7 Assistance, Quick and Comfortable Recovery`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Free Doctor Consultation", "No-Cost EMI & Insurance Assistance", "Top Urologists", "Day-Care Surgery Options", "24x7 Medical Coordination"]}
                 cities={constantData.cities}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
+
+            <section className="py-20 mx-auto max-w-7xl px-4">
                 <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
                 {constantData.specialists.map((doc) => (
                     <SpecialistCard key={doc.id} specialist={doc} />
                 ))}
             </section>
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={rirsData.title1}
-                description={rirsData.description}
-                tabsData={rirsData.tabsData}
-                expertHeading={`Expert RIRS Surgery in ${city} – PureCheckup`}
-                doctorName=""
-                doctorDescription={rirsData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="FAQs on RIRS Treatment in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
@@ -317,20 +213,26 @@ const RIRSInSpecialCity = () => {
                 <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
-                    treatmentName={`RIRS in ${city}`}
+                    treatmentName="RIRS"
                     costSubtitle="Pricing varies by case severity, city, and insurance coverage."
                     paymentOptions="Payment Options: EMI Available | Cashless Insurance"
                     costFactors={[
-                        "Grade and type of RIRS",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Stone size and position",
+                        "Hospital room category",
+                        "Stent usage",
+                        "Diagnostic charges",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
@@ -338,7 +240,8 @@ const RIRSInSpecialCity = () => {
                     secondaryButtonText="View Nearby Clinics"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 
