@@ -10,6 +10,15 @@ const doctorSpecialization = ["Aesthetic/Plastic Surgeon", "Dental Surgeon", "EN
 
 const doctorDegree = ["MBBS", "BDS", "MS", "MD", "MCH", "DM", "Post graduate Diploma", "DNB", "MDS", "Others"];
 
+const supportNumber = "9211930749"
+
+const socialLinks = {
+  facebook: "https://www.purecheckup.com/fb",
+  twitter: "https://www.purecheckup.com/x",
+  instagram: "https://www.purecheckup.com/ig",
+}
+
+
 const specialists = [
   {
     id: 1,
@@ -163,8 +172,6 @@ const urologyDoctorCardData = [
   }
 ]
 
-const supportNumber = "9211930749"
-
 const testimonials = [
   {
     quote:
@@ -210,4 +217,4 @@ const testimonials = [
 
 
 
-export { testimonials, supportNumber, doctorDegree, doctorSpecialization, urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }
+export { socialLinks, testimonials, supportNumber, doctorDegree, doctorSpecialization, urologyDoctorCardData, cities, specialists, diseases, citiesLiteral, proctologyDoctorCardData, laproscopyDoctorCardData }

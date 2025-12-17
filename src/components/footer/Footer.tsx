@@ -1,3 +1,4 @@
+import { socialLinks } from "@/constants/data";
 import React, { useEffect } from "react";
 import {
   FaFacebookF,
@@ -54,12 +55,17 @@ const Footer: React.FC = () => {
   ];
 
   const socialIcons = [
-    { Icon: FaFacebookF, label: "Facebook" },
-    { Icon: FaInstagram, label: "Instagram" },
-    { Icon: FaLinkedinIn, label: "LinkedIn" },
-    { Icon: FaTwitter, label: "Twitter" },
-    { Icon: FaYoutube, label: "YouTube" },
+    { Icon: FaFacebookF, label: "Facebook" , link: socialLinks.facebook },
+    { Icon: FaInstagram, label: "Instagram" , link: socialLinks.instagram },
+    { Icon: FaLinkedinIn, label: "LinkedIn" , link: "" },
+    { Icon: FaTwitter, label: "Twitter" , link: socialLinks.twitter },
+    { Icon: FaYoutube, label: "YouTube" , link: "" },
   ];
+
+  function openLink(link:string){
+    if(!link) return;
+    window.open(link, "_blank");
+  }
 
   return (
     <footer className="bg-[#002131] text-white pt-12">
@@ -92,8 +98,8 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="font-semibold text-white mb-4">Social Media</h4>
               <div className="flex gap-3 text-white text-xl">
-                {socialIcons.map(({ Icon, label }) => (
-                  <Icon key={label} className="hover:text-gray-300 cursor-pointer" />
+                {socialIcons.map(({ Icon, label, link }) => (
+                  <Icon onClick={()=> openLink(link)} key={label} className="hover:text-gray-300 cursor-pointer" />
                 ))}
               </div>
             </div>
