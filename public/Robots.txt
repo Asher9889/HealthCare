@@ -1,15 +1,63 @@
 User-agent: *
 Allow: /
 
-Disallow: /search
-Disallow: /demo
-Disallow: /static_pages_test/
-Disallow: /bookAppointment.php
-Disallow: /admin
+Allow: /treatment/
+Allow: /disease/
+Allow: /city/
+Allow: /blog/
+Allow: /speciality/
+Allow: /doctor/
+Allow: /hospital/
 
-Disallow: /*?utm_
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /cgi-bin/
+Disallow: /search?
 Disallow: /*?filter=
 Disallow: /*?sort=
+Disallow: /*?utm_
 Disallow: /*?sessionid=
+Disallow: /bookAppointment.php
+Disallow: /demo/
+Disallow: /static_pages_test/
+
+# Allow CSS, JS, images for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
 
 Sitemap: https://www.purecheckup.com/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: BingAI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
