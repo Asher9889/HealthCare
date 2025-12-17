@@ -16,7 +16,7 @@ const StarRating: React.FC<StarRatingProps> = ({
   color = "bg-yellow-500",
   max = 5,
   step = 0.5,
-  value = 0,
+  value = 5,
   onChange,
 }) => {
   // total number of inputs = max / step
