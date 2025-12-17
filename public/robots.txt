@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Disallow: /search
+Disallow: /demo
+Disallow: /static_pages_test/
+Disallow: /bookAppointment.php
+Disallow: /admin
+
+Disallow: /*?utm_
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?sessionid=
+
+Sitemap: https://www.purecheckup.com/sitemap.xml
