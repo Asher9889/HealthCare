@@ -10,6 +10,11 @@ interface SEOProps {
   canonical?: string;
 }
 
+const SITE_NAME = "PureCheckup";
+const SITE_URL = "https://www.purecheckup.com";
+
+
+
 const SEO = (props: SEOProps) => {
   const page = props.page;
   const dynamicProps = {
@@ -30,6 +35,10 @@ const SEO = (props: SEOProps) => {
       <meta name="description" content={meta.description} />
       <meta name="keywords" content={meta.keywords} />
 
+      {/* Author & Publisher */}
+      <meta name="author" content={SITE_NAME} />
+      <meta name="publisher" content={SITE_NAME} />
+
       {/* Open Graph */}
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
@@ -40,6 +49,16 @@ const SEO = (props: SEOProps) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
+
+       {/* Structured Data (Simple & Safe) */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        })}
+      </script>
     </Helmet>
   );
 };
