@@ -1,321 +1,261 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, StatsBar, TreatmentBenefits } from "@/components"
-import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar, BenefitCard, TreatmentCard, FAQ, TreatmentProcess, SEO } from "@/components";
 import { constantData } from "@/constants";
-import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
-import FAQ from "@/components/faq/FAQ";
-import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 import { useParams } from "react-router-dom";
+import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
+
+const treatments = [
+    {
+        title: "Rhinoplasty (Nose Surgery)",
+        description:
+            "Advanced nose reshaping procedure to improve facial harmony, breathing, and overall appearance.",
+        downtime: "7–14 days",
+    },
+    {
+        title: "Liposuction & Body Contouring",
+        description:
+            "Targeted fat removal using modern liposuction techniques for a sculpted and proportionate body.",
+        downtime: "5–10 days",
+    },
+    {
+        title: "Breast Augmentation & Reduction",
+        description:
+            "Customized breast surgery to enhance size, shape, or reduce discomfort under expert medical care.",
+        downtime: "7–14 days",
+    },
+    {
+        title: "Facelift & Anti-Aging Surgery",
+        description:
+            "Surgical facial rejuvenation to reduce wrinkles, sagging skin, and visible signs of aging.",
+        downtime: "10–21 days",
+    },
+    {
+        title: "Hair Transplant & Scalp Restoration",
+        description:
+            "Permanent hair loss treatment using advanced transplant techniques for natural-looking results.",
+        downtime: "3–7 days",
+    },
+    {
+        title: "Gynecomastia (Male Breast Reduction)",
+        description:
+            "Effective surgical correction for male chest fat and gland enlargement with minimal scarring.",
+        downtime: "5–7 days",
+    },
+];
+
+const testimonials = [
+    {
+        quote:
+            "I underwent Rhinoplasty at PureCheckup and the results are amazing. My breathing improved and I love my new look.",
+        name: "Ritika Singh",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Liposuction was a smooth process. The doctors were very professional and the results were visible within weeks.",
+        name: "Arjun Khanna",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "Highly recommend for Gynecomastia surgery. The recovery was fast and the scar is barely visible.",
+        name: "Karan Mehta",
+        designation: "Patient",
+        stars: 4.5,
+    },
+    {
+        quote:
+            "Excellent care for my Facelift surgery. I look 10 years younger! Thank you PureCheckup.",
+        name: "Meera Joshi",
+        designation: "Patient",
+        stars: 5,
+    },
+    {
+        quote:
+            "The hair transplant results are fantastic. Natural hairline and great density.",
+        name: "Suresh Patel",
+        designation: "Patient",
+        stars: 4,
+    },
+];
+
+const benefits = [
+    { title: "USFDA-Approved Procedures", img: usfda, bg: bg1 },
+    { title: "Support in Insurance Claim", img: insurance, bg: bg2 },
+    { title: "No-Cost EMI", img: ncemi, bg: bg3 },
+    { title: "Day Care / Hospitalization", img: hsptl, bg: bg4 },
+];
 
 const PlasticSurgeryInSpecialCity = () => {
     let { city } = useParams();
-    city = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    // Capitalize first letter of city name
+    const formattedCity = city ? city.charAt(0).toUpperCase() + city.slice(1) : "";
+
+    if (!formattedCity) {
+        return <div>Loading...</div>;
+    }
 
     const faqs = [
         {
             id: "one",
-            question: `What is the cost of plastic surgery treatment in ${city}?`,
-            answer:
-                `The cost of plastic surgery in ${city} depends on the type of procedure, hospital, and surgeon’s experience. Personalized estimates are recommended after consultation with our experts in ${city}.`,
+            question: `Why Choose PureCheckup for Plastic Surgery in ${formattedCity}?`,
+            answer: `PureCheckup connects you with verified plastic surgeons, modern hospitals, transparent pricing, and free consultations in ${formattedCity}.`,
         },
         {
             id: "two",
-            question: `Does insurance cover plastic surgery treatment in ${city}?`,
-            answer:
-                "Reconstructive plastic surgeries caused by burns, trauma, or congenital issues are often covered. Cosmetic enhancements are usually not covered. PureCheckup helps you verify your insurance coverage in " + city + ".",
+            question: `Is plastic surgery safe in ${formattedCity}?`,
+            answer: `Yes, when performed by certified surgeons in accredited clinics, plastic surgery in ${formattedCity} is safe and effective.`,
         },
         {
             id: "three",
-            question: `Which healthcare provider offers the best plastic surgery in ${city}?`,
-            answer:
-                `PureCheckup partners with top-tier surgeons and NABH-accredited hospitals in ${city} offering safe, affordable plastic surgery with advanced facilities.`,
+            question: `How much does plastic surgery cost in ${formattedCity}?`,
+            answer: `The cost depends on the procedure, the surgeon's expertise, and the clinic. PureCheckup helps you compare the best options.`,
         },
         {
             id: "four",
-            question: "How to book a plastic surgery treatment with PureCheckup?",
-            answer: (
-                <div className="space-y-2 text-(--text-primary) font-medium">
-                    <p>Booking is simple:</p>
-                    <ul className="list-decimal list-inside space-y-1">
-                        <li>Visit PureCheckup.com</li>
-                        <li>Choose “Plastic Surgery”</li>
-                        <li>Fill out the consultation form</li>
-                        <li>Our care team will guide you through scheduling and treatment in {city}</li>
-                    </ul>
-                </div>
-            ),
+            question: `Who are the best plastic surgeons in ${formattedCity}?`,
+            answer: `PureCheckup lists experienced, board-certified plastic surgeons practicing in leading hospitals across ${formattedCity}.`,
         },
         {
             id: "five",
-            question: "What is the best treatment for plastic surgery?",
-            answer:
-                "It depends on your concern — rhinoplasty for nasal correction, liposuction for fat reduction, breast reconstruction for post-surgery restoration, etc.",
+            question: `What are the most common plastic surgery treatments in ${formattedCity}?`,
+            answer: `Rhinoplasty, liposuction, hair transplant, gynecomastia, breast surgery, and facelifts are most popular.`,
         },
         {
             id: "six",
-            question: "What are the first signs that I might need plastic surgery?",
-            answer:
-                "Visible deformities, scars, asymmetry, or loss of facial/body proportion affecting confidence or comfort are signs to consult a specialist.",
+            question: `Is there any recovery time after plastic surgery?`,
+            answer: `Recovery varies by procedure. Most patients resume normal activities within a few days to weeks.`,
         },
         {
             id: "seven",
-            question: "How painful is plastic surgery treatment?",
-            answer:
-                "Modern minimally invasive and laser-assisted techniques ensure the procedure is safe, nearly painless, and allows faster recovery.",
+            question: `Can I get a free plastic surgery consultation in ${formattedCity}?`,
+            answer: `Yes, PureCheckup offers a free online and in-clinic consultation with top surgeons in ${formattedCity}.`,
         },
         {
             id: "eight",
-            question: "Is plastic surgery safe?",
-            answer:
-                "Yes. Our board-certified surgeons in " + city + " perform thousands of safe, successful procedures annually using world-class protocols.",
+            question: `Are cosmetic surgeries permanent?`,
+            answer: `Most plastic surgery results are long-lasting when combined with a healthy lifestyle and proper aftercare.`,
         },
         {
             id: "nine",
-            question: "How long does it take to recover after plastic surgery?",
-            answer:
-                "Recovery varies by procedure, from a few days for minor treatments to a few weeks for major surgeries.",
+            question: `Which hospitals provide plastic surgery in ${formattedCity}?`,
+            answer: `PureCheckup partners with multi-specialty hospitals and cosmetic clinics across ${formattedCity}.`,
         },
         {
             id: "ten",
-            question: "Are the results of plastic surgery permanent?",
-            answer:
-                "Most results are long-lasting, provided you maintain a healthy lifestyle and follow post-treatment care guidelines.",
+            question: `How do I choose the right plastic surgeon in ${formattedCity}?`,
+            answer: `Compare doctor experience, patient reviews, treatment approach, and hospital infrastructure on PureCheckup.`,
+        },
+        {
+            id: "eleven",
+            question: `How do I book a free consultation for plastic surgery in ${formattedCity}?`,
+            answer: `You can book a free consultation by visiting PureCheckup.com, selecting ${formattedCity}, and choosing your preferred treatment.`,
+        },
+        {
+            id: "twelve",
+            question: `What is the online platform to book plastic surgery in ${formattedCity}?`,
+            answer: `PureCheckup is a trusted online platform for comparing doctors, clinics, costs, and booking plastic surgery in ${formattedCity}.`,
         },
     ];
-
-    const plasticSurgeryData = {
-        title1: "Plastic Surgery",
-        title2: "Advanced Reconstructive & Cosmetic Procedures",
-        description:
-            "Plastic surgery focuses on reconstructing, reshaping, and enhancing the human body to restore both function and aesthetics. Modern techniques allow natural-looking results with minimal downtime.",
-        tabsData: [
-            {
-                value: "what-is-plastic-surgery",
-                label: "What is Plastic Surgery?",
-                icon: <Activity className="text-blue-600" />,
-                content: (
-                    <div className="space-y-3">
-                        <p>
-                            Plastic surgery addresses congenital deformities, trauma, burn injuries, and cosmetic enhancement. Procedures are tailored to restore appearance and functionality while boosting confidence.
-                        </p>
-                        <p>
-                            With minimally invasive and advanced laser-assisted techniques, patients experience safe treatments, faster recovery, and natural results.
-                        </p>
-                    </div>
-                ),
-            },
-            {
-                value: "types",
-                label: "Types",
-                icon: <Syringe className="text-green-600" />,
-                content: (
-                    <div className="space-y-3">
-                        <ul className="list-disc list-inside space-y-2">
-                            <li><strong>Facial Plastic Surgery:</strong> Rhinoplasty, facelift, eyelid surgery, lip or chin enhancement.</li>
-                            <li><strong>Body Contouring:</strong> Liposuction, tummy tuck, arm lift, thigh lift.</li>
-                            <li><strong>Breast Surgery:</strong> Augmentation, reduction, reconstruction, and lift.</li>
-                            <li><strong>Reconstructive Surgery:</strong> Burn reconstruction, scar revision, cleft lip/palate repair, hand surgery.</li>
-                            <li><strong>Hair Restoration:</strong> FUE and FUT transplantation techniques.</li>
-                            <li><strong>Post-Weight Loss Surgery:</strong> Excess skin removal and full-body sculpting.</li>
-                            <li><strong>Intimate Aesthetic Surgery:</strong> Labiaplasty, vaginal tightening, genital reconstruction.</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "causes",
-                label: "Causes",
-                icon: <Pill className="text-purple-600" />,
-                content: (
-                    <div className="space-y-3">
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Congenital deformities (e.g., cleft lip, ear deformities)</li>
-                            <li>Trauma or burn injury repair</li>
-                            <li>Improving appearance and self-esteem</li>
-                            <li>Reversing aging effects</li>
-                            <li>Enhancing body proportion and symmetry</li>
-                            <li>Post-cancer or post-surgery reconstruction</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "symptoms",
-                label: "Symptoms / Signs",
-                icon: <HeartPulse className="text-pink-600" />,
-                content: (
-                    <div className="space-y-3">
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Physical deformity or scars causing discomfort</li>
-                            <li>Breathing difficulties due to nasal structure</li>
-                            <li>Asymmetrical features affecting confidence</li>
-                            <li>Sagging or loose skin post-weight loss</li>
-                            <li>Post-trauma or burn scars</li>
-                            <li>Functional issues from birth defects or injury</li>
-                        </ul>
-                    </div>
-                ),
-            },
-            {
-                value: "benefits",
-                label: "Benefits",
-                icon: <Stethoscope className="text-red-600" />,
-                content: (
-                    <div className="space-y-3">
-                        <ul className="list-disc list-inside space-y-2">
-                            <li>Enhanced physical appearance and confidence</li>
-                            <li>Correction of birth or trauma-related deformities</li>
-                            <li>Long-lasting aesthetic improvement</li>
-                            <li>Improved functional ability (breathing, movement, etc.)</li>
-                            <li>Quick recovery with minimally invasive techniques</li>
-                            <li>Affordable cost compared to global standards</li>
-                            <li>Access to highly qualified, certified surgeons</li>
-                        </ul>
-                    </div>
-                ),
-            },
-        ],
-
-        doctorName: "Expert Plastic Surgery Treatment – PureCheckup",
-        doctorDescription: (
-            <div className="space-y-4">
-                <p>PureCheckup provides end-to-end care with:</p>
-                <ul className="list-disc list-inside space-y-2">
-                    <li>Personalized consultation with leading cosmetic surgeons</li>
-                    <li>Advanced surgical techniques using FDA-approved equipment</li>
-                    <li>100% transparent process with no hidden charges</li>
-                    <li>End-to-end support from consultation to recovery</li>
-                    <li>Cashless treatment options across hospitals</li>
-                </ul>
-            </div>
-        ),
-        doctorLink: "https://purecheckup.com/treatment/plastic-surgery",
-    };
-
-    const benefits = [
-        {
-            icon: Scissors,
-            title: "Pain-Free Laser Surgery",
-            description: "No cuts, no stitches — minimal discomfort.",
-        },
-        {
-            icon: Clock,
-            title: "Same-Day Discharge",
-            description: "Be back home within hours.",
-        },
-        {
-            icon: ShieldCheck,
-            title: "Insurance Assistance",
-            description: "Cashless and paperwork support.",
-        },
-        {
-            icon: Headphones,
-            title: "24x7 Patient Support",
-            description: "We’re here throughout your recovery.",
-        },
-    ];
-
-    const treatmentOptions = [
-        {
-            id: 1,
-            icon: <Scissors className="w-7 h-7 text-blue-600" />,
-            title: "Advanced Plastic Surgery (Recommended)",
-            points: [
-                "No cuts, stitches, or pain",
-                "Safe and effective",
-                "Quick recovery",
-            ],
-            highlight: false,
-        },
-        {
-            id: 2,
-            icon: <Leaf className="w-7 h-7 text-green-600" />,
-            title: "Non-Surgical Treatments",
-            points: ["Medicines", "Lifestyle and diet corrections"],
-            highlight: false,
-        },
-        {
-            id: 3,
-            icon: <Hospital className="w-7 h-7 text-purple-600" />,
-            title: "Conventional Surgery (For Severe Cases)",
-            points: ["Recommended in advanced stages"],
-            highlight: false,
-        },
-    ];
-
-    if (!city) {
-        return <div>Loading...</div>;
-    }
 
     return (
-        <>
+        <div className="min-h-screen">
+            <SEO
+                title={`Best Plastic Surgery in ${formattedCity} Call 9211930749 | PureCheckup`}
+                description={`Get safe & advanced plastic surgery in ${formattedCity}. Consult top cosmetic surgeons, compare costs & book a free appointment with PureCheckup.`}
+                keywords={`plastic surgery ${formattedCity}, cosmetic surgery ${formattedCity}, plastic surgeon ${formattedCity}, cosmetic surgeon ${formattedCity}, plastic surgery clinic ${formattedCity}, cosmetic clinic ${formattedCity}, rhinoplasty ${formattedCity}, liposuction ${formattedCity}, hair transplant ${formattedCity}, gynecomastia surgery ${formattedCity}, breast augmentation ${formattedCity}, facelift surgery ${formattedCity}, body contouring ${formattedCity}, male breast reduction ${formattedCity}, aesthetic surgery ${formattedCity}`}
+                canonical={`https://purecheckup.com/aesthetics/plastic-surgeries/city`}
+            />
+
             <ConditionHeroSection
-                title={`Transform Your Look Safely with Advanced Plastic Surgery Treatments in ${city}`}
-                description={`Pain-free, advanced laser treatment in ${city} with same-day discharge and full insurance support.`}
+                title={`Advanced Plastic Surgery Treatments in ${formattedCity} by Verified Doctors`}
+                description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across the City.`}
                 primaryBtn={{ label: "Book Free Consultation" }}
-                secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-                features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+                secondaryBtn={{ label: "Call Now" }}
+                features={["Verified Plastic Surgeons", "Advanced Technologies", "Transparent Pricing", "Complete Privacy", "0% EMI Options"]}
                 cities={constantData.cities}
-                selectedCity={city}
+                selectedCity={formattedCity}
                 consultations={["Clinic", "Online"]}
             />
-
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
-
             <StatsBar />
 
-            <WhyPristynCare />
-
-            <ConditionInfo
-                title1="What is"
-                title2={plasticSurgeryData.title1}
-                description={plasticSurgeryData.description}
-                tabsData={plasticSurgeryData.tabsData}
-                expertHeading={plasticSurgeryData.doctorName}
-                doctorName=""
-                doctorDescription={plasticSurgeryData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
-
-            <section className="py-20 px-4">
-                <Heading text1="Treatment" text2="Options" className="mb-10" />
-                <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+            <section className="py-20 mx-auto max-w-7xl px-4">
+                <Heading text1="Meet Our" text2="Plastic Surgeons" className="mb-10" />
+                {constantData.specialists.map((doc) => (
+                    <SpecialistCard key={doc.id} specialist={doc} />
+                ))}
             </section>
 
-            <section className="py-20 px-4">
-                <Heading text1="Frequently" text2={`Asked Questions in ${city}`} className="mb-10" />
+            <section className="px-4 py-8 max-w-7xl mx-auto">
+                <Heading text1="Treatment Options Available in" text2={formattedCity || ""} className="mb-6 text-center" />
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {treatments.map((t, idx) => (
+                        <TreatmentCard
+                            key={idx}
+                            title={t.title}
+                            description={t.description}
+                            downtime={t.downtime}
+                        />
+                    ))}
+                </div>
+            </section>
+
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {benefits.map((b, idx) => (
+                        <BenefitCard key={idx} title={b.title} image={b.img} bgImage={b.bg} />
+                    ))}
+                </div>
+            </section>
+
+            <section className="">
+                <Heading text1="Patient Stories" text2={formattedCity} />
+                <AnimatedTestimonial testimonials={testimonials} />
+            </section>
+
+            <TreatmentProcess />
+            <section className="pb-20 px-4">
+                <Heading text1="Frequently Asked Questions – Plastic Surgery in" text2={formattedCity} />
                 <FAQ faqs={faqs} />
             </section>
 
             <section className="px-4">
-                <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+                <CtaBanner title="Transform Your Life" subtitle="Book your plastic surgery consultation today" buttonText="Book Appointment" phone="+91 9211930749" />
             </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-                <ConditionTreatmentForm cities={constantData.cities} selectedCity={city} />
+            <section className="py-20 px-4 max-w-7xl mx-auto h-[70%]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Left Side Image */}
+                    <div
+                        className="hidden md:block bg-cover bg-center rounded-2xl"
+                        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                    />
+
+                    <ConditionTreatmentForm selectedCity={formattedCity} cities={constantData.cities} />
+                </div>
             </section>
 
             <section className="py-20">
                 <ConditionCityWiseTreatment
                     treatmentName="Plastic Surgery"
-                    costSubtitle={`Pricing varies by case severity, city (${city}), and insurance coverage.`}
-                    paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+                    costSubtitle="Affordable and transparent pricing for all procedures."
+                    paymentOptions="No-Cost EMI | Insurance Assistance"
                     costFactors={[
-                        "Grade and type of Plastic Surgery",
-                        "Hospital category and room",
-                        "Insurance coverage and approvals",
-                        "Additional diagnostics if needed",
+                        "Procedure Complexity",
+                        "Surgeon's Experience",
+                        "Hospital Facilities",
+                        "Implants or Materials Used (if any)",
                     ]}
                     cities={constantData.cities}
                     mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                    primaryButtonText="Get Free Cost Estimate Now"
-                    secondaryButtonText="View Nearby Clinics"
+                    primaryButtonText="Get Cost Estimate"
+                    secondaryButtonText="Find Surgeons Near Me"
                 />
             </section>
-        </>
+
+        </div>
     )
 }
 
