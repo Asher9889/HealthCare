@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { HealthInsurance, PageNotFound } from "./components";
 import { lazy } from "react";
-import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp, AboutUs, ContactUs, DoctorsOnboarding } from "./pages";
+import { DoctorSection, EnglishBlog, FissureTreatment, LaparoscopySurgery, LaserSurgery, NoCostEmi, PatientHelp, AboutUs, ContactUs, DoctorsOnboarding, LaserSurgeryInSpecialCity, LaparoscopicSurgeryInSpecialCity } from "./pages";
 
 // Utility function for type-safe lazy loading
 type LazyImport = {
@@ -296,6 +296,14 @@ const cityWiseRoutes = [
   { path: "/treatment/testicular-torsion/:city", element: TesticularTorsionInSpecialCity },
   { path: "/treatment/epididymal-cyst/:city", element: EpididymalCystInSpecialCity },
   { path: "/treatment/toenail-removal/:city", element: ToenailInSpecialCity },
+
+
+
+  { path: "/surgery/laser-surgery/:city", element: LaserSurgeryInSpecialCity },
+  { path: "/surgery/laparoscopic-surgery/:city", element: LaparoscopicSurgeryInSpecialCity },
+
+
+
 ];
 
 
