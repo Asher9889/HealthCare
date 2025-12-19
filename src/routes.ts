@@ -302,8 +302,6 @@ const cityWiseRoutes = [
   { path: "/surgery/laser-surgery/:city", element: LaserSurgeryInSpecialCity },
   { path: "/surgery/laparoscopic-surgery/:city", element: LaparoscopicSurgeryInSpecialCity },
 
-
-
 ];
 
 

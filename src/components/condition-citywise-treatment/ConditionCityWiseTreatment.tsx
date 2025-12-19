@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // ✅ Reusable Section Header
 const SectionHeader = ({ title, subtitle }: { title: string; subtitle?: string }) => (
@@ -52,6 +53,26 @@ export default function ConditionCityWiseTreatment({
   primaryButtonText,
   secondaryButtonText,
 }: TreatmentSectionProps) {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const moveToCity = (city: string) => {
+  if (!city) return;
+
+  const segments = location.pathname.split("/").filter(Boolean);
+
+  // Replace last segment if already a city
+  if (segments.length > 1) {
+    segments[segments.length - 1] = city.toLowerCase();
+  } else {
+    segments.push(city.toLowerCase());
+  }
+
+  const path = "/" + segments.join("/");
+  navigate(path);
+};
+
   return (
     <div className="max-w-7xl w-full mx-auto px-4 text-(--text-primary)">
       {/* Cost Section */}
@@ -78,7 +99,9 @@ export default function ConditionCityWiseTreatment({
         />
         <div className="flex flex-wrap gap-2">
           {cities.map((city) => (
-            <CityChip key={city} label={city} />
+            <span onClick={()=>moveToCity(city)}>
+              <CityChip  key={city} label={city} />
+            </span>
           ))}
         </div>
 

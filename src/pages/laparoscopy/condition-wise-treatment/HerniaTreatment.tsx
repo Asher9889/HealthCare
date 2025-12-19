@@ -1,4 +1,4 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading, SEO, SpecialistCard, StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
@@ -308,8 +308,15 @@ const HerniaTreatment = () => {
     },
   ];
 
+    const seoData = {
+    title: "Book Free Hernia Surgery Consult @9211930749 | PureCheckup",
+    description: "Get advanced hernia surgery with expert care at PureCheckup. Safe laparoscopic treatment by top surgeons. Call @9211930749 to book consultation today!",
+    keywords: "hernia treatment, inguinal hernia surgery, umbilical hernia surgery, hernia repair near me, laparoscopic hernia surgery, best hernia doctor hernia surgery cost india, safe hernia operation, advanced hernia care, minimally invasive hernia",
+    canonical: "https://purecheckup.com/treatment/hernia/",
+  }
     return (
         <>
+             <SEO {...seoData}/>
             <ConditionHeroSection
             title="Safe & Affordable Hernia Surgery in India – Laparoscopic Repair by PureCheckup"
             description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
