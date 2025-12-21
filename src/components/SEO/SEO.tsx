@@ -11,8 +11,6 @@ interface SEOProps {
 }
 
 const SITE_NAME = "PureCheckup";
-const SITE_URL = "https://www.purecheckup.com";
-
 
 
 const SEO = (props: SEOProps) => {
@@ -50,13 +48,22 @@ const SEO = (props: SEOProps) => {
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
 
-       {/* Structured Data (Simple & Safe) */}
+      {/* Structured Data (Simple & Safe) */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: SITE_NAME,
-          url: SITE_URL,
+          "@type": "WebSite",
+          "@id": "https://purecheckup.com/#website",
+          "url": "https://purecheckup.com/",
+          "name": "PureCheckup",
+          "publisher": {
+            "@id": "https://purecheckup.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://purecheckup.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         })}
       </script>
     </Helmet>
