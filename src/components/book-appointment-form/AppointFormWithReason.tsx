@@ -49,12 +49,12 @@ const AppointFormWithNoReason = () => {
   }
 
   return (
-    <div className="mx-auto flex-1 flex justify-center items-center">
+    <div className="mx-auto flex-1 flex justify-center items-center text-gray-900">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
       >
-        <h2 className="font-bold text-xl mb-4 text-center">
+        <h2 className="font-bold text-xl mb-4 text-center text-gray-900">
           Book Free Consultation
         </h2>
 

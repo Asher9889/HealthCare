@@ -4,9 +4,6 @@ const EnglishBlog = () => {
     return (
         <div>
             <BlogList />
-            <div>
-
-            </div>
         </div>
     );
 };

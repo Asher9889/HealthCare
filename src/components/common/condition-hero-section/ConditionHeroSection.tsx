@@ -25,7 +25,7 @@ const ConditionHeroSection = ({
   consultations =["Clinic", "Online"],
 }: TreatmentSectionProps) => {
   return (
-    <section className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-8 py-10 px-4">
+    <section className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-8 py-10 px-4 text-gray-900logs">
       {/* Left Content */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}

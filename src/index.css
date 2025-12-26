@@ -6,13 +6,11 @@
 @import "preline/variants.css";
 @source "../node_modules/preline/dist/*.js";
 
-/* Optional Preline UI Datepicker Plugin */
-/* @import "preline/src/plugins/datepicker/styles.css"; */
-
-/* Plugins */
-/* @plugin "@tailwindcss/forms"; */
-
-/* End Preline Config */
+/* --primary-bg-color */
+/* For Tip-Tap */
+@import './styles/_keyframe-animations.scss'; 
+@import './styles/_variables.scss'; 
+/* For Tip-Tap End */ 
 
 @custom-variant dark (&:is(.dark *));
 
