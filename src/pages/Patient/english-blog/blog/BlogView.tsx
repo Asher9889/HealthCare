@@ -4,7 +4,7 @@ import type { BlogDoc } from "./BlogList";
 import { Button } from "@/components/ui/button";
 import { getBlog } from "./hooks/useBlog";
 import { ReadOnlyTipTap } from "@/components";
-import { readingTimeFromJSON } from "@/utils/editorContent";
+import {  readingTimeFromJSON } from "@/utils/editorContent";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -100,6 +100,7 @@ export default function BlogViewPage() {
         <span>•</span>
         <span>{readingTimeFromJSON(blog.content)}</span>
       </div>
+
 
       <div className="mt-3">
         <ReadOnlyTipTap content={blog.content} />

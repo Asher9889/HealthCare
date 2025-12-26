@@ -9,11 +9,13 @@ import "@/components/tiptap-node/heading-node/heading-node.scss"
 import "@/components/tiptap-node/paragraph-node/paragraph-node.scss"
 import "./simple-editor.scss"
 import Link from "@tiptap/extension-link";
+import {HorizontalRule} from "@tiptap/extension-horizontal-rule";
 // import HorizontalRule from "../tiptap-node/horizontal-rule-node/horizontal-rule-node-extension";
 import TextAlign from "@tiptap/extension-text-align";
 import Typography from "@tiptap/extension-typography";
 import Superscript from "@tiptap/extension-superscript";
 import Subscript from "@tiptap/extension-subscript";
+import { useEffect } from "react";
 
 
 type Props = {
@@ -23,7 +25,7 @@ type Props = {
 export default function ReadOnlyTipTap({ content }: Props) {
     const editor = useEditor({
         editable: false,
-        content,
+        content: content,
         extensions: [StarterKit.configure({
         horizontalRule: false,
         link: {
@@ -39,7 +41,7 @@ export default function ReadOnlyTipTap({ content }: Props) {
                 rel: "noopener noreferrer nofollow",
             },
         }),
-            // HorizontalRule,
+            HorizontalRule,
             TextAlign.configure({ types: ["heading", "paragraph"] }),
             Typography,
             Superscript,
@@ -47,7 +49,14 @@ export default function ReadOnlyTipTap({ content }: Props) {
         ],
     });
 
-    if (!editor) return null;
+     // 🔑 THIS IS THE FIX
+  useEffect(() => {
+    if (!editor || !content) return;
+
+    editor.commands.setContent(content);
+  }, [editor, content]);
+
+  if (!editor) return null;
 
     return <EditorContent editor={editor} />;
 }
