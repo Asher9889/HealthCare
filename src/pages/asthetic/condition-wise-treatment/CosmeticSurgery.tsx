@@ -1,4 +1,4 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading,  StatsBar, TreatmentBenefits } from "@/components"
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading,  SEO,  StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
@@ -236,10 +236,18 @@ const treatmentOptions = [
     highlight: false,
   },
 ];
+
+const seoConfig = {
+  title: "Cosmetic Surgery in India | Safe Procedures – PureCheckup",
+  description: "Expert cosmetic surgery by certified doctors. Safe, advanced treatments with No-Cost EMI & Free Consultation. Book now with PureCheckup.",
+  keywards: "cosmetic surgery, cosmetic surgery in India, plastic surgery, aesthetic surgery, best cosmetic surgeon, cosmetic surgery clinic, plastic surgery cost in India, cosmetic surgery near me, cosmetic treatment with no cost EMI, free cosmetic consultation",
+  canonical: "https://purecheckup.com/treatment/cosmetic-surgery",
+}
    
 const CosmeticSurgery = () => {
     return (
         <>
+            <SEO {...seoConfig} />
             <ConditionHeroSection
             title="Discover a New You with Safe & Advanced Cosmetic Surgery in India"
             description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."

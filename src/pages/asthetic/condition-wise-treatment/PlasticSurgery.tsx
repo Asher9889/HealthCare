@@ -1,4 +1,4 @@
-import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading,  StatsBar, TreatmentBenefits } from "@/components"
+import { ConditionCityWiseTreatment, ConditionHeroSection, ConditionInfo, ConditionTreatmentForm, ConditionTreatmentOptions, CtaBanner, Heading,  SEO,  StatsBar, TreatmentBenefits } from "@/components"
 import { Scissors, Clock, ShieldCheck, Headphones, Leaf, Hospital } from "lucide-react";
 import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
@@ -237,9 +237,16 @@ const treatmentOptions = [
   },
 ];
    
+const seoConfig = {
+  title: "Book Free Plastic Surgery Consult @9211930749 | PureCheckup",
+  description: "Get expert Plastic Surgery at PureCheckup. Call @9211930749 & Book Free Consultation! Safe, advanced & trusted care for your beauty transformation.",
+  keywards: "plastic surgery, plastic surgery treatment, cosmetic surgery, cosmetic surgery procedures, aesthetic surgery, plastic surgery clinic, plastic surgery hospital, plastic surgery doctors, best plastic surgery, advanced plastic surgery, cosmetic plastic surgery, reconstructive plastic surgery, body contouring surgery, facial plastic surgery, safe plastic surgery procedures",
+  canonical: "https://purecheckup.com/surgery/plastic-surgeries",
+}
 const PlasticSurgery = () => {
     return (
         <>
+            <SEO {...seoConfig} />
             <ConditionHeroSection
             title="Transform Your Look Safely with Advanced Plastic Surgery Treatments in India"
             description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
