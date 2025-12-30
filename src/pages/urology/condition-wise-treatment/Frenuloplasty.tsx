@@ -6,6 +6,17 @@ import FAQ from "@/components/faq/FAQ";
 import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 
 
+import SEO from "@/components/SEO/SEO";
+
+
+const seoConfig = {
+  title: "Frenuloplasty Surgery | Painless Care – PureCheckup",
+  description: "Safe frenuloplasty surgery for tight frenulum. Quick recovery, expert doctors, No-Cost EMI & Free Consultation at PureCheckup.",
+  keywords: "frenuloplasty surgery, tight frenulum treatment, penile frenulum surgery, frenulum breve treatment",
+  canonical: "https://purecheckup.com/treatment/frenuloplasty-surgery/",
+};
+
+
 const faqs = [
   {
     id: "one",
@@ -102,7 +113,7 @@ const frenuloplastyData = {
       content: (
         <div className="space-y-3">
           <p>
-            Frenuloplasty is a surgical procedure that releases a tight or short frenulum, the small fold of tissue connecting the tongue, lips, or genital area to underlying structures. 
+            Frenuloplasty is a surgical procedure that releases a tight or short frenulum, the small fold of tissue connecting the tongue, lips, or genital area to underlying structures.
           </p>
           <p>
             It helps improve speech, oral mobility, and comfort, preventing complications such as restricted movement, pain, or functional difficulties.
@@ -200,26 +211,26 @@ const frenuloplastyData = {
 
 
 const benefits = [
-    {
-      icon: Scissors,
-      title: "Pain-Free Laser Surgery",
-      description: "No cuts, no stitches — minimal discomfort.",
-    },
-    {
-      icon: Clock,
-      title: "Same-Day Discharge",
-      description: "Be back home within hours.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Insurance Assistance",
-      description: "Cashless and paperwork support.",
-    },
-    {
-      icon: Headphones,
-      title: "24x7 Patient Support",
-      description: "We’re here throughout your recovery.",
-    },
+  {
+    icon: Scissors,
+    title: "Pain-Free Laser Surgery",
+    description: "No cuts, no stitches — minimal discomfort.",
+  },
+  {
+    icon: Clock,
+    title: "Same-Day Discharge",
+    description: "Be back home within hours.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Insurance Assistance",
+    description: "Cashless and paperwork support.",
+  },
+  {
+    icon: Headphones,
+    title: "24x7 Patient Support",
+    description: "We’re here throughout your recovery.",
+  },
 ];
 
 const treatmentOptions = [
@@ -249,84 +260,85 @@ const treatmentOptions = [
     highlight: false,
   },
 ];
- 
+
 const Frenuloplasty = () => {
-    return (
-        <>
-            <ConditionHeroSection
-            title="Frenuloplasty Surgery for Tight & Short Frenulum – Expert, Safe & Fast Recovery in India"
-            description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
-            primaryBtn={{ label: "Book Free Consultation" }}
-            secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-            features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
-            cities={constantData.cities}
-            consultations={["Clinic", "Online"]} 
-            />
+  return (
+    <>
+      <SEO {...seoConfig} />
+      <ConditionHeroSection
+        title="Frenuloplasty Surgery for Tight & Short Frenulum – Expert, Safe & Fast Recovery in India"
+        description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
+        primaryBtn={{ label: "Book Free Consultation" }}
+        secondaryBtn={{ label: "Call Now: +91 9211930749" }}
+        features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+        cities={constantData.cities}
+        consultations={["Clinic", "Online"]}
+      />
 
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
+      <section className="py-10">
+        <Heading text1="Quick" text2="Benefits" />
+        <TreatmentBenefits benefits={benefits} />
+      </section>
 
-            <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
-              <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-              {constantData.specialists.map((doc) => (
-                <SpecialistCard key={doc.id} specialist={doc} />
-              ))}
-            </section>
+      <StatsBar />
+      <section className="py-20 mx-auto px-4 max-w-7xl">
+        <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
+        {constantData.specialists.map((doc) => (
+          <SpecialistCard key={doc.id} specialist={doc} />
+        ))}
+      </section>
 
-            <WhyPristynCare />
+      <WhyPristynCare />
 
-            <ConditionInfo
-                title1="What is"
-                title2={frenuloplastyData.title1}
-                description={frenuloplastyData.description}
-                tabsData={frenuloplastyData.tabsData}
-                expertHeading= "Expert Frenuloplasty Surgery Treatment – PureCheckup" 
-                doctorName="" 
-                doctorDescription={frenuloplastyData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
+      <ConditionInfo
+        title1="What is"
+        title2={frenuloplastyData.title1}
+        description={frenuloplastyData.description}
+        tabsData={frenuloplastyData.tabsData}
+        expertHeading="Expert Frenuloplasty Surgery Treatment – PureCheckup"
+        doctorName=""
+        doctorDescription={frenuloplastyData.doctorDescription}
+        doctorLink="https://purecheckup.com"
+        ctaText="Book Free Appointment"
+      />
 
-            <section className="py-20 px-4">
-              <Heading text1="Treatment" text2="Options" className="mb-10" />
-              <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Treatment" text2="Options" className="mb-10" />
+        <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+      </section>
 
-            <section className="py-20 px-4">
-              <Heading text1="Frequently" text2="Asked Questions" className="mb-10"/>
-              <FAQ faqs={faqs} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+        <FAQ faqs={faqs} />
+      </section>
 
-            <section className="px-4">
-              <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-            </section>
+      <section className="px-4">
+        <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+      </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-              <ConditionTreatmentForm  cities={constantData.cities}  />
-            </section>
-            
-            <section className="py-20">
-              <ConditionCityWiseTreatment
-                treatmentName="Frenuloplasty"
-                costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-                paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-                costFactors={[
-                  "Grade and type of Frenuloplasty",
-                  "Hospital category and room",
-                  "Insurance coverage and approvals",
-                  "Additional diagnostics if needed",
-                ]}
-                cities={constantData.cities}
-                mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                primaryButtonText="Get Free Cost Estimate Now"
-                secondaryButtonText="View Nearby Clinics"
-              />
-            </section>
-        </>
-    )
+      <section className="py-20 px-4 max-w-3xl mx-auto">
+        <ConditionTreatmentForm cities={constantData.cities} />
+      </section>
+
+      <section className="py-20">
+        <ConditionCityWiseTreatment
+          treatmentName="Frenuloplasty"
+          costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+          paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+          costFactors={[
+            "Grade and type of Frenuloplasty",
+            "Hospital category and room",
+            "Insurance coverage and approvals",
+            "Additional diagnostics if needed",
+          ]}
+          cities={constantData.cities}
+          mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+          primaryButtonText="Get Free Cost Estimate Now"
+          secondaryButtonText="View Nearby Clinics"
+        />
+      </section>
+    </>
+  )
 }
 
 export default Frenuloplasty;

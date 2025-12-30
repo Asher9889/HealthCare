@@ -5,6 +5,17 @@ import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
 import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 
+import SEO from "@/components/SEO/SEO";
+
+
+const seoConfig = {
+  title: "Kidney Stones Treatment | Non-Surgical Care – PureCheckup",
+  description: "Effective kidney stones treatment with laser & non-surgical options. No-Cost EMI, Free Consultation & expert care at PureCheckup.",
+  keywords: "kidney stones treatment, kidney stone surgery, kidney stone removal, kidney stone symptoms, kidney stone doctor, stone treatment cost",
+  canonical: "https://purecheckup.com/treatment/kidney-stones-treatment/",
+};
+
+
 const faqs = [
   {
     id: "one",
@@ -116,7 +127,7 @@ const faqs = [
 
 
 const kidneyStoneData = {
-  title1: "Kidney Stone ?", 
+  title1: "Kidney Stone ?",
   title2: "Treatment & Information",
   description:
     "Kidney stone treatment focuses on removing or breaking down hard mineral deposits that form inside the kidneys. These stones can cause intense pain, urinary problems, or infections if untreated. At PureCheckup, we offer advanced and minimally invasive kidney stone treatments using laser and modern surgical methods. Our expert urologists provide quick recovery, minimal pain, and high success rates with personalized care plans across India.",
@@ -257,26 +268,26 @@ const kidneyStoneData = {
 
 
 const benefits = [
-    {
-      icon: Scissors,
-      title: "Pain-Free Laser Surgery",
-      description: "No cuts, no stitches — minimal discomfort.",
-    },
-    {
-      icon: Clock,
-      title: "Same-Day Discharge",
-      description: "Be back home within hours.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Insurance Assistance",
-      description: "Cashless and paperwork support.",
-    },
-    {
-      icon: Headphones,
-      title: "24x7 Patient Support",
-      description: "We’re here throughout your recovery.",
-    },
+  {
+    icon: Scissors,
+    title: "Pain-Free Laser Surgery",
+    description: "No cuts, no stitches — minimal discomfort.",
+  },
+  {
+    icon: Clock,
+    title: "Same-Day Discharge",
+    description: "Be back home within hours.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Insurance Assistance",
+    description: "Cashless and paperwork support.",
+  },
+  {
+    icon: Headphones,
+    title: "24x7 Patient Support",
+    description: "We’re here throughout your recovery.",
+  },
 ];
 
 const treatmentOptions = [
@@ -306,84 +317,85 @@ const treatmentOptions = [
     highlight: false,
   },
 ];
-   
+
 const KidneyStonesTreatment = () => {
-    return (
-        <>
-            <ConditionHeroSection
-            title="Kidney Stone Laser Treatment & Surgery in India – Safe, Affordable & Expert Care"
-            description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
-            primaryBtn={{ label: "Book Free Consultation" }}
-            secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-            features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
-            cities={constantData.cities}
-            consultations={["Clinic", "Online"]} 
-            />
+  return (
+    <>
+      <SEO {...seoConfig} />
+      <ConditionHeroSection
+        title="Kidney Stone Laser Treatment & Surgery in India – Safe, Affordable & Expert Care"
+        description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
+        primaryBtn={{ label: "Book Free Consultation" }}
+        secondaryBtn={{ label: "Call Now: +91 9211930749" }}
+        features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+        cities={constantData.cities}
+        consultations={["Clinic", "Online"]}
+      />
 
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
+      <section className="py-10">
+        <Heading text1="Quick" text2="Benefits" />
+        <TreatmentBenefits benefits={benefits} />
+      </section>
 
-            <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
-              <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-              {constantData.specialists.map((doc) => (
-                <SpecialistCard key={doc.id} specialist={doc} />
-              ))}
-            </section>
+      <StatsBar />
+      <section className="py-20 mx-auto px-4 max-w-7xl">
+        <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
+        {constantData.specialists.map((doc) => (
+          <SpecialistCard key={doc.id} specialist={doc} />
+        ))}
+      </section>
 
-            <WhyPristynCare />
+      <WhyPristynCare />
 
-            <ConditionInfo
-                title1="What is"
-                title2={kidneyStoneData.title1}
-                description={kidneyStoneData.description}
-                tabsData={kidneyStoneData.tabsData}
-                expertHeading= "Expert Kidney Stone Surgery – PureCheckup" 
-                doctorName="" 
-                doctorDescription={kidneyStoneData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
+      <ConditionInfo
+        title1="What is"
+        title2={kidneyStoneData.title1}
+        description={kidneyStoneData.description}
+        tabsData={kidneyStoneData.tabsData}
+        expertHeading="Expert Kidney Stone Surgery – PureCheckup"
+        doctorName=""
+        doctorDescription={kidneyStoneData.doctorDescription}
+        doctorLink="https://purecheckup.com"
+        ctaText="Book Free Appointment"
+      />
 
-            <section className="py-20 px-4">
-              <Heading text1="Treatment" text2="Options" className="mb-10" />
-              <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Treatment" text2="Options" className="mb-10" />
+        <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+      </section>
 
-            <section className="py-20 px-4">
-              <Heading text1="Frequently" text2="Asked Questions" className="mb-10"/>
-              <FAQ faqs={faqs} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+        <FAQ faqs={faqs} />
+      </section>
 
-            <section className="px-4">
-              <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-            </section>
+      <section className="px-4">
+        <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+      </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-              <ConditionTreatmentForm  cities={constantData.cities}  />
-            </section>
-            
-            <section className="py-20">
-              <ConditionCityWiseTreatment
-                treatmentName="Kidney Stone"
-                costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-                paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-                costFactors={[
-                  "Grade and type of Kidney Stone",
-                  "Hospital category and room",
-                  "Insurance coverage and approvals",
-                  "Additional diagnostics if needed",
-                ]}
-                cities={constantData.cities}
-                mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                primaryButtonText="Get Free Cost Estimate Now"
-                secondaryButtonText="View Nearby Clinics"
-              />
-            </section>
-        </>
-    )
+      <section className="py-20 px-4 max-w-3xl mx-auto">
+        <ConditionTreatmentForm cities={constantData.cities} />
+      </section>
+
+      <section className="py-20">
+        <ConditionCityWiseTreatment
+          treatmentName="Kidney Stone"
+          costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+          paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+          costFactors={[
+            "Grade and type of Kidney Stone",
+            "Hospital category and room",
+            "Insurance coverage and approvals",
+            "Additional diagnostics if needed",
+          ]}
+          cities={constantData.cities}
+          mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+          primaryButtonText="Get Free Cost Estimate Now"
+          secondaryButtonText="View Nearby Clinics"
+        />
+      </section>
+    </>
+  )
 }
 
 export default KidneyStonesTreatment;

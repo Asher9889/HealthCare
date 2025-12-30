@@ -5,6 +5,17 @@ import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
 import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
 
+import SEO from "@/components/SEO/SEO";
+
+
+const seoConfig = {
+  title: "Balanoposthitis Treatment | Expert Care – PureCheckup",
+  description: "Advanced balanoposthitis treatment for foreskin infections. Safe care, No-Cost EMI & Free Consultation at PureCheckup.",
+  keywords: "balanoposthitis treatment, foreskin infection treatment, penile swelling treatment, balanoposthitis symptoms",
+  canonical: "https://purecheckup.com/treatment/balanoposthitis/",
+};
+
+
 const faqs = [
   {
     id: "one",
@@ -199,26 +210,26 @@ const balanoposthitisData = {
 };
 
 const benefits = [
-    {
-      icon: Scissors,
-      title: "Pain-Free Laser Surgery",
-      description: "No cuts, no stitches — minimal discomfort.",
-    },
-    {
-      icon: Clock,
-      title: "Same-Day Discharge",
-      description: "Be back home within hours.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Insurance Assistance",
-      description: "Cashless and paperwork support.",
-    },
-    {
-      icon: Headphones,
-      title: "24x7 Patient Support",
-      description: "We’re here throughout your recovery.",
-    },
+  {
+    icon: Scissors,
+    title: "Pain-Free Laser Surgery",
+    description: "No cuts, no stitches — minimal discomfort.",
+  },
+  {
+    icon: Clock,
+    title: "Same-Day Discharge",
+    description: "Be back home within hours.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Insurance Assistance",
+    description: "Cashless and paperwork support.",
+  },
+  {
+    icon: Headphones,
+    title: "24x7 Patient Support",
+    description: "We’re here throughout your recovery.",
+  },
 ];
 
 const treatmentOptions = [
@@ -248,84 +259,85 @@ const treatmentOptions = [
     highlight: false,
   },
 ];
-   
+
 const Balanoposthitis = () => {
-    return (
-        <>
-            <ConditionHeroSection
-            title="Comprehensive Balanoposthitis Treatment – Causes, Symptoms & Expert Surgery"
-            description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
-            primaryBtn={{ label: "Book Free Consultation" }}
-            secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-            features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
-            cities={constantData.cities}
-            consultations={["Clinic", "Online"]} 
-            />
+  return (
+    <>
+      <SEO {...seoConfig} />
+      <ConditionHeroSection
+        title="Comprehensive Balanoposthitis Treatment – Causes, Symptoms & Expert Surgery"
+        description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
+        primaryBtn={{ label: "Book Free Consultation" }}
+        secondaryBtn={{ label: "Call Now: +91 9211930749" }}
+        features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+        cities={constantData.cities}
+        consultations={["Clinic", "Online"]}
+      />
 
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
+      <section className="py-10">
+        <Heading text1="Quick" text2="Benefits" />
+        <TreatmentBenefits benefits={benefits} />
+      </section>
 
-            <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
-              <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-              {constantData.specialists.map((doc) => (
-                <SpecialistCard key={doc.id} specialist={doc} />
-              ))}
-            </section>
+      <StatsBar />
+      <section className="py-20 mx-auto px-4 max-w-7xl">
+        <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
+        {constantData.specialists.map((doc) => (
+          <SpecialistCard key={doc.id} specialist={doc} />
+        ))}
+      </section>
 
-            <WhyPristynCare />
+      <WhyPristynCare />
 
-            <ConditionInfo
-                title1="What is"
-                title2={balanoposthitisData.title1}
-                description={balanoposthitisData.description}
-                tabsData={balanoposthitisData.tabsData}
-                expertHeading= {balanoposthitisData.doctorName} 
-                doctorName="" 
-                doctorDescription={balanoposthitisData.doctorDescription}
-                doctorLink="https://purecheckup.com"
-                ctaText="Book Free Appointment"
-            />
+      <ConditionInfo
+        title1="What is"
+        title2={balanoposthitisData.title1}
+        description={balanoposthitisData.description}
+        tabsData={balanoposthitisData.tabsData}
+        expertHeading={balanoposthitisData.doctorName}
+        doctorName=""
+        doctorDescription={balanoposthitisData.doctorDescription}
+        doctorLink="https://purecheckup.com"
+        ctaText="Book Free Appointment"
+      />
 
-            <section className="py-20 px-4">
-              <Heading text1="Treatment" text2="Options" className="mb-10" />
-              <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Treatment" text2="Options" className="mb-10" />
+        <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+      </section>
 
-            <section className="py-20 px-4">
-              <Heading text1="Frequently" text2="Asked Questions" className="mb-10"/>
-              <FAQ faqs={faqs} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+        <FAQ faqs={faqs} />
+      </section>
 
-            <section className="px-4">
-              <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-            </section>
+      <section className="px-4">
+        <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+      </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-              <ConditionTreatmentForm  cities={constantData.cities}  />
-            </section>
-            
-            <section className="py-20">
-              <ConditionCityWiseTreatment
-                treatmentName="Balanoposthitis"
-                costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-                paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-                costFactors={[
-                  "Grade and type of Balanoposthitis",
-                  "Hospital category and room",
-                  "Insurance coverage and approvals",
-                  "Additional diagnostics if needed",
-                ]}
-                cities={constantData.cities}
-                mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                primaryButtonText="Get Free Cost Estimate Now"
-                secondaryButtonText="View Nearby Clinics"
-              />
-            </section>
-        </>
-    )
+      <section className="py-20 px-4 max-w-3xl mx-auto">
+        <ConditionTreatmentForm cities={constantData.cities} />
+      </section>
+
+      <section className="py-20">
+        <ConditionCityWiseTreatment
+          treatmentName="Balanoposthitis"
+          costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+          paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+          costFactors={[
+            "Grade and type of Balanoposthitis",
+            "Hospital category and room",
+            "Insurance coverage and approvals",
+            "Additional diagnostics if needed",
+          ]}
+          cities={constantData.cities}
+          mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+          primaryButtonText="Get Free Cost Estimate Now"
+          secondaryButtonText="View Nearby Clinics"
+        />
+      </section>
+    </>
+  )
 }
 
 export default Balanoposthitis;
