@@ -24,7 +24,12 @@ const Practology = () => {
     return (
         <>
             <div className="bg-[#D6E4EF]">
-                <SEO page="proctology" />
+                <SEO
+                    title="Consult Free for Proctology Care @9211930749 | PureCheckup"
+                    description="Expert Proctology treatment at PureCheckup—specializing in piles, fissures, and fistula. Safe, advanced care by seasoned surgeons. Call @9211930749 today"
+                    keywords="proctology treatment near me , piles treatment near me, laser surgery for fissure,No Cost EMI Proctology, pilonidal sinus surgery,best piles clinic in jaipur"
+                    canonical="https://purecheckup.com/c/proctolgy"
+                />
 
                 <DynamicHeroSection heroContent={heroContent} />
                 {/* <BackgroundBeams /> */}

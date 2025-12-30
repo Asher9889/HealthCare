@@ -4,6 +4,15 @@ import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import PilesInfo from "./piles/common/piles-info/PilesInfo";
 import FAQ from "./piles/common/faq/FAQ";
+import SEO from "@/components/SEO/SEO";
+
+
+const seoConfig = {
+  title: "Free Piles & Laser Care Consult @9211930749 | PureCheckup",
+  description: "Get expert Piles treatment with laser & advanced surgical care at PureCheckup. Safe, painless, and affordable. Call @9211930749 to book a consultation today",
+  keywords: "piles treatment, laser piles surgery, fissure and fistula treatment, piles doctor near me, advanced proctology care, no cost EMI Piles surgery, hemorrhoid treatment near me, pilonidal sinus treatment, pain-free piles surgery",
+  canonical: "https://purecheckup.com/treatment/piles/",
+};
 
 const PilesTreatment = () => {
   const benefits = [
@@ -59,6 +68,7 @@ const PilesTreatment = () => {
 
   return (
     <>
+      <SEO {...seoConfig} />
       <ConditionHeroSection
         title="Piles Treatment by Specialists | Laser Surgery Safe & Effective Care"
         description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."

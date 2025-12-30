@@ -4,6 +4,15 @@ import { constantData } from "@/constants";
 import WhyPristynCare from "@/pages/home/WhyPristineCare.tsx/WhyPristineCare";
 import FAQ from "@/components/faq/FAQ";
 import { Activity, Stethoscope, HeartPulse, Syringe, Pill } from "lucide-react";
+import SEO from "@/components/SEO/SEO";
+
+
+const seoConfig = {
+  title: "Free Pilonidal Sinus Surgery @9211930749 | PureCheckup Care",
+  description: "Advanced Pilonidal Sinus treatment by expert surgeons at PureCheckup. Safe, fast recovery with laser & surgical care. Call @9211930749 today!",
+  keywords: "pilonidal sinus treatment, pilonidal sinus surgery, laser pilonidal treatment, pilonidal cyst doctor, sinus excision surgery, pilonidal care near me, proctology treatment, no cost emi pilonidal treatment, best pilonidal clinic in india, minimally invasive sinus surgery",
+  canonical: "https://purecheckup.com/treatment/pilonidal-sinus/",
+};
 
 
 const faqs = [
@@ -81,7 +90,7 @@ const faqs = [
   },
 ];
 
-  
+
 
 const pilonidalSinusData = {
   title1: "Pilonidal Sinus",
@@ -209,21 +218,21 @@ const pilonidalSinusData = {
 
   doctorName: "Expert Laser Pilonidal Sinus Surgeon – PureCheckup Healthcare",
   doctorDescription:
-   (  <div className="space-y-4">
-    <p>
-    PureCheckup Health Care provides specialist surgeons with extensive expertise in treating pilonidal sinus cases. Using advanced laser technology, they deliver painless, safe, and permanent treatment solutions.
-    </p>
+    (<div className="space-y-4">
+      <p>
+        PureCheckup Health Care provides specialist surgeons with extensive expertise in treating pilonidal sinus cases. Using advanced laser technology, they deliver painless, safe, and permanent treatment solutions.
+      </p>
 
-    <p>With a patient-first approach, PureCheckup ensures:</p>
-    <ul className="list-disc list-inside space-y-2">
-      <li>Accurate diagnosis using advanced imaging.</li>
-      <li>Personalized treatment plans based on individual needs.</li>
-      <li>Post-treatment care guidance to prevent recurrence.</li>
-      <li>High success rates and minimal downtime.</li>
-      <li>Long-term relief for patients.</li>
-    </ul>
-  </div>
- ),
+      <p>With a patient-first approach, PureCheckup ensures:</p>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Accurate diagnosis using advanced imaging.</li>
+        <li>Personalized treatment plans based on individual needs.</li>
+        <li>Post-treatment care guidance to prevent recurrence.</li>
+        <li>High success rates and minimal downtime.</li>
+        <li>Long-term relief for patients.</li>
+      </ul>
+    </div>
+    ),
   doctorLink: "https://purecheckup.com",
 };
 
@@ -232,26 +241,26 @@ const pilonidalSinusData = {
 const PilonidalSinusTreatment = () => {
 
   const benefits = [
-      {
-        icon: Scissors,
-        title: "Pain-Free Laser Surgery",
-        description: "No cuts, no stitches — minimal discomfort.",
-      },
-      {
-        icon: Clock,
-        title: "Same-Day Discharge",
-        description: "Be back home within hours.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Insurance Assistance",
-        description: "Cashless and paperwork support.",
-      },
-      {
-        icon: Headphones,
-        title: "24x7 Patient Support",
-        description: "We’re here throughout your recovery.",
-      },
+    {
+      icon: Scissors,
+      title: "Pain-Free Laser Surgery",
+      description: "No cuts, no stitches — minimal discomfort.",
+    },
+    {
+      icon: Clock,
+      title: "Same-Day Discharge",
+      description: "Be back home within hours.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Insurance Assistance",
+      description: "Cashless and paperwork support.",
+    },
+    {
+      icon: Headphones,
+      title: "24x7 Patient Support",
+      description: "We’re here throughout your recovery.",
+    },
   ];
 
   const treatmentOptions = [
@@ -282,82 +291,83 @@ const PilonidalSinusTreatment = () => {
     },
   ];
 
-    return (
-        <>
-            <ConditionHeroSection
-            title="Pilonidal Sinus Laser Treatment – Painless, Permanent Cure with Fast Recovery & No Recurrence"
-            description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
-            primaryBtn={{ label: "Book Free Consultation" }}
-            secondaryBtn={{ label: "Call Now: +91 9211930749" }}
-            features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
-            cities={constantData.cities}
-            consultations={["Clinic", "Online"]} 
-            />
+  return (
+    <>
+      <SEO {...seoConfig} />
+      <ConditionHeroSection
+        title="Pilonidal Sinus Laser Treatment – Painless, Permanent Cure with Fast Recovery & No Recurrence"
+        description="Pain-free, advanced laser treatment with same-day discharge and full insurance support."
+        primaryBtn={{ label: "Book Free Consultation" }}
+        secondaryBtn={{ label: "Call Now: +91 9211930749" }}
+        features={["✅ NABH Hospitals", "👥 10,000+ Patients Treated", "🛡️ Insurance Accepted"]}
+        cities={constantData.cities}
+        consultations={["Clinic", "Online"]}
+      />
 
-            <section className="py-10">
-                <Heading text1="Quick" text2="Benefits" />
-                <TreatmentBenefits benefits={benefits} />
-            </section>
+      <section className="py-10">
+        <Heading text1="Quick" text2="Benefits" />
+        <TreatmentBenefits benefits={benefits} />
+      </section>
 
-            <StatsBar />
-            <section className="py-20 mx-auto px-4 max-w-7xl">
-              <Heading text1="Meet Our" text2="Specialist" className="mb-10"   />
-              {constantData.specialists.map((doc) => (
-                <SpecialistCard key={doc.id} specialist={doc} />
-              ))}
-            </section>
+      <StatsBar />
+      <section className="py-20 mx-auto px-4 max-w-7xl">
+        <Heading text1="Meet Our" text2="Specialist" className="mb-10" />
+        {constantData.specialists.map((doc) => (
+          <SpecialistCard key={doc.id} specialist={doc} />
+        ))}
+      </section>
 
-            <WhyPristynCare />
+      <WhyPristynCare />
 
-            <ConditionInfo
-							title1="What is"
-							title2="Pilonidal Sinus?"
-							description={pilonidalSinusData.description}
-							tabsData={pilonidalSinusData.tabsData}
-              expertHeading= "Expert Laser Pilonidal Sinus Surgeon – PureCheckup Healthcare" 
-							doctorName="" 
-							doctorDescription={pilonidalSinusData.doctorDescription}
-							doctorLink="https://purecheckup.com"
-							ctaText="Book Free Appointment"
-            />
+      <ConditionInfo
+        title1="What is"
+        title2="Pilonidal Sinus?"
+        description={pilonidalSinusData.description}
+        tabsData={pilonidalSinusData.tabsData}
+        expertHeading="Expert Laser Pilonidal Sinus Surgeon – PureCheckup Healthcare"
+        doctorName=""
+        doctorDescription={pilonidalSinusData.doctorDescription}
+        doctorLink="https://purecheckup.com"
+        ctaText="Book Free Appointment"
+      />
 
-            <section className="py-20 px-4">
-              <Heading text1="Treatment" text2="Options" className="mb-10" />
-              <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Treatment" text2="Options" className="mb-10" />
+        <ConditionTreatmentOptions treatmentOptions={treatmentOptions} />
+      </section>
 
-            <section className="py-20 px-4">
-              <Heading text1="Frequently" text2="Asked Questions" className="mb-10"/>
-              <FAQ faqs={faqs} />
-            </section>
+      <section className="py-20 px-4">
+        <Heading text1="Frequently" text2="Asked Questions" className="mb-10" />
+        <FAQ faqs={faqs} />
+      </section>
 
-            <section className="px-4">
-              <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
-            </section>
+      <section className="px-4">
+        <CtaBanner title="Book Your Appointment" subtitle="Book your appointment now" buttonText="Book Appointment" phone="+91 9211930749" />
+      </section>
 
-            <section className="py-20 px-4 max-w-3xl mx-auto">
-              <ConditionTreatmentForm  cities={constantData.cities}  />
-            </section>
-            
-            <section className="py-20">
-              <ConditionCityWiseTreatment
-                treatmentName="Piles"
-                costSubtitle="Pricing varies by case severity, city, and insurance coverage."
-                paymentOptions="Payment Options: EMI Available | Cashless Insurance"
-                costFactors={[
-                  "Grade and type of pilonidal sinus",
-                  "Hospital category and room",
-                  "Insurance coverage and approvals",
-                  "Additional diagnostics if needed",
-                ]}
-                cities={constantData.cities}
-                mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
-                primaryButtonText="Get Free Cost Estimate Now"
-                secondaryButtonText="View Nearby Clinics"
-              />
-            </section>
-        </>
-    )
+      <section className="py-20 px-4 max-w-3xl mx-auto">
+        <ConditionTreatmentForm cities={constantData.cities} />
+      </section>
+
+      <section className="py-20">
+        <ConditionCityWiseTreatment
+          treatmentName="Piles"
+          costSubtitle="Pricing varies by case severity, city, and insurance coverage."
+          paymentOptions="Payment Options: EMI Available | Cashless Insurance"
+          costFactors={[
+            "Grade and type of pilonidal sinus",
+            "Hospital category and room",
+            "Insurance coverage and approvals",
+            "Additional diagnostics if needed",
+          ]}
+          cities={constantData.cities}
+          mapImage="https://cdn.pixabay.com/photo/2024/02/03/02/16/earth-8549451_1280.png"
+          primaryButtonText="Get Free Cost Estimate Now"
+          secondaryButtonText="View Nearby Clinics"
+        />
+      </section>
+    </>
+  )
 }
 
 export default PilonidalSinusTreatment;
