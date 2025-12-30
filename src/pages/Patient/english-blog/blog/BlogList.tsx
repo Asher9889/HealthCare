@@ -3,6 +3,7 @@ import BlogCard from "../blog/BlogCard";
 import { getAllBlogs } from "./hooks/useBlog";
 import { type JSONContent } from "@tiptap/react";
 import { Skeleton } from "@/components/ui/skeleton";
+
 export type BlogDoc = {
   title: string;
   slug: string;
@@ -74,3 +75,4 @@ const Dummy = () => {
     </div>
   )
 }
+

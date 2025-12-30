@@ -1,4 +1,4 @@
-import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SpecialistCard, StatsBar } from "@/components";
+import { AnimatedTestimonial, ConditionCityWiseTreatment, ConditionHeroSection, ConditionTreatmentForm, CtaBanner, Heading, SEO, SpecialistCard, StatsBar } from "@/components";
 import { constantData } from "@/constants";
 import { useParams } from "react-router-dom";
 import { TreatmentCard } from "@/components";
@@ -6,7 +6,6 @@ import { BenefitCard } from "@/components";
 import { bg1, bg2, bg3, bg4, ncemi, hsptl, insurance, usfda } from "@/assets";
 import { FAQ } from "@/components";
 import { TreatmentProcess } from "@/components";
-import { Helmet } from "react-helmet-async";
 
 const treatments = [
     {
@@ -164,21 +163,17 @@ const CircumcisionInSpecialCity = () => {
         },
     ];
 
+    const seoConfig = {
+        title: `Circumcision Treatment in ${formattedCity} Call 9211930749 | PureCheckup`,
+        description: `Get safe, painless circumcision in ${formattedCity} from experienced surgeons. Affordable cost, quick recovery, free consultation, and No-Cost EMI support available.`,
+        keywords: `circumcision in ${formattedCity}, circumcision surgery ${formattedCity}, circumcision treatment ${formattedCity}, male circumcision ${formattedCity}, phimosis treatment in ${formattedCity}, circumcision doctors in ${formattedCity}, circumcision clinic ${formattedCity}, adult circumcision ${formattedCity}, child circumcision ${formattedCity}, best circumcision surgeon in ${formattedCity}, circumcision cost in ${formattedCity}, painless circumcision ${formattedCity}, circumcision hospital near me`,
+        canonical: `https://purecheckup.com/treatment/circumcision/${city}`
+    }
+
     return (
         <div className="min-h-screen">
-            <Helmet>
-                <title>{`Circumcision Treatment in ${formattedCity} Call 9211930749 | PureCheckup`}</title>
-                <meta
-                    name="description"
-                    content={`Get safe, painless circumcision in ${formattedCity} from experienced surgeons. Affordable cost, quick recovery, free consultation, and No-Cost EMI support available.`}
-                />
-                <meta
-                    name="keywords"
-                    content={`circumcision in ${formattedCity}, circumcision surgery ${formattedCity}, circumcision treatment ${formattedCity}, male circumcision ${formattedCity}, phimosis treatment in ${formattedCity}, circumcision doctors in ${formattedCity}, circumcision clinic ${formattedCity}, adult circumcision ${formattedCity}, child circumcision ${formattedCity}, best circumcision surgeon in ${formattedCity}, circumcision cost in ${formattedCity}, painless circumcision ${formattedCity}, circumcision hospital near me`}
-                />
-                <link rel="canonical" href={`https://purecheckup.com/treatment/circumcision/${city}`} />
-            </Helmet>
-
+            <SEO {...seoConfig} />
+            
             <ConditionHeroSection
                 title={`Circumcision for Adults & Children in ${formattedCity} – Fast Recovery with Expert Surgeons`}
                 description={`Pain-free Surgery, with advanced procedures for lasting relief. Same-day consults, NABH partner hospitals across ${formattedCity}`}
